@@ -1,0 +1,15 @@
+uuid: 1158affa-8e94-4419-97cc-637cf09ece62
+langcode: en
+status: true
+dependencies: {  }
+name: Layout
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.haven_theme.accordion
+  - sdc.haven_theme.accordion-container
+  - sdc.haven_theme.footer
+  - sdc.haven_theme.grid
+  - sdc.haven_theme.group
+  - sdc.haven_theme.navbar
+  - sdc.haven_theme.section

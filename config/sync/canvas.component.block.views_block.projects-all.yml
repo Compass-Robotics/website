@@ -1,0 +1,28 @@
+uuid: f5917d9e-e913-47d6-91fb-6b48715fe071
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.projects
+  module:
+    - views
+_core:
+  default_config_hash: FxZHiVcZ45OW4J3_2NOXg8ab_b-oLJs6Wxx6ky5kwSo
+label: 'Projects: All projects'
+id: block.views_block.projects-all
+source: block
+source_local_id: 'views_block:projects-all'
+provider: views
+active_version: 79aed19ab8e15c04
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'views_block:projects-all'
+        label: 'Projects: All projects'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null

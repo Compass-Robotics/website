@@ -1,0 +1,21 @@
+uuid: d8ab49e4-719c-44d9-82e8-87c248364b3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_callout_heading
+    - node.type.person_profile
+_core:
+  default_config_hash: ldJ_255YqL3BBSb-j6DBsEpR_8gUlVh4SHjuMjBDorY
+id: node.person_profile.field_callout_heading
+field_name: field_callout_heading
+entity_type: node
+bundle: person_profile
+label: 'Callout heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

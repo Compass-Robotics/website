@@ -1,0 +1,44 @@
+uuid: 678587ae-d7a9-49a8-a410-53653bc29ed5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.notebook_entry.field_content
+    - field.field.node.notebook_entry.field_date_of_entry
+    - field.field.node.notebook_entry.field_related_files
+    - field.field.node.notebook_entry.field_related_links
+    - field.field.node.notebook_entry.field_seo_analysis
+    - field.field.node.notebook_entry.field_seo_description
+    - field.field.node.notebook_entry.field_seo_image
+    - field.field.node.notebook_entry.field_seo_title
+    - node.type.notebook_entry
+  module:
+    - text
+    - user
+id: node.notebook_entry.search_index
+targetEntityType: node
+bundle: notebook_entry
+mode: search_index
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_date_of_entry: true
+  field_related_files: true
+  field_related_links: true
+  field_seo_analysis: true
+  field_seo_description: true
+  field_seo_image: true
+  field_seo_title: true
+  search_api_excerpt: true

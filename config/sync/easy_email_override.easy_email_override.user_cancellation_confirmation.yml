@@ -1,0 +1,25 @@
+uuid: d7d467f6-5fb3-4d02-b441-994cfd3d8b70
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dM8LfOdxL4HYYM7bLn9725SVlhLU95_A4dlBLh-1cAo
+label: 'User: Account Cancellation Confirmation'
+id: user_cancellation_confirmation
+param_map:
+  -
+    source: account
+    destination: recipient_uid
+copied_fields:
+  from: false
+  reply_to: false
+  to: false
+  cc: false
+  bcc: false
+  subject: false
+  body_html: false
+  body_plain: false
+  attachments: false
+module: user
+key: cancel_confirm
+easy_email_type: user_cancellation_confirmation

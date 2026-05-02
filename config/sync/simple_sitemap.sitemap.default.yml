@@ -1,0 +1,13 @@
+uuid: c7efbf01-4d23-4e6d-98c0-cf86ca4e0340
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.default_hreflang
+_core:
+  default_config_hash: XhA-x8B7QaTModZSFqz2dtiiCC4ufFhsTQIZBUlTw_0
+id: default
+label: Default
+description: 'The default hreflang sitemap - lists URLs to be indexed by modern search engines.'
+type: default_hreflang
+weight: 0

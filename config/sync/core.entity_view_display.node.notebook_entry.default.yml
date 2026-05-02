@@ -1,0 +1,72 @@
+uuid: 8114353b-0922-43a8-8cec-4406fef27df8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.notebook_entry.field_content
+    - field.field.node.notebook_entry.field_date_of_entry
+    - field.field.node.notebook_entry.field_related_files
+    - field.field.node.notebook_entry.field_related_links
+    - field.field.node.notebook_entry.field_seo_analysis
+    - field.field.node.notebook_entry.field_seo_description
+    - field.field.node.notebook_entry.field_seo_image
+    - field.field.node.notebook_entry.field_seo_title
+    - node.type.notebook_entry
+  module:
+    - datetime
+    - file
+    - link
+    - text
+    - user
+id: node.notebook_entry.default
+targetEntityType: node
+bundle: notebook_entry
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_date_of_entry:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_related_files:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_related_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_seo_analysis: true
+  field_seo_description: true
+  field_seo_image: true
+  field_seo_title: true
+  search_api_excerpt: true

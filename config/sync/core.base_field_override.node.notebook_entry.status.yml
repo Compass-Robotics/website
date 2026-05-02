@@ -1,0 +1,22 @@
+uuid: 09ec117d-de48-4de1-8704-8de429238d74
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.notebook_entry
+id: node.notebook_entry.status
+field_name: status
+entity_type: node
+bundle: notebook_entry
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

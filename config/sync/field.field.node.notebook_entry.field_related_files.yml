@@ -1,0 +1,27 @@
+uuid: dafe02d1-ebf1-4312-94bc-6adab6d36eb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_files
+    - node.type.notebook_entry
+  module:
+    - file
+id: node.notebook_entry.field_related_files
+field_name: field_related_files
+entity_type: node
+bundle: notebook_entry
+label: 'Related Files'
+description: 'Attach any files that are relevant (put images in the content, not here)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'notebook\[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf docx csv xlsx xls'
+  max_filesize: '50 MB'
+  description_field: true
+field_type: file

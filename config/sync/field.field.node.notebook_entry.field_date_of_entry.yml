@@ -1,0 +1,24 @@
+uuid: cfd4774a-c6bd-4d9e-9e11-90f0668fb5d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_of_entry
+    - node.type.notebook_entry
+  module:
+    - datetime
+id: node.notebook_entry.field_date_of_entry
+field_name: field_date_of_entry
+entity_type: node
+bundle: notebook_entry
+label: 'Date of entry'
+description: 'The date for this entry.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

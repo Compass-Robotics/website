@@ -1,0 +1,23 @@
+uuid: f9f1ad17-d6ec-498b-b513-94d7b721faf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_links
+    - node.type.notebook_entry
+  module:
+    - link
+id: node.notebook_entry.field_related_links
+field_name: field_related_links
+entity_type: node
+bundle: notebook_entry
+label: 'Related Links'
+description: 'Include links to whatever shaped this entry.  Youtube, Instagram, Chief Delphi, FIRST'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

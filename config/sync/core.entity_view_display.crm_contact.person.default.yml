@@ -5,6 +5,7 @@ dependencies:
   config:
     - crm.crm_contact_type.person
     - field.field.crm_contact.person.aliases
+    - field.field.crm_contact.person.field_type
     - field.field.crm_contact.person.full_name
     - field.field.crm_contact.person.image
     - field.field.crm_contact.person.preferred_name
@@ -12,6 +13,7 @@ dependencies:
     - crm
     - datetime
     - image
+    - options
 _core:
   default_config_hash: GTw7hi8xIljwX3G6YLACL4xHLxC0ExGjnUe__OurZ-g
 id: crm_contact.person.default
@@ -81,6 +83,13 @@ content:
     third_party_settings: {  }
     weight: 7
     region: content
+  field_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
   image:
     type: image
     label: hidden
@@ -101,16 +110,16 @@ content:
     weight: 0
     region: content
   relationship_statistics:
-    label: above
     type: crm_relationship_statistics_default
-    weight: 15
-    region: content
+    label: above
     settings:
       format: label_count
       label_position: opposite
       sort_by: none
       sort_order: asc
     third_party_settings: {  }
+    weight: 15
+    region: content
   start_date:
     type: datetime_default
     label: above

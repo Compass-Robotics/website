@@ -35,7 +35,7 @@ component_tree:
     uuid: 3be3dae7-636a-4cdb-ba21-9d41855ea7ea
     component_id: block.system_branding_block
     component_version: b168140fdcaebae5
-    inputs: '{"label":"Site branding","label_display":"0","use_site_logo":true,"use_site_name":false,"use_site_slogan":false}'
+    inputs: '{"label":"Site branding","label_display":"0","use_site_logo":false,"use_site_name":true,"use_site_slogan":false}'
   '0:footer_first:1':
     parent_uuid: 03f9a527-f09e-4b82-bf98-2cbf1b3d5a47
     slot: footer_first
@@ -85,10 +85,3 @@ component_tree:
     component_id: block.system_menu_block.footer
     component_version: 68bdb40e1ac48125
     inputs: '{"label":"Footer","label_display":"0","level":1,"depth":null,"expand_all_items":false}'
-  '0:footer_utility_last:0':
-    parent_uuid: 03f9a527-f09e-4b82-bf98-2cbf1b3d5a47
-    slot: footer_utility_last
-    uuid: 4ae56236-6800-4d68-8848-1a2ce922a836
-    component_id: sdc.haven_theme.text
-    component_version: 75c8d6e04ca4b729
-    inputs: '{"text":{"value":"\u003Cp\u003E\u00a9 Copyright 2026\u003C\/p\u003E","format":"canvas_html_block"},"text_size":"text-xs","text_color":"inverted","columns":"1 column"}'

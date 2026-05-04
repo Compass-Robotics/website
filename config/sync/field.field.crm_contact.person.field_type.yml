@@ -1,0 +1,21 @@
+uuid: 45de44c9-639c-46a6-a631-3aa1b5b96544
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.person
+    - field.storage.crm_contact.field_type
+  module:
+    - options
+id: crm_contact.person.field_type
+field_name: field_type
+entity_type: crm_contact
+bundle: person
+label: Type
+description: 'Choose as many categories as apply.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

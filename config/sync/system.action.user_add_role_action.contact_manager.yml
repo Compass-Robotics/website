@@ -1,0 +1,14 @@
+uuid: f893e857-0f79-4a91-8357-af96223b3a20
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.contact_manager
+  module:
+    - user
+id: user_add_role_action.contact_manager
+label: 'Add the Contact Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: contact_manager

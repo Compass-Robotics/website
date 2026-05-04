@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - menu_ui
     - scheduler
     - search_api_exclude
 third_party_settings:
@@ -21,6 +22,10 @@ third_party_settings:
     unpublish_revision: true
   search_api_exclude:
     enabled: true
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 _core:
   default_config_hash: BwcBVE6CQPYp0Dk3UgK-E4vCvH6Bj1kDWLYZFsel4hI
 name: 'Utility page'
@@ -28,5 +33,5 @@ type: page
 description: "Use <em>utility page</em> for your static content, such as a 'Privacy policy' page."
 help: null
 new_revision: true
-preview_mode: 0
+preview_mode: 1
 display_submitted: false

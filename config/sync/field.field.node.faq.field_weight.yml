@@ -1,0 +1,25 @@
+uuid: bd984925-fa74-4987-a01b-3227b82553ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.faq
+id: node.faq.field_weight
+field_name: field_weight
+entity_type: node
+bundle: faq
+label: Weight
+description: 'Controls where the FAQ appears on the list of  FAQs. Higher numbers sink below smaller numbers.  '
+required: true
+translatable: false
+default_value:
+  -
+    value: 50
+default_value_callback: ''
+settings:
+  min: 0
+  max: 1000
+  prefix: ''
+  suffix: ''
+field_type: integer

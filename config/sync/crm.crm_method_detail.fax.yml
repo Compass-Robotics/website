@@ -1,0 +1,12 @@
+uuid: fa9ea1e5-d82d-450c-824d-6100ba16d585
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wiNrYp8KRn8k5QwaIT_Do5HZ5KPMMbP1Au7CNvpVsLs
+id: fax
+label: Fax
+description: ''
+bundles:
+  - telephone
+negate: false

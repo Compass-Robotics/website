@@ -8,7 +8,7 @@ slogan: 'Stay the course.'
 page:
   403: ''
   404: /page/7
-  front: /
+  front: /page/6
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

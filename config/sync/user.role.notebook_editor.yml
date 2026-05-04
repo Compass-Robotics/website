@@ -1,0 +1,37 @@
+uuid: 7270d644-0991-47e9-b889-d8ca65fc2eec
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.content_format
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.notebook_entry
+  module:
+    - filter
+    - media
+    - node
+id: notebook_editor
+label: 'Notebook Editor'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access media overview'
+  - 'create document media'
+  - 'create media'
+  - 'create notebook_entry content'
+  - 'create remote_video media'
+  - 'edit any notebook_entry content'
+  - 'edit own image media'
+  - 'edit own remote_video media'
+  - 'update any media'
+  - 'use text format content_format'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any document media revisions'
+  - 'view any image media revisions'
+  - 'view any remote_video media revisions'
+  - 'view notebook_entry revisions'
+  - 'view own unpublished media'

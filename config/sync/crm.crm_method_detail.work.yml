@@ -1,0 +1,11 @@
+uuid: 6a548fcd-46e3-48bf-bf58-7edfd8fb4d53
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: aa5qpNanDKEnvHlJ0aZoDdHnkrv0HUD6vtkwOnkneJw
+id: work
+label: Work
+description: ''
+bundles: {  }
+negate: false

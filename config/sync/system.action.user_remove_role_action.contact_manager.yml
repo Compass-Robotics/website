@@ -1,0 +1,14 @@
+uuid: c8d84cc3-33b6-444b-9966-3516c421607d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.contact_manager
+  module:
+    - user
+id: user_remove_role_action.contact_manager
+label: 'Remove the Contact Manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: contact_manager

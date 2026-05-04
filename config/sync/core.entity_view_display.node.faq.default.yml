@@ -1,0 +1,31 @@
+uuid: 94994d86-eacb-4388-89fe-d734165dc291
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.faq.field_content
+    - field.field.node.faq.field_weight
+    - node.type.faq
+  module:
+    - text
+    - user
+id: node.faq.default
+targetEntityType: node
+bundle: faq
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_weight: true
+  search_api_excerpt: true

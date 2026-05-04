@@ -1,0 +1,14 @@
+uuid: c663ff54-dfb0-4fdc-a51c-41e36fac1d3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.notebook_editor
+  module:
+    - user
+id: user_add_role_action.notebook_editor
+label: 'Add the Notebook Editor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: notebook_editor

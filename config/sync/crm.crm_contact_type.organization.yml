@@ -1,0 +1,18 @@
+uuid: b1dacaab-8b5d-494f-95f1-31f983ddefd3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: exfuUd6lxeznEJZjlUzXRXWcSndMUW7BiIFGAH9WIAE
+id: organization
+label: Organization
+description: 'A business or other organization.'
+help: ''
+new_revision: true
+date:
+  start_date:
+    label: 'Date of Establishment'
+    description: ''
+  end_date:
+    label: 'Date of Dissolution'
+    description: ''

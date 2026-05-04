@@ -1,0 +1,18 @@
+uuid: 68ba77c7-4bbe-4abf-949f-0b611b22ec18
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.notebook_entry
+id: node.notebook_entry.title
+field_name: title
+entity_type: node
+bundle: notebook_entry
+label: 'Sum it up in a title'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

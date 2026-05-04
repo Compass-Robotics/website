@@ -1,0 +1,32 @@
+uuid: f5614750-0467-4230-a774-ebe48331eb53
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.faq.field_content
+    - field.field.node.faq.field_weight
+    - node.type.faq
+  module:
+    - text
+    - user
+id: node.faq.search_index
+targetEntityType: node
+bundle: faq
+mode: search_index
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_weight: true
+  search_api_excerpt: true

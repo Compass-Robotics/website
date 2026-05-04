@@ -1,0 +1,43 @@
+uuid: e63ffcca-d44a-4a5a-b76a-a15d2e12c7ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.content_format
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.person_profile
+    - node.type.project
+  module:
+    - filter
+    - media
+    - node
+id: contact_manager
+label: 'Contact Manager'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access media overview'
+  - 'create document media'
+  - 'create media'
+  - 'create person_profile content'
+  - 'create project content'
+  - 'create remote_video media'
+  - 'edit any person_profile content'
+  - 'edit any project content'
+  - 'edit own image media'
+  - 'edit own remote_video media'
+  - 'revert person_profile revisions'
+  - 'revert project revisions'
+  - 'update any media'
+  - 'use text format content_format'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any document media revisions'
+  - 'view any image media revisions'
+  - 'view any remote_video media revisions'
+  - 'view own unpublished media'
+  - 'view person_profile revisions'
+  - 'view project revisions'

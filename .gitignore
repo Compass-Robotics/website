@@ -10,7 +10,6 @@
 /web/sites/*/*services*.yml
 
 # Ignore paths that may contain user-generated content
-/web/sites/*/files
 /web/sites/*/public
 /web/sites/*/private
 /web/sites/*/files-public
@@ -80,7 +79,8 @@ $RECYCLE.BIN/
 # Site-specific settings and files.
 /web/sites/*/settings*.php
 /web/sites/*/services*.yml
-/web/sites/*/files
+/web/sites/default/files/*
+!/web/sites/default/files/theme/
 /web/sites/*/private
 .env.bak
 

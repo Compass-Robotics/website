@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - crm.crm_contact_type.person
-    - field.field.crm_contact.person.aliases
     - field.field.crm_contact.person.field_type
     - field.field.crm_contact.person.full_name
     - field.field.crm_contact.person.image
@@ -37,14 +36,6 @@ content:
       granularity: years
     third_party_settings: {  }
     weight: 5
-    region: content
-  aliases:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
     region: content
   created:
     type: timestamp

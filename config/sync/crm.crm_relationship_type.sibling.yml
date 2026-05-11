@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - crm.crm_contact_type.member
+    - crm.crm_contact_type.mentor
     - crm.crm_contact_type.person
 _core:
   default_config_hash: 34LJ8JZaHKhj7awL731NnrygKvTn93JQfCZUriDQn0c
@@ -11,8 +13,12 @@ label: Siblings
 description: 'Sibling relationship.'
 asymmetric: false
 contact_type_a:
+  - member
+  - mentor
   - person
 contact_type_b:
+  - member
+  - mentor
   - person
 label_a: Sibling
 label_a_plural: Siblings
@@ -23,5 +29,5 @@ limit_b: null
 limit_active_only: false
 valid_contacts_a: {  }
 valid_contacts_b: {  }
-readonly_contact_a: true
-readonly_contact_b: true
+readonly_contact_a: false
+readonly_contact_b: false

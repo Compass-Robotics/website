@@ -75,6 +75,11 @@ module:
   options: 0
   package_manager: 0
   page_cache: 0
+  password_policy_character_types: 0
+  password_policy_characters: 0
+  password_policy_history: 0
+  password_policy_length: 0
+  password_policy_username: 0
   path: 0
   path_alias: 0
   primary_entity_reference: 0
@@ -87,7 +92,6 @@ module:
   search_api: 0
   search_api_db: 0
   search_api_exclude: 0
-  seo_checklist: 0
   simple_sitemap: 0
   smart_date: 0
   symfony_mailer_lite: 0
@@ -111,14 +115,15 @@ module:
   views_infinite_scroll: 0
   views_ui: 0
   webform: 0
+  webform_entity_handler: 0
   webform_ui: 0
   workflows: 0
   yoast_seo: 0
   pathauto: 1
+  password_policy: 10
   views: 10
 theme:
   canvas_stark: 0
-  stark: 0
   claro: 0
   easy_email_theme: 0
   haven_theme: 0

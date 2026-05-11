@@ -1,0 +1,21 @@
+uuid: 5ebc92ee-b5b0-4e0a-ad34-7d9db2bdedfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_phone_primary
+  module:
+    - telephone
+id: crm_contact.member.field_phone_primary
+field_name: field_phone_primary
+entity_type: crm_contact
+bundle: member
+label: phone_primary
+description: 'Add phone numbers as needed.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

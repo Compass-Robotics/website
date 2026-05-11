@@ -1,0 +1,19 @@
+uuid: b657a210-0308-46b9-8ca0-8a64242259a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - crm
+id: crm_contact.field_address_primary
+field_name: field_address_primary
+entity_type: crm_contact
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

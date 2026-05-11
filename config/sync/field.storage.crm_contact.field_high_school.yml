@@ -1,0 +1,21 @@
+uuid: f9a6be1f-f285-4983-b8d0-530dca0e1d41
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - primary_entity_reference
+    - taxonomy
+id: crm_contact.field_high_school
+field_name: field_high_school
+entity_type: crm_contact
+type: primary_entity_reference
+settings:
+  target_type: taxonomy_term
+module: primary_entity_reference
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

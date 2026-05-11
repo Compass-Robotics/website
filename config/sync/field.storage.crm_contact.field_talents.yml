@@ -1,0 +1,19 @@
+uuid: 7197eda2-8e6b-4218-8fdd-c4460a67cbab
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - text
+id: crm_contact.field_talents
+field_name: field_talents
+entity_type: crm_contact
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -5,13 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.search_index
     - field.field.node.notebook_entry.field_content
+    - field.field.node.notebook_entry.field_contest
     - field.field.node.notebook_entry.field_date_of_entry
     - field.field.node.notebook_entry.field_related_files
     - field.field.node.notebook_entry.field_related_links
-    - field.field.node.notebook_entry.field_seo_analysis
-    - field.field.node.notebook_entry.field_seo_description
-    - field.field.node.notebook_entry.field_seo_image
-    - field.field.node.notebook_entry.field_seo_title
     - node.type.notebook_entry
   module:
     - text
@@ -34,11 +31,8 @@ content:
     weight: 100
     region: content
 hidden:
+  field_contest: true
   field_date_of_entry: true
   field_related_files: true
   field_related_links: true
-  field_seo_analysis: true
-  field_seo_description: true
-  field_seo_image: true
-  field_seo_title: true
   search_api_excerpt: true

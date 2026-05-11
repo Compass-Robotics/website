@@ -1,0 +1,19 @@
+uuid: 32bf9fed-50c2-4cba-b9d2-8d3988860bdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_emergency_contact
+id: crm_contact.member.field_emergency_contact
+field_name: field_emergency_contact
+entity_type: crm_contact
+bundle: member
+label: 'Emergency Contact'
+description: 'Name, phone number and relation (mother, father ...)'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

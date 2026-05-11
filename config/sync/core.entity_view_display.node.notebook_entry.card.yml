@@ -1,0 +1,68 @@
+uuid: 9842dabb-0e00-4651-ba78-6a5bf64f03eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.notebook_entry.field_content
+    - field.field.node.notebook_entry.field_contest
+    - field.field.node.notebook_entry.field_date_of_entry
+    - field.field.node.notebook_entry.field_related_files
+    - field.field.node.notebook_entry.field_related_links
+    - node.type.notebook_entry
+  module:
+    - datetime
+    - file
+    - layout_builder
+    - link
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.notebook_entry.card
+targetEntityType: node
+bundle: notebook_entry
+mode: card
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_date_of_entry:
+    type: datetime_custom
+    label: inline
+    settings:
+      timezone_override: America/New_York
+      date_format: m-d-Y
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_related_files:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_related_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_contest: true
+  links: true
+  search_api_excerpt: true

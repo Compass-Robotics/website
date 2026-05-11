@@ -1,0 +1,29 @@
+uuid: d977c371-40ab-4bec-a038-f18912030240
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_interests
+    - taxonomy.vocabulary.sections
+id: crm_contact.member.field_interests
+field_name: field_interests
+entity_type: crm_contact
+bundle: member
+label: Interests
+description: 'Choose the areas that interest you.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sections: sections
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

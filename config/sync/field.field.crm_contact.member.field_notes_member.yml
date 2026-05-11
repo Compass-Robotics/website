@@ -1,0 +1,24 @@
+uuid: f9c44ece-b747-4f9e-b5d8-a78d85f66043
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_notes_member
+    - filter.format.content_format
+  module:
+    - text
+id: crm_contact.member.field_notes_member
+field_name: field_notes_member
+entity_type: crm_contact
+bundle: member
+label: Notes
+description: 'Any additional info.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - content_format
+field_type: text_long

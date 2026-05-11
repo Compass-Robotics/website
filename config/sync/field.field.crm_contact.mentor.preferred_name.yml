@@ -1,0 +1,19 @@
+uuid: e0dab350-a8d2-49a6-a9a0-a9e3f31c699e
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.storage.crm_contact.preferred_name
+id: crm_contact.mentor.preferred_name
+field_name: preferred_name
+entity_type: crm_contact
+bundle: mentor
+label: 'Preferred name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

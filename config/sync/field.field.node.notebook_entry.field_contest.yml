@@ -1,0 +1,33 @@
+uuid: 167f7034-9907-4a11-8678-a7c1b142baa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contest
+    - node.type.notebook_entry
+    - taxonomy.vocabulary.competitions
+  content:
+    - 'taxonomy_term:competitions:1fa06f2b-7c81-4b1d-8e6d-8946fb641176'
+id: node.notebook_entry.field_contest
+field_name: field_contest
+entity_type: node
+bundle: notebook_entry
+label: Contest
+description: 'Pick the competition that this entry applies to.'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 1fa06f2b-7c81-4b1d-8e6d-8946fb641176
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      competitions: competitions
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

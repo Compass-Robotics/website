@@ -12,9 +12,6 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: member
-      label: Member
-    -
       value: mentor
       label: Mentor
     -
@@ -24,8 +21,8 @@ settings:
       value: sponsor
       label: Sponsor
     -
-      value: applicant
-      label: Applicant
+      value: parent
+      label: Parent
   allowed_values_function: ''
 module: options
 locked: false

@@ -1,0 +1,23 @@
+uuid: 6946c4b2-0617-4e92-a82f-0abe659736cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.storage.crm_contact.field_stage
+  module:
+    - options
+id: crm_contact.mentor.field_stage
+field_name: field_stage
+entity_type: crm_contact
+bundle: mentor
+label: Stage
+description: 'Select the stage of the person.'
+required: true
+translatable: false
+default_value:
+  -
+    value: applicant
+default_value_callback: ''
+settings: {  }
+field_type: list_string

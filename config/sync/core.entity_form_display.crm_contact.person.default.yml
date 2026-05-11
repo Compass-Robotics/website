@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - crm.crm_contact_type.person
-    - field.field.crm_contact.person.aliases
     - field.field.crm_contact.person.field_type
     - field.field.crm_contact.person.full_name
     - field.field.crm_contact.person.image
@@ -41,14 +40,6 @@ content:
       removed_reference: delete
       primary_label: Primary
       show_primary_only: false
-    third_party_settings: {  }
-  aliases:
-    type: string_textfield
-    weight: 2
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   created:
     type: datetime_timestamp

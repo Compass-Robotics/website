@@ -1,0 +1,239 @@
+uuid: bcbb42c3-13a6-437f-90ba-a3787c39d870
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.field.crm_contact.member.field_address_primary
+    - field.field.crm_contact.member.field_can_attend_build_season
+    - field.field.crm_contact.member.field_can_attend_competitions
+    - field.field.crm_contact.member.field_can_attend_pre_season
+    - field.field.crm_contact.member.field_can_get_to
+    - field.field.crm_contact.member.field_can_transport_others
+    - field.field.crm_contact.member.field_current_age
+    - field.field.crm_contact.member.field_current_grade
+    - field.field.crm_contact.member.field_discord_username
+    - field.field.crm_contact.member.field_email_primary
+    - field.field.crm_contact.member.field_emergency_contact
+    - field.field.crm_contact.member.field_high_school
+    - field.field.crm_contact.member.field_interests
+    - field.field.crm_contact.member.field_notes_member
+    - field.field.crm_contact.member.field_parent_interest
+    - field.field.crm_contact.member.field_phone_primary
+    - field.field.crm_contact.member.field_prior_experience
+    - field.field.crm_contact.member.field_stage
+    - field.field.crm_contact.member.field_talents
+  module:
+    - address
+    - crm
+    - options
+    - telephone
+    - text
+id: crm_contact.member.default
+targetEntityType: crm_contact
+bundle: member
+mode: default
+content:
+  created:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_address_primary:
+    type: address_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_can_attend_build_season:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_can_attend_competitions:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_can_attend_pre_season:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_can_get_to:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_can_transport_others:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 32
+    region: content
+  field_current_age:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_current_grade:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_discord_username:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_email_primary:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_emergency_contact:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_high_school:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_interests:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_notes_member:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_parent_interest:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  field_phone_primary:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_prior_experience:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_stage:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_talents:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+  relationship_statistics:
+    type: crm_relationship_statistics_default
+    label: above
+    settings:
+      format: label_count
+      label_position: opposite
+      sort_by: none
+      sort_order: asc
+    third_party_settings: {  }
+    weight: 15
+    region: content
+hidden:
+  addresses: true
+  age: true
+  emails: true
+  end_date: true
+  search_api_excerpt: true
+  start_date: true
+  telephones: true

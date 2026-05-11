@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.project.field_featured
     - field.field.node.project.field_featured_image
     - field.field.node.project.field_introduction
-    - field.field.node.project.field_seo_analysis
     - field.field.node.project.field_seo_description
     - field.field.node.project.field_seo_image
     - field.field.node.project.field_seo_title
@@ -90,7 +89,6 @@ content:
     region: content
 hidden:
   field_description: true
-  field_seo_analysis: true
   field_seo_description: true
   field_seo_image: true
   field_seo_title: true

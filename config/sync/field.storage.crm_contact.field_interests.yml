@@ -1,0 +1,20 @@
+uuid: a12847e0-31b0-4994-9779-9d75cdc223e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - taxonomy
+id: crm_contact.field_interests
+field_name: field_interests
+entity_type: crm_contact
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

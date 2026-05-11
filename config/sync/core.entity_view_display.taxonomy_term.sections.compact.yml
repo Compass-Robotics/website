@@ -1,0 +1,28 @@
+uuid: ac20e45e-7b3f-4b38-b2a6-e54327db4813
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.compact
+    - taxonomy.vocabulary.sections
+  module:
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: taxonomy_term.sections.compact
+targetEntityType: taxonomy_term
+bundle: sections
+mode: compact
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

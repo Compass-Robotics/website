@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.page.field_content
     - field.field.node.page.field_description
     - field.field.node.page.field_featured_image
-    - field.field.node.page.field_seo_analysis
     - field.field.node.page.field_seo_description
     - field.field.node.page.field_seo_image
     - field.field.node.page.field_seo_title
@@ -21,7 +20,6 @@ dependencies:
     - scheduler
     - tagify
     - text
-    - yoast_seo
 third_party_settings:
   field_group:
     group_seo:
@@ -78,16 +76,6 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
-  field_seo_analysis:
-    type: yoast_seo_widget
-    weight: 18
-    region: content
-    settings:
-      edit_title: false
-      edit_description: false
-      render_theme: null
-      render_view_mode: default
     third_party_settings: {  }
   field_seo_description:
     type: string_textarea

@@ -14,6 +14,7 @@ dependencies:
     - node.type.page
     - node.type.person_profile
     - node.type.project
+    - taxonomy.vocabulary.leadership
     - taxonomy.vocabulary.tags
     - workflows.workflow.basic_editorial
   module:
@@ -58,6 +59,7 @@ permissions:
   - 'edit any notebook_entry content'
   - 'edit any page content'
   - 'edit any remote_video media'
+  - 'edit terms in leadership'
   - 'edit terms in tags'
   - 'revert all revisions'
   - 'revert any document media revisions'
@@ -101,4 +103,5 @@ permissions:
   - 'view project revisions'
   - 'view scheduled content'
   - 'view scheduled media'
+  - 'view term revisions in leadership'
   - 'view term revisions in tags'

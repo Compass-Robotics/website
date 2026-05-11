@@ -22,7 +22,7 @@ content_entity_type_id: node
 content_entity_type_bundle: blog
 content_entity_type_view_mode: card
 component_tree:
-  -
+  '0:986eb71c-e9f3-4aa9-b4e9-cbad39acca4d':
     uuid: 986eb71c-e9f3-4aa9-b4e9-cbad39acca4d
     component_id: sdc.haven_theme.card
     component_version: 0c5fd99d8d37c291

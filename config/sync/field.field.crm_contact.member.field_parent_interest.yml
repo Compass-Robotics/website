@@ -1,0 +1,21 @@
+uuid: 1748c20e-2b44-4a74-b28f-7ecf07607493
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_parent_interest
+id: crm_contact.member.field_parent_interest
+field_name: field_parent_interest
+entity_type: crm_contact
+bundle: member
+label: ' Is your parent or guardian interested in becoming a mentor or supporter?'
+description: 'We can always use help to sustain the team.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Parent interested'
+  off_label: 'No parent interest'
+field_type: boolean

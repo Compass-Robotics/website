@@ -4,13 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.notebook_entry.field_content
+    - field.field.node.notebook_entry.field_contest
     - field.field.node.notebook_entry.field_date_of_entry
     - field.field.node.notebook_entry.field_related_files
     - field.field.node.notebook_entry.field_related_links
-    - field.field.node.notebook_entry.field_seo_analysis
-    - field.field.node.notebook_entry.field_seo_description
-    - field.field.node.notebook_entry.field_seo_image
-    - field.field.node.notebook_entry.field_seo_title
     - node.type.notebook_entry
   module:
     - datetime
@@ -30,12 +27,20 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_date_of_entry:
-    type: datetime_default
+  field_contest:
+    type: entity_reference_label
     label: above
     settings:
-      timezone_override: ''
-      format_type: medium
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_date_of_entry:
+    type: datetime_custom
+    label: inline
+    settings:
+      timezone_override: America/New_York
+      date_format: m-d-Y
     third_party_settings: {  }
     weight: 0
     region: content
@@ -45,7 +50,7 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_related_links:
     type: link
@@ -59,14 +64,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
-  field_seo_analysis: true
-  field_seo_description: true
-  field_seo_image: true
-  field_seo_title: true
+  links: true
   search_api_excerpt: true

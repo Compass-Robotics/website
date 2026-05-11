@@ -1,0 +1,33 @@
+uuid: 9a7d3020-005d-411c-bca9-4cb1b01aecc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.leadership.field_elected_position
+    - taxonomy.vocabulary.leadership
+  module:
+    - text
+id: taxonomy_term.leadership.default
+targetEntityType: taxonomy_term
+bundle: leadership
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_elected_position:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

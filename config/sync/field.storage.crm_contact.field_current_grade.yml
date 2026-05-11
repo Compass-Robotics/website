@@ -1,0 +1,33 @@
+uuid: 76a981d0-edcc-4588-ad3b-331840b29ad4
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - options
+id: crm_contact.field_current_grade
+field_name: field_current_grade
+entity_type: crm_contact
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '9'
+      label: '9th (freshman)'
+    -
+      value: '10'
+      label: '10th (sophomore)'
+    -
+      value: '11'
+      label: '11th (junior)'
+    -
+      value: '12'
+      label: '12th (senior)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

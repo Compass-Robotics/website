@@ -1,0 +1,21 @@
+uuid: ce0b5e0c-871d-4f5d-adf9-9dd6a7062b86
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_prior_experience
+  module:
+    - options
+id: crm_contact.member.field_prior_experience
+field_name: field_prior_experience
+entity_type: crm_contact
+bundle: member
+label: 'Prior Robotics Experience'
+description: 'Select any robotics categories that you have been involved with.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

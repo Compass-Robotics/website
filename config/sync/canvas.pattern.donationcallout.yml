@@ -26,10 +26,10 @@ component_tree:
       margin_block_end: '64'
       padding_block_start: '32'
       padding_block_end: '32'
-      section_header: false
-      section_footer: false
       restrict_width: true
       background_color: accent
+      section_header: false
+      section_footer: false
   '0:main_slot:0:8fbd7cbd-46dc-4faa-b5fe-7bbe27d8dbc5':
     parent_uuid: 474ef8af-f050-4930-b05c-fd20d3f2995f
     slot: main_slot
@@ -88,8 +88,8 @@ component_tree:
       size: medium
       icon: arrow-right
       icon_first: false
-      disabled: false
       mobile_width: false
+      disabled: false
   '0:main_slot:1:group_slot:1:5480ff11-0417-4cdf-9bda-0c9cbf0d9ec5':
     parent_uuid: 8a69a153-3342-4e71-a906-4ff228c8cba1
     slot: group_slot
@@ -102,5 +102,5 @@ component_tree:
       label: 'Learn more'
       size: medium
       icon_first: false
-      disabled: false
       mobile_width: false
+      disabled: false

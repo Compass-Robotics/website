@@ -32,5 +32,5 @@ type: blog
 description: null
 help: null
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: false

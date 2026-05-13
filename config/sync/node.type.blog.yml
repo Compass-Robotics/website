@@ -27,10 +27,10 @@ third_party_settings:
     enabled: true
 _core:
   default_config_hash: NqIYNq_eXrBEVD2ksGLBY29hgIlp-GB-hI30ie_81J4
-name: 'Blog post'
+name: 'News post'
 type: blog
-description: null
+description: 'This is used to create a new news entry. It is equivalent to a blog.'
 help: null
 new_revision: true
-preview_mode: 0
+preview_mode: 1
 display_submitted: false

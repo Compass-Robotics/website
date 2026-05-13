@@ -30,8 +30,8 @@ _core:
   default_config_hash: UoJtvig7RrqqP_SKSDGfRAF4kW5JZFpk6gWlOkFkhg4
 name: 'Person profile'
 type: person_profile
-description: null
+description: 'This is used for Mentors and maybe team members.'
 help: null
 new_revision: true
-preview_mode: 0
+preview_mode: 1
 display_submitted: false

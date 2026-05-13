@@ -9,60 +9,114 @@ dependencies:
     - field.field.node.notebook_entry.field_date_of_entry
     - field.field.node.notebook_entry.field_related_files
     - field.field.node.notebook_entry.field_related_links
+    - field.field.node.notebook_entry.layout_builder__layout
     - node.type.notebook_entry
   module:
-    - datetime
-    - file
     - layout_builder
-    - link
-    - text
+    - layout_discovery
     - user
 third_party_settings:
   layout_builder:
-    enabled: false
+    enabled: true
     allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          6f0b46d1-bff4-464d-8f7b-01126eee816c:
+            uuid: 6f0b46d1-bff4-464d-8f7b-01126eee816c
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_content'
+              label: Content
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          37382da9-7e35-46d2-8c66-69315f7e56b3:
+            uuid: 37382da9-7e35-46d2-8c66-69315f7e56b3
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_related_links'
+              label: 'Related Links'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          dfa7c6bd-69f7-488a-ad44-d0398684b91f:
+            uuid: dfa7c6bd-69f7-488a-ad44-d0398684b91f
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_related_files'
+              label: 'Related Files'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: file_default
+                label: above
+                settings:
+                  use_description_as_link_text: true
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          70a09057-d773-4c70-894d-b9e4a6e322e7:
+            uuid: 70a09057-d773-4c70-894d-b9e4a6e322e7
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_date_of_entry'
+              label: 'Date of entry'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_custom
+                label: inline
+                settings:
+                  timezone_override: America/New_York
+                  date_format: m-d-Y
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
 id: node.notebook_entry.card
 targetEntityType: node
 bundle: notebook_entry
 mode: card
-content:
-  field_content:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_date_of_entry:
-    type: datetime_custom
-    label: inline
-    settings:
-      timezone_override: America/New_York
-      date_format: m-d-Y
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_related_files:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_related_links:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
+content: {  }
 hidden:
+  field_content: true
   field_contest: true
+  field_date_of_entry: true
+  field_related_files: true
+  field_related_links: true
+  layout_builder__layout: true
   links: true
   search_api_excerpt: true

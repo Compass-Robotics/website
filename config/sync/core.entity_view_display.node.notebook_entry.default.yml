@@ -8,62 +8,124 @@ dependencies:
     - field.field.node.notebook_entry.field_date_of_entry
     - field.field.node.notebook_entry.field_related_files
     - field.field.node.notebook_entry.field_related_links
+    - field.field.node.notebook_entry.layout_builder__layout
     - node.type.notebook_entry
   module:
-    - datetime
-    - file
-    - link
-    - text
+    - layout_builder
+    - layout_discovery
     - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          4a416faf-888f-4a24-98b0-29d1754f1642:
+            uuid: 4a416faf-888f-4a24-98b0-29d1754f1642
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_date_of_entry'
+              label: 'Date of entry'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_custom
+                label: inline
+                settings:
+                  timezone_override: America/New_York
+                  date_format: m-d-Y
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          ba80d782-d400-412e-9549-49a226b95c8a:
+            uuid: ba80d782-d400-412e-9549-49a226b95c8a
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          cc31e311-ba2a-407e-9382-9b7d27183c37:
+            uuid: cc31e311-ba2a-407e-9382-9b7d27183c37
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_related_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          c935c296-2bf4-478e-9713-2ab4bab22cdc:
+            uuid: c935c296-2bf4-478e-9713-2ab4bab22cdc
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_related_files'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: file_default
+                label: above
+                settings:
+                  use_description_as_link_text: true
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          e29ddd60-d22d-49ac-8d74-4491d2e0a3cc:
+            uuid: e29ddd60-d22d-49ac-8d74-4491d2e0a3cc
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_contest'
+              label: Contest
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+        third_party_settings: {  }
 id: node.notebook_entry.default
 targetEntityType: node
 bundle: notebook_entry
 mode: default
-content:
-  field_content:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_contest:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_date_of_entry:
-    type: datetime_custom
-    label: inline
-    settings:
-      timezone_override: America/New_York
-      date_format: m-d-Y
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_related_files:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_related_links:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
+content: {  }
 hidden:
+  field_content: true
+  field_contest: true
+  field_date_of_entry: true
+  field_related_files: true
+  field_related_links: true
+  layout_builder__layout: true
   links: true
   search_api_excerpt: true

@@ -8,7 +8,9 @@ dependencies:
     - field.field.node.notebook_entry.field_date_of_entry
     - field.field.node.notebook_entry.field_related_files
     - field.field.node.notebook_entry.field_related_links
+    - field.field.node.notebook_entry.layout_builder__layout
     - node.type.notebook_entry
+    - workflows.workflow.basic_editorial
   module:
     - content_moderation
     - datetime
@@ -132,6 +134,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  layout_builder__layout: true
   promote: true
   publish_on: true
   publish_state: true

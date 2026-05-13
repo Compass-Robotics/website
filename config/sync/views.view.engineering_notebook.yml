@@ -198,6 +198,7 @@ display:
       menu:
         type: normal
         title: 'Engineering Notebook'
+        weight: -46
         menu_name: main
         parent: ''
     cache_metadata:

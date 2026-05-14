@@ -1,0 +1,20 @@
+uuid: 47a194f1-2b89-4c86-8a4e-1874c4f37d16
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+_core:
+  default_config_hash: f7AGCG2sCrJsjcRJsHQCzSmAqvxEJAvjhP6D7NNLnng
+id: crm_contact_method.email
+field_name: email
+entity_type: crm_contact_method
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

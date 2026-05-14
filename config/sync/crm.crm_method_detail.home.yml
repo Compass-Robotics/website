@@ -1,0 +1,11 @@
+uuid: 8277fdf1-35d3-4f0e-9f59-c1d2039fe6ab
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZYsvgy-kyjtuyuZ3A66Eftx9y3EY55F_oRmtQG_3WOs
+id: home
+label: Home
+description: ''
+bundles: {  }
+negate: false

@@ -1,0 +1,18 @@
+uuid: a61fbc1a-f141-4d5f-a6dc-e41dd42e795f
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.field_parent_interest
+field_name: field_parent_interest
+entity_type: crm_contact
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

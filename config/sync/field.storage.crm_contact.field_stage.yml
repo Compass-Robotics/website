@@ -1,0 +1,36 @@
+uuid: dbc54c9b-4bd6-4a7c-9279-3e038172c04e
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - options
+id: crm_contact.field_stage
+field_name: field_stage
+entity_type: crm_contact
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: applicant
+      label: Applicant
+    -
+      value: active
+      label: Active
+    -
+      value: retired
+      label: Retired
+    -
+      value: fired
+      label: Fired
+    -
+      value: not_selected
+      label: 'Not selected'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

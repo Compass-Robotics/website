@@ -1,0 +1,24 @@
+uuid: ab32edb9-eaee-4d77-9dcf-bd8bab91276c
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_talents
+    - filter.format.content_format
+  module:
+    - text
+id: crm_contact.member.field_talents
+field_name: field_talents
+entity_type: crm_contact
+bundle: member
+label: 'What qualities (skills, passions, interests) do you have that would be helpful to the team?'
+description: 'Tell us about yourself.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - content_format
+field_type: text_long

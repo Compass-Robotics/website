@@ -1,0 +1,21 @@
+uuid: 2c7a7c81-5776-4497-bcec-7404964e3a25
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_can_get_to
+id: crm_contact.member.field_can_get_to
+field_name: field_can_get_to
+entity_type: crm_contact
+bundle: member
+label: 'Can get to Fab Lab to attend meetings.'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

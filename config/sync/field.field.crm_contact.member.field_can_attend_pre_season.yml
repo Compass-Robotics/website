@@ -1,0 +1,21 @@
+uuid: 50668d84-b375-4372-b249-032c8f46c4a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_can_attend_pre_season
+id: crm_contact.member.field_can_attend_pre_season
+field_name: field_can_attend_pre_season
+entity_type: crm_contact
+bundle: member
+label: 'I am able to attend Pre-season team meetings (one per week) Sept - Dec'
+description: 'Attendance is important during the pre-season.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Can attend pre-season'
+  off_label: 'Can not attend pre-season'
+field_type: boolean

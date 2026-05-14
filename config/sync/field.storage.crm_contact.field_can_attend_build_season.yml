@@ -1,0 +1,18 @@
+uuid: 180bf477-3bfd-4544-b7e5-39789f0888e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.field_can_attend_build_season
+field_name: field_can_attend_build_season
+entity_type: crm_contact
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

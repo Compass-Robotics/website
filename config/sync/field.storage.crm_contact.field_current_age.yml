@@ -1,0 +1,20 @@
+uuid: a693b5e3-c4c2-43ba-a664-70a2da7d0582
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.field_current_age
+field_name: field_current_age
+entity_type: crm_contact
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

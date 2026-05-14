@@ -22,9 +22,23 @@ content_entity_type_id: node
 content_entity_type_bundle: blog
 content_entity_type_view_mode: card
 component_tree:
-  -
+  '0:986eb71c-e9f3-4aa9-b4e9-cbad39acca4d':
     uuid: 986eb71c-e9f3-4aa9-b4e9-cbad39acca4d
     component_id: sdc.haven_theme.card
     component_version: 0c5fd99d8d37c291
-    inputs: '{"heading_text":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:blog\u241dtitle\u241e\u241fvalue"},"level":3,"media":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:blog\u241dfield_featured_image\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"url":{"sourceType":"host-entity-url","absolute":false},"date":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node\u241dcreated\u241e\u241fvalue","adapter":"unix_to_date"}}'
+    inputs:
+      heading_text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:blog␝title␞␟value'
+      level: 3
+      date:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node␝created␞␟value'
+        adapter: unix_to_date
+      url:
+        sourceType: host-entity-url
+        absolute: false
+      media:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:blog␝field_featured_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
 exposed_slots: {  }

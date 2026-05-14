@@ -1,0 +1,33 @@
+uuid: d5a01d30-8331-41d4-9367-797b1e9b6ed3
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_method_type.telephone
+    - field.field.crm_contact_method.telephone.telephone
+  module:
+    - telephone
+_core:
+  default_config_hash: upk_8cRDRs2VgCjsBQycWgd1cQlXL0FrdbfV677xO_U
+id: crm_contact_method.telephone.default
+targetEntityType: crm_contact_method
+bundle: telephone
+mode: default
+content:
+  detail:
+    type: options_select
+    weight: -10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  telephone:
+    type: telephone_default
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

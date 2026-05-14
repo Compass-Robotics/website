@@ -1,0 +1,11 @@
+uuid: 2fd9c870-f199-4f8b-8498-2002defeb9d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.compact
+label: Compact
+description: 'Use this for displaying a term as a card in a grid.'
+targetEntityType: taxonomy_term
+cache: true

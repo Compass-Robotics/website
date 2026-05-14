@@ -1,0 +1,18 @@
+uuid: 792cb6d6-1631-415d-bfd7-e3d772a64b86
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.field_email_primary
+field_name: field_email_primary
+entity_type: crm_contact
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

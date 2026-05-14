@@ -1,0 +1,24 @@
+uuid: 926f8e27-90e4-485e-b3bb-b8f36785cc6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.storage.crm_contact.field_notes
+    - filter.format.content_format
+  module:
+    - text
+id: crm_contact.mentor.field_notes
+field_name: field_notes
+entity_type: crm_contact
+bundle: mentor
+label: Notes
+description: 'Notes related to this person. (Nothing too personal please.)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - content_format
+field_type: text_long

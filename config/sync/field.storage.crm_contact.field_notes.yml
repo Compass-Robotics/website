@@ -1,0 +1,19 @@
+uuid: 4b210abd-9524-4bce-bb9a-ad0672898411
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - text
+id: crm_contact.field_notes
+field_name: field_notes
+entity_type: crm_contact
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

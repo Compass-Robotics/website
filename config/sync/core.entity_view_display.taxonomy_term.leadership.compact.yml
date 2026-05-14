@@ -1,0 +1,39 @@
+uuid: 6c3c32b4-d792-4cab-a7a9-76c8b7bc2019
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.compact
+    - field.field.taxonomy_term.leadership.field_elected_position
+    - taxonomy.vocabulary.leadership
+  module:
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: taxonomy_term.leadership.compact
+targetEntityType: taxonomy_term
+bundle: leadership
+mode: compact
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_elected_position:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

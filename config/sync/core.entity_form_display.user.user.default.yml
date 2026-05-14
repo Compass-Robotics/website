@@ -3,11 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_password_expiration
+    - field.field.user.user.field_pending_expire_sent
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
-    - path
+    - datetime
     - image
+    - path
     - user
 _core:
   default_config_hash: XfmBnJ9AUte13Cu3wlal4cJFb5DPxapsvdlFf88ck8k
@@ -19,6 +23,19 @@ content:
   account:
     weight: -10
     region: content
+  field_last_password_reset:
+    type: datetime_default
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_password_expiration:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   language:
     weight: 0
     region: content
@@ -39,4 +56,5 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_pending_expire_sent: true

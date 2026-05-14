@@ -1,0 +1,33 @@
+uuid: 3a698fa1-17f7-4d1e-b8f7-0b68a6bd7805
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_method_type.address
+    - field.field.crm_contact_method.address.address
+  module:
+    - address
+_core:
+  default_config_hash: Eo_J6NA_Nkp0z1bYHhHQ3Kn2fP9CdTXHvrJ02wnXVEs
+id: crm_contact_method.address.default
+targetEntityType: crm_contact_method
+bundle: address
+mode: default
+content:
+  address:
+    type: address_default
+    weight: 1
+    region: content
+    settings:
+      wrapper_type: container
+    third_party_settings: {  }
+  detail:
+    type: options_select
+    weight: -10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

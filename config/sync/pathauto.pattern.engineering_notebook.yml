@@ -1,0 +1,23 @@
+uuid: 5bd2288d-24b5-4000-91d4-48cd45e9a3c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.notebook_entry
+  module:
+    - node
+id: engineering_notebook
+label: 'Engineering Notebook'
+type: 'canonical_entities:node'
+pattern: '/engineering-notebook/[node:field_contest]/[node:title]'
+selection_criteria:
+  7d500e37-5c0b-4575-862c-0653124f5f02:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      notebook_entry: notebook_entry
+selection_logic: and
+weight: -5
+relationships: {  }

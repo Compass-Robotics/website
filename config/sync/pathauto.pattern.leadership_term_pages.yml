@@ -1,0 +1,23 @@
+uuid: b615756c-7850-4341-9ddc-b31d0aa8192a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.leadership
+  module:
+    - taxonomy
+id: leadership_term_pages
+label: 'Leadership term pages'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/about/team-leadership/[term:name]'
+selection_criteria:
+  64b33c87-6e81-41bc-b9b5-68e87e4b046c:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      leadership: leadership
+selection_logic: and
+weight: -5
+relationships: {  }

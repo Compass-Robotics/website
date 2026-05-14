@@ -1,0 +1,428 @@
+uuid: 39e55943-575f-4095-b13e-fa5c8153d5f9
+langcode: en
+status: open
+dependencies:
+  module:
+    - honeypot
+    - webform_entity_handler
+third_party_settings:
+  honeypot:
+    honeypot: true
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: member_application
+title: 'Member application'
+description: '<p>This is so people can apply to be part of the team.</p>'
+categories: {  }
+elements: |-
+  full_name:
+    '#type': textfield
+    '#title': 'Full Name'
+    '#required': true
+  contact_info:
+    '#type': fieldset
+    '#title': 'Contact Info'
+    '#description': '<p>Your contact info will not be shared outside of the team.</p>'
+    '#attributes':
+      style: 'padding: 1em 0em 1em 0em'
+    email_primary:
+      '#type': email
+      '#title': Email
+      '#description': '<p>As a team we rely heavily on Google tools so it helps if you have a Gmail address (not mandatory)</p>'
+      '#required': true
+      '#required_error': 'An email is essential for us to be able to contact you.'
+      '#unique': true
+      '#unique_entity': true
+      '#unique_error': 'This email address has already been used to apply to be a member of the team.'
+    phone_primary:
+      '#type': tel
+      '#title': Phone
+      '#description': '<p>The pattern must match ###-###-####</p>'
+      '#autocomplete': 'off'
+      '#required': true
+      '#required_error': 'A phone number is required.'
+      '#pattern': '^\d{3}-\d{3}-\d{4}$'
+      '#pattern_error': 'Must follow ###-###-####'
+    address:
+      '#type': webform_address
+      '#title': Address
+      '#state_province__title': State
+      '#state_province__placeholder': FL
+      '#state_province__help': 'We can only accept members from Florida'
+      '#state_province__type': textfield
+      '#postal_code__title': 'ZIP Code'
+      '#country__access': false
+      '#required': true
+    emergency_contact_informarion:
+      '#type': textarea
+      '#title': 'Emergency Contact Informarion'
+      '#description': '<p>Name, email address and phone number of you parent.guardian who should be contact in case of emergency.</p>'
+      '#required': true
+    discord_username:
+      '#type': textfield
+      '#title': 'Discord Username'
+      '#description': '<p>The team uses Discord for chat, &nbsp;</p>'
+  requirements:
+    '#type': fieldset
+    '#title': Requirements
+    '#attributes':
+      style: 'padding: 1em 0em'
+    can_get_to_fab_lab_to_attend_meetings:
+      '#type': checkbox
+      '#title': 'I can get to Fab Lab to attend meetings'
+      '#required': true
+      '#required_error': 'The team requires attendance where we meet.'
+    field_can_attend_pre_season:
+      '#type': checkbox
+      '#title': 'I am able to attend Pre-season team meetings (one per week) Sept - Dec'
+      '#required': true
+      '#required_error': 'Attendance is required of team members.'
+    field_can_attend_build_season:
+      '#type': checkbox
+      '#title': 'I am able to attend Build Season meetings at least 3 times per week Jan - April '
+      '#required': true
+      '#required_error': 'Build season is our most critical time.'
+    field_can_attend_competitions:
+      '#type': checkbox
+      '#title': 'I am able to attend a chaperoned trip(s) to regional competition in either Talahassee, Orlando or South Florida. Each competition is a 4 day trip (Wed evening - Sunday night)'
+      '#required': true
+      '#required_error': "Competition is where we shine, and we can't shine if you are not there."
+  education:
+    '#type': fieldset
+    '#title': Education
+    '#attributes':
+      style: 'padding:1em 0em'
+    current_age:
+      '#type': number
+      '#title': Age
+      '#required': true
+      '#required_error': 'Age is a required field'
+      '#min': 14
+      '#max': 18
+      '#step': 1
+    high_school:
+      '#type': webform_term_select
+      '#title': 'High School'
+      '#description': '<p>The high school you currently attend.</p>'
+      '#empty_option': other
+      '#empty_value': other
+      '#required': true
+      '#vocabulary': high_schools
+    current_grade:
+      '#type': radios
+      '#title': 'Current Grade'
+      '#options':
+        9: '9th (freshman)'
+        10: '10th (sophomore)'
+        11: '11th (junior)'
+        12: '12th (senior)'
+      '#required': true
+      '#required_error': 'You must be in a high school grade to participate.'
+    prior_robotics_experience:
+      '#type': checkboxes
+      '#title': 'Prior Robotics Experience'
+      '#options':
+        lego_non_comp: 'Lego robotics (hobby, club or class)'
+        fll: 'FIRST Lego League (FLL)'
+        ftc: 'FIRST Tech Challenge (FTC)'
+        frc: 'FIRST Robotics Challenge (FRC)'
+        vex: 'VEX Robotics'
+        other: 'Other (explain in notes)'
+  field_can_transport_others:
+    '#type': checkbox
+    '#title': 'I am able to provide transportation to other students at your school to get to the Fab Lab'
+  field_parent_interest:
+    '#type': checkbox
+    '#title': 'Is your parent or guardian interested in becoming a mentor or supporter? '
+  interests:
+    '#type': fieldset
+    '#title': Interests
+    field_talents:
+      '#type': textarea
+      '#title': 'What qualities (skills, passions, interests) do you have that would be helpful to the team?'
+      '#required': true
+    sections:
+      '#type': webform_entity_checkboxes
+      '#title': 'What sections of the team interest you?'
+      '#required': true
+      '#target_type': taxonomy_term
+      '#selection_handler': 'default:taxonomy_term'
+      '#selection_settings':
+        target_bundles:
+          sections: sections
+        sort:
+          field: name
+          direction: asc
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: /apply-to-the-team
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: true
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_file_limit_message: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns:
+    - serial
+    - created
+    - element__email
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: true
+  token_update: true
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  entity:
+    id: webform_entity_handler
+    handler_id: entity
+    label: 'Contact member'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      operation: _default
+      skip_if_exists: true
+      entity_properties: ''
+      entity_type_id: 'crm_contact:member'
+      entity_values:
+        uuid:
+          value: 'input:email_primary'
+        name:
+          value: 'input:full_name'
+        emails:
+          target_id: 'input:email_primary'
+          primary: Main
+        telephones:
+          target_id: _null_
+        addresses:
+          target_id: _null_
+        age:
+          value: 'input:current_age'
+        field_address_primary:
+          langcode: en
+          country_code: US
+          administrative_area: 'input:address|state_province'
+          locality: 'input:address|city'
+          dependent_locality: _null_
+          postal_code: 'input:address|postal_code'
+          sorting_code: _null_
+          address_line1: 'input:address|address'
+          address_line2: 'input:address|address_2'
+          address_line3: _null_
+          organization: _null_
+          given_name: _null_
+          additional_name: _null_
+          family_name: _null_
+        field_can_attend_build_season:
+          value: 'input:field_can_attend_build_season'
+        field_can_attend_competitions:
+          value: 'input:field_can_attend_competitions'
+        field_can_attend_pre_season:
+          value: 'input:field_can_attend_pre_season'
+        field_can_get_to:
+          value: 'input:can_get_to_fab_lab_to_attend_meetings'
+        field_can_transport_others:
+          value: 'input:field_can_transport_others'
+        field_current_age:
+          value: 'input:current_age'
+        field_current_grade:
+          value: 'input:current_grade'
+        field_discord_username:
+          value: 'input:discord_username'
+        field_email_primary:
+          value: 'input:email_primary'
+        field_emergency_contact:
+          value: 'input:emergency_contact_informarion'
+        field_high_school:
+          target_id: 'input:high_school'
+          primary: _null_
+        field_interests:
+          target_id: 'input:sections'
+        field_parent_interest:
+          value: 'input:field_parent_interest'
+        field_phone_primary:
+          value: 'input:phone_primary'
+        field_prior_experience:
+          value: 'input:prior_robotics_experience'
+        field_stage:
+          value: 'input:prior_robotics_experience'
+        field_talents:
+          value: 'input:field_talents'
+          format: plain_text
+      entity_revision: false
+      states:
+        - completed
+variants: {  }

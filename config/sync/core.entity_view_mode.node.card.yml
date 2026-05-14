@@ -8,6 +8,6 @@ _core:
   default_config_hash: AtN311PK7pVwNFVe7be6DabmiwfNEbWODEYcHCaewdk
 id: node.card
 label: Card
-description: ''
+description: null
 targetEntityType: node
 cache: true

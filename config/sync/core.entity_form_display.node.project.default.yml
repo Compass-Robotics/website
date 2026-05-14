@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.project.field_featured
     - field.field.node.project.field_featured_image
     - field.field.node.project.field_introduction
-    - field.field.node.project.field_seo_analysis
     - field.field.node.project.field_seo_description
     - field.field.node.project.field_seo_image
     - field.field.node.project.field_seo_title
@@ -23,7 +22,6 @@ dependencies:
     - path
     - tagify
     - text
-    - yoast_seo
 third_party_settings:
   field_group:
     group_seo:
@@ -95,16 +93,6 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
-  field_seo_analysis:
-    type: yoast_seo_widget
-    weight: 18
-    region: content
-    settings:
-      edit_title: false
-      edit_description: false
-      render_theme: null
-      render_view_mode: default
     third_party_settings: {  }
   field_seo_description:
     type: string_textarea

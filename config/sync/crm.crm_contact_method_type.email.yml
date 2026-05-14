@@ -1,0 +1,9 @@
+uuid: 3ae446f1-615f-4ed5-8c43-810c0ea87700
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: O_H8JwzBKm6oq2rVKbWEbRhJnYotADEROF1HsGQAAxg
+id: email
+label: 'Email address'
+description: 'An email address for a contact.'

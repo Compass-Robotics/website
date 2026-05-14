@@ -30,7 +30,7 @@ _core:
   default_config_hash: 5AX27ZnpOFa_BB7hQtE2lrlfQxJpufg4UiVzEf4EwBA
 name: Project
 type: project
-description: null
+description: 'This is not used.  It may be useful in the future, but not now.'
 help: null
 new_revision: true
 preview_mode: 0

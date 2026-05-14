@@ -1,0 +1,37 @@
+diff --git a/src/Plugin/WebformHandler/WebformEntityHandler.php b/src/Plugin/WebformHandler/WebformEntityHandler.php
+index 625bbdf922b878d54eb158999dbd95598cd0733d..ebc423da928138acecae7be6ce8da51da3d7880a 100644
+--- a/src/Plugin/WebformHandler/WebformEntityHandler.php
++++ b/src/Plugin/WebformHandler/WebformEntityHandler.php
+@@ -402,7 +402,31 @@ class WebformEntityHandler extends WebformHandlerBase {
+
+         if (empty($entity)) {
+           // Create the entity with the values.
+-          $entity = $this->entityTypeManager->getStorage($type)->create($data);
++          $entity = $this->entityTypeManager->getStorage($type)->create([
++            'type'  => $data['type'],
++            'title' => $data['title'] ?? NULL,
++          ]);
++          unset($data['type']);
++          unset($data['title']);
++
++          [$type, $bundle] = explode(':', $this->configuration['entity_type_id']);
++          $fieldDefinitions = $this->entityFieldManager->getFieldDefinitions($type, $bundle);
++          foreach ($data as $field => $value) {
++            $cardinality = $fieldDefinitions[$field]->getFieldStorageDefinition()->getCardinality();
++            if (!is_array($value) || ($cardinality == 1)) {
++              $entity->set($field, $value);
++            }
++            else {
++              foreach ($value as $item) {
++                if ($entity->get($field)->isEmpty()) {
++                  $entity->set($field, $item);
++                }
++                else {
++                  $entity->get($field)->appendItem($item);
++                }
++              }
++            }
++          }
+         }
+
+         if ($this->entityTypeManager->getDefinition($type)->isRevisionable()) {

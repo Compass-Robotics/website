@@ -1,0 +1,24 @@
+uuid: e4a31ba1-4f44-4a58-93aa-edfba3b6f083
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - filter.format.content_format
+    - node.type.faq
+  module:
+    - text
+id: node.faq.field_content
+field_name: field_content
+entity_type: node
+bundle: faq
+label: Answer
+description: 'The answer for this FAQ.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - content_format
+field_type: text_long

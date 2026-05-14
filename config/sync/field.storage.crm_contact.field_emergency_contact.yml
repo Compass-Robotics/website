@@ -1,0 +1,19 @@
+uuid: 18649728-48ad-41d2-90e3-3d373d1fa5c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.field_emergency_contact
+field_name: field_emergency_contact
+entity_type: crm_contact
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

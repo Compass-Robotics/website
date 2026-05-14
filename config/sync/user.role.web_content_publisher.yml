@@ -1,0 +1,107 @@
+uuid: 8e9d74d3-b37b-48d2-a5b5-a8c5953b0cfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.content_format
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.blog
+    - node.type.event
+    - node.type.faq
+    - node.type.notebook_entry
+    - node.type.page
+    - node.type.person_profile
+    - node.type.project
+    - taxonomy.vocabulary.leadership
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.basic_editorial
+  module:
+    - content_moderation
+    - filter
+    - fullcalendar
+    - media
+    - media_library_bulk_upload
+    - node
+    - redirect
+    - scheduler
+    - taxonomy
+    - trash
+id: web_content_publisher
+label: 'Web content publisher'
+weight: -7
+is_admin: false
+permissions:
+  - 'access content overview'
+  - 'access media overview'
+  - 'access taxonomy overview'
+  - 'access trash'
+  - 'administer media'
+  - 'administer redirects'
+  - 'create blog content'
+  - 'create document media'
+  - 'create event content'
+  - 'create faq content'
+  - 'create media'
+  - 'create notebook_entry content'
+  - 'create remote_video media'
+  - 'create terms in tags'
+  - 'delete any document media'
+  - 'delete any image media'
+  - 'delete any media'
+  - 'delete any remote_video media'
+  - 'edit any blog content'
+  - 'edit any document media'
+  - 'edit any event content'
+  - 'edit any faq content'
+  - 'edit any image media'
+  - 'edit any notebook_entry content'
+  - 'edit any page content'
+  - 'edit any remote_video media'
+  - 'edit terms in leadership'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'revert any document media revisions'
+  - 'revert any image media revisions'
+  - 'revert any remote_video media revisions'
+  - 'revert blog revisions'
+  - 'revert event revisions'
+  - 'revert faq revisions'
+  - 'revert notebook_entry revisions'
+  - 'revert page revisions'
+  - 'revert person_profile revisions'
+  - 'revert project revisions'
+  - 'revert term revisions in tags'
+  - 'schedule publishing of media'
+  - 'schedule publishing of nodes'
+  - 'update any fullcalendar event'
+  - 'update any media'
+  - 'use basic_editorial transition create_new_draft'
+  - 'use basic_editorial transition publish'
+  - 'use basic_editorial transition unpublish'
+  - 'use media document bulk upload form'
+  - 'use media image bulk upload form'
+  - 'use media remote_video bulk upload form'
+  - 'use text format content_format'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view all taxonomy revisions'
+  - 'view any document media revisions'
+  - 'view any image media revisions'
+  - 'view any remote_video media revisions'
+  - 'view any unpublished content'
+  - 'view blog revisions'
+  - 'view deleted entities'
+  - 'view event revisions'
+  - 'view faq revisions'
+  - 'view latest version'
+  - 'view notebook_entry revisions'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view person_profile revisions'
+  - 'view project revisions'
+  - 'view scheduled content'
+  - 'view scheduled media'
+  - 'view term revisions in leadership'
+  - 'view term revisions in tags'

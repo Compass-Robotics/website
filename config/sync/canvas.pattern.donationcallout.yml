@@ -14,7 +14,7 @@ _core:
 id: donationcallout
 label: 'Donation callout'
 component_tree:
-  0:
+  '0:474ef8af-f050-4930-b05c-fd20d3f2995f':
     uuid: 474ef8af-f050-4930-b05c-fd20d3f2995f
     component_id: sdc.haven_theme.section
     component_version: c6eea4f08b0e0778
@@ -26,11 +26,11 @@ component_tree:
       margin_block_end: '64'
       padding_block_start: '32'
       padding_block_end: '32'
-      section_header: false
-      section_footer: false
       restrict_width: true
       background_color: accent
-  '0:main_slot:0':
+      section_header: false
+      section_footer: false
+  '0:main_slot:0:8fbd7cbd-46dc-4faa-b5fe-7bbe27d8dbc5':
     parent_uuid: 474ef8af-f050-4930-b05c-fd20d3f2995f
     slot: main_slot
     uuid: 8fbd7cbd-46dc-4faa-b5fe-7bbe27d8dbc5
@@ -42,7 +42,7 @@ component_tree:
       items_align: start
       flex_align: center
       radius: sm
-  '0:main_slot:0:group_slot:0':
+  '0:main_slot:0:group_slot:0:9175acca-bd96-4f2b-ba9d-71226d2fa0b2':
     parent_uuid: 8fbd7cbd-46dc-4faa-b5fe-7bbe27d8dbc5
     slot: group_slot
     uuid: 9175acca-bd96-4f2b-ba9d-71226d2fa0b2
@@ -53,7 +53,7 @@ component_tree:
       text_size: heading-responsive-2xl
       text_color: default
       align: left
-  '0:main_slot:0:group_slot:1':
+  '0:main_slot:0:group_slot:1:f26b450f-1810-42c6-9c7b-b7bb55997b1b':
     parent_uuid: 8fbd7cbd-46dc-4faa-b5fe-7bbe27d8dbc5
     slot: group_slot
     uuid: f26b450f-1810-42c6-9c7b-b7bb55997b1b
@@ -64,7 +64,7 @@ component_tree:
       text_size: default
       text_color: default
       align: left
-  '0:main_slot:1':
+  '0:main_slot:1:8a69a153-3342-4e71-a906-4ff228c8cba1':
     parent_uuid: 474ef8af-f050-4930-b05c-fd20d3f2995f
     slot: main_slot
     uuid: 8a69a153-3342-4e71-a906-4ff228c8cba1
@@ -75,7 +75,7 @@ component_tree:
       flex_gap: md
       items_align: start
       flex_align: center
-  '0:main_slot:1:group_slot:0':
+  '0:main_slot:1:group_slot:0:614b023c-435f-441d-b0f2-d6ad47a16278':
     parent_uuid: 8a69a153-3342-4e71-a906-4ff228c8cba1
     slot: group_slot
     uuid: 614b023c-435f-441d-b0f2-d6ad47a16278
@@ -88,9 +88,9 @@ component_tree:
       size: medium
       icon: arrow-right
       icon_first: false
-      disabled: false
       mobile_width: false
-  '0:main_slot:1:group_slot:1':
+      disabled: false
+  '0:main_slot:1:group_slot:1:5480ff11-0417-4cdf-9bda-0c9cbf0d9ec5':
     parent_uuid: 8a69a153-3342-4e71-a906-4ff228c8cba1
     slot: group_slot
     uuid: 5480ff11-0417-4cdf-9bda-0c9cbf0d9ec5
@@ -102,5 +102,5 @@ component_tree:
       label: 'Learn more'
       size: medium
       icon_first: false
-      disabled: false
       mobile_width: false
+      disabled: false

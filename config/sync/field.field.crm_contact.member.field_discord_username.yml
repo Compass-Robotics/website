@@ -1,0 +1,19 @@
+uuid: dcb5cabd-ef55-49cc-a515-25bd6f8aaaee
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_discord_username
+id: crm_contact.member.field_discord_username
+field_name: field_discord_username
+entity_type: crm_contact
+bundle: member
+label: 'Discord username'
+description: 'The team uses Discord for chat.  '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

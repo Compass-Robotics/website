@@ -1,0 +1,31 @@
+uuid: ed2e8d56-d959-43fe-832b-ce91be6f67d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_high_school
+    - taxonomy.vocabulary.high_schools
+  module:
+    - primary_entity_reference
+id: crm_contact.member.field_high_school
+field_name: field_high_school
+entity_type: crm_contact
+bundle: member
+label: 'High School'
+description: 'What high school do you currently attend?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      high_schools: high_schools
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: primary_entity_reference

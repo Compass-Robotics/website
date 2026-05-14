@@ -1,0 +1,19 @@
+uuid: b359bcb8-621c-42d0-aaec-55dc2b03bb15
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.storage.crm_contact.field_area
+id: crm_contact.mentor.field_area
+field_name: field_area
+entity_type: crm_contact
+bundle: mentor
+label: Area
+description: 'Area of expertise: mechanical, marketing, leadership, Use commas to separate If more than one.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

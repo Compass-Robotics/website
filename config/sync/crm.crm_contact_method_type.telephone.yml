@@ -1,0 +1,9 @@
+uuid: 838b89c8-f9e7-422a-89d3-686d4aa2eee7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: CY0E40H0z24HejoSsX6dhedVrF_vMwGciFt4GkLmz3g
+id: telephone
+label: Telephone
+description: 'A telephone number for a contact.'

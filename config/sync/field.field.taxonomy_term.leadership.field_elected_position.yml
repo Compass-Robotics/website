@@ -1,0 +1,21 @@
+uuid: 5f4e07c3-bb18-407f-85b8-e10385e2285f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_elected_position
+    - taxonomy.vocabulary.leadership
+id: taxonomy_term.leadership.field_elected_position
+field_name: field_elected_position
+entity_type: taxonomy_term
+bundle: leadership
+label: Position
+description: 'Turn on if this is an elected position.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Elected
+  off_label: Appointed
+field_type: boolean

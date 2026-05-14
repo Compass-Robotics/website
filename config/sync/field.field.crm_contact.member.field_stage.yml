@@ -1,0 +1,23 @@
+uuid: 154c1abc-f35a-40e8-89f9-22d5def2a94e
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_stage
+  module:
+    - options
+id: crm_contact.member.field_stage
+field_name: field_stage
+entity_type: crm_contact
+bundle: member
+label: Stage
+description: 'Select the stage of the person.'
+required: true
+translatable: false
+default_value:
+  -
+    value: applicant
+default_value_callback: ''
+settings: {  }
+field_type: list_string

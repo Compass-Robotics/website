@@ -1,0 +1,173 @@
+uuid: 5e5b9e03-410c-48cb-a8a7-0a28b1ee09cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.field.crm_contact.mentor.field_area
+    - field.field.crm_contact.mentor.field_email
+    - field.field.crm_contact.mentor.field_notes
+    - field.field.crm_contact.mentor.field_stage
+    - field.field.crm_contact.mentor.full_name
+    - field.field.crm_contact.mentor.preferred_name
+  module:
+    - datetime
+    - name
+    - primary_entity_reference
+    - text
+id: crm_contact.mentor.default
+targetEntityType: crm_contact
+bundle: mentor
+mode: default
+content:
+  addresses:
+    type: primary_entity_reference_inline_form
+    weight: 4
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: address
+      label_plural: addresses
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: true
+      removed_reference: delete
+      primary_label: Primary
+      show_primary_only: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  emails:
+    type: primary_entity_reference_inline_form
+    weight: 2
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: email
+      label_plural: emails
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: true
+      removed_reference: delete
+      primary_label: Primary
+      show_primary_only: false
+    third_party_settings: {  }
+  end_date:
+    type: datetime_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_area:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_notes:
+    type: text_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_stage:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  full_name:
+    type: name_default
+    weight: 0
+    region: content
+    settings:
+      override_field_settings: false
+      labels:
+        title: Title
+        given: Given
+        middle: 'Middle name(s)'
+        family: Family
+        generational: Generational
+        credentials: Credentials
+      widget_layout: stacked
+      show_component_required_marker: false
+      flag_required_input: false
+      credentials_inline: false
+      size:
+        title: 6
+        given: 20
+        middle: 20
+        family: 20
+        generational: 5
+        credentials: 35
+      title_display:
+        title: description
+        given: description
+        middle: description
+        family: description
+        generational: description
+        credentials: description
+      field_title_display: before
+    third_party_settings: {  }
+  preferred_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  start_date:
+    type: datetime_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  telephones:
+    type: primary_entity_reference_inline_form
+    weight: 3
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: telephone
+      label_plural: telephones
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: true
+      removed_reference: delete
+      primary_label: Primary
+      show_primary_only: false
+    third_party_settings: {  }
+hidden:
+  field_email: true
+  name: true

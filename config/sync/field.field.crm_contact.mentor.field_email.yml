@@ -1,0 +1,19 @@
+uuid: d4258760-f037-4e61-90a9-ab52e26e9be5
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.storage.crm_contact.field_email
+id: crm_contact.mentor.field_email
+field_name: field_email
+entity_type: crm_contact
+bundle: mentor
+label: email
+description: 'Add an email address.  '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

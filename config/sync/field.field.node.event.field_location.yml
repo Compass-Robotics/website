@@ -1,0 +1,23 @@
+uuid: afbf3db8-13a2-424b-b66f-c48b33518d32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location
+    - node.type.event
+id: node.event.field_location
+field_name: field_location
+entity_type: node
+bundle: event
+label: Location
+description: 'Select the organization to use for this. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crm_contact'
+  handler_settings:
+    target_bundles:
+      event: event
+field_type: entity_reference

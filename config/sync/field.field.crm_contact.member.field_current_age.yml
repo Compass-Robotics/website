@@ -1,0 +1,23 @@
+uuid: 46bff27a-35fc-467a-b25b-5f6cb8751aa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_current_age
+id: crm_contact.member.field_current_age
+field_name: field_current_age
+entity_type: crm_contact
+bundle: member
+label: 'Current age'
+description: 'Applicants must be between 14 and 18 or in grades 9-12'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 14
+  max: 18
+  prefix: ''
+  suffix: yrs
+field_type: integer

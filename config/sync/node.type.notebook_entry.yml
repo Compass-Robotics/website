@@ -27,8 +27,8 @@ third_party_settings:
     enabled: true
 name: 'Notebook Entry'
 type: notebook_entry
-description: 'This is used to create a notebook entry.  '
-help: null
+description: 'This is used to create an engineering notebook entry.  '
+help: "This should be informative and reflect both state of mind and progress on the robot. Examples:\r\n* Frustration with ground Intake\r\n* Compliant wheels for the win\r\n* Modifications needed for drivetrain\r\n\r\n"
 new_revision: true
 preview_mode: 1
 display_submitted: false

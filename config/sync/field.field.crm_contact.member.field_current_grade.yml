@@ -1,0 +1,21 @@
+uuid: f9ed45ff-3fd8-4e5d-bd91-e6984ff44900
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_current_grade
+  module:
+    - options
+id: crm_contact.member.field_current_grade
+field_name: field_current_grade
+entity_type: crm_contact
+bundle: member
+label: 'Current grade'
+description: 'Select the year that are currently enrolled in for school.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

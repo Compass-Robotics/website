@@ -1,0 +1,19 @@
+uuid: 54ebf8b6-830c-4622-a7c4-91d99a7d7fd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_email_primary
+id: crm_contact.member.field_email_primary
+field_name: field_email_primary
+entity_type: crm_contact
+bundle: member
+label: Email
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

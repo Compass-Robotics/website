@@ -18,6 +18,7 @@
     "require": {
         "composer/composer": "^2.8",
         "composer/installers": "^2.3",
+        "cweagans/composer-patches": "^1.0",
         "drupal/ai": "^1.2.6",
         "drupal/ai_agents": "^1.2",
         "drupal/ai_dashboard": "^1",
@@ -33,12 +34,14 @@
         "drupal/captcha": "^2.0.10",
         "drupal/checklistapi": "^2.1.7",
         "drupal/coffee": "^2.0.1",
+        "drupal/content_view_access": "^1.0",
         "drupal/core": "^11.3.5",
         "drupal/core-composer-scaffold": "^11.3",
         "drupal/core-project-message": "^11.3",
         "drupal/core-recipe-unpack": "^11.3",
         "drupal/core-recommended": "^11.3",
         "drupal/core-vendor-hardening": "^11.3",
+        "drupal/crm": "^1.0@beta",
         "drupal/crop": "^2.6.0",
         "drupal/cva": "^1.0.0",
         "drupal/dashboard": "^2.2.0",
@@ -55,12 +58,14 @@
         "drupal/focal_point": "^2.1.2",
         "drupal/friendly_captcha_challenge": "^0.9",
         "drupal/friendlycaptcha": "^1.1.4",
+        "drupal/fullcalendar": "^3.0",
         "drupal/gin": "^5.0.12",
         "drupal/gin_login": "^2.1.4",
         "drupal/gin_toolbar": "^3.0.3",
         "drupal/google_tag": "^2.0.7",
         "drupal/haven_theme": "^1",
         "drupal/honeypot": "^2.2.2",
+        "drupal/inline_entity_form": "^3.0@RC",
         "drupal/jquery_ui": "^1.8.0",
         "drupal/jquery_ui_resizable": "^2.1.0",
         "drupal/klaro": "^3.0.8",
@@ -74,8 +79,9 @@
         "drupal/metatag": "^2.2.0",
         "drupal/modeler_api": "^1.0.6",
         "drupal/navigation_extra_tools": "^1.3.2",
+        "drupal/password_policy": "^4.0",
         "drupal/pathauto": "^1.14.0",
-        "drupal/project_browser": "^2.1.3",
+        "drupal/primary_entity_reference": "^1.0@beta",
         "drupal/redirect": "^1.12.0",
         "drupal/sam": "^1.3.2",
         "drupal/scheduler": "^2.2.2",
@@ -83,9 +89,9 @@
         "drupal/search_api": "^1.40.0",
         "drupal/search_api_exclude": "^2.0.3",
         "drupal/selective_better_exposed_filters": "^3",
-        "drupal/seo_checklist": "^5.2.4",
         "drupal/simple_sitemap": "^4.2.3",
         "drupal/site_template_helper": "^1.0.3",
+        "drupal/smart_date": "^4.2",
         "drupal/svg_image": "^3.2.2",
         "drupal/symfony_mailer_lite": "^2.0.4",
         "drupal/tagify": "^1.2.50",
@@ -94,9 +100,11 @@
         "drupal/trash": "^3.0.25",
         "drupal/ui_icons": "^1.1.1",
         "drupal/view_password": "^6.0.5",
+        "drupal/views_accordion": "^2.0",
         "drupal/views_infinite_scroll": "^2.0.3",
         "drupal/webform": "^6.3.0-beta8",
-        "drupal/yoast_seo": "^2.2.0",
+        "drupal/webform_entity_handler": "^2.0",
+        "drupal/yoast_seo": "^2.2",
         "league/commonmark": "^2.4"
     },
     "require-dev": {
@@ -110,6 +118,7 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "drupal/core-recipe-unpack": true,
@@ -122,6 +131,16 @@
         "optimize-autoloader": true
     },
     "extra": {
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "drupal/haven_theme": {
+                "3585126: Add menu children to main menu.": "patches/3585126-add-menu-children-to-main-menu.patch"
+            },
+            "drupal/webform_entity_handler": {
+                "3388957: Impossible to populate a multi-valued field.": "patches/3388957-impossible-to-populate.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"

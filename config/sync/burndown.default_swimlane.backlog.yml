@@ -1,0 +1,12 @@
+uuid: bfbed40d-211a-4a17-a9bc-a41bfe3d4b11
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: DHTyr7DSu-cr7-ru7PY6CompKyNyNFAjsHZeFKiBUBQ
+id: backlog
+label: Backlog
+sort_order: 0
+show_backlog: true
+show_project_board: false
+show_completed: false

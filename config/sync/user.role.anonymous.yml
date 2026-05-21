@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - burndown
     - klaro
     - media
     - system
@@ -13,7 +14,15 @@ label: 'Anonymous user'
 weight: -10
 is_admin: false
 permissions:
+  - 'access burndown'
+  - 'access burndown backlog'
+  - 'access burndown board'
+  - 'access completed board'
   - 'access content'
   - 'use klaro'
   - 'view media'
   - 'view media'
+  - 'view published project entities'
+  - 'view published sprint entities'
+  - 'view published swimlane entities'
+  - 'view published task entities'

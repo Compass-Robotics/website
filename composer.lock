@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "869313b895b3f85f9103b5f8e1b4a26c",
+    "content-hash": "99568eb21098cab89b04730f9dfd1b21",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2745,6 +2745,76 @@
             "support": {
                 "source": "https://drupal.org/project/bpmn_io",
                 "issues": "https://drupal.org/project/issues/bpmn_io"
+            }
+        },
+        {
+            "name": "drupal/burndown",
+            "version": "1.0.56",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/burndown.git",
+                "reference": "1.0.56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/burndown-1.0.56.zip",
+                "reference": "1.0.56",
+                "shasum": "fe160401e5ff51aab58711bc7ebedeb2e89d13d8"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.56",
+                    "datestamp": "1735825279",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "binoli lalani",
+                    "homepage": "https://www.drupal.org/user/3717129"
+                },
+                {
+                    "name": "jeremylichtman",
+                    "homepage": "https://www.drupal.org/user/679776"
+                },
+                {
+                    "name": "leofishman",
+                    "homepage": "https://www.drupal.org/user/358053"
+                },
+                {
+                    "name": "omkar_yewale",
+                    "homepage": "https://www.drupal.org/user/3628360"
+                },
+                {
+                    "name": "purencool",
+                    "homepage": "https://www.drupal.org/user/894056"
+                },
+                {
+                    "name": "shailja179",
+                    "homepage": "https://www.drupal.org/user/3538612"
+                }
+            ],
+            "description": "Burndown Project Management",
+            "homepage": "https://www.drupal.org/project/burndown",
+            "support": {
+                "source": "http://cgit.drupalcode.org/burndown",
+                "issues": "https://www.drupal.org/project/issues/burndown"
             }
         },
         {

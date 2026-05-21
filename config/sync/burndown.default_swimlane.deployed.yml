@@ -1,0 +1,12 @@
+uuid: c8d9ab41-46c0-4180-a330-06a80138789b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: '-uv0dOKweU9YKvrSMKp8KUs8ALdZL3RFBA8lIJHt8vw'
+id: deployed
+label: 'Deployed / Published'
+sort_order: 3
+show_backlog: false
+show_project_board: true
+show_completed: false

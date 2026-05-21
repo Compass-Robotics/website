@@ -1,0 +1,19 @@
+uuid: 70010dc6-43c8-48cb-ba2f-1771a82a897e
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+    - text
+id: burndown_task.field_acceptance_criteria
+field_name: field_acceptance_criteria
+entity_type: burndown_task
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

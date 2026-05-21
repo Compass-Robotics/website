@@ -29,6 +29,7 @@
         "drupal/automatic_updates": "^4.1.0",
         "drupal/autosave_form": "^1.10.0",
         "drupal/bpmn_io": "^3.0.4",
+        "drupal/burndown": "^1.0",
         "drupal/byte_theme": "^1",
         "drupal/canvas": "^1.4",
         "drupal/captcha": "^2.0.10",

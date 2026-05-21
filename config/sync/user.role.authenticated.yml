@@ -6,6 +6,7 @@ dependencies:
     - dashboard.dashboard.welcome
     - filter.format.webform_default
   module:
+    - burndown
     - captcha
     - coffee
     - contextual
@@ -26,16 +27,30 @@ weight: -9
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access burndown'
+  - 'access burndown backlog'
+  - 'access burndown board'
   - 'access coffee'
+  - 'access completed board'
   - 'access content'
   - 'access contextual links'
   - 'access navigation'
+  - 'add task entities'
+  - 'burndown close task'
+  - 'burndown comment on task'
   - 'bypass honeypot protection'
   - 'delete own files'
+  - 'delete task entities'
+  - 'edit task entities'
+  - 'modify sprint tasks'
+  - 'reorder burndown backlog'
+  - 'send tasks to board'
   - 'skip CAPTCHA'
   - 'use klaro'
   - 'use text format webform_default'
+  - 'view all task revisions'
   - 'view media'
   - 'view own unpublished content'
   - 'view the administration theme'
+  - 'view unpublished task entities'
   - 'view welcome dashboard'

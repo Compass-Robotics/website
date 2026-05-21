@@ -1,0 +1,8 @@
+uuid: fc03fe69-d3f7-4b1b-8c9f-09c33ea16693
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wjtsx4hEhCtB3W13KtVLBYqyhRc9-8475pGNTxCJzvE
+id: project
+label: Project

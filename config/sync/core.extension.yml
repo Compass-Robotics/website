@@ -7,6 +7,7 @@ module:
   block: 0
   bpmn_io: 0
   breakpoint: 0
+  burndown: 0
   canvas: 0
   captcha: 0
   checklistapi: 0

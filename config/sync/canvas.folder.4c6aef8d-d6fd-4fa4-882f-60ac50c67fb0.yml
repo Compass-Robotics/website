@@ -1,0 +1,10 @@
+uuid: 4c6aef8d-d6fd-4fa4-882f-60ac50c67fb0
+langcode: en
+status: true
+dependencies: {  }
+name: Burndown
+configEntityTypeId: component
+weight: 0
+items:
+  - block.burndown_project_cloud_block
+  - block.burndown_project_nav_block

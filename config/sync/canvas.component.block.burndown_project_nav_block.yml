@@ -1,0 +1,22 @@
+uuid: 8f5933a3-659d-4e50-9247-0c1f03b7d21c
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+active_version: 4026cda7bc74117c
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: burndown_project_nav_block
+        label: 'Project navigation block'
+        label_display: '0'
+        provider: burndown
+    fallback_metadata:
+      slot_definitions: null
+label: 'Project navigation block'
+id: block.burndown_project_nav_block
+provider: burndown
+source: block
+source_local_id: burndown_project_nav_block

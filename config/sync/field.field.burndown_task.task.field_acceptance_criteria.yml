@@ -1,0 +1,24 @@
+uuid: 5266b237-07bc-4373-9ea9-05afc80df098
+langcode: en
+status: true
+dependencies:
+  config:
+    - burndown.burndown_task_type.task
+    - field.storage.burndown_task.field_acceptance_criteria
+    - filter.format.content_format
+  module:
+    - text
+id: burndown_task.task.field_acceptance_criteria
+field_name: field_acceptance_criteria
+entity_type: burndown_task
+bundle: task
+label: 'Acceptance Criteria'
+description: 'List out the criteria that must be met for this ticket to be considered done.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - content_format
+field_type: text_long

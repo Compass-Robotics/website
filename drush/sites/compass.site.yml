@@ -1,0 +1,16 @@
+prod:
+  host: compass-robotics.com
+  user: your-ssh-username
+  root: /kunden/homepages/31/d176840445/htdocs/compass-robotics
+  uri: https://compass-robotics.com
+  paths:
+    drush-script: /kunden/homepages/31/d176840445/htdocs/compass-robotics/vendor/bin/drush
+    php: /usr/bin/php8.4-cli
+beta:
+  host: beta.compass-robotics.com
+  user: your-ssh-username
+  root: /kunden/homepages/31/d176840445/htdocs/compass-robotics-beta
+  uri: https://beta.compass-robotics.com
+  paths:
+    drush-script: /kunden/homepages/31/d176840445/htdocs/compass-robotics/vendor/bin/drush
+    php: /usr/bin/php8.4-cli

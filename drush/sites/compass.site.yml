@@ -4,7 +4,7 @@ prod:
   root: /kunden/homepages/31/d176840445/htdocs/compass-robotics
   uri: https://compass-robotics.com
   paths:
-    drush-script: /kunden/homepages/31/d176840445/htdocs/compass-robotics/vendor/bin/drush
+    drush-script: /kunden/homepages/31/d176840445/htdocs/compass-robotics/vendor/drush/drush/drush.php
     php: /usr/bin/php8.4-cli
 beta:
   host: beta.compass-robotics.com
@@ -12,5 +12,5 @@ beta:
   root: /kunden/homepages/31/d176840445/htdocs/compass-robotics-beta
   uri: https://beta.compass-robotics.com
   paths:
-    drush-script: /kunden/homepages/31/d176840445/htdocs/compass-robotics/vendor/bin/drush
+    drush-script: /kunden/homepages/31/d176840445/htdocs/compass-robotics-beta/vendor/drush/drush/drush.php
     php: /usr/bin/php8.4-cli

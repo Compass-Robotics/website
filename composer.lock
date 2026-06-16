@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "99568eb21098cab89b04730f9dfd1b21",
+    "content-hash": "a458b08da32f7c40f97cfd1fde950667",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2749,17 +2749,17 @@
         },
         {
             "name": "drupal/burndown",
-            "version": "1.0.56",
+            "version": "1.0.57",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/burndown.git",
-                "reference": "1.0.56"
+                "reference": "1.0.57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/burndown-1.0.56.zip",
-                "reference": "1.0.56",
-                "shasum": "fe160401e5ff51aab58711bc7ebedeb2e89d13d8"
+                "url": "https://ftp.drupal.org/files/projects/burndown-1.0.57.zip",
+                "reference": "1.0.57",
+                "shasum": "c28a48fe004e70b4a295d24072d5a6e22f0c55d4"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -2767,8 +2767,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.56",
-                    "datestamp": "1735825279",
+                    "version": "1.0.57",
+                    "datestamp": "1779364710",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

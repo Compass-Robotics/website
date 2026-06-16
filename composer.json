@@ -96,7 +96,7 @@
         "drupal/smart_date": "^4.2",
         "drupal/svg_image": "^3.2.2",
         "drupal/symfony_mailer_lite": "^2.0.4",
-        "drupal/tagify": "^1.2.50",
+        "drupal/tagify": "^1.2",
         "drupal/token": "^1.17.0",
         "drupal/token_or": "^2.3.2",
         "drupal/trash": "^3.0.25",

@@ -28,6 +28,7 @@
         "drupal/ai_provider_openai": "^1.1",
         "drupal/automatic_updates": "^4.1.0",
         "drupal/autosave_form": "^1.10.0",
+        "drupal/better_exposed_filters": "^7.1",
         "drupal/bpmn_io": "^3.0.4",
         "drupal/burndown": "^1.0",
         "drupal/byte_theme": "^1",

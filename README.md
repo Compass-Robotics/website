@@ -15,6 +15,13 @@ Use [DDEV](https://ddev.com) to run Drupal CMS locally, follow these instruction
 ## Documentation
 
 
+## Deploy updates
+
+Due to oddities with our hosting the following deploy steps must be used:
+1. ssh to the server and cd to the location.
+2. git pull
+3. /usr/bin/php8.4-cli /homepages/31/d176840445/htdocs/composer/composer.phar install
+4. drush deploy
 
 ## Contributing & Support
 

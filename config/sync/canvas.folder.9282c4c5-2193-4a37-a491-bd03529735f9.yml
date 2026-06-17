@@ -1,7 +1,14 @@
 uuid: 9282c4c5-2193-4a37-a491-bd03529735f9
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.sdc.haven_theme.card
+    - canvas.component.sdc.haven_theme.card-feature
+    - canvas.component.sdc.haven_theme.card-icon
+    - canvas.component.sdc.haven_theme.card-logo
+    - canvas.component.sdc.haven_theme.card-pricing
+    - canvas.component.sdc.haven_theme.card-testimonial
 name: Card
 configEntityTypeId: component
 weight: 0

@@ -140,10 +140,6 @@
             },
             "drupal/webform_entity_handler": {
                 "3388957: Impossible to populate a multi-valued field.": "patches/3388957-impossible-to-populate.patch"
-            },
-            "drupal/burndown": {
-              "fix burndown title": "https://git.drupalcode.org/project/burndown/-/merge_requests/24.patch",
-              "perms for board 5": "https://git.drupalcode.org/project/burndown/-/merge_requests/27.patch"
             }
         },
         "drupal-scaffold": {

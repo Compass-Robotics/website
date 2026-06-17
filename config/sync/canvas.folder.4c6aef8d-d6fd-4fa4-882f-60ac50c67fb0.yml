@@ -1,7 +1,10 @@
 uuid: 4c6aef8d-d6fd-4fa4-882f-60ac50c67fb0
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.burndown_project_cloud_block
+    - canvas.component.block.burndown_project_nav_block
 name: Burndown
 configEntityTypeId: component
 weight: 0

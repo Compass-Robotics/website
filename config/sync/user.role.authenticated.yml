@@ -26,6 +26,8 @@ label: 'Authenticated user'
 weight: -9
 is_admin: false
 permissions:
+  - '1 view revisions'
+  - '2 view revisions'
   - 'access administration pages'
   - 'access burndown'
   - 'access burndown backlog'
@@ -44,6 +46,7 @@ permissions:
   - 'edit task entities'
   - 'modify sprint tasks'
   - 'reorder burndown backlog'
+  - 'send tasks to backlog'
   - 'send tasks to board'
   - 'skip CAPTCHA'
   - 'use klaro'

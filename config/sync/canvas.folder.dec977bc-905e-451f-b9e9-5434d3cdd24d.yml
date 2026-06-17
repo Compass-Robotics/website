@@ -1,7 +1,18 @@
 uuid: dec977bc-905e-451f-b9e9-5434d3cdd24d
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.system_menu_block.account
+    - canvas.component.block.system_menu_block.admin
+    - canvas.component.block.system_menu_block.content
+    - canvas.component.block.system_menu_block.footer
+    - canvas.component.block.system_menu_block.main
+    - canvas.component.block.system_menu_block.navigation-user-links
+    - canvas.component.block.system_menu_block.secondary
+    - canvas.component.block.system_menu_block.social
+    - canvas.component.block.system_menu_block.tools
+    - canvas.component.block.system_menu_block.top-tasks
 name: Menus
 configEntityTypeId: component
 weight: 0

@@ -1,0 +1,8 @@
+uuid: 0ac1d15d-c28f-4f69-9e9b-dadd1b6fa137
+langcode: en
+status: true
+dependencies: {  }
+id: crm
+label: CRM
+description: 'Links for the CRM portal (/crm) and related pages.'
+locked: false

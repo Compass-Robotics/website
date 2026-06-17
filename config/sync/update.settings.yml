@@ -10,4 +10,4 @@ fetch:
 notification:
   emails:
     - steve.wirt@gmail.com
-  threshold: all
+  threshold: security

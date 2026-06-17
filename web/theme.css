@@ -9,13 +9,13 @@
  */
 
 :root {
-  --background: oklch(0.952 0 89.876);
+  --background: oklch(68.35% 0.1212 93.12);
   --foreground: oklch(0.321 0 89.876);
   --card: oklch(1 0 89.876);
   --card-foreground: oklch(0.321 0 89.876);
-  --primary: oklch(0.292 0.057 154.902);
+  --primary: oklch(0% 0 0);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.653 0.131 230.943);
+  --secondary: oklch(68.27% 0.1216 182.92);
   --secondary-foreground: oklch(1 0 89.876);
   --muted: oklch(0.925 0 89.876);
   --muted-foreground: oklch(0.321 0 89.876);
@@ -26,6 +26,10 @@
   --border: oklch(0.321 0 89.876);
   --input: oklch(0.872 0.009 258.338);
   --white: oklch(100% 0.00011 271.152);
+  /* Logo colors */
+  --bronze: oklch(68.35% 0.1212 93.12);
+  --teal: oklch(68.27% 0.1216 182.92);
+
   --font-sans: "Geist", "Helvetica Neue", Arial, Helvetica, sans-serif;
   --font-serif: "Gelasio", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: "Fira Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
@@ -53,10 +57,11 @@
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color-mix */
   --primary-light: color-mix(in oklch, var(--primary) 80%, white);
   --primary-dark: color-mix(in oklch, var(--primary) 80%, black);
-  --secondary-light: color-mix(in oklch, var(--secondary) 90%, white);
+ --secondary-light: color-mix(in oklch, var(--secondary) 90%, white);
   --secondary-dark: color-mix(in oklch, var(--secondary) 85%, black);
   --accent-light: color-mix(in oklch, var(--accent) 95%, white);
   --accent-dark: color-mix(in oklch, var(--accent) 95%, black);
+
 
   /* Set navbar height for hero billboard overlay */
   --navbar-height: calc(var(--spacing) * 14);
@@ -64,8 +69,12 @@
   @media (min-width: 768px) {
     --navbar-height: calc(var(--spacing) * 20);
   }
+
   @media (min-width: 1280px) {
     --navbar-height: calc(var(--spacing) * 22);
+    :is(.navbar--logo,.navbar--modal-logo) .branding {
+        height: calc(var(--spacing) * 12);
+    }
   }
 }
 
@@ -90,4 +99,16 @@ main a:hover {
 .ui-accordion-header-active {
   background-color: var(--primary);
   color: var(--primary-foreground);
+}
+
+.region-footer .text-primary-foreground{
+  color: var(--teal);
+}
+
+.region-footer .border-t {
+  border-color: var(--bronze);
+}
+
+.menu-item__submenu {
+  background-color: var(--muted);
 }

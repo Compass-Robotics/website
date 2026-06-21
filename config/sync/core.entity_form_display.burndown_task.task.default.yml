@@ -5,9 +5,11 @@ dependencies:
   config:
     - burndown.burndown_task_type.task
     - field.field.burndown_task.task.field_acceptance_criteria
+    - field.field.burndown_task.task.field_comments
     - image.style.thumbnail
   module:
     - burndown
+    - comment
     - image
     - link
     - tagify
@@ -53,6 +55,12 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_comments:
+    type: comment_default
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   images:
     type: image_image

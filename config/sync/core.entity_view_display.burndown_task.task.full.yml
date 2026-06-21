@@ -4,9 +4,13 @@ status: true
 dependencies:
   config:
     - burndown.burndown_task_type.task
+    - core.entity_view_display.comment.task_comment.default
     - core.entity_view_mode.burndown_task.full
     - field.field.burndown_task.task.field_acceptance_criteria
+    - field.field.burndown_task.task.field_comments
   module:
+    - burndown
+    - comment
     - image
     - options
     - text
@@ -23,7 +27,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   changed:
     type: timestamp
@@ -32,8 +36,17 @@ content:
       date_format: medium
       custom_date_format: ''
       timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   created:
     type: timestamp
@@ -42,23 +55,40 @@ content:
       date_format: medium
       custom_date_format: ''
       timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
   description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 10
     region: content
   estimate:
-    type: string
+    type: list_default
     label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 12
+    weight: 11
+    region: content
+  field_comments:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 15
     region: content
   images:
     type: image
@@ -69,7 +99,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 25
+    weight: 13
     region: content
   name:
     type: string
@@ -77,14 +107,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   priority:
     type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: -5
+    weight: 0
     region: content
   project:
     type: entity_reference_label
@@ -92,16 +122,14 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   relationships:
-    type: entity_reference_entity_view
+    type: burndown_task_relationship_default
     label: above
-    settings:
-      view_mode: default
-      link: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 28
+    weight: 14
     region: content
   sprint:
     type: entity_reference_label
@@ -109,7 +137,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   swimlane:
     type: entity_reference_label
@@ -117,7 +145,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   tags:
     type: entity_reference_label
@@ -125,7 +153,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 14
+    weight: 12
     region: content
   ticket_id:
     type: string
@@ -133,14 +161,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   user_id:
     type: author
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 7
     region: content
 hidden:
   backlog_sort: true

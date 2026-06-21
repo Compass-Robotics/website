@@ -153,6 +153,7 @@
                 "[web-root]/sites/default/default.settings.php": {
                     "append": "assets/append-default.settings.php.txt"
                 },
+                "[web-root]/.htaccess": false,
                 "[web-root]/example.gitignore": false
             },
             "allowed-packages": [

@@ -6,7 +6,9 @@ dependencies:
     - burndown.burndown_task_type.task
     - core.entity_view_mode.burndown_task.teaser
     - field.field.burndown_task.task.field_acceptance_criteria
+    - field.field.burndown_task.task.field_comments
   module:
+    - burndown
     - image
     - options
 _core:
@@ -32,14 +34,22 @@ content:
       date_format: short
       custom_date_format: ''
       timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
     third_party_settings: {  }
     weight: 4
     region: content
   estimate:
-    type: string
+    type: list_default
     label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
     weight: 12
     region: content
@@ -70,11 +80,9 @@ content:
     weight: -5
     region: content
   relationships:
-    type: entity_reference_entity_view
+    type: burndown_task_relationship_default
     label: above
-    settings:
-      view_mode: default
-      link: false
+    settings: {  }
     third_party_settings: {  }
     weight: 28
     region: content
@@ -110,6 +118,7 @@ hidden:
   created: true
   description: true
   field_acceptance_criteria: true
+  field_comments: true
   link: true
   log: true
   project: true

@@ -5,6 +5,7 @@ dependencies:
   config:
     - crm.crm_contact_type.organization
     - field.field.crm_contact.organization.aliases
+    - field.field.crm_contact.organization.comment
     - field.field.crm_contact.organization.image
     - image.style.thumbnail
   module:

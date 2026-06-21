@@ -1,0 +1,10 @@
+uuid: 5237996a-2fc0-469b-ba92-18a8ede9adec
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Xsc_1bF4m3cXzAwMSDiCbyI6QxIeJrp5wmdRjzx7nsU
+id: crm_contact
+label: 'Contact Comment'
+target_entity_type_id: crm_contact
+description: 'Comment type for CRM contacts'

@@ -1,0 +1,35 @@
+uuid: 4b9975ef-cfe2-4ee0-aaac-f4ae450ec395
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.organization
+    - field.storage.crm_contact.comment
+  module:
+    - comment
+_core:
+  default_config_hash: eH6NMYxivLRg3cBbZK1a6moQvIGEcSz93nkKCD9NX5Y
+id: crm_contact.organization.comment
+field_name: comment
+entity_type: crm_contact
+bundle: organization
+label: Comment
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 0
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

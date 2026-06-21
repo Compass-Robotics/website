@@ -1,0 +1,31 @@
+uuid: b83f188b-78f2-42c1-86c1-96e0bdd0a9b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.crm_contact
+    - field.field.comment.crm_contact.comment_body
+  module:
+    - text
+_core:
+  default_config_hash: D8qRoeIPKJlZKsIY8-Kj8r8J-fU2Bn-hgBlqxCN0T_U
+id: comment.crm_contact.default
+targetEntityType: comment
+bundle: crm_contact
+mode: default
+content:
+  author:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  comment_body:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  subject: true

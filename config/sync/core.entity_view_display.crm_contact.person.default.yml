@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - crm.crm_contact_type.person
+    - field.field.crm_contact.person.comment
     - field.field.crm_contact.person.field_type
     - field.field.crm_contact.person.full_name
     - field.field.crm_contact.person.image

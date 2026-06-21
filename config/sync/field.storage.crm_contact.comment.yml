@@ -1,0 +1,22 @@
+uuid: 12958759-db2d-4f4a-9fbd-0dc0fe8d445a
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - crm
+_core:
+  default_config_hash: Fodsu4YRHEcDtsu0XdX5bzg3InlY2k7thNYaMvz1PEM
+id: crm_contact.comment
+field_name: comment
+entity_type: crm_contact
+type: comment
+settings:
+  comment_type: crm_contact
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

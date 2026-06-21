@@ -1,0 +1,88 @@
+uuid: ad93d8a0-1e3d-494f-b9a3-e6b2b3c9b868
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.crm_contact.search_index
+    - crm.crm_contact_type.organization
+    - field.field.crm_contact.organization.aliases
+    - field.field.crm_contact.organization.comment
+    - field.field.crm_contact.organization.image
+  module:
+    - crm
+_core:
+  default_config_hash: 9gjsJ-q_onjaEw5ZefwTJXXoT_p6ImcBS3Q9xeEb-30
+id: crm_contact.organization.search_index
+targetEntityType: crm_contact
+bundle: organization
+mode: search_index
+content:
+  addresses:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  aliases:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  emails:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -1
+    region: content
+  relationship_statistics:
+    label: above
+    type: crm_relationship_statistics_default
+    weight: 15
+    region: content
+    settings:
+      format: label_count
+      label_position: opposite
+      sort_by: none
+      sort_order: asc
+    third_party_settings: {  }
+  telephones:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  age: true
+  changed: true
+  comment: true
+  created: true
+  end_date: true
+  image: true
+  links: true
+  revision_created: true
+  revision_log: true
+  revision_uid: true
+  search_api_excerpt: true
+  start_date: true
+  status: true
+  uid: true

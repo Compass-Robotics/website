@@ -9,6 +9,7 @@ dependencies:
     - burndown
     - captcha
     - coffee
+    - comment
     - contextual
     - dashboard
     - file
@@ -26,13 +27,33 @@ label: 'Authenticated user'
 weight: -9
 is_admin: false
 permissions:
+  - '1 create entities'
+  - '1 delete own entities'
+  - '1 edit any entities'
+  - '1 edit own entities'
+  - '1 view project'
   - '1 view revisions'
+  - '2 create entities'
+  - '2 delete own entities'
+  - '2 edit any entities'
+  - '2 edit own entities'
+  - '2 view project'
   - '2 view revisions'
+  - '3 create entities'
+  - '3 delete own entities'
+  - '3 edit any entities'
+  - '3 edit own entities'
+  - '3 view project'
+  - '4 create entities'
+  - '4 edit any entities'
+  - '4 edit own entities'
+  - '4 view project'
   - 'access administration pages'
   - 'access burndown'
   - 'access burndown backlog'
   - 'access burndown board'
   - 'access coffee'
+  - 'access comments'
   - 'access completed board'
   - 'access content'
   - 'access contextual links'
@@ -42,13 +63,16 @@ permissions:
   - 'burndown comment on task'
   - 'bypass honeypot protection'
   - 'delete own files'
-  - 'delete task entities'
+  - 'edit own comments'
+  - 'edit project entities'
   - 'edit task entities'
   - 'modify sprint tasks'
+  - 'post comments'
   - 'reorder burndown backlog'
   - 'send tasks to backlog'
   - 'send tasks to board'
   - 'skip CAPTCHA'
+  - 'skip comment approval'
   - 'use klaro'
   - 'use text format webform_default'
   - 'view all task revisions'

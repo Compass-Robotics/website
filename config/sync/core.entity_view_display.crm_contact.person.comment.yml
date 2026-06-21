@@ -1,0 +1,56 @@
+uuid: 0c8fa0e1-8a24-4517-bc87-380631e8924a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.crm_contact.comment
+    - crm.crm_contact_type.person
+    - field.field.crm_contact.person.comment
+    - field.field.crm_contact.person.field_type
+    - field.field.crm_contact.person.full_name
+    - field.field.crm_contact.person.image
+    - field.field.crm_contact.person.preferred_name
+  module:
+    - comment
+    - crm
+_core:
+  default_config_hash: ZvTTnNshtZY8WPLyY43V_O0QYauCR7Ir_XQUVxT5H5Q
+id: crm_contact.person.comment
+targetEntityType: crm_contact
+bundle: person
+mode: comment
+content:
+  comment:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  relationship_statistics:
+    label: above
+    type: crm_relationship_statistics_default
+    weight: 15
+    region: content
+    settings:
+      format: label_count
+      label_position: opposite
+      sort_by: none
+      sort_order: asc
+    third_party_settings: {  }
+hidden:
+  addresses: true
+  age: true
+  created: true
+  emails: true
+  end_date: true
+  field_type: true
+  full_name: true
+  image: true
+  name: true
+  preferred_name: true
+  search_api_excerpt: true
+  start_date: true
+  telephones: true

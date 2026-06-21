@@ -1,0 +1,8 @@
+uuid: c85c5961-8b47-4a64-a7b3-4c1158871311
+langcode: en
+status: true
+dependencies: {  }
+id: task_comment
+label: 'Task comment'
+target_entity_type_id: burndown_task
+description: 'These are comments that apply to burndown tasks'

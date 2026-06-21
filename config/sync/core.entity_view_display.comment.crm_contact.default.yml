@@ -1,0 +1,30 @@
+uuid: e55fa699-3f87-46e5-8862-ca62c67b2ef0
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.crm_contact
+    - field.field.comment.crm_contact.comment_body
+  module:
+    - text
+_core:
+  default_config_hash: WDPZG46D4FiuGjJYIPM67qaiRkNHJfZuQt-X2EElwAE
+id: comment.crm_contact.default
+targetEntityType: comment
+bundle: crm_contact
+mode: default
+content:
+  comment_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  search_api_excerpt: true

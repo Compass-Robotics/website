@@ -1,0 +1,24 @@
+uuid: 9cafc11e-1ea4-4996-899d-fc06d1a8a161
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.crm_contact
+    - field.storage.comment.comment_body
+  module:
+    - text
+_core:
+  default_config_hash: w17PxyvPQlth06UOLyvVA2svdtjZNw4L9-MwURBqCXo
+id: comment.crm_contact.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: crm_contact
+label: Comment
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

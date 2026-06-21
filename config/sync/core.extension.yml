@@ -13,6 +13,7 @@ module:
   checklistapi: 0
   ckeditor5: 0
   coffee: 0
+  comment: 0
   content_moderation: 0
   content_view_access: 0
   contextual: 0

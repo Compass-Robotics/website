@@ -6,6 +6,7 @@ dependencies:
     - canvas.component.block.views_block.blog-all
     - canvas.component.block.views_block.blog-latest
     - canvas.component.block.views_block.blog-related
+    - canvas.component.block.views_block.comments_recent-block_1
     - canvas.component.block.views_block.projects-all
     - canvas.component.block.views_block.projects-featured
     - canvas.component.block.views_block.projects-latest
@@ -18,6 +19,7 @@ items:
   - block.views_block.blog-all
   - block.views_block.blog-latest
   - block.views_block.blog-related
+  - block.views_block.comments_recent-block_1
   - block.views_block.projects-all
   - block.views_block.projects-featured
   - block.views_block.projects-latest

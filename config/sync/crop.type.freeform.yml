@@ -1,0 +1,12 @@
+uuid: 17c0e67d-3181-4d4e-adc0-d475f90ee254
+langcode: en
+status: true
+dependencies: {  }
+label: Freeform
+id: freeform
+description: 'Freeform lets the user pick the crop they want.'
+aspect_ratio: ''
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

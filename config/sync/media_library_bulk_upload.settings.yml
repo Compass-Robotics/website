@@ -1,1 +1,6 @@
-media_types: {  }
+media_types:
+  document: document
+  image: image
+  svg_image: svg_image
+  remote_video: '0'
+  video: '0'

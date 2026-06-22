@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - dashboard.dashboard.welcome
+    - filter.format.content_format
     - filter.format.webform_default
   module:
     - burndown
@@ -74,6 +75,7 @@ permissions:
   - 'skip CAPTCHA'
   - 'skip comment approval'
   - 'use klaro'
+  - 'use text format content_format'
   - 'use text format webform_default'
   - 'view all task revisions'
   - 'view media'

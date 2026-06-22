@@ -13,6 +13,7 @@ dependencies:
     - core.entity_view_mode.media.4_3_small
     - core.entity_view_mode.media.9_16_medium
     - core.entity_view_mode.media.9_16_small
+    - core.entity_view_mode.media.full
     - core.entity_view_mode.media.medium
     - core.entity_view_mode.media.small
   module:
@@ -24,6 +25,12 @@ name: Content
 format: content_format
 weight: 0
 filters:
+  entity_links:
+    id: entity_links
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
   filter_align:
     id: filter_align
     provider: filter
@@ -48,9 +55,15 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h2 class="text-align-left text-align-center text-align-right text-align-justify"> <h3 class="text-align-left text-align-center text-align-right text-align-justify"> <h4 class="text-align-left text-align-center text-align-right text-align-justify"> <h5 class="text-align-left text-align-center text-align-right text-align-justify"> <h6 class="text-align-left text-align-center text-align-right text-align-justify"> <strong> <em> <blockquote> <a href data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol reversed start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align>'
+      allowed_html: '<br> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h2 class="text-align-left text-align-center text-align-right text-align-justify"> <h3 class="text-align-left text-align-center text-align-right text-align-justify"> <h4 class="text-align-left text-align-center text-align-right text-align-justify"> <h5 class="text-align-left text-align-center text-align-right text-align-justify"> <h6 class="text-align-left text-align-center text-align-right text-align-justify"> <strong> <em> <pre class="text-align-left text-align-center text-align-right text-align-justify"> <code class="language-*"> <s> <sup> <blockquote> <a href data-entity-type data-entity-uuid data-entity-metadata data-entity-substitution> <ul> <ol reversed start> <li> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align data-link-entity-type data-link-entity-uuid data-link-entity-metadata>'
       filter_html_help: false
       filter_html_nofollow: false
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: true
+    weight: 9
+    settings: {  }
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
@@ -96,6 +109,12 @@ filters:
         4_3_small: 4_3_small
         9_16_medium: 9_16_medium
         9_16_small: 9_16_small
+        full: full
         medium: medium
         small: small
-      allowed_media_types: {  }
+      allowed_media_types:
+        document: document
+        image: image
+        remote_video: remote_video
+        svg_image: svg_image
+        video: video

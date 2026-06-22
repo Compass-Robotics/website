@@ -25,6 +25,7 @@ permissions:
   - 'create remote_video media'
   - 'edit any notebook_entry content'
   - 'edit own image media'
+  - 'edit own notebook_entry content'
   - 'edit own remote_video media'
   - 'update any media'
   - 'use text format content_format'

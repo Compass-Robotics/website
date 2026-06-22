@@ -58,6 +58,7 @@ permissions:
   - 'edit any notebook_entry content'
   - 'edit any page content'
   - 'edit any remote_video media'
+  - 'edit own notebook_entry content'
   - 'edit terms in tags'
   - 'update any media'
   - 'use basic_editorial transition create_new_draft'

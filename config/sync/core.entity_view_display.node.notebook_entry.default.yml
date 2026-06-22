@@ -44,32 +44,17 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          ba80d782-d400-412e-9549-49a226b95c8a:
-            uuid: ba80d782-d400-412e-9549-49a226b95c8a
-            region: content
-            configuration:
-              id: 'field_block:node:notebook_entry:field_content'
-              label: Content
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
           cc31e311-ba2a-407e-9382-9b7d27183c37:
             uuid: cc31e311-ba2a-407e-9382-9b7d27183c37
             region: content
             configuration:
               id: 'field_block:node:notebook_entry:field_related_links'
+              label: 'Related Links'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: link
                 label: above
@@ -77,10 +62,10 @@ third_party_settings:
                   trim_length: 80
                   url_only: false
                   url_plain: false
-                  rel: ''
-                  target: ''
+                  rel: '0'
+                  target: '0'
                 third_party_settings: {  }
-            weight: 2
+            weight: 3
             additional: {  }
           c935c296-2bf4-478e-9713-2ab4bab22cdc:
             uuid: c935c296-2bf4-478e-9713-2ab4bab22cdc
@@ -96,7 +81,7 @@ third_party_settings:
                 settings:
                   use_description_as_link_text: true
                 third_party_settings: {  }
-            weight: 3
+            weight: 4
             additional: {  }
           e29ddd60-d22d-49ac-8d74-4491d2e0a3cc:
             uuid: e29ddd60-d22d-49ac-8d74-4491d2e0a3cc
@@ -115,7 +100,25 @@ third_party_settings:
                 settings:
                   link: true
                 third_party_settings: {  }
-            weight: 4
+            weight: 5
+            additional: {  }
+          ba80d782-d400-412e-9549-49a226b95c8a:
+            uuid: ba80d782-d400-412e-9549-49a226b95c8a
+            region: content
+            configuration:
+              id: 'field_block:node:notebook_entry:field_content'
+              label: Content
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
             additional: {  }
         third_party_settings: {  }
 id: node.notebook_entry.default

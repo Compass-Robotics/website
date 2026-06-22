@@ -59,6 +59,7 @@ permissions:
   - 'edit any notebook_entry content'
   - 'edit any page content'
   - 'edit any remote_video media'
+  - 'edit own notebook_entry content'
   - 'edit terms in leadership'
   - 'edit terms in tags'
   - 'revert all revisions'

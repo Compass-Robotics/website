@@ -1,0 +1,34 @@
+uuid: 1eca76cc-0231-448e-a5db-159a71afcd7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.notebook_entry.field_content
+    - field.field.node.notebook_entry.field_contest
+    - field.field.node.notebook_entry.field_date_of_entry
+    - field.field.node.notebook_entry.field_related_files
+    - field.field.node.notebook_entry.field_related_links
+    - field.field.node.notebook_entry.layout_builder__layout
+    - node.type.notebook_entry
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.notebook_entry.full
+targetEntityType: node
+bundle: notebook_entry
+mode: full
+content: {  }
+hidden:
+  field_content: true
+  field_contest: true
+  field_date_of_entry: true
+  field_related_files: true
+  field_related_links: true
+  layout_builder__layout: true
+  links: true
+  search_api_excerpt: true

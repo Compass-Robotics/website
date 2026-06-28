@@ -2,11 +2,6 @@ uuid: fba4392f-9405-4aff-b390-e69629669f99
 langcode: en
 status: true
 dependencies:
-  config:
-    - node.type.blog
-    - node.type.page
-    - node.type.person_profile
-    - node.type.project
   module:
     - content_moderation
 _core:
@@ -54,10 +49,5 @@ type_settings:
         - published
       to: unpublished
       weight: 1
-  entity_types:
-    node:
-      - blog
-      - page
-      - person_profile
-      - project
+  entity_types: {  }
   default_moderation_state: draft

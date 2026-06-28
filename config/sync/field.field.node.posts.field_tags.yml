@@ -1,0 +1,31 @@
+uuid: 08b53d72-4794-4319-8899-afd940dbb550
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.posts
+    - taxonomy.vocabulary.competitions
+    - taxonomy.vocabulary.tags
+id: node.posts.field_tags
+field_name: field_tags
+entity_type: node
+bundle: posts
+label: Tags
+description: 'Include tags for relevant topics.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      competitions: competitions
+      tags: tags
+    sort:
+      field: _none
+      direction: asc
+    auto_create: true
+    auto_create_bundle: tags
+field_type: entity_reference

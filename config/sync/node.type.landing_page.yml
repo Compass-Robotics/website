@@ -1,4 +1,4 @@
-uuid: 4b5e64a4-e749-4fde-85d3-b56da3549bb7
+uuid: 11279f20-3b13-485f-ae75-22a9c18f2312
 langcode: en
 status: true
 dependencies:
@@ -8,8 +8,9 @@ dependencies:
     - search_api_exclude
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:'
   scheduler:
     expand_fieldset: when_required
     fields_display_mode: vertical_tab
@@ -25,10 +26,10 @@ third_party_settings:
     unpublish_revision: false
   search_api_exclude:
     enabled: true
-name: 'Notebook Entry'
-type: notebook_entry
-description: 'This is used to create an engineering notebook entry.  '
-help: "This should be informative and reflect both state of mind and progress on the robot. Examples:\r\n* Frustration with ground Intake\r\n* Compliant wheels for the win\r\n* Modifications needed for drivetrain\r\n\r\n"
+name: 'Landing page'
+type: landing_page
+description: 'This is the page for content that is not something else.'
+help: null
 new_revision: true
 preview_mode: 1
-display_submitted: true
+display_submitted: false

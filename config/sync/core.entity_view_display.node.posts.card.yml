@@ -1,0 +1,41 @@
+uuid: e107519a-2673-4803-bed0-110e947e5d2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.posts.field_blog_type
+    - field.field.node.posts.field_content
+    - field.field.node.posts.field_featured_image
+    - field.field.node.posts.field_tags
+    - node.type.posts
+  module:
+    - text
+    - user
+id: node.posts.card
+targetEntityType: node
+bundle: posts
+mode: card
+content:
+  field_content:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 400
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 16_9_medium
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_blog_type: true
+  field_tags: true
+  links: true
+  search_api_excerpt: true

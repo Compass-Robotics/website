@@ -1,0 +1,43 @@
+uuid: 0814f27c-7184-47eb-a043-f6d7522d5f3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.posts.field_blog_type
+    - field.field.node.posts.field_content
+    - field.field.node.posts.field_featured_image
+    - field.field.node.posts.field_tags
+    - node.type.posts
+  module:
+    - text
+    - user
+id: node.posts.search_index
+targetEntityType: node
+bundle: posts
+mode: search_index
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  field_blog_type: true
+  field_featured_image: true
+  search_api_excerpt: true

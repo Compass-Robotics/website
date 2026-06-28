@@ -1,4 +1,4 @@
-uuid: 13012f7d-b2c9-4de3-b269-2983d9e4e06a
+uuid: 010ce8d9-c6c9-4b1b-acf0-ca37807f453f
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,6 @@ dependencies:
     - views.view.projects
   module:
     - views
-_core:
-  default_config_hash: ijwdgburq8wHlArp2MDmCsz2SHNLDaWnSz2wNBPOasQ
-label: 'Projects: Latest projects'
-id: block.views_block.projects-latest
-source: block
-source_local_id: 'views_block:projects-latest'
-provider: views
 active_version: cf97a255fbf8922a
 versioned_properties:
   active:
@@ -26,3 +19,8 @@ versioned_properties:
         items_per_page: null
     fallback_metadata:
       slot_definitions: null
+label: 'Projects: Latest projects'
+id: block.views_block.projects-latest
+provider: views
+source: block
+source_local_id: 'views_block:projects-latest'

@@ -357,7 +357,7 @@ display:
         enabled: true
         expanded: true
         menu_name: main
-        parent: 'menu_link_content:44de6f2a-fcb8-4332-8b9d-495f8ede85d6'
+        parent: 'menu_link_content:50ff1dcb-b4b3-4451-a46d-4e692b4ca7a2'
     cache_metadata:
       max-age: -1
       contexts:

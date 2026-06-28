@@ -1,5 +1,16 @@
 _core:
   default_config_hash: 75Jlt8g2DiRAAw0PaFSzt2aN-PXO8500AHLmLVVgpvQ
+favicon:
+  path: ''
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: false
+  node_user_picture: false
+logo:
+  path: ''
+  use_default: false
 all_icons_show: 1
 facebook_url: 'https://www.facebook.com/idewdot'
 twitter_url: 'https://twitter.com/dewdots'
@@ -11,9 +22,9 @@ whatsapp_url: ''
 github_url: ''
 telegram_url: ''
 vimeo_url: ''
-slider_show: 1
-slider_image: ''
-slider_time: 5000
+slider_show: 0
+slider_image: {  }
+slider_time: '5000'
 slider_dots: 'true'
 slider_arrow: 'true'
 slider_code: ''
@@ -29,3 +40,9 @@ fontawesome_four: 0
 fontawesome_five: 0
 fontawesome_six: 0
 bootstrapicons: 0
+mastodon_url: ''
+tiktok_url: ''
+twitch_url: ''
+bluesky_url: ''
+discord_url: ''
+social_new_icon_code: ''

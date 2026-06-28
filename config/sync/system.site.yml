@@ -7,8 +7,8 @@ mail: teletraan1@compass-robotics.com
 slogan: 'FRC Robotics team in Sarasota County, FL'
 page:
   403: ''
-  404: /page/7
-  front: /page/6
+  404: ''
+  front: /node/34
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en

@@ -7,8 +7,6 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
-    - node.type.person_profile
-    - node.type.project
   module:
     - filter
     - media
@@ -22,15 +20,9 @@ permissions:
   - 'access media overview'
   - 'create document media'
   - 'create media'
-  - 'create person_profile content'
-  - 'create project content'
   - 'create remote_video media'
-  - 'edit any person_profile content'
-  - 'edit any project content'
   - 'edit own image media'
   - 'edit own remote_video media'
-  - 'revert person_profile revisions'
-  - 'revert project revisions'
   - 'update any media'
   - 'use text format content_format'
   - 'view all media revisions'
@@ -39,5 +31,3 @@ permissions:
   - 'view any image media revisions'
   - 'view any remote_video media revisions'
   - 'view own unpublished media'
-  - 'view person_profile revisions'
-  - 'view project revisions'

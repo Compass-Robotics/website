@@ -9,12 +9,6 @@ dependencies:
     - canvas.component.sdc.haven_theme.section
     - canvas.component.sdc.haven_theme.text
     - core.entity_view_mode.node.full
-    - field.field.node.page.field_content
-    - filter.format.content_format
-    - node.type.page
-  module:
-    - node
-    - options
 _core:
   default_config_hash: GF012dCL49D4zKW16QaUk_iIJFrbAuUhXzPqv5SGGK4
 id: node.page.full
@@ -64,9 +58,6 @@ component_tree:
     component_id: sdc.haven_theme.heading
     component_version: 75ccc4c28f5e3f12
     inputs:
-      heading_text:
-        sourceType: entity-field
-        expression: 'ℹ︎␜entity:node:page␝title␞␟value'
       level: 1
       text_size: default
       text_color: default
@@ -78,9 +69,6 @@ component_tree:
     component_id: sdc.haven_theme.text
     component_version: 16c79c28a4108f9b
     inputs:
-      text:
-        sourceType: entity-field
-        expression: 'ℹ︎␜entity:node:page␝field_content␞␟processed'
       text_size: normal
       text_color: default
 exposed_slots: {  }

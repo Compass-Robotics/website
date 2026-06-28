@@ -1,4 +1,4 @@
-uuid: 3d5d882d-8612-44ec-8384-df13563483c6
+uuid: 8d760dbc-9966-47dc-b101-70e448267bf9
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,6 @@ dependencies:
     - views.view.blog
   module:
     - views
-_core:
-  default_config_hash: '-iq26n_ftp-FWiKZSb9ujdbaNY8BUmp0Qpn-rI-OFXI'
-label: 'Blog: Related blog posts'
-id: block.views_block.blog-related
-source: block
-source_local_id: 'views_block:blog-related'
-provider: views
 active_version: d30c747ee7b1d2d7
 versioned_properties:
   active:
@@ -26,3 +19,8 @@ versioned_properties:
         items_per_page: null
     fallback_metadata:
       slot_definitions: null
+label: 'Blog: Related blog posts'
+id: block.views_block.blog-related
+provider: views
+source: block
+source_local_id: 'views_block:blog-related'

@@ -1,6 +1,6 @@
 uuid: cb215c35-b3db-4eb0-90e0-a16174480f9b
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.blog
@@ -8,11 +8,6 @@ dependencies:
     - views
 _core:
   default_config_hash: epi3YsJb-WcY-8EtoLJA07OD2ul5W5brW4C1adi7kIE
-label: 'Blog: Latest blog posts'
-id: block.views_block.blog-latest
-source: block
-source_local_id: 'views_block:blog-latest'
-provider: views
 active_version: 2502069c92ce84d7
 versioned_properties:
   active:
@@ -26,3 +21,19 @@ versioned_properties:
         items_per_page: null
     fallback_metadata:
       slot_definitions: null
+  2502069c92ce84d7:
+    settings:
+      default_settings:
+        id: 'views_block:blog-latest'
+        label: 'Blog: Latest blog posts'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+label: 'Blog: Latest blog posts'
+id: block.views_block.blog-latest
+provider: views
+source: block
+source_local_id: 'views_block:blog-latest'

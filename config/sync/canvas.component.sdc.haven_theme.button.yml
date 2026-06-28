@@ -1,22 +1,15 @@
 uuid: 0720074b-2c32-43fd-a38e-364f32b22522
 langcode: en
-status: true
-dependencies:
-  module:
-    - link
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: Ra4Qe0s2t9XP3PW3kKpK1CPOc9zHoN3NVAjosFiDRAs
-label: Button
-id: sdc.haven_theme.button
-source: sdc
-source_local_id: 'haven_theme:button'
-provider: haven_theme
-active_version: 0e9e84d691ccddc4
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 0e9e84d691ccddc4
+  0e9e84d691ccddc4:
     settings:
       prop_field_definitions:
         variant:
@@ -206,3 +199,8 @@ versioned_properties:
           expression: ℹ︎boolean␟value
     fallback_metadata:
       slot_definitions: {  }
+label: Button
+id: sdc.haven_theme.button
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:button'

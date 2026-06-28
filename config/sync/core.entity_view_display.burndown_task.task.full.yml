@@ -4,13 +4,10 @@ status: true
 dependencies:
   config:
     - burndown.burndown_task_type.task
-    - core.entity_view_display.comment.task_comment.default
     - core.entity_view_mode.burndown_task.full
     - field.field.burndown_task.task.field_acceptance_criteria
-    - field.field.burndown_task.task.field_comments
   module:
     - burndown
-    - comment
     - image
     - options
     - text
@@ -80,15 +77,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 11
-    region: content
-  field_comments:
-    type: comment_default
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    weight: 15
     region: content
   images:
     type: image

@@ -1,21 +1,15 @@
 uuid: 49ba58f9-4bb4-422b-954f-591de17d02a0
 langcode: en
-status: true
-dependencies:
-  module:
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: x4vXMeZ-9bD4lpTefVm8pM8bKVk0Fwfl1WYW7QMHsBY
-label: Badge
-id: sdc.haven_theme.badge
-source: sdc
-source_local_id: 'haven_theme:badge'
-provider: haven_theme
-active_version: b180b228e47a27ec
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: b180b228e47a27ec
+  b180b228e47a27ec:
     settings:
       prop_field_definitions:
         label:
@@ -61,3 +55,8 @@ versioned_properties:
           expression: ℹ︎boolean␟value
     fallback_metadata:
       slot_definitions: {  }
+label: Badge
+id: sdc.haven_theme.badge
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:badge'

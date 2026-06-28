@@ -1,21 +1,15 @@
 uuid: 625f0954-0bc6-4569-baf5-3631cf753da1
 langcode: en
-status: true
-dependencies:
-  module:
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: 2fkNGu5jNcEJKIfzI8wC9qVLJ79r2DWW2_3Ckyl5Bj4
-label: Navbar
-id: sdc.haven_theme.navbar
-source: sdc
-source_local_id: 'haven_theme:navbar'
-provider: haven_theme
-active_version: 3149f199d66bbc29
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 3149f199d66bbc29
+  3149f199d66bbc29:
     settings:
       prop_field_definitions:
         menu_align:
@@ -37,3 +31,8 @@ versioned_properties:
           title: 'Navigation menu'
         links:
           title: CTAs
+label: Navbar
+id: sdc.haven_theme.navbar
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:navbar'

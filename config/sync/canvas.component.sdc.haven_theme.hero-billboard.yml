@@ -1,30 +1,15 @@
 uuid: 044f3551-5281-4259-b1a8-6e45263d4c4c
 langcode: en
-status: true
-dependencies:
-  config:
-    - field.field.media.image.field_media_image
-    - field.field.media.svg_image.field_media_svg_image
-    - image.style.canvas_parametrized_width
-    - media.type.image
-    - media.type.svg_image
-  module:
-    - file
-    - media
-    - media_library
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: zgcbNMP1FGFwUN9N1lURYqO8YeqAqw6Sq4tj4jd0yos
-label: 'Hero billboard'
-id: sdc.haven_theme.hero-billboard
-source: sdc
-source_local_id: 'haven_theme:hero-billboard'
-provider: haven_theme
-active_version: 1d223068bd6931f9
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 1d223068bd6931f9
+  1d223068bd6931f9:
     settings:
       prop_field_definitions:
         height:
@@ -109,3 +94,8 @@ versioned_properties:
       slot_definitions:
         hero_slot:
           title: 'Hero content'
+label: 'Hero billboard'
+id: sdc.haven_theme.hero-billboard
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:hero-billboard'

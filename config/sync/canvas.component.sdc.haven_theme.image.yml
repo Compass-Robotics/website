@@ -1,31 +1,15 @@
 uuid: 9b5ac875-4de1-48e7-9262-00552b8697cd
 langcode: en
-status: true
-dependencies:
-  config:
-    - field.field.media.image.field_media_image
-    - field.field.media.svg_image.field_media_svg_image
-    - image.style.canvas_parametrized_width
-    - media.type.image
-    - media.type.svg_image
-  module:
-    - file
-    - link
-    - media
-    - media_library
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: znuONa4Kr6nTUtaP0PcZDqLlxVAsFvgP0X07zlsREBw
-label: Image
-id: sdc.haven_theme.image
-source: sdc
-source_local_id: 'haven_theme:image'
-provider: haven_theme
-active_version: d77451010df91d0e
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: d77451010df91d0e
+  d77451010df91d0e:
     settings:
       prop_field_definitions:
         media:
@@ -141,3 +125,8 @@ versioned_properties:
           expression: ℹ︎string␟value
     fallback_metadata:
       slot_definitions: {  }
+label: Image
+id: sdc.haven_theme.image
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:image'

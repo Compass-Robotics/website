@@ -1,0 +1,67 @@
+uuid: d2b1862d-9627-4156-a301-c82ac3634b83
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - crm.crm_contact_type.mentor
+    - crm.crm_contact_type.organization
+    - crm.crm_contact_type.person
+    - crm.crm_relationship_type.member
+    - crm.crm_relationship_type.parent
+    - crm.crm_relationship_type.partner
+    - crm.crm_relationship_type.sibling
+    - crm.crm_relationship_type.spouse
+    - crm.crm_relationship_type.volunteer
+  module:
+    - crm
+id: lead
+label: Lead
+weight: 2
+is_admin: false
+permissions:
+  - 'access crm'
+  - 'administer crm'
+  - 'create any crm contact'
+  - 'create any crm relationship'
+  - 'create member crm contact'
+  - 'create member crm relationship'
+  - 'create mentor crm contact'
+  - 'create organization crm contact'
+  - 'create parent crm relationship'
+  - 'create partner crm relationship'
+  - 'create person crm contact'
+  - 'create sibling crm relationship'
+  - 'create spouse crm relationship'
+  - 'create volunteer crm relationship'
+  - 'edit any crm contact'
+  - 'edit any crm relationship'
+  - 'edit any member crm contact'
+  - 'edit any member crm relationship'
+  - 'edit any mentor crm contact'
+  - 'edit any organization crm contact'
+  - 'edit any parent crm relationship'
+  - 'edit any partner crm relationship'
+  - 'edit any person crm contact'
+  - 'edit any sibling crm relationship'
+  - 'edit any spouse crm relationship'
+  - 'edit any volunteer crm relationship'
+  - 'edit mapped crm contact'
+  - 'view any crm contact'
+  - 'view any crm contact label'
+  - 'view any crm relationship'
+  - 'view any member crm contact'
+  - 'view any member crm contact label'
+  - 'view any member crm relationship'
+  - 'view any mentor crm contact'
+  - 'view any mentor crm contact label'
+  - 'view any organization crm contact'
+  - 'view any organization crm contact label'
+  - 'view any parent crm relationship'
+  - 'view any partner crm relationship'
+  - 'view any person crm contact'
+  - 'view any person crm contact label'
+  - 'view any sibling crm relationship'
+  - 'view any spouse crm relationship'
+  - 'view any volunteer crm relationship'
+  - 'view mapped crm contact'

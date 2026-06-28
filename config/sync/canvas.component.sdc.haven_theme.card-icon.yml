@@ -1,25 +1,15 @@
 uuid: 1fc2b6a4-db63-4c73-971e-2c80babed79b
 langcode: en
-status: true
-dependencies:
-  config:
-    - filter.format.canvas_html_block
-  module:
-    - link
-    - options
-    - text
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: ovEoeWZaZ7wRnsutMiwc1mk24S1pCIlhlItxyL504cw
-label: 'Icon card'
-id: sdc.haven_theme.card-icon
-source: sdc
-source_local_id: 'haven_theme:card-icon'
-provider: haven_theme
-active_version: 4ba0f9c8e8452ef2
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 4ba0f9c8e8452ef2
+  4ba0f9c8e8452ef2:
     settings:
       prop_field_definitions:
         tile_size:
@@ -479,3 +469,8 @@ versioned_properties:
           expression: ℹ︎list_string␟value
     fallback_metadata:
       slot_definitions: {  }
+label: 'Icon card'
+id: sdc.haven_theme.card-icon
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:card-icon'

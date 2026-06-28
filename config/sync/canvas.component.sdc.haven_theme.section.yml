@@ -1,30 +1,15 @@
 uuid: 9589177b-a7c3-4224-9460-2e99f59e75ad
 langcode: en
-status: true
-dependencies:
-  config:
-    - field.field.media.image.field_media_image
-    - field.field.media.svg_image.field_media_svg_image
-    - image.style.canvas_parametrized_width
-    - media.type.image
-    - media.type.svg_image
-  module:
-    - file
-    - media
-    - media_library
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: KQX8QXnarncbDC932gsmIYCxCu-2pGGD6IhyhVzQ4DQ
-label: Section
-id: sdc.haven_theme.section
-source: sdc
-source_local_id: 'haven_theme:section'
-provider: haven_theme
-active_version: 5b4b8ecb2a253440
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 5b4b8ecb2a253440
+  5b4b8ecb2a253440:
     settings:
       prop_field_definitions:
         width:
@@ -914,3 +899,8 @@ versioned_properties:
           title: Grid
         footer_slot:
           title: Footer
+label: Section
+id: sdc.haven_theme.section
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:section'

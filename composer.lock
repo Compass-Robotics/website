@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6164ab690bda7c8e4b6608f06c0fe8f",
+    "content-hash": "ad50bd3f6e7201b5a391d5777adbfdaf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2819,78 +2819,6 @@
             }
         },
         {
-            "name": "drupal/byte_theme",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/byte_theme.git",
-                "reference": "1.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/byte_theme-1.0.2.zip",
-                "reference": "1.0.2",
-                "shasum": "d93d2f3e1670fed3da6fa484758c3ce4d0251d3c"
-            },
-            "require": {
-                "drupal/canvas": "*",
-                "drupal/core": "^11.3",
-                "drupal/cva": "^1"
-            },
-            "conflict": {
-                "drupal/experience_builder": "*"
-            },
-            "require-dev": {
-                "drupal/canvas": "^1"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.2",
-                    "datestamp": "1773939323",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "jurgenhaas",
-                    "homepage": "https://www.drupal.org/user/168924"
-                },
-                {
-                    "name": "pameeela",
-                    "homepage": "https://www.drupal.org/user/1431110"
-                },
-                {
-                    "name": "penyaskito",
-                    "homepage": "https://www.drupal.org/user/959536"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                },
-                {
-                    "name": "thejimbirch",
-                    "homepage": "https://www.drupal.org/user/2507260"
-                },
-                {
-                    "name": "tim.plunkett",
-                    "homepage": "https://www.drupal.org/user/241634"
-                }
-            ],
-            "description": "Front-end theme for the Byte site template.",
-            "homepage": "https://www.drupal.org/project/byte_theme",
-            "support": {
-                "source": "https://git.drupalcode.org/project/byte_theme"
-            }
-        },
-        {
             "name": "drupal/canvas",
             "version": "1.5.1",
             "source": {
@@ -5273,17 +5201,17 @@
         },
         {
             "name": "drupal/haven_theme",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/haven_theme.git",
-                "reference": "1.0.0"
+                "reference": "1.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/haven_theme-1.0.0.zip",
-                "reference": "1.0.0",
-                "shasum": "c2d70d7807a3d1f8c945d9df5afebd5284061fe7"
+                "url": "https://ftp.drupal.org/files/projects/haven_theme-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "f3f64ee60ddddfeafbe0d59ba84e9d9efc5a8fea"
             },
             "require": {
                 "drupal/core": "^11.3",
@@ -5298,8 +5226,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0",
-                    "datestamp": "1773939237",
+                    "version": "1.0.1",
+                    "datestamp": "1780902491",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5311,6 +5239,10 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
+                {
+                    "name": "balintbrews",
+                    "homepage": "https://www.drupal.org/user/613760"
+                },
                 {
                     "name": "ckrina",
                     "homepage": "https://www.drupal.org/user/1206650"
@@ -6247,89 +6179,6 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/menu_link_attributes",
                 "issues": "http://drupal.org/project/issues/menu_link_attributes"
-            }
-        },
-        {
-            "name": "drupal/mercury",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/mercury.git",
-                "reference": "1.0.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/mercury-1.0.3.zip",
-                "reference": "1.0.3",
-                "shasum": "621a353cb78a9688702695c2f46b304fde037186"
-            },
-            "require": {
-                "drupal/core": "^11.3",
-                "drupal/cva": "^1"
-            },
-            "conflict": {
-                "drupal/experience_builder": "*"
-            },
-            "require-dev": {
-                "drupal/canvas": "^1"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.3",
-                    "datestamp": "1773939393",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "balintbrews",
-                    "homepage": "https://www.drupal.org/user/613760"
-                },
-                {
-                    "name": "ckrina",
-                    "homepage": "https://www.drupal.org/user/1206650"
-                },
-                {
-                    "name": "galactus86",
-                    "homepage": "https://www.drupal.org/user/1203916"
-                },
-                {
-                    "name": "jurgenhaas",
-                    "homepage": "https://www.drupal.org/user/168924"
-                },
-                {
-                    "name": "lanny heidbreder",
-                    "homepage": "https://www.drupal.org/user/19794"
-                },
-                {
-                    "name": "pameeela",
-                    "homepage": "https://www.drupal.org/user/1431110"
-                },
-                {
-                    "name": "penyaskito",
-                    "homepage": "https://www.drupal.org/user/959536"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                },
-                {
-                    "name": "thejimbirch",
-                    "homepage": "https://www.drupal.org/user/2507260"
-                }
-            ],
-            "description": "A scalable, modern Drupal CMS prototype theme, integrating cutting-edge front-end tools and a flexible, component-based design system.",
-            "homepage": "https://www.drupal.org/project/mercury",
-            "support": {
-                "source": "https://git.drupalcode.org/project/mercury"
             }
         },
         {

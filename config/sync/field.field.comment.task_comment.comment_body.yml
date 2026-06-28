@@ -5,6 +5,7 @@ dependencies:
   config:
     - comment.type.task_comment
     - field.storage.comment.comment_body
+    - filter.format.content_format
   module:
     - text
 id: comment.task_comment.comment_body
@@ -18,5 +19,6 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - content_format
 field_type: text_long

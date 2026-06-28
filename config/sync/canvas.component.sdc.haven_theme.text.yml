@@ -1,24 +1,15 @@
 uuid: 160f0ff4-3aaa-4b90-ab0b-6af19685972d
 langcode: en
-status: true
-dependencies:
-  config:
-    - filter.format.canvas_html_block
-  module:
-    - options
-    - text
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: SRZnT5KHd4xD0JSmQawxDIIpIZSBWl-WsQ_En-loDFQ
-label: Text
-id: sdc.haven_theme.text
-source: sdc
-source_local_id: 'haven_theme:text'
-provider: haven_theme
-active_version: 75c8d6e04ca4b729
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 75c8d6e04ca4b729
+  75c8d6e04ca4b729:
     settings:
       prop_field_definitions:
         text:
@@ -160,3 +151,8 @@ versioned_properties:
           expression: ℹ︎list_string␟value
     fallback_metadata:
       slot_definitions: {  }
+label: Text
+id: sdc.haven_theme.text
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:text'

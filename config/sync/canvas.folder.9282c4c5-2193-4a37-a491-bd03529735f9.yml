@@ -7,7 +7,6 @@ dependencies:
     - canvas.component.sdc.haven_theme.card-feature
     - canvas.component.sdc.haven_theme.card-icon
     - canvas.component.sdc.haven_theme.card-logo
-    - canvas.component.sdc.haven_theme.card-pricing
     - canvas.component.sdc.haven_theme.card-testimonial
 name: Card
 configEntityTypeId: component
@@ -17,5 +16,4 @@ items:
   - sdc.haven_theme.card-feature
   - sdc.haven_theme.card-icon
   - sdc.haven_theme.card-logo
-  - sdc.haven_theme.card-pricing
   - sdc.haven_theme.card-testimonial

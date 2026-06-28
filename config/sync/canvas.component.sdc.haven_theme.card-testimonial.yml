@@ -1,31 +1,15 @@
 uuid: cdc0a74c-15bc-48eb-890c-077524a0ab51
 langcode: en
-status: true
-dependencies:
-  config:
-    - field.field.media.image.field_media_image
-    - field.field.media.svg_image.field_media_svg_image
-    - image.style.canvas_parametrized_width
-    - media.type.image
-    - media.type.svg_image
-  module:
-    - file
-    - link
-    - media
-    - media_library
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: w7nJYLMfGzM4zVzW2w7NYbyIMTZVl_Oq9koU-mpOZeg
-label: 'Testimonial card'
-id: sdc.haven_theme.card-testimonial
-source: sdc
-source_local_id: 'haven_theme:card-testimonial'
-provider: haven_theme
-active_version: b1439bd367996d2e
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: b1439bd367996d2e
+  b1439bd367996d2e:
     settings:
       prop_field_definitions:
         text:
@@ -325,3 +309,8 @@ versioned_properties:
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
     fallback_metadata:
       slot_definitions: {  }
+label: 'Testimonial card'
+id: sdc.haven_theme.card-testimonial
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:card-testimonial'

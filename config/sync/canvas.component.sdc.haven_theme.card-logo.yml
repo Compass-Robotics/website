@@ -1,31 +1,15 @@
 uuid: 375c2c32-6a07-4c1e-9ad2-884f1dc93e65
 langcode: en
-status: true
-dependencies:
-  config:
-    - field.field.media.image.field_media_image
-    - field.field.media.svg_image.field_media_svg_image
-    - image.style.canvas_parametrized_width
-    - media.type.image
-    - media.type.svg_image
-  module:
-    - file
-    - link
-    - media
-    - media_library
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: UVgeApK6HoFLmrw332AEXTy7G0SPQnywU2BspbPD6WY
-label: 'Logo card'
-id: sdc.haven_theme.card-logo
-source: sdc
-source_local_id: 'haven_theme:card-logo'
-provider: haven_theme
-active_version: edb9b77489dca82c
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: edb9b77489dca82c
+  edb9b77489dca82c:
     settings:
       prop_field_definitions:
         media:
@@ -121,3 +105,8 @@ versioned_properties:
           expression: ℹ︎string␟value
     fallback_metadata:
       slot_definitions: {  }
+label: 'Logo card'
+id: sdc.haven_theme.card-logo
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:card-logo'

@@ -1,19 +1,15 @@
 uuid: 79314b3a-9263-45d7-b1b8-649eee0ff661
 langcode: en
-status: true
-dependencies:
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: hcfJ7y1ueCGPKmHFHK41S-q182Isb0nWZrdFVOW2Nz4
-label: Footer
-id: sdc.haven_theme.footer
-source: sdc
-source_local_id: 'haven_theme:footer'
-provider: haven_theme
-active_version: d696cea1796b650e
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: d696cea1796b650e
+  d696cea1796b650e:
     settings:
       prop_field_definitions:
         align:
@@ -36,3 +32,8 @@ versioned_properties:
           title: 'Utility links'
         footer_utility_last:
           title: 'Copyright text'
+label: Footer
+id: sdc.haven_theme.footer
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:footer'

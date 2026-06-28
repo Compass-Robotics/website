@@ -301,6 +301,7 @@ access:
   create:
     roles:
       - anonymous
+      - authenticated
     users: {  }
     permissions: {  }
   view_any:

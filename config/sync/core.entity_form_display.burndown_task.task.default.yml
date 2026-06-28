@@ -5,11 +5,9 @@ dependencies:
   config:
     - burndown.burndown_task_type.task
     - field.field.burndown_task.task.field_acceptance_criteria
-    - field.field.burndown_task.task.field_comments
     - image.style.thumbnail
   module:
     - burndown
-    - comment
     - image
     - link
     - tagify
@@ -21,7 +19,7 @@ mode: default
 content:
   assigned_to:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -31,7 +29,7 @@ content:
     third_party_settings: {  }
   description:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -39,7 +37,7 @@ content:
     third_party_settings: {  }
   estimate:
     type: tagify_select_widget
-    weight: 2
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -50,21 +48,15 @@ content:
     third_party_settings: {  }
   field_acceptance_criteria:
     type: text_textarea
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_comments:
-    type: comment_default
-    weight: 26
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   images:
     type: image_image
-    weight: 9
+    weight: 10
     region: content
     settings:
       progress_indicator: throbber
@@ -73,7 +65,7 @@ content:
     label: above
   link:
     type: link_default
-    weight: 8
+    weight: 9
     region: content
     settings:
       placeholder_url: ''
@@ -82,7 +74,7 @@ content:
     label: above
   log:
     type: burndown_log_default
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -96,19 +88,33 @@ content:
     third_party_settings: {  }
   priority:
     type: options_select
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   relationships:
     type: burndown_task_relationship_default
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   sprint:
     type: tagify_entity_reference_autocomplete_widget
-    weight: 7
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
+    third_party_settings: {  }
+  swimlane:
+    type: tagify_entity_reference_autocomplete_widget
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -122,7 +128,7 @@ content:
     third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -136,7 +142,6 @@ hidden:
   completed: true
   project: true
   resolution: true
-  swimlane: true
   tags: true
   ticket_id: true
   watch_list: true

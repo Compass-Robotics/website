@@ -6,7 +6,6 @@ dependencies:
     - burndown.burndown_task_type.task
     - core.entity_view_mode.burndown_task.teaser
     - field.field.burndown_task.task.field_acceptance_criteria
-    - field.field.burndown_task.task.field_comments
   module:
     - burndown
     - image
@@ -118,7 +117,6 @@ hidden:
   created: true
   description: true
   field_acceptance_criteria: true
-  field_comments: true
   link: true
   log: true
   project: true

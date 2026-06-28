@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - canvas.component.sdc.haven_theme.accordion
-    - canvas.component.sdc.haven_theme.accordion-container
     - canvas.component.sdc.haven_theme.footer
     - canvas.component.sdc.haven_theme.grid
     - canvas.component.sdc.haven_theme.group
@@ -14,8 +12,6 @@ name: Layout
 configEntityTypeId: component
 weight: 0
 items:
-  - sdc.haven_theme.accordion
-  - sdc.haven_theme.accordion-container
   - sdc.haven_theme.footer
   - sdc.haven_theme.grid
   - sdc.haven_theme.group

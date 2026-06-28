@@ -1,21 +1,15 @@
 uuid: aa864fa1-e566-41e5-a21c-aab93a5a300f
 langcode: en
-status: true
-dependencies:
-  module:
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: k1dAPmOpjZoi6oc7bOEupc9JiUQXwqo5UXTMcKa38zc
-label: Icon
-id: sdc.haven_theme.icon
-source: sdc
-source_local_id: 'haven_theme:icon'
-provider: haven_theme
-active_version: 7d2cdaeca3752d68
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 7d2cdaeca3752d68
+  7d2cdaeca3752d68:
     settings:
       prop_field_definitions:
         icon:
@@ -41,3 +35,8 @@ versioned_properties:
           expression: ℹ︎list_string␟value
     fallback_metadata:
       slot_definitions: {  }
+label: Icon
+id: sdc.haven_theme.icon
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:icon'

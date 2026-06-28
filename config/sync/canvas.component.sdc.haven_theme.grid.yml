@@ -1,21 +1,15 @@
 uuid: 55995eb3-f991-466b-b359-9f67559231a6
 langcode: en
-status: true
-dependencies:
-  module:
-    - options
-  theme:
-    - haven_theme
+status: false
+dependencies: {  }
 _core:
   default_config_hash: YXRxHyQo4k3dpnSGPhVRFVMlpbFeIKOnkDIG7e1RJYk
-label: Grid
-id: sdc.haven_theme.grid
-source: sdc
-source_local_id: 'haven_theme:grid'
-provider: haven_theme
-active_version: 0a5595fef10a7122
+active_version: fallback
 versioned_properties:
   active:
+    settings:
+      last_active_version: 0a5595fef10a7122
+  0a5595fef10a7122:
     settings:
       prop_field_definitions:
         width:
@@ -145,3 +139,8 @@ versioned_properties:
       slot_definitions:
         main_slot:
           title: Grid
+label: Grid
+id: sdc.haven_theme.grid
+provider: haven_theme
+source: sdc
+source_local_id: 'haven_theme:grid'

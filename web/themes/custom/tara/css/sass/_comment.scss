@@ -1,0 +1,88 @@
+/* Comments
+-------------------------------------------- */
+#comments i {
+  color: var(--color-primary);
+}
+.comment-form-wrap {
+  position: relative;
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.filter-wrapper {
+  font-size: 0.9rem;
+  border: 2px solid #ffffff;
+}
+.filter-wrapper ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-type: none;
+}
+.filter-wrapper ul li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ffffff;
+}
+.filter-wrapper ul li:last-child {
+  border: 0;
+}
+/* single comment */
+.single-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+.comment-header {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+.comment-user-picture {
+  background-color: var(--border);
+  width: 80px;
+  border-radius: 8px;
+}
+.comment-user-picture img {
+  width: 80px;
+  height: auto;
+  margin: 0;
+  border-radius: 8px;
+}
+.comment-head {
+  display: flex;
+  flex-direction: column;
+}
+.comment-head mark {
+  background-color: var(--color-dark);
+  padding: 0 4px;
+}
+.single-comment-title {
+  margin: 0;
+  font-size: 22px;
+}
+.single-comment-meta,
+.single-comment-meta a {
+  color: var(--gray-color);
+}
+.single-comment-body .links.inline li {
+  padding: 0;
+}
+.single-comment-body .links.inline a {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: 4px 10px;
+  transition: all 0.3s ease-in-out;
+}
+.single-comment-body .links.inline a:hover {
+  background-color: var(--color-dark);
+  color: #ffffff;
+}
+#comments .indented {
+  margin-left: 50px;
+}

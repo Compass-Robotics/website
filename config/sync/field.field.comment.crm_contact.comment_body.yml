@@ -5,6 +5,7 @@ dependencies:
   config:
     - comment.type.crm_contact
     - field.storage.comment.comment_body
+    - filter.format.content_format
   module:
     - text
 _core:
@@ -20,5 +21,6 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  allowed_formats: {  }
+  allowed_formats:
+    - content_format
 field_type: text_long

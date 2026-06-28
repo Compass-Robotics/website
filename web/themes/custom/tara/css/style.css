@@ -2,8 +2,8 @@
 /* Variables
 ----------------------- */
 :root {
-  --color-primary: #C25700;
-  --color-secondary: #6e7c03;
+  --color-primary: var(--teal-dark);
+  --color-secondary: var(--bronze);
   --color-primary-light: #f2e8dd;
   --bg-body: #f9f6f3;
   --text-color: #3f3f3f;
@@ -17,6 +17,11 @@
   --shadow-secondary: 0 0 10px 1px var(--color-secondary);
   --font-text: "open sans", sans-serif;
   --font-heading: "roboto", sans-serif;
+    /* Logo colors */
+  --bronze: oklch(68.35% 0.1212 93.12);
+  --bronze-dark: oklch(0.5799 0.1015 78.1);
+  --teal: oklch(68.27% 0.1216 182.92);
+  --teal-dark: oklch(0.5251 0.0895 195.78);
 }
 
 /* Default Box sizing */
@@ -3495,4 +3500,4 @@ div#sliding-popup, div#sliding-popup .eu-cookie-withdraw-banner, .eu-cookie-with
   .w90 {
     flex-basis: calc(90% - 10px);
   }
-}/*# sourceMappingURL=style.css.map */
+}

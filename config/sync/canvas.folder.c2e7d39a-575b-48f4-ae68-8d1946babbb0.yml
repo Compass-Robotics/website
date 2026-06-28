@@ -9,6 +9,7 @@ dependencies:
     - canvas.component.sdc.haven_theme.icon
     - canvas.component.sdc.haven_theme.image
     - canvas.component.sdc.haven_theme.text
+    - canvas.component.sdc.tara.icon
 name: Base
 configEntityTypeId: component
 weight: 0
@@ -19,3 +20,4 @@ items:
   - sdc.haven_theme.icon
   - sdc.haven_theme.image
   - sdc.haven_theme.text
+  - sdc.tara.icon

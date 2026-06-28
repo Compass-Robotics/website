@@ -10,8 +10,8 @@ features:
   node_user_picture: false
 logo:
   path: ''
-  use_default: false
-all_icons_show: 1
+  use_default: true
+all_icons_show: 0
 facebook_url: 'https://www.facebook.com/idewdot'
 twitter_url: 'https://twitter.com/dewdots'
 instagram_url: 'https://www.instagram.com/google'

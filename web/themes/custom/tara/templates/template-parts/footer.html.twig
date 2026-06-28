@@ -39,11 +39,6 @@
             &copy; {{ "now"|date("Y") }} {{ site_name }}, All rights reserved.
           </div>
         {% endif %} <!-- end if for copyright -->
-        {% if all_icons_show %}
-          <div class="footer-bottom-middle-right">
-            {% include '@tara/template-parts/social-icons.html.twig' %}
-          </div>
-        {% endif %} <!-- end if for all_icons_show -->
       </section><!-- /footer-bottom-middle -->
      {% endif %} <!-- end condition if copyright or social icons -->
      {% if page.footer_bottom %}

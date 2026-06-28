@@ -14,13 +14,11 @@
  */
 #}
 {% block content %}
-<img src="{{ site_logo }}" alt="{{ 'Home'|t }}" width="200px" height="200px" />
 <div class="site-branding">
   {% if site_logo %}
-  <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" width="500px" height="500px" />
 		<div class="site-logo">
          <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-              G<img src="{{ site_logo }}" alt="{{ 'Home'|t }}" width="500px" height="500px" />
+      <img class="site-logo-image" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
          </a>
 	 </div>
   {% endif %}

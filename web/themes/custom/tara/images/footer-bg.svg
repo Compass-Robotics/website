@@ -1,7 +1,8 @@
 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_414_12)">
-<line x1="19.5" y1="2.18557e-08" x2="19.5" y2="20" stroke="#E0DCD8"/>
-<line y1="19.5" x2="19" y2="19.5" stroke="#E0DCD8"/>
+<rect width="20" height="20" fill="oklch(0 0 0)"/>
+<line x1="19.5" y1="2.18557e-08" x2="19.5" y2="20" stroke="oklch(68.35% 0.1212 93.12)" stroke-opacity="0.2"/>
+<line y1="19.5" x2="19" y2="19.5" stroke="oklch(68.35% 0.1212 93.12)" stroke-opacity="0.2"/>
 </g>
 <defs>
 <clipPath id="clip0_414_12">

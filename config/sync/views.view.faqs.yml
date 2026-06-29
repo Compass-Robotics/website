@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.rss
     - field.storage.node.field_content
     - node.type.faq
     - system.menu.main
@@ -302,33 +301,6 @@ display:
         weight: -46
         menu_name: main
         parent: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_content'
-  feed_1:
-    id: feed_1
-    display_title: Feed
-    display_plugin: feed
-    position: 2
-    display_options:
-      pager:
-        type: some
-      style:
-        type: rss
-      row:
-        type: node_rss
-      display_extenders: {  }
-      path: faqs.xml
-      displays:
-        default: default
-        faqs: faqs
     cache_metadata:
       max-age: -1
       contexts:

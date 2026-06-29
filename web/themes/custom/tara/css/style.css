@@ -554,6 +554,15 @@ label[for] {
   margin-bottom: 1rem;
 }
 
+.js-form-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .form-required:after {
   content: "*";
   display: inline-block;

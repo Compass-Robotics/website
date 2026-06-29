@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - dashboard.dashboard.welcome
     - filter.format.content_format
     - filter.format.webform_default
   module:
@@ -11,12 +10,9 @@ dependencies:
     - captcha
     - coffee
     - comment
-    - contextual
-    - dashboard
     - file
     - filter
     - honeypot
-    - klaro
     - media
     - navigation
     - node
@@ -57,7 +53,6 @@ permissions:
   - 'access comments'
   - 'access completed board'
   - 'access content'
-  - 'access contextual links'
   - 'access navigation'
   - 'add task entities'
   - 'burndown close task'
@@ -74,7 +69,6 @@ permissions:
   - 'send tasks to board'
   - 'skip CAPTCHA'
   - 'skip comment approval'
-  - 'use klaro'
   - 'use text format content_format'
   - 'use text format webform_default'
   - 'view all task revisions'
@@ -82,4 +76,3 @@ permissions:
   - 'view own unpublished content'
   - 'view the administration theme'
   - 'view unpublished task entities'
-  - 'view welcome dashboard'

@@ -5,7 +5,6 @@ dependencies:
   module:
     - burndown
     - comment
-    - klaro
     - media
     - system
 _core:
@@ -19,6 +18,5 @@ permissions:
   - '2 view project'
   - 'access comments'
   - 'access content'
-  - 'use klaro'
   - 'view media'
   - 'view media'

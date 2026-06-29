@@ -18,7 +18,6 @@ dependencies:
     - core.entity_view_mode.media.small
   module:
     - editor
-    - klaro
     - linkit
     - media
 _core:
@@ -97,12 +96,6 @@ filters:
     weight: -46
     settings:
       filter_url_length: 72
-  klaro_filter:
-    id: klaro_filter
-    provider: klaro
-    status: false
-    weight: -37
-    settings: {  }
   linkit:
     id: linkit
     provider: linkit

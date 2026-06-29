@@ -1,0 +1,8 @@
+uuid: e7a8d5eb-855f-4ae9-80a4-0cfd091ccefb
+langcode: en
+status: true
+dependencies: {  }
+id: image_promo_left
+label: 'Image promo left'
+revision: false
+description: 'An image on the left, text block on the right.'

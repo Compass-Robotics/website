@@ -5,6 +5,7 @@ module:
   automated_cron: 0
   big_pipe: 0
   block: 0
+  block_content: 0
   bpmn_io: 0
   breakpoint: 0
   burndown: 0
@@ -122,7 +123,6 @@ module:
   password_policy: 10
   views: 10
 theme:
-  canvas_stark: 0
   claro: 0
   easy_email_theme: 0
   gin: 0

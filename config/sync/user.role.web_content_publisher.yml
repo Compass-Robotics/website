@@ -23,7 +23,6 @@ dependencies:
     - redirect
     - scheduler
     - taxonomy
-    - trash
 id: web_content_publisher
 label: 'Web content publisher'
 weight: -7
@@ -32,7 +31,6 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access taxonomy overview'
-  - 'access trash'
   - 'administer media'
   - 'administer redirects'
   - 'create document media'
@@ -81,7 +79,6 @@ permissions:
   - 'view any image media revisions'
   - 'view any remote_video media revisions'
   - 'view any unpublished content'
-  - 'view deleted entities'
   - 'view event revisions'
   - 'view faq revisions'
   - 'view latest version'

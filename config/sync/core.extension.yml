@@ -3,10 +3,8 @@ _core:
 module:
   address: 0
   automated_cron: 0
-  big_pipe: 0
   block: 0
   block_content: 0
-  bpmn_io: 0
   breakpoint: 0
   burndown: 0
   captcha: 0
@@ -15,7 +13,6 @@ module:
   coffee: 0
   comment: 0
   content_moderation: 0
-  content_view_access: 0
   contextual: 0
   crm: 0
   crop: 0
@@ -26,14 +23,6 @@ module:
   easy_breadcrumb: 0
   easy_email: 0
   easy_email_override: 0
-  eca: 0
-  eca_base: 0
-  eca_config: 0
-  eca_content: 0
-  eca_misc: 0
-  eca_render: 0
-  eca_ui: 0
-  eca_user: 0
   editor: 0
   field: 0
   field_group: 0
@@ -65,14 +54,12 @@ module:
   menu_link_content: 0
   menu_ui: 0
   metatag: 0
-  modeler_api: 0
   mysql: 0
   name: 0
   navigation: 0
   navigation_extra_tools: 0
   node: 0
   options: 0
-  package_manager: 0
   page_cache: 0
   password_policy_character_types: 0
   password_policy_characters: 0
@@ -83,7 +70,6 @@ module:
   path_alias: 0
   primary_entity_reference: 0
   redirect: 0
-  redirect_404: 0
   responsive_image: 0
   sam: 0
   scheduler: 0
@@ -103,7 +89,6 @@ module:
   text: 0
   token: 0
   token_or: 0
-  trash: 0
   ui_icons: 0
   ui_icons_field: 0
   ui_icons_menu: 0

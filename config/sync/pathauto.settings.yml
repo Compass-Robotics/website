@@ -1,4 +1,5 @@
 enabled_entity_types:
+  - node
   - user
 punctuation:
   double_quotes: 0
@@ -7,6 +8,7 @@ punctuation:
   comma: 0
   period: 0
   hyphen: 1
+  soft_hyphen: 0
   underscore: 0
   colon: 0
   semicolon: 0

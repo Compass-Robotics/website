@@ -22,7 +22,6 @@ dependencies:
     - scheduler
     - system
     - taxonomy
-    - trash
 _core:
   default_config_hash: MdlwUOSWfa49QGBCn9xD1geVf_WCGuNQHN47YJ5A150
 id: content_editor
@@ -34,7 +33,6 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access taxonomy overview'
-  - 'access trash'
   - 'administer url aliases'
   - 'create document media'
   - 'create event content'

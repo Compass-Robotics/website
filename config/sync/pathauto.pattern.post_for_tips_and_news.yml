@@ -1,0 +1,23 @@
+uuid: 30f28342-d554-4425-9b38-19178e336e1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.posts
+  module:
+    - node
+id: post_for_tips_and_news
+label: 'Post for tips and news'
+type: 'canonical_entities:node'
+pattern: '/[node:field_blog_type]/[node:created:html_date]/[node:title]'
+selection_criteria:
+  9e9b8a4c-f443-4f32-8514-43fdd58169da:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      posts: posts
+selection_logic: and
+weight: -5
+relationships: {  }

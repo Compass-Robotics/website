@@ -16,7 +16,6 @@ dependencies:
     - name
     - options
     - text
-    - trash
 id: crm_contact.mentor.default
 targetEntityType: crm_contact
 bundle: mentor
@@ -113,13 +112,12 @@ content:
     weight: 0
     region: content
   preferred_name:
-    type: trash_label
+    type: string
     label: above
     settings:
       link_to_entity: false
-      show_entity_id: true
     third_party_settings: {  }
-    weight: 1
+    weight: 13
     region: content
   relationship_statistics:
     type: crm_relationship_statistics_default

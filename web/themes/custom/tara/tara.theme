@@ -101,7 +101,11 @@ function tara_preprocess_html(&$variables) {
 function tara_preprocess_breadcrumb(&$variables) {
 	$request = \Drupal::request();
 	$route_match = \Drupal::routeMatch();
-	$page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+	$route = $route_match->getRouteObject();
+	$page_title = '';
+	if ($route) {
+		$page_title = \Drupal::service('title_resolver')->getTitle($request, $route);
+	}
 	if (!empty($page_title)) {
 		$variables['breadcrumb'][] = [
 			'text' => $page_title,

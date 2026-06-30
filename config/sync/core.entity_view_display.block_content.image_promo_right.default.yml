@@ -1,0 +1,33 @@
+uuid: e71f5a33-7042-4e7a-903c-2043d64f7d5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_promo_right
+    - field.field.block_content.image_promo_right.field_content
+    - field.field.block_content.image_promo_right.field_image
+  module:
+    - text
+id: block_content.image_promo_right.default
+targetEntityType: block_content
+bundle: image_promo_right
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

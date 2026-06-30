@@ -7,13 +7,9 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
-    - node.type.blog
     - node.type.event
     - node.type.faq
     - node.type.notebook_entry
-    - node.type.page
-    - node.type.person_profile
-    - node.type.project
     - taxonomy.vocabulary.leadership
     - taxonomy.vocabulary.tags
     - workflows.workflow.basic_editorial
@@ -27,7 +23,6 @@ dependencies:
     - redirect
     - scheduler
     - taxonomy
-    - trash
 id: web_content_publisher
 label: 'Web content publisher'
 weight: -7
@@ -36,10 +31,8 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access taxonomy overview'
-  - 'access trash'
   - 'administer media'
   - 'administer redirects'
-  - 'create blog content'
   - 'create document media'
   - 'create event content'
   - 'create faq content'
@@ -51,13 +44,11 @@ permissions:
   - 'delete any image media'
   - 'delete any media'
   - 'delete any remote_video media'
-  - 'edit any blog content'
   - 'edit any document media'
   - 'edit any event content'
   - 'edit any faq content'
   - 'edit any image media'
   - 'edit any notebook_entry content'
-  - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit own notebook_entry content'
   - 'edit terms in leadership'
@@ -66,13 +57,9 @@ permissions:
   - 'revert any document media revisions'
   - 'revert any image media revisions'
   - 'revert any remote_video media revisions'
-  - 'revert blog revisions'
   - 'revert event revisions'
   - 'revert faq revisions'
   - 'revert notebook_entry revisions'
-  - 'revert page revisions'
-  - 'revert person_profile revisions'
-  - 'revert project revisions'
   - 'revert term revisions in tags'
   - 'schedule publishing of media'
   - 'schedule publishing of nodes'
@@ -92,16 +79,11 @@ permissions:
   - 'view any image media revisions'
   - 'view any remote_video media revisions'
   - 'view any unpublished content'
-  - 'view blog revisions'
-  - 'view deleted entities'
   - 'view event revisions'
   - 'view faq revisions'
   - 'view latest version'
   - 'view notebook_entry revisions'
   - 'view own unpublished media'
-  - 'view page revisions'
-  - 'view person_profile revisions'
-  - 'view project revisions'
   - 'view scheduled content'
   - 'view scheduled media'
   - 'view term revisions in leadership'

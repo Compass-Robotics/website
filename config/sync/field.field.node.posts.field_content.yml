@@ -1,0 +1,24 @@
+uuid: eed94253-a27e-49f5-9d1b-eb67917ee303
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - filter.format.content_format
+    - node.type.posts
+  module:
+    - text
+id: node.posts.field_content
+field_name: field_content
+entity_type: node
+bundle: posts
+label: Content
+description: 'The content of this page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - content_format
+field_type: text_long

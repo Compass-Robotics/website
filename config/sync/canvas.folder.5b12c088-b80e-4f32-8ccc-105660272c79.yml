@@ -1,8 +1,0 @@
-uuid: 5b12c088-b80e-4f32-8ccc-105660272c79
-langcode: en
-status: true
-dependencies: {  }
-name: Announcements
-configEntityTypeId: component
-weight: 0
-items: {  }

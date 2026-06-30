@@ -1,0 +1,95 @@
+<nav aria-label="{% trans %}Social media links{% endtrans %}">
+  <ul class="social-icons">
+
+    {% if facebook_url != '' %}
+      <li>
+        <a href="{{ facebook_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our Facebook page (opens in new tab){% endtrans %}">
+          <i class="icon-facebook" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if twitter_url != '' %}
+      <li>
+        <a href="{{ twitter_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our Twitter or X page (opens in new tab){% endtrans %}">
+          <i class="icon-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if instagram_url != '' %}
+      <li>
+        <a href="{{ instagram_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our Instagram page (opens in new tab){% endtrans %}">
+          <i class="icon-instagram" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if linkedin_url != '' %}
+      <li>
+        <a href="{{ linkedin_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our LinkedIn page (opens in new tab){% endtrans %}">
+          <i class="icon-linkedin" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if youtube_url != '' %}
+      <li>
+        <a href="{{ youtube_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our YouTube channel (opens in new tab){% endtrans %}">
+          <i class="icon-youtube" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if vimeo_url != '' %}
+      <li>
+        <a href="{{ vimeo_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our Vimeo channel (opens in new tab){% endtrans %}">
+          <i class="icon-vimeo" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if vk_url != '' %}
+      <li>
+        <a href="{{ vk_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our VK page (opens in new tab){% endtrans %}">
+          <i class="icon-vk" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if whatsapp_url != '' %}
+      <li>
+        <a href="{{ whatsapp_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Chat with us on WhatsApp (opens in new tab){% endtrans %}">
+          <i class="icon-whatsapp" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if github_url != '' %}
+      <li>
+        <a href="{{ github_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Visit our GitHub profile (opens in new tab){% endtrans %}">
+          <i class="icon-github" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if telegram_url != '' %}
+      <li>
+        <a href="{{ telegram_url }}" target="_blank" rel="noopener noreferrer"
+          aria-label="{% trans %}Join us on Telegram (opens in new tab){% endtrans %}">
+          <i class="icon-telegram" aria-hidden="true"></i>
+        </a>
+      </li>
+    {% endif %}
+
+  </ul>
+</nav>

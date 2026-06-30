@@ -1,0 +1,33 @@
+uuid: f8c24126-cc1e-4a77-8037-eca318a5f67e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_promo_middle
+    - field.field.block_content.image_promo_middle.field_content
+    - field.field.block_content.image_promo_middle.field_image
+  module:
+    - text
+id: block_content.image_promo_middle.default
+targetEntityType: block_content
+bundle: image_promo_middle
+mode: default
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

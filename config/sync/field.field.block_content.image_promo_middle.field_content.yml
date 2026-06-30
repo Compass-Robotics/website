@@ -1,0 +1,24 @@
+uuid: 355f56c1-6a9c-4a45-8eb8-2b76892b77ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_promo_middle
+    - field.storage.block_content.field_content
+    - filter.format.content_format
+  module:
+    - text
+id: block_content.image_promo_middle.field_content
+field_name: field_content
+entity_type: block_content
+bundle: image_promo_middle
+label: Content
+description: "Don't get too long winded"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - content_format
+field_type: text_long

@@ -1,0 +1,74 @@
+# These will be loaded on every pages.
+global-styling:
+  version: 11.0.9
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/tara.js: {}
+  dependencies:
+    - core/jquery
+
+# Slider
+slider:
+  version: 11.0.9
+  css:
+    component:
+      css/slider.css: {}
+  js:
+    js/slider.js: {}
+
+# Google Fonts from CDN
+googlefontscdn:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Open+Sans|Roboto: { type: external }
+
+# Google Fonts from local
+googlefontslocal:
+  version: 11.0.9
+  css:
+    theme:
+      css/font.css: {}
+
+# Book
+book:
+  version: 11.0.9
+  css:
+    component:
+      css/book.css: {}
+
+# FontAwesome 4
+fontawesome4:
+  version: 4.7
+  css:
+    component:
+      css/fontawesome4.css: {}
+
+# FontAwesome 5
+fontawesome5:
+  version: 5.15.4
+  css:
+    component:
+      css/fontawesome5.css: {weight: -10}
+
+# FontAwesome 6
+fontawesome6:
+  version: 6.7.1
+  css:
+    component:
+      css/fontawesome6.css: {weight: -10}
+
+# Bootstrap Icons
+bootstrap-icons:
+  version: 1.11.3
+  css:
+    component:
+      css/bootstrap-icons.css: {}
+
+# Theme settings page 
+theme-settings:
+  version: 11.0.9
+  css:
+    theme:
+      css/theme-settings.css: {}

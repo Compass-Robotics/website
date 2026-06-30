@@ -1,0 +1,31 @@
+uuid: 89d45bef-f8d2-4daa-a4b6-73b5ee327f75
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_promo_right
+    - field.storage.block_content.field_image
+    - media.type.image
+    - media.type.svg_image
+id: block_content.image_promo_right.field_image
+field_name: field_image
+entity_type: block_content
+bundle: image_promo_right
+label: Image
+description: 'Choose an image'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      svg_image: svg_image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

@@ -1,7 +1,0 @@
-access:
-  node:
-    faq:
-      anonymous: '404'
-  taxonomy_term:
-    tags:
-      anonymous: '404'

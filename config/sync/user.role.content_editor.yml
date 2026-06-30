@@ -3,21 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - dashboard.dashboard.welcome
     - filter.format.content_format
     - media.type.document
     - media.type.image
     - media.type.remote_video
-    - node.type.blog
     - node.type.event
     - node.type.faq
     - node.type.notebook_entry
-    - node.type.page
     - taxonomy.vocabulary.tags
     - workflows.workflow.basic_editorial
   module:
     - content_moderation
-    - dashboard
     - filter
     - media
     - media_library_bulk_upload
@@ -26,7 +22,6 @@ dependencies:
     - scheduler
     - system
     - taxonomy
-    - trash
 _core:
   default_config_hash: MdlwUOSWfa49QGBCn9xD1geVf_WCGuNQHN47YJ5A150
 id: content_editor
@@ -38,9 +33,7 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'access taxonomy overview'
-  - 'access trash'
   - 'administer url aliases'
-  - 'create blog content'
   - 'create document media'
   - 'create event content'
   - 'create faq content'
@@ -50,13 +43,11 @@ permissions:
   - 'create remote_video media'
   - 'create terms in tags'
   - 'create url aliases'
-  - 'edit any blog content'
   - 'edit any document media'
   - 'edit any event content'
   - 'edit any faq content'
   - 'edit any image media'
   - 'edit any notebook_entry content'
-  - 'edit any page content'
   - 'edit any remote_video media'
   - 'edit own notebook_entry content'
   - 'edit terms in tags'
@@ -73,15 +64,12 @@ permissions:
   - 'view any image media revisions'
   - 'view any remote_video media revisions'
   - 'view any unpublished content'
-  - 'view blog revisions'
   - 'view event revisions'
   - 'view faq revisions'
   - 'view latest version'
   - 'view notebook_entry revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
-  - 'view page revisions'
   - 'view scheduled content'
   - 'view scheduled media'
   - 'view term revisions in tags'
-  - 'view welcome dashboard'

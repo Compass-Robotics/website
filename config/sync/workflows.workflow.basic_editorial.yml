@@ -3,10 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.blog
-    - node.type.page
-    - node.type.person_profile
-    - node.type.project
+    - node.type.event
+    - node.type.faq
+    - node.type.landing_page
+    - node.type.notebook_entry
+    - node.type.posts
   module:
     - content_moderation
 _core:
@@ -56,8 +57,9 @@ type_settings:
       weight: 1
   entity_types:
     node:
-      - blog
-      - page
-      - person_profile
-      - project
+      - event
+      - faq
+      - landing_page
+      - notebook_entry
+      - posts
   default_moderation_state: draft

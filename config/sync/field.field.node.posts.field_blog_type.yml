@@ -1,0 +1,21 @@
+uuid: 0927008e-e6bf-4ce2-80db-5821dbdec05e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_type
+    - node.type.posts
+  module:
+    - options
+id: node.posts.field_blog_type
+field_name: field_blog_type
+entity_type: node
+bundle: posts
+label: 'Blog type'
+description: 'Choose the type of post this is.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

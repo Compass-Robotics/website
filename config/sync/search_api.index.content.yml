@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.search_index
     - search_api.server.database
   module:
-    - canvas
     - node
     - search_api_exclude
 _core:
@@ -38,20 +37,7 @@ field_settings:
     dependencies:
       module:
         - node
-  title_1:
-    label: Title
-    datasource_id: 'entity:canvas_page'
-    property_path: title
-    type: text
-    boost: 3.0
-    dependencies:
-      module:
-        - canvas
 datasource_settings:
-  'entity:canvas_page':
-    languages:
-      default: true
-      selected: {  }
   'entity:node':
     bundles:
       default: true
@@ -62,12 +48,6 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
-  canvas_component_tree_inputs:
-    ignored_prop_names:
-      - class
-      - cssClasses
-      - extraClasses
-      - id
   custom_value: {  }
   entity_status: {  }
   entity_type: {  }

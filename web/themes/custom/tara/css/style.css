@@ -1270,6 +1270,11 @@ details .form-details-wrapper {
   font-weight: 400;
 }
 
+.primary-menu-wrapper.active-menu {
+  display: block;
+  visibility: visible;
+}
+
 .menu-wrap {
   position: fixed;
   top: 0;

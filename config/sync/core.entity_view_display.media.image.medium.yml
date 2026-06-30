@@ -5,17 +5,30 @@ dependencies:
   config:
     - core.entity_view_mode.media.medium
     - field.field.media.image.field_media_image
+    - image.style.uncropped_720w_webp
     - media.type.image
+  module:
+    - image
 _core:
   default_config_hash: RxdM124SyQktyVQSgkq5FM1cUUyFbXtf1qYZ1q1VHoI
 id: media.image.medium
 targetEntityType: media
 bundle: image
 mode: medium
-content: {  }
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: file
+      image_style: uncropped_720w_webp
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   created: true
-  field_media_image: true
   name: true
   search_api_excerpt: true
   thumbnail: true

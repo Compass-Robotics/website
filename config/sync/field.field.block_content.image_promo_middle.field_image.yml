@@ -1,16 +1,16 @@
-uuid: e8b7fe80-3ae3-4755-87a5-e0cf34bbe742
+uuid: 7e80680e-709c-4467-9e8e-5c4a44caca79
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.image_promo_left
+    - block_content.type.image_promo_middle
     - field.storage.block_content.field_image
     - media.type.image
     - media.type.svg_image
-id: block_content.image_promo_left.field_image
+id: block_content.image_promo_middle.field_image
 field_name: field_image
 entity_type: block_content
-bundle: image_promo_left
+bundle: image_promo_middle
 label: Image
 description: 'Choose an image'
 required: true

@@ -1,0 +1,8 @@
+uuid: 9ab37141-91e7-41ef-bf93-bf2710b0fe9c
+langcode: en
+status: true
+dependencies: {  }
+id: image_promo_right
+label: image-promo-right
+revision: false
+description: 'Use this to  feature stuff'

@@ -1,24 +1,25 @@
-uuid: 1eaebcac-5bfa-4adf-86dc-d26669006d4b
+uuid: 24154c7c-83eb-42b0-83ff-f4443c794b38
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.image_promo_left
-    - field.field.block_content.image_promo_left.field_content
-    - field.field.block_content.image_promo_left.field_image
+    - block_content.type.image_promo_right
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.image_promo_right.field_content
+    - field.field.block_content.image_promo_right.field_image
   module:
     - text
-id: block_content.image_promo_left.default
+id: block_content.image_promo_right.full
 targetEntityType: block_content
-bundle: image_promo_left
-mode: default
+bundle: image_promo_right
+mode: full
 content:
   field_content:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_image:
     type: entity_reference_entity_view
@@ -27,7 +28,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   search_api_excerpt: true

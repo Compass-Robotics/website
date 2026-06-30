@@ -5,6 +5,7 @@
  */
 
 use Drupal\file\Entity\File;
+use Drupal\Component\Utility\Html;
 
 /**
  * Sanitise input urls.
@@ -61,6 +62,36 @@ function tara_preprocess_page(array &$variables) {
 function tara_preprocess_node(array &$variables) {
 	$variables['node_author_pic'] = theme_get_setting('node_author_pic', 'tara');
 	$variables['node_tags'] = theme_get_setting('node_tags', 'tara');
+}
+
+/**
+ * Implements THEME_preprocess_block().
+ *
+ * Adds the custom block type machine name as a class on block wrappers.
+ */
+function tara_preprocess_block(array &$variables) {
+	$bundle = NULL;
+
+	if (!empty($variables['elements']['content']['#block_content'])
+		&& is_object($variables['elements']['content']['#block_content'])
+		&& method_exists($variables['elements']['content']['#block_content'], 'bundle')) {
+		$bundle = $variables['elements']['content']['#block_content']->bundle();
+	}
+
+	if (!$bundle && !empty($variables['plugin_id']) && str_starts_with($variables['plugin_id'], 'block_content:')) {
+		$uuid = substr($variables['plugin_id'], strlen('block_content:'));
+		$block_contents = \Drupal::entityTypeManager()
+			->getStorage('block_content')
+			->loadByProperties(['uuid' => $uuid]);
+		$block_content = reset($block_contents);
+		if ($block_content && method_exists($block_content, 'bundle')) {
+			$bundle = $block_content->bundle();
+		}
+	}
+
+	if ($bundle) {
+		$variables['attributes']['class'][] = Html::getClass($bundle);
+	}
 }
 
 /**

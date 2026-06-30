@@ -1,0 +1,8 @@
+uuid: f787d729-f7b3-451d-b393-9e8477f699e3
+langcode: en
+status: true
+dependencies: {  }
+id: image_promo_middle
+label: image-promo-middle
+revision: false
+description: 'Use theis to feature something wider.'

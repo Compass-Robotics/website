@@ -1,17 +1,18 @@
-uuid: 1eaebcac-5bfa-4adf-86dc-d26669006d4b
+uuid: 13df8c09-f674-416e-a452-4697730ca224
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.image_promo_left
-    - field.field.block_content.image_promo_left.field_content
-    - field.field.block_content.image_promo_left.field_image
+    - block_content.type.image_promo_middle
+    - core.entity_view_mode.block_content.full
+    - field.field.block_content.image_promo_middle.field_content
+    - field.field.block_content.image_promo_middle.field_image
   module:
     - text
-id: block_content.image_promo_left.default
+id: block_content.image_promo_middle.full
 targetEntityType: block_content
-bundle: image_promo_left
-mode: default
+bundle: image_promo_middle
+mode: full
 content:
   field_content:
     type: text_default

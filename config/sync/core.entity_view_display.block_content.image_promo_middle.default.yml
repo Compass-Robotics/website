@@ -1,16 +1,16 @@
-uuid: 1eaebcac-5bfa-4adf-86dc-d26669006d4b
+uuid: f8c24126-cc1e-4a77-8037-eca318a5f67e
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.image_promo_left
-    - field.field.block_content.image_promo_left.field_content
-    - field.field.block_content.image_promo_left.field_image
+    - block_content.type.image_promo_middle
+    - field.field.block_content.image_promo_middle.field_content
+    - field.field.block_content.image_promo_middle.field_image
   module:
     - text
-id: block_content.image_promo_left.default
+id: block_content.image_promo_middle.default
 targetEntityType: block_content
-bundle: image_promo_left
+bundle: image_promo_middle
 mode: default
 content:
   field_content:

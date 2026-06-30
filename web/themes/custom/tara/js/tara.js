@@ -10,12 +10,9 @@ jQuery(document).ready(function ($) {
   });
 
   $('.mobile-menu').click(function () {
+    const $menuWrapper = $(this).siblings('.primary-menu-wrapper').first();
     $(this).toggleClass('menu-icon-active');
-    $(this).next('.primary-menu-wrapper').toggleClass('active-menu');
-  });
-  $('.mobile-menu').click(function () {
-    $(this).toggleClass('menu-icon-active');
-    $(this).next('.primary-menu-wrapper').toggleClass('active-menu');
+    $menuWrapper.toggleClass('active-menu');
 
     const isExpanded = $(this).attr('aria-expanded') === 'true';
     $(this).attr('aria-expanded', !isExpanded);

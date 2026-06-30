@@ -2,6 +2,12 @@ uuid: fba4392f-9405-4aff-b390-e69629669f99
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.event
+    - node.type.faq
+    - node.type.landing_page
+    - node.type.notebook_entry
+    - node.type.posts
   module:
     - content_moderation
 _core:
@@ -49,5 +55,11 @@ type_settings:
         - published
       to: unpublished
       weight: 1
-  entity_types: {  }
+  entity_types:
+    node:
+      - event
+      - faq
+      - landing_page
+      - notebook_entry
+      - posts
   default_moderation_state: draft

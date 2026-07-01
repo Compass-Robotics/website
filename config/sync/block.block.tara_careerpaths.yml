@@ -1,0 +1,28 @@
+uuid: 1c532373-78f7-4397-bbf2-f67b72f2c499
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image_promo_left:4ee87bc4-bb69-48af-a626-24429bf195ae'
+  module:
+    - block_content
+    - system
+  theme:
+    - tara
+id: tara_careerpaths
+theme: tara
+region: content
+weight: -2
+provider: null
+plugin: 'block_content:4ee87bc4-bb69-48af-a626-24429bf195ae'
+settings:
+  id: 'block_content:4ee87bc4-bb69-48af-a626-24429bf195ae'
+  label: 'career paths'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

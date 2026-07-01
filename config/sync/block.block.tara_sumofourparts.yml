@@ -1,0 +1,28 @@
+uuid: 608f60ab-b16d-45b0-8e90-c5cb9a91736c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image_promo_middle:93dfd5fb-f472-4421-9cbf-d331e7f8d071'
+  module:
+    - block_content
+    - system
+  theme:
+    - tara
+id: tara_sumofourparts
+theme: tara
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:93dfd5fb-f472-4421-9cbf-d331e7f8d071'
+settings:
+  id: 'block_content:93dfd5fb-f472-4421-9cbf-d331e7f8d071'
+  label: 'sum of our parts'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

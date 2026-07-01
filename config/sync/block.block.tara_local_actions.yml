@@ -9,7 +9,7 @@ _core:
 id: tara_local_actions
 theme: tara
 region: content
-weight: -7
+weight: -3
 provider: null
 plugin: local_actions_block
 settings:

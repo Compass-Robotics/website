@@ -16,6 +16,7 @@ is_admin: false
 permissions:
   - '1 view project'
   - '2 view project'
+  - '3 view project'
   - 'access comments'
   - 'access content'
   - 'view media'

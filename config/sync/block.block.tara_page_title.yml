@@ -9,7 +9,7 @@ _core:
 id: tara_page_title
 theme: tara
 region: content
-weight: -10
+weight: -5
 provider: null
 plugin: page_title_block
 settings:

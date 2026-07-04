@@ -124,6 +124,10 @@
         "enable-patching": true,
         "composer-exit-on-patch-failure": true,
         "patches": {
+            "drupal/expense_tracker": {
+                "3608342: Add in-kind donation types to transaction_type field": "patches/3608342-add-in-kind-donations.patch"
+
+            },
             "drupal/webform_entity_handler": {
                 "3388957: Impossible to populate a multi-valued field.": "patches/3388957-impossible-to-populate.patch"
             }

@@ -1,0 +1,11 @@
+_core:
+  default_config_hash: 6t1RKNyP_Iw-lJBovx5dkaBPJ1uzcVOAGSIrqNlTnJw
+highcharts_source: local
+highcharts_cdn_fallback: true
+highcharts_cdn_version: 12.4.0
+highcharts_custom_url: ''
+highcharts_exporting_custom_url: ''
+currency_symbol: $
+currency_position: before
+decimal_separator: .
+thousands_separator: ','

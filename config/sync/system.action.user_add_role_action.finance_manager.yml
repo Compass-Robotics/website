@@ -1,0 +1,14 @@
+uuid: 13978925-53fc-493e-850e-032b08102c95
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.finance_manager
+  module:
+    - user
+id: user_add_role_action.finance_manager
+label: 'Add the Finance Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: finance_manager

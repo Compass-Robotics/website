@@ -3,6 +3,7 @@ _core:
 module:
   address: 0
   automated_cron: 0
+  basic_auth: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -24,6 +25,7 @@ module:
   easy_email: 0
   easy_email_override: 0
   editor: 0
+  expense_tracker: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -71,12 +73,14 @@ module:
   primary_entity_reference: 0
   redirect: 0
   responsive_image: 0
+  rest: 0
   sam: 0
   scheduler: 0
   scheduler_content_moderation_integration: 0
   search_api: 0
   search_api_db: 0
   search_api_exclude: 0
+  serialization: 0
   simple_sitemap: 0
   smart_date: 0
   smtp: 0
@@ -97,6 +101,7 @@ module:
   user: 0
   view_password: 0
   views_accordion: 0
+  views_bulk_operations: 0
   views_infinite_scroll: 0
   views_ui: 0
   webform: 0

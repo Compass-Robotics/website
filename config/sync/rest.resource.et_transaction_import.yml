@@ -1,0 +1,21 @@
+uuid: 50ed3f62-6c6b-442c-b73a-6433598d867b
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - expense_tracker
+    - serialization
+    - user
+_core:
+  default_config_hash: Mpk5tllzB4YwxDpTm_fpmP4PvFnFt5gDcG-J80teiIQ
+id: et_transaction_import
+plugin_id: et_transaction_import
+granularity: method
+configuration:
+  POST:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie
+      - basic_auth

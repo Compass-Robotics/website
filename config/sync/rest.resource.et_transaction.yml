@@ -1,0 +1,39 @@
+uuid: 9a99b53c-ef5e-411a-af17-316bf201ba5d
+langcode: en
+status: true
+dependencies:
+  module:
+    - basic_auth
+    - expense_tracker
+    - serialization
+    - user
+_core:
+  default_config_hash: Uwzu4YcboSVXH5FGvVX8oPOvFDKw00MM1VnrLmnECuM
+id: et_transaction
+plugin_id: et_transaction
+granularity: method
+configuration:
+  POST:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie
+      - basic_auth
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie
+      - basic_auth
+  PATCH:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie
+      - basic_auth
+  DELETE:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie
+      - basic_auth

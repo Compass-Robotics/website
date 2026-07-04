@@ -1,0 +1,23 @@
+uuid: 505295c4-0cae-4553-9518-9e891704a84b
+langcode: en
+status: true
+dependencies:
+  module:
+    - expense_tracker
+    - file
+id: et_transaction.field_receipts_and_bills
+field_name: field_receipts_and_bills
+entity_type: et_transaction
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: private
+module: file
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

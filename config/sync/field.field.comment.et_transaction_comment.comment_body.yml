@@ -1,0 +1,24 @@
+uuid: 17087d09-ee56-43e2-887e-4d5ae5add172
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.et_transaction_comment
+    - field.storage.comment.comment_body
+  module:
+    - text
+_core:
+  default_config_hash: 6w1q7_j2QEn_L3UcFoBCTFN5boWsmsG52-ygKxdr_pE
+id: comment.et_transaction_comment.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: et_transaction_comment
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,22 +1,22 @@
-uuid: 255b62f7-1066-4cac-9fb5-5e21da97463e
+uuid: e9c6a8cf-5f81-4cae-8ef1-f8b39591c490
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.social
+    - system.menu.account
   module:
     - system
   theme:
     - tara
-id: tara_social
+id: tara_useraccountmenu
 theme: tara
-region: footer_second
+region: footer_first
 weight: -5
 provider: null
-plugin: 'system_menu_block:social'
+plugin: 'system_menu_block:account'
 settings:
-  id: 'system_menu_block:social'
-  label: Social
+  id: 'system_menu_block:account'
+  label: 'User account menu'
   label_display: '0'
   provider: system
   level: 1

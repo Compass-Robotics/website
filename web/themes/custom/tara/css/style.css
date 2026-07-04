@@ -1233,7 +1233,7 @@ details .form-details-wrapper {
 }
 
 .mobile-menu span:nth-child(2) {
-  background-color: var(--bold-color);
+  background-color: var(--bronze);
 }
 
 .menu-icon-active span:first-child {
@@ -3705,6 +3705,54 @@ div#sliding-popup, div#sliding-popup .eu-cookie-withdraw-banner, .eu-cookie-with
   }
   .w90 {
     flex-basis: calc(90% - 10px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .header-container {
+    gap: 0.25rem;
+  }
+
+  .site-branding {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .site-logo-image {
+    width: 12.75em;
+    min-width: 0;
+    max-width: 12.75em;
+  }
+
+  .header-right {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
+  .region-primary-menu .menu {
+    gap: 0.2rem;
+  }
+
+  .menu-item-has-children {
+    flex-wrap: nowrap;
+  }
+
+  .menu-item-has-children > a,
+  .main-menu-item .submenu-toggle {
+    white-space: nowrap;
+  }
+
+  .main-menu-item .submenu-toggle {
+    flex: 0 0 auto;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
   }
 }
 

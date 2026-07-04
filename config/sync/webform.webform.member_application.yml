@@ -419,7 +419,7 @@ handlers:
         field_prior_experience:
           value: 'input:prior_robotics_experience'
         field_stage:
-          value: 'input:prior_robotics_experience'
+          value: applicant
         field_talents:
           value: 'input:field_talents'
           format: plain_text

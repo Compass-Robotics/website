@@ -1,0 +1,27 @@
+uuid: 94cae707-ea8a-413e-9b17-f14b736dbdea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.et_transaction.field_receipts_and_bills
+  module:
+    - expense_tracker
+    - file
+id: et_transaction.et_transaction.field_receipts_and_bills
+field_name: field_receipts_and_bills
+entity_type: et_transaction
+bundle: et_transaction
+label: 'Receipts and Bills'
+description: 'Add any bills or receipts that we have for this transaction.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'transaction/[date:custom:Y]'
+  file_extensions: 'pdf docx jpg jpeg png csv xls txt'
+  max_filesize: ''
+  description_field: false
+field_type: file

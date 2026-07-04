@@ -1,0 +1,137 @@
+uuid: 0337f378-775f-46bf-b537-fe23610296ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.et_transaction.et_transaction.field_receipts_and_bills
+  module:
+    - comment
+    - expense_tracker
+    - file
+    - path
+    - text
+id: et_transaction.et_transaction.default
+targetEntityType: et_transaction
+bundle: et_transaction
+mode: default
+content:
+  amount:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  category:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  comment:
+    type: comment_default
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  date:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  end_date:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_receipts_and_bills:
+    type: file_generic
+    weight: 12
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  note:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  repeat:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  repeat_every:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  specific_month_days:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  specific_week_days:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  transaction_category:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  transaction_type:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: 'Start typing a username…'
+    third_party_settings: {  }
+hidden:
+  created: true
+  created_type: true
+  last_transaction_time: true
+  parent_category: true
+  parent_transaction_id: true

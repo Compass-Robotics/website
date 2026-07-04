@@ -1,0 +1,10 @@
+uuid: 77d950dd-bf03-4631-af66-77157317b9c7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: nGS7u5MilCpDg3I1mwKVKN699D15CMRHNaiyuQZPjNY
+id: et_transaction_comment
+label: 'Transaction comment'
+target_entity_type_id: et_transaction
+description: 'Comments on expense tracker transactions.'

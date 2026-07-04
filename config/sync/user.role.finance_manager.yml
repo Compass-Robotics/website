@@ -1,0 +1,36 @@
+uuid: 8fa20c61-5960-4573-a5b7-5cc760dc73ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.organization
+    - crm.crm_contact_type.person
+  module:
+    - burndown
+    - crm
+    - expense_tracker
+id: finance_manager
+label: 'Finance Manager'
+weight: 3
+is_admin: false
+permissions:
+  - '4 create entities'
+  - '4 edit any entities'
+  - '4 edit own entities'
+  - '4 view project'
+  - '4 view revisions'
+  - 'access all expense_tracker'
+  - 'access expense_tracker'
+  - 'create any crm contact'
+  - 'create expense_tracker'
+  - 'create organization crm contact'
+  - 'create person crm contact'
+  - 'edit all expense_tracker'
+  - 'edit any organization crm contact'
+  - 'edit any person crm contact'
+  - 'edit expense_tracker'
+  - 'reports expense_tracker'
+  - 'view any organization crm contact'
+  - 'view any organization crm contact label'
+  - 'view any person crm contact'
+  - 'view any person crm contact label'

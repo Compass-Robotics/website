@@ -1,0 +1,13 @@
+uuid: 1f4ebe1f-77a7-4324-a736-6c63ddb30a03
+langcode: en
+status: true
+dependencies:
+  module:
+    - expense_tracker
+_core:
+  default_config_hash: 0C9T7h6KCBZj5MkYRs_hFPL0NDPbg8wEw_8p15kzcUM
+id: et_transaction.teaser
+label: Teaser
+description: null
+targetEntityType: et_transaction
+cache: true

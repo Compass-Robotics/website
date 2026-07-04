@@ -721,11 +721,15 @@ display:
               2:
                 title: Income
                 operator: '='
-                value: Income
+                value: income
               3:
-                title: ''
+                title: 'In-kind donations made'
                 operator: '='
-                value: ''
+                value: in_kind_donation_made
+              4:
+                title: 'In-kind donations received'
+                operator: '='
+                value: in_kind_donation_received
         uid:
           id: uid
           table: users_field_data

@@ -1,0 +1,344 @@
+diff --git a/README.md b/README.md
+index 942b3be481917b3f85f5af23c1c73072b081d497..4d6b433f1f41164a8c5e94ec4fa5c1596e0b3b15 100644
+--- a/README.md
++++ b/README.md
+@@ -623,7 +623,7 @@ expense_tracker` to allow a role to see all users' data.
+
+ | Parameter | Default | Description |
+ |---|---|---|
+-| `filter_type` | — | `income` or `expense` |
++| `filter_type` | — | `income` or `expense` or 'in_kind_donation_made' or 'in_kind_donation_received' |
+ | `filter_from` | — | Start date (date string or Unix timestamp) |
+ | `filter_to` | — | End date (date string or Unix timestamp) |
+ | `filter_author` | — | User entity ID |
+@@ -659,7 +659,7 @@ GET /api/et-transactions?_format=json
+     "page": 0,
+     "per_page": 150,
+     "pages": 1,
+-    "totals": { "income": 15000.00, "expense": 0.00, "net": 15000.00 }
++    "totals": { "income": 15000.00, "expense": 0.00, "in_kind_donation_made": 35.00, "in_kind_donation_received": 400.00, "net": 15000.00 }
+   },
+   "links": { "self": "…", "first": "…", "last": "…", "next": null,
+   "prev": null }
+diff --git a/config/install/views.view.expense_tracker_admin.yml b/config/install/views.view.expense_tracker_admin.yml
+index 65b65d4fe023ea820c07b0bdf2ee0098943eb446..6513ed78fcbb183c3d2bfc0d9ab9464d4ed6c275 100644
+--- a/config/install/views.view.expense_tracker_admin.yml
++++ b/config/install/views.view.expense_tracker_admin.yml
+@@ -719,11 +719,15 @@ display:
+               2:
+                 title: Income
+                 operator: '='
+-                value: Income
++                value: income
+               3:
+-                title: ''
++                title: 'In-kind donations made'
+                 operator: '='
+-                value: ''
++                value: in_kind_donation_made
++              4:
++                title: 'In-kind donations received'
++                operator: '='
++                value: in_kind_donation_received
+         uid:
+           id: uid
+           table: users_field_data
+diff --git a/expense_tracker.module b/expense_tracker.module
+index 868e4cf27d5e1a761b880f9f3463bf5b762bb1cc..9282a70f81292e8464e3d486e4435811ba579ac6 100644
+--- a/expense_tracker.module
++++ b/expense_tracker.module
+@@ -649,7 +649,11 @@ function expense_tracker_form_alter(&$form, FormStateInterface $form_state, $for
+        <strong>Expense</strong> — money leaving your account (rent, groceries,
+        subscriptions, bills, travel).<br>
+        <strong>Income</strong> — money coming in (salary, freelance payment,
+-       dividend, rental income, bonus).'
++       dividend, rental income, bonus).<br>
++       <strong>In-kind donation made</strong> — something of monetary value given
++       without receiving money in return.<br>
++       <strong>In-kind donation received</strong> — something of monetary value
++       received without giving money in return.'
+     );
+
+     $form['repeat']['#description'] = t(
+@@ -1191,7 +1195,7 @@ function expense_tracker_get_total_amounts(array $report_parameters) {
+     ->condition('date', $end_timestamp, '<=')
+     ->sort('id', 'DESC');
+
+-  if (in_array($transaction_type, ['income', 'expense'])) {
++  if (in_array($transaction_type, ['income', 'expense', 'in_kind_donation_made', 'in_kind_donation_received'], TRUE)) {
+     $query->condition('transaction_type', $transaction_type);
+   }
+
+diff --git a/src/Controller/EtTransactionController.php b/src/Controller/EtTransactionController.php
+index b9b45bb368f9adbc99b5e470d4a7dff10483e107..cdc36891fa1d5cde79b7fe12c8a4a1d717c5b757 100644
+--- a/src/Controller/EtTransactionController.php
++++ b/src/Controller/EtTransactionController.php
+@@ -1033,10 +1033,36 @@ class EtTransactionController extends ControllerBase {
+     $other_data['filter']      = $filter;
+     $other_data['currency']    = $currency;
+
++    // Compute in-kind totals for the selected period.
++    $in_kind_totals = [
++      'in_kind_donation_made_total' => 0,
++      'in_kind_donation_received_total' => 0,
++    ];
++    if (!empty($dates['start']) && !empty($dates['end'])) {
++      $summary_start_timestamp = strtotime($dates['start'] . ' 12:00 a.m.');
++      $summary_end_timestamp = strtotime($dates['end'] . ' 11:59 p.m.');
++      $in_kind_report_types = [
++        'in_kind_donation_made' => 'in_kind_donation_made_total',
++        'in_kind_donation_received' => 'in_kind_donation_received_total',
++      ];
++
++      foreach ($in_kind_report_types as $in_kind_type => $total_key) {
++        $in_kind_report_parameters = $report_parameters;
++        $in_kind_report_parameters['start_timestamp'] = $summary_start_timestamp;
++        $in_kind_report_parameters['end_timestamp'] = $summary_end_timestamp;
++        $in_kind_report_parameters['report_type'] = $in_kind_type;
++
++        $in_kind_totals_data = expense_tracker_get_total_amounts($in_kind_report_parameters);
++        $in_kind_totals[$total_key] = $in_kind_totals_data['total_amount'] ?? 0;
++      }
++    }
++
+     $other_data['total_amounts'] = [
+       'total_income_amount'  => $total_income_amount,
+       'total_expense_amount' => $total_expense_amount,
+       'net_balance'          => $total_income_amount - $total_expense_amount,
++      'in_kind_donation_made_total' => $in_kind_totals['in_kind_donation_made_total'],
++      'in_kind_donation_received_total' => $in_kind_totals['in_kind_donation_received_total'],
+     ];
+
+     $submitImportForm = $this->formBuilder()->getForm('Drupal\expense_tracker\Form\ReportFilterForm');
+diff --git a/src/Entity/EtTransaction.php b/src/Entity/EtTransaction.php
+index 97bc4bb3b07853524839cf5ce2e5502301a232e0..a8226bd7436bba0254d70cc70300786daa82dd65 100644
+--- a/src/Entity/EtTransaction.php
++++ b/src/Entity/EtTransaction.php
+@@ -378,9 +378,11 @@ class EtTransaction extends ContentEntityBase implements EtTransactionInterface,
+         'allowed_values' => [
+           'expense' => 'Expense',
+           'income'  => 'Income',
++          'in_kind_donation_made' => 'In-kind donation made',
++          'in_kind_donation_received' => 'In-kind donation received',
+         ],
+       ])
+-      ->setDescription(t('<strong>Expense</strong> — money leaving your account: rent, groceries, subscriptions, bills, travel.<br><strong>Income</strong> — money coming in: salary, freelance payment, dividend, rental income, bonus, refund.'))
++      ->setDescription(t('<strong>Expense</strong> — money leaving your account: rent, groceries, subscriptions, bills, travel.<br><strong>Income</strong> — money coming in: salary, freelance payment, dividend, rental income, bonus, refund.<br><strong>In-kind donation made</strong> — something of monetary value given without receiving money in return.<br> <strong>In-kind donation received</strong> — something of monetary value received without giving money in return.'))
+       ->setRequired(TRUE)
+       ->setDefaultValue('expense')
+       ->setTranslatable(FALSE)
+diff --git a/src/Form/StatemantsForm.php b/src/Form/StatemantsForm.php
+index 1043274e325a05c8ac052158558667c87cbdfa89..371ec3284ca7ff088c703f39f207d558e62c9fd1 100644
+--- a/src/Form/StatemantsForm.php
++++ b/src/Form/StatemantsForm.php
+@@ -72,6 +72,8 @@ class StatemantsForm extends FormBase {
+         'All' => $this->t('All'),
+         '1'   => $this->t('Expense'),
+         '2'   => $this->t('Income'),
++        '3'   => $this->t('In-kind donation made'),
++        '4'   => $this->t('In-kind donation received'),
+       ],
+     ];
+
+diff --git a/src/Plugin/DevelGenerate/EtTransactionDevelGenerate.php b/src/Plugin/DevelGenerate/EtTransactionDevelGenerate.php
+index de1500418076c84ce821c96c904ae25b22d033c4..ec95812161dec5c22d2f2c44de5c82e36e62f388 100644
+--- a/src/Plugin/DevelGenerate/EtTransactionDevelGenerate.php
++++ b/src/Plugin/DevelGenerate/EtTransactionDevelGenerate.php
+@@ -61,7 +61,6 @@ class EtTransactionDevelGenerate extends DevelGenerateBase {
+       $this->setMessage($this->formatPlural($nbDeletedItems, '1 EtTransaction a été supprimé', '@count EtTransactionx supprimés'));
+     }
+
+-    // $transaction_type = array( 'income', 'expense');
+     $transaction_category = ['new', 'existing'];
+
+     $this_year_start = strtotime("-0 year first day of january");
+diff --git a/src/Plugin/rest/resource/EtTransactionCollectionResource.php b/src/Plugin/rest/resource/EtTransactionCollectionResource.php
+index a2f0423ca28c18775c0db15909e832e3ba6a1685..8e30f714e0970ea8f4b1f138064c6344ce5ed929 100644
+--- a/src/Plugin/rest/resource/EtTransactionCollectionResource.php
++++ b/src/Plugin/rest/resource/EtTransactionCollectionResource.php
+@@ -144,7 +144,12 @@ class EtTransactionCollectionResource extends EtTransactionResourceBase {
+
+     // --- Transaction type ----------------------------------------------------
+     $filter_type = $q->get('filter_type');
+-    if ($filter_type && in_array($filter_type, ['income', 'expense'], TRUE)) {
++    if ($filter_type && in_array($filter_type, [
++      'income',
++      'expense',
++      'in_kind_donation_made',
++      'in_kind_donation_received',
++    ], TRUE)) {
+       $query->condition('transaction_type', $filter_type);
+     }
+
+@@ -244,9 +249,11 @@ class EtTransactionCollectionResource extends EtTransactionResourceBase {
+     $query->range($page * $per_page, $per_page);
+
+     // ── Load entities ────────────────────────────────────────────────────────
+-    $entities    = $storage->loadMultiple($query->execute());
+-    $sum_income  = 0.0;
++    $entities = $storage->loadMultiple($query->execute());
++    $sum_income = 0.0;
+     $sum_expense = 0.0;
++    $sum_in_kind_donation_made = 0.0;
++    $sum_in_kind_donation_received = 0.0;
+     $with_totals = ((string) $q->get('with_totals', '1')) !== '0';
+
+     // Optional field allowlist (e.g. fields=id,title,amount,date_iso).
+@@ -268,12 +275,9 @@ class EtTransactionCollectionResource extends EtTransactionResourceBase {
+
+       if ($with_totals) {
+         $amount = (float) $entity->get('amount')->value;
+-        if ($entity->get('transaction_type')->value === 'income') {
+-          $sum_income += $amount;
+-        }
+-        else {
+-          $sum_expense += $amount;
+-        }
++        $transaction_type = $entity->get('transaction_type')->value;
++        $summer = "sum_{$transaction_type}";
++        $$summer += $amount;
+       }
+     }
+
+@@ -299,6 +303,8 @@ class EtTransactionCollectionResource extends EtTransactionResourceBase {
+         'income'  => round($sum_income, 2),
+         'expense' => round($sum_expense, 2),
+         'net'     => round($sum_income - $sum_expense, 2),
++        'in_kind_donation_made' => round($sum_in_kind_donation_made, 2),
++        'in_kind_donation_received' => round($sum_in_kind_donation_received, 2),
+       ];
+     }
+
+diff --git a/src/Plugin/rest/resource/EtTransactionImportResource.php b/src/Plugin/rest/resource/EtTransactionImportResource.php
+index 4171a9d7858da559887546133da1c09e0e3b7f09..ed48cbac9b403ed3500f656242fe74a89714702c 100644
+--- a/src/Plugin/rest/resource/EtTransactionImportResource.php
++++ b/src/Plugin/rest/resource/EtTransactionImportResource.php
+@@ -153,12 +153,17 @@ class EtTransactionImportResource extends EtTransactionResourceBase {
+         }
+         if (empty($row['transaction_type'])) {
+           throw new \InvalidArgumentException(
+-            "'transaction_type' (income|expense) is required."
++            "'transaction_type' (income|expense|in_kind_donation_made|in_kind_donation_received) is required."
+           );
+         }
+-        if (!in_array($row['transaction_type'], ['income', 'expense'], TRUE)) {
++        if (!in_array($row['transaction_type'], [
++          'income',
++          'expense',
++          'in_kind_donation_made',
++          'in_kind_donation_received',
++        ], TRUE)) {
+           throw new \InvalidArgumentException(
+-            "'transaction_type' must be 'income' or 'expense', got '{$row['transaction_type']}'."
++            "'transaction_type' must be 'income', 'expense', 'in_kind_donation_made', 'in_kind_donation_received', got '{$row['transaction_type']}'."
+           );
+         }
+         if (!is_numeric($row['amount']) || (float) $row['amount'] < 0) {
+diff --git a/src/Plugin/rest/resource/EtTransactionResourceBase.php b/src/Plugin/rest/resource/EtTransactionResourceBase.php
+index 6a77265fb1a08be6c2e746b5ab4642722afb32da..d533fa145d7249fdad42a751f89cd508252802c5 100644
+--- a/src/Plugin/rest/resource/EtTransactionResourceBase.php
++++ b/src/Plugin/rest/resource/EtTransactionResourceBase.php
+@@ -244,9 +244,15 @@ abstract class EtTransactionResourceBase extends ResourceBase {
+     if (isset($data['amount']) && !is_numeric($data['amount'])) {
+       throw new BadRequestHttpException("'amount' must be a number.");
+     }
++    $allowed_types = [
++      'income',
++      'expense',
++      'in_kind_donation_made',
++      'in_kind_donation_received',
++    ];
+     if (isset($data['transaction_type'])
+-      && !in_array($data['transaction_type'], ['income', 'expense'], TRUE)) {
+-      throw new BadRequestHttpException("'transaction_type' must be 'income' or 'expense'.");
++      && !in_array($data['transaction_type'], $allowed_types, TRUE)) {
++      throw new BadRequestHttpException("'transaction_type' must be 'income', 'expense', 'in_kind_donation_made', or 'in_kind_donation_received'.");
+     }
+   }
+
+diff --git a/templates/income-expense-reports.html.twig b/templates/income-expense-reports.html.twig
+index 070a8e382a673805059d6110e45209063bd7be29..a93d44d74423fa2a31873e569041fae2988fe150 100644
+--- a/templates/income-expense-reports.html.twig
++++ b/templates/income-expense-reports.html.twig
+@@ -13,7 +13,9 @@
+  *                      currency  { symbol, position, decimal, thousands },
+  *                      total_amounts { total_income_amount,
+  *                                      total_expense_amount,
+- *                                      net_balance } }
++ *                                      net_balance,
++ *                                      in_kind_donation_made_total,
++ *                                      in_kind_donation_received_total } }
+  */
+ #}
+
+@@ -30,6 +32,8 @@
+ {% set income  = other_data.total_amounts.total_income_amount %}
+ {% set expense = other_data.total_amounts.total_expense_amount %}
+ {% set net     = other_data.total_amounts.net_balance %}
++{% set in_kind_made = other_data.total_amounts.in_kind_donation_made_total %}
++{% set in_kind_received = other_data.total_amounts.in_kind_donation_received_total %}
+ {% set curr    = other_data.currency %}
+
+ <div class="reports-container">
+@@ -63,6 +67,16 @@
+       <div class="et-stat-card__value">{{ fmt.currency(net, curr) }}</div>
+     </div>
+
++    <div class="et-stat-card et-stat-card--expense et-stat-card--in-kind">
++      <div class="et-stat-card__label">{{ 'In-kind Donations Made'|t }}</div>
++      <div class="et-stat-card__value">{{ fmt.currency(in_kind_made, curr) }}</div>
++    </div>
++
++    <div class="et-stat-card et-stat-card--income et-stat-card--in-kind">
++      <div class="et-stat-card__label">{{ 'In-kind Donations Received'|t }}</div>
++      <div class="et-stat-card__value">{{ fmt.currency(in_kind_received, curr) }}</div>
++    </div>
++
+   </div>
+
+   <p class="et-report-period">
+diff --git a/templates/income-reports.html.twig b/templates/income-reports.html.twig
+index c6e11a191577b51f6a32cf18df22898f83e1283d..213d7dfcf7527c0f782e63e86d679ebeed18257f 100644
+--- a/templates/income-reports.html.twig
++++ b/templates/income-reports.html.twig
+@@ -10,7 +10,9 @@
+  *                      currency { symbol, position, decimal, thousands },
+  *                      total_amounts { total_income_amount,
+  *                                      total_expense_amount,
+- *                                      net_balance } }
++ *                                      net_balance,
++ *                                      in_kind_donation_received_total,
++ *                                      in_kind_donation_made_total } }
+  */
+ #}
+
+@@ -27,6 +29,8 @@
+ {% set is_expense   = (other_data.report_type == 'expense') %}
+ {% set total        = is_expense ? other_data.total_amounts.total_expense_amount
+                                  : other_data.total_amounts.total_income_amount %}
++{% set in_kind_received = other_data.total_amounts.in_kind_donation_received_total|default(0) %}
++{% set in_kind_made = other_data.total_amounts.in_kind_donation_made_total|default(0) %}
+ {% set curr         = other_data.currency %}
+
+ <div class="reports-container">
+@@ -56,6 +60,20 @@
+         {{ other_data.dates.start }} &ndash; {{ other_data.dates.end }}
+       </div>
+     </div>
++
++    {% if not is_expense %}
++      <div class="et-stat-card et-stat-card--income et-stat-card--in-kind">
++        <div class="et-stat-card__label">{{ 'In-kind Donation Received'|t }}</div>
++        <div class="et-stat-card__value">{{ fmt.currency(in_kind_received, curr) }}</div>
++        <div class="et-stat-card__period">{{ 'Not included in total income'|t }}</div>
++      </div>
++    {% else %}
++      <div class="et-stat-card et-stat-card--expense et-stat-card--in-kind">
++        <div class="et-stat-card__label">{{ 'In-kind Donation Made'|t }}</div>
++        <div class="et-stat-card__value">{{ fmt.currency(in_kind_made, curr) }}</div>
++        <div class="et-stat-card__period">{{ 'Not included in total expense'|t }}</div>
++      </div>
++    {% endif %}
+   </div>
+
+   {# ------------------------------------------------------------------ #}

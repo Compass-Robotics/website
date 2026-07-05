@@ -1,0 +1,20 @@
+uuid: 52f0236c-ffd3-46b6-a689-5a6de01f4986
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - expense_tracker
+id: et_transaction.field_contact
+field_name: field_contact
+entity_type: et_transaction
+type: entity_reference
+settings:
+  target_type: crm_contact
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

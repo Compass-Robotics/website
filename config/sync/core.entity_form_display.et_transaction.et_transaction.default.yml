@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.et_transaction.et_transaction.field_contact
     - field.field.et_transaction.et_transaction.field_receipts_and_bills
   module:
     - comment
     - expense_tracker
     - file
     - path
+    - tagify
     - text
 id: et_transaction.et_transaction.default
 targetEntityType: et_transaction
@@ -30,7 +32,7 @@ content:
     third_party_settings: {  }
   comment:
     type: comment_default
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -45,6 +47,20 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_contact:
+    type: tagify_entity_reference_autocomplete_widget
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   field_receipts_and_bills:
     type: file_generic
@@ -63,7 +79,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -94,7 +110,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 15
+    weight: 16
     region: content
     settings:
       display_label: true
@@ -121,7 +137,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS

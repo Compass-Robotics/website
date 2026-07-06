@@ -2468,6 +2468,28 @@ ul.social-icons a:focus {
   content: ":";
 }
 
+/* Support inline labels for both core and legacy field item markup. */
+.field--label-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.field--label-inline .field__label,
+.field--label-inline .field__items,
+.field--label-inline > .field__item,
+.field--label-inline > .field-item {
+  float: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.field--label-inline .field__items .field-item,
+.field--label-inline .field__items .field__item {
+  display: inline;
+}
+
 /* Views accordion active header override */
 .views-accordion-header.ui-state-active,
 .views-acoridion-header.ui-state-active,

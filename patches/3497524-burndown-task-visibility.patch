@@ -1,0 +1,591 @@
+diff --git a/burndown.libraries.yml b/burndown.libraries.yml
+index 5ef2c872381029a7ef244c13a43db9340789f856..be69faac87aad355300802ed1a2316e41aeafb80 100644
+--- a/burndown.libraries.yml
++++ b/burndown.libraries.yml
+@@ -49,6 +49,15 @@ drupal.burndown.unsortable_board:
+       css/burndown.board.css: {}
+       css/burndown.task.css: {}
+       css/background-colors.css: {}
++  dependencies:
++    - core/jquery
++    - core/jquery.form
++    - core/once
++    - core/drupal
++    - core/drupalSettings
++    - core/drupal.dialog
++    - core/drupal.dialog.ajax
++    - core/drupal.ajax
+
+ drupal.burndown.completed:
+   version: VERSION
+@@ -87,6 +96,25 @@ drupal.burndown.task_edit:
+     - core/drupal.dialog.ajax
+     - core/drupal.ajax
+
++drupal.burndown.task_log_tabs:
++  version: VERSION
++  css:
++    component:
++      css/burndown.task.css: {}
++  js:
++    js/burndown.task_log_tabs.js: {}
++  dependencies:
++    - core/drupal
++    - core/once
++
++drupal.burndown.task_modal:
++  version: VERSION
++  css:
++    component:
++      css/burndown.task.modal.css: {}
++  dependencies:
++    - core/drupal.dialog.ajax
++
+ drupal.burndown.swimlanes:
+   version: VERSION
+   css:
+diff --git a/css/burndown.task.css b/css/burndown.task.css
+index f4a29d37de433f8a02b8d74827f31fed1bbdd541..d9ea2640ff0583ef5cad4b00142b2ae3c5d124da 100644
+--- a/css/burndown.task.css
++++ b/css/burndown.task.css
+@@ -250,6 +250,7 @@ a.edit_task {
+
+ .log-items label {
+   display: inline;
++  font-weight: bold;
+ }
+ .log-items ins {
+   background-color: rgba(0,255,0,0.2);
+@@ -324,16 +325,53 @@ a.edit_task {
+
+ .form-wrapper .log_tabs a {
+   display: block;
+-  padding: 0.5em;
++  padding: 0.5em 0.85em;
+   margin: 0;
+   border-bottom: 0px;
+   background-color: #f3f4ee;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+-  width: 80px;
++  min-width: 80px;
++  width: auto;
++  flex: 0 0 auto;
++  white-space: nowrap;
+   text-align: center;
+ }
+
++.burndown-log-tabs .log_tabs {
++  display: flex;
++  border-bottom: 1px solid #f3f4ee;
++  margin-bottom: 0.5em;
++}
++
++.burndown-log-tabs .log_tabs a {
++  display: block;
++  padding: 0.5em 0.85em;
++  margin: 0;
++  border-bottom: 0;
++  background-color: #f3f4ee;
++  border-top-left-radius: 8px;
++  border-top-right-radius: 8px;
++  min-width: 80px;
++  width: auto;
++  flex: 0 0 auto;
++  white-space: nowrap;
++  text-align: center;
++}
++
++.burndown-log-tabs .log_tabs a.is-active {
++  background-color: #e2e5d8;
++  font-weight: bold;
++}
++
++.burndown-task-log-panel.is-hidden {
++  display: none;
++}
++
++.burndown-task-log-panel.is-active {
++  display: block;
++}
++
+ .add_work {
+   display: none;
+ }
+diff --git a/css/burndown.task.modal.css b/css/burndown.task.modal.css
+new file mode 100644
+index 0000000000000000000000000000000000000000..2e0c6bfd704d54d657689b26f6c9f0838b971a6f
+--- /dev/null
++++ b/css/burndown.task.modal.css
+@@ -0,0 +1,71 @@
++/* Keep task modal shell consistent regardless of auth/theme asset order. */
++.ui-dialog.ui-widget.ui-front {
++  border-radius: 12px;
++  overflow: hidden;
++}
++
++.ui-dialog.ui-widget.ui-front .ui-dialog-titlebar {
++  min-height: 2.25rem;
++}
++
++.ui-dialog.ui-widget.ui-front .ui-dialog-titlebar-close {
++  position: absolute !important;
++  display: inline-flex;
++  align-items: center;
++  justify-content: center;
++  width: 34px;
++  height: 34px;
++  padding: 0;
++  margin: 0;
++  line-height: 1;
++  top: calc(0.3rem + 17px) !important;
++  right: 0.3rem !important;
++  left: auto !important;
++}
++
++.ui-dialog.ui-widget.ui-front .ui-dialog-titlebar-close .ui-button-icon,
++.ui-dialog.ui-widget.ui-front .ui-dialog-titlebar-close .ui-icon {
++  position: absolute;
++  top: 50%;
++  left: 50%;
++  width: 16px;
++  height: 16px;
++  margin: 0;
++  transform: translate(-50%, -50%);
++}
++
++.ui-dialog.ui-widget.ui-front .ui-dialog-titlebar-close .ui-button-icon-space {
++  display: none;
++}
++
++.ui-dialog.ui-widget.ui-front .ui-dialog-content#drupal-modal {
++  padding: 0.75rem 1rem 1rem;
++  background-color: #ffffff !important;
++}
++
++@media (max-width: 767px) {
++  .ui-dialog.ui-widget.ui-front {
++    display: flex;
++    flex-direction: column;
++    width: 100vw !important;
++    max-width: 100vw !important;
++    height: 100dvh !important;
++    max-height: 100dvh !important;
++    left: 0 !important;
++    top: 0 !important;
++    margin: 0 !important;
++    border-radius: 0;
++    overflow: hidden;
++  }
++
++  .ui-dialog.ui-widget.ui-front .ui-dialog-content#drupal-modal {
++    flex: 1 1 auto;
++    min-height: 0;
++    width: 100% !important;
++    height: auto !important;
++    max-height: none !important;
++    overflow-y: auto !important;
++    overflow-x: hidden;
++    -webkit-overflow-scrolling: touch;
++  }
++}
+diff --git a/js/burndown.task_log_tabs.js b/js/burndown.task_log_tabs.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..0c9b2a33ac119bc3cba340780947f184fcb19f10
+--- /dev/null
++++ b/js/burndown.task_log_tabs.js
+@@ -0,0 +1,37 @@
++/**
++ * @file
++ * Tab switching behavior for rendered Burndown task log field output.
++ */
++(function (Drupal, once) {
++  Drupal.behaviors.burndownTaskLogTabs = {
++    attach(context) {
++      once('burndownTaskLogTabs', '.burndown-log-tabs', context).forEach((wrapper) => {
++        const tabs = wrapper.querySelectorAll('.log_tabs a[data-log-tab]');
++        const panels = wrapper.querySelectorAll('.burndown-task-log-panel[data-log-panel]');
++
++        const activate = (target) => {
++          tabs.forEach((tab) => {
++            const active = tab.getAttribute('data-log-tab') === target;
++            tab.classList.toggle('is-active', active);
++          });
++
++          panels.forEach((panel) => {
++            const active = panel.getAttribute('data-log-panel') === target;
++            panel.classList.toggle('is-active', active);
++            panel.classList.toggle('is-hidden', !active);
++          });
++        };
++
++        tabs.forEach((tab) => {
++          tab.addEventListener('click', (event) => {
++            event.preventDefault();
++            activate(tab.getAttribute('data-log-tab'));
++          });
++        });
++
++        const current = wrapper.querySelector('.log_tabs a.is-active[data-log-tab]');
++        activate(current ? current.getAttribute('data-log-tab') : 'all');
++      });
++    },
++  };
++})(Drupal, once);
+diff --git a/src/Entity/Task.php b/src/Entity/Task.php
+index 448aa8c059195b018b603bb1fd8d0d1db00eec2b..c42d180863f8cc28abb93d9effa25c11e7938722 100644
+--- a/src/Entity/Task.php
++++ b/src/Entity/Task.php
+@@ -416,13 +416,16 @@ class Task extends EditorialContentEntityBase implements TaskInterface {
+    * Get data array, for usage in the board controllers.
+    */
+   public function getData() {
++    $project = $this->getProject();
++
+     return [
+       'id' => $this->id(),
+       'ticket_id' => $this->getTicketId(),
+       'name' => $this->getName(),
+       'description' => $this->getDescription(),
+       'is_completed' => $this->isCompleted(),
+-      'shortcode' => $this->getProject()->getShortcode(),
++      'shortcode' => $project->getShortcode(),
++      'project_id' => $project->id(),
+       'backlog' => $this->inBacklog(),
+       'board' => $this->onBoard(),
+       'sprint' => $this->isSprint(),
+diff --git a/src/Plugin/Field/FieldFormatter/BurndownLogDefaultFormatter.php b/src/Plugin/Field/FieldFormatter/BurndownLogDefaultFormatter.php
+index 9574591c2848f0c213b843495eea98d197e5e0d6..89d1c9154581a890634fcefdb0ac341ee97bc6dd 100644
+--- a/src/Plugin/Field/FieldFormatter/BurndownLogDefaultFormatter.php
++++ b/src/Plugin/Field/FieldFormatter/BurndownLogDefaultFormatter.php
+@@ -5,11 +5,11 @@ namespace Drupal\burndown\Plugin\Field\FieldFormatter;
+ use Drupal\Core\Field\FieldItemListInterface;
+ use Drupal\Core\Field\FormatterBase;
+ use Drupal\Core\Form\FormStateInterface;
+-use Drupal\user\Entity\User;
+ use Drupal\Core\Datetime\DateFormatterInterface;
+ use Drupal\Core\Field\FieldDefinitionInterface;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
++use Drupal\Core\Url;
+
+ /**
+  * Field formatter "burndown_log_default".
+@@ -106,145 +106,156 @@ class BurndownLogDefaultFormatter extends FormatterBase {
+    * {@inheritdoc}
+    */
+   public function viewElements(FieldItemListInterface $items, $langcode) {
++    $logs_by_type = [
++      'all' => [],
++      'comment' => [],
++      'changed' => [],
++      'work' => [],
++    ];
+
+-    $output = [];
++    foreach ($items as $item) {
++      $user = $this->entityTypeManager->getStorage('user')->load($item->uid);
++      $type = $this->normalizeLogValue($item->type);
+
+-    foreach ($items as $delta => $item) {
++      $entry = [
++        'type' => $type,
++        'created' => $this->dateFormatter->format((int) $item->created),
++        'user' => $user ? $user->getDisplayName() : '',
++        'comment' => $this->normalizeLogValue($item->comment),
++        'work_done' => $this->normalizeLogValue($item->work_done),
++        'description' => $this->normalizeLogValue($item->description),
++      ];
+
+-      $build = [];
++      $logs_by_type['all'][] = $entry;
++      if (isset($logs_by_type[$type])) {
++        $logs_by_type[$type][] = $entry;
++      }
++    }
+
+-      $build['type'] = [
++    $output = [];
++    $output[0] = [
++      '#type' => 'container',
++      '#attributes' => [
++        'class' => ['burndown-log-tabs'],
++      ],
++      '#attached' => [
++        'library' => ['burndown/drupal.burndown.task_log_tabs'],
++      ],
++      'tabs' => [
+         '#type' => 'container',
+-        '#attributes' => [
+-          'class' => ['type'],
+-        ],
+-        'label' => [
+-          '#type' => 'container',
++        '#attributes' => ['class' => ['log_tabs']],
++        'comment' => [
++          '#type' => 'link',
++          '#title' => $this->t('Comments'),
++          '#url' => Url::fromUserInput('#'),
+           '#attributes' => [
+-            'class' => ['field__label'],
++            'class' => ['comment', 'is-active'],
++            'data-log-tab' => 'comment',
+           ],
+-          '#markup' => $this->t('Log Type'),
+         ],
+-        'value' => [
+-          '#type' => 'container',
++        'changed' => [
++          '#type' => 'link',
++          '#title' => $this->t('Changes'),
++          '#url' => Url::fromUserInput('#'),
+           '#attributes' => [
+-            'class' => ['field__item'],
++            'class' => ['changed'],
++            'data-log-tab' => 'changed',
+           ],
+-          '#plain_text' => $item->type,
+         ],
+-      ];
+-
+-      $build['created'] = [
+-        '#type' => 'container',
+-        '#attributes' => [
+-          'class' => ['burndown_log__created'],
+-        ],
+-        'label' => [
+-          '#type' => 'container',
++        'work' => [
++          '#type' => 'link',
++          '#title' => $this->t('Work Logs'),
++          '#url' => Url::fromUserInput('#'),
+           '#attributes' => [
+-            'class' => ['field__label'],
++            'class' => ['work'],
++            'data-log-tab' => 'work',
+           ],
+-          '#markup' => $this->t('Date'),
+         ],
+-        'value' => [
+-          '#type' => 'container',
++        'all' => [
++          '#type' => 'link',
++          '#title' => $this->t('All'),
++          '#url' => Url::fromUserInput('#'),
+           '#attributes' => [
+-            'class' => ['field__item'],
++            'class' => ['all'],
++            'data-log-tab' => 'all',
+           ],
+-          '#plain_text' => $this->dateFormatter->format($item->created),
+         ],
+-      ];
+-
+-      $user = $this->entityTypeManager->getStorage('user')->load($item->uid);
+-
+-      $build['uid'] = [
++      ],
++      'panel_all' => [
+         '#type' => 'container',
+         '#attributes' => [
+-          'class' => ['burndown_log__created'],
++          'class' => ['burndown-task-log-panel', 'is-hidden'],
++          'data-log-panel' => 'all',
+         ],
+-        'label' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__label'],
+-          ],
+-          '#markup' => $this->t('User'),
+-        ],
+-        'value' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__item'],
+-          ],
+-          '#plain_text' => isset($user) ? $user->getDisplayName() : '',
++        'content' => [
++          '#theme' => 'burndown_log_items',
++          '#data' => $logs_by_type['all'],
+         ],
+-      ];
+-
+-      $build['comment'] = [
++      ],
++      'panel_comment' => [
+         '#type' => 'container',
+         '#attributes' => [
+-          'class' => ['burndown_log__comment'],
+-        ],
+-        'label' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__label'],
+-          ],
+-          '#markup' => $this->t('Comment'),
++          'class' => ['burndown-task-log-panel', 'is-active'],
++          'data-log-panel' => 'comment',
+         ],
+-        'value' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__item'],
+-          ],
+-          '#plain_text' => $item->comment,
++        'content' => [
++          '#theme' => 'burndown_log_items',
++          '#data' => $logs_by_type['comment'],
+         ],
+-      ];
+-
+-      $build['work_done'] = [
++      ],
++      'panel_changed' => [
+         '#type' => 'container',
+         '#attributes' => [
+-          'class' => ['burndown_log__work_down'],
++          'class' => ['burndown-task-log-panel', 'is-hidden'],
++          'data-log-panel' => 'changed',
+         ],
+-        'label' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__label'],
+-          ],
+-          '#markup' => $this->t('Work Done'),
+-        ],
+-        'value' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__item'],
+-          ],
+-          '#plain_text' => $item->work_done,
++        'content' => [
++          '#theme' => 'burndown_log_items',
++          '#data' => $logs_by_type['changed'],
+         ],
+-      ];
+-
+-      $build['description'] = [
++      ],
++      'panel_work' => [
+         '#type' => 'container',
+         '#attributes' => [
+-          'class' => ['burndown_log__description'],
++          'class' => ['burndown-task-log-panel', 'is-hidden'],
++          'data-log-panel' => 'work',
+         ],
+-        'label' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__label'],
+-          ],
+-          '#markup' => $this->t('Description'),
++        'content' => [
++          '#theme' => 'burndown_log_items',
++          '#data' => $logs_by_type['work'],
+         ],
+-        'value' => [
+-          '#type' => 'container',
+-          '#attributes' => [
+-            'class' => ['field__item'],
+-          ],
+-          '#plain_text' => $item->description,
+-        ],
+-      ];
++      ],
++    ];
+
+-      $output[$delta] = $build;
++    return $output;
++  }
++
++  /**
++   * Normalize burndown log field values to a plain string.
++   *
++   * The custom burndown_log field stores `comment` as serialized `any`, so
++   * existing records may contain arrays (for example ['value' => '...']).
++   * `#plain_text` must always receive a string scalar.
++   *
++   * @param mixed $value
++   *   The raw field property value.
++   *
++   * @return string
++   *   A safe string representation.
++   */
++  protected function normalizeLogValue($value) {
++    if (is_array($value)) {
++      if (isset($value['value']) && is_scalar($value['value'])) {
++        return (string) $value['value'];
++      }
++      return '';
+     }
+
+-    return $output;
++    if (is_scalar($value)) {
++      return (string) $value;
++    }
++
++    return '';
+   }
+
+ }
+diff --git a/templates/burndown-task--full.html.twig b/templates/burndown-task--full.html.twig
+new file mode 100644
+index 0000000000000000000000000000000000000000..c84492eb10b1082f515b44fba9c0609eee2e8753
+--- /dev/null
++++ b/templates/burndown-task--full.html.twig
+@@ -0,0 +1,12 @@
++{#
++/**
++ * @file
++ * Full view mode template for Burndown task entities.
++ *
++ * This template intentionally renders the entity field content so site builders
++ * can control visibility and ordering via Manage Display.
++ */
++#}
++<div{{ attributes.addClass('burndown-task', 'burndown-task--full') }}>
++  {{ content }}
++</div>
+diff --git a/templates/burndown-task-card.html.twig b/templates/burndown-task-card.html.twig
+index 3c1f4330af7c1ad4ec0e315649fe7f68e16b1272..9dba19df77194f6c89cb15ee64639a388990acf4 100644
+--- a/templates/burndown-task-card.html.twig
++++ b/templates/burndown-task-card.html.twig
+@@ -63,14 +63,14 @@
+       {% endif %}
+
+       <div class="ticket_id">
+-        {% if user.hasPermission('edit task entities') %}
+-        <a href="{{ url('<front>') }}burndown/task/{{ data.id }}/edit"
++        {% if user.hasPermission('view published task entities') or user.hasPermission(data.project_id ~ ' view project') %}
++        <a href="{{ url('<front>') }}burndown/task/{{ data.id }}"
+           class="use-ajax task_id{% if data.is_completed %} completed{% endif %}"
+           data-dialog-type="modal"
+           data-dialog-options="{&quot;width&quot;:800,&quot;height&quot;:500}">
+         {% endif %}
+           {{ data.ticket_id }}
+-        {% if user.hasPermission('edit task entities') %}
++        {% if user.hasPermission('view published task entities') or user.hasPermission(data.project_id ~ ' view project') %}
+         </a>
+         {% endif %}
+       </div>
+diff --git a/templates/burndown-task.html.twig b/templates/burndown-task.html.twig
+index b3905bb0ab5b3f9b8755c89dd5be9c8a0493008c..1613d00b0f4ff9bf0e5da33763599b9107b0c9e5 100644
+--- a/templates/burndown-task.html.twig
++++ b/templates/burndown-task.html.twig
+@@ -19,6 +19,12 @@
+   {{ attributes.addClass('burndown_task', 'list-group-item', 'row') }}
+   data-ticket-id="{{ ticket_id }}">
+
+-    {% include 'burndown-task-row.html.twig' %}
++    {% set current_view_mode = elements['#view_mode']|default('') %}
++    {% if current_view_mode in ['full', 'default'] %}
++      {{ attach_library('burndown/drupal.burndown.task_modal') }}
++      {{ content }}
++    {% else %}
++      {% include 'burndown-task-row.html.twig' %}
++    {% endif %}
+
+ </div>

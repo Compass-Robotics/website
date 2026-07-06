@@ -9,6 +9,7 @@ dependencies:
     - burndown
     - crm
     - expense_tracker
+    - system
 id: finance_manager
 label: 'Finance Manager'
 weight: 3
@@ -21,6 +22,7 @@ permissions:
   - '4 view revisions'
   - 'access all expense_tracker'
   - 'access expense_tracker'
+  - 'access site reports'
   - 'create any crm contact'
   - 'create expense_tracker'
   - 'create organization crm contact'

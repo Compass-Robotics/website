@@ -9,6 +9,7 @@ dependencies:
   module:
     - burndown
     - image
+    - link
     - options
     - text
     - user
@@ -24,7 +25,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 11
     region: content
   changed:
     type: timestamp
@@ -43,7 +44,17 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 9
+    weight: 14
+    region: content
+  completed:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
     region: content
   created:
     type: timestamp
@@ -62,21 +73,28 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 8
+    weight: 13
     region: content
   description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 2
     region: content
   estimate:
     type: list_default
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 10
+    region: content
+  field_acceptance_criteria:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
   images:
     type: image
@@ -87,7 +105,26 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 13
+    weight: 16
+    region: content
+  link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  log:
+    type: burndown_log_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 18
     region: content
   name:
     type: string
@@ -95,14 +132,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   priority:
     type: list_default
-    label: hidden
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 6
     region: content
   project:
     type: entity_reference_label
@@ -110,14 +147,14 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   relationships:
     type: burndown_task_relationship_default
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 4
     region: content
   sprint:
     type: entity_reference_label
@@ -125,7 +162,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 5
+    weight: 9
     region: content
   swimlane:
     type: entity_reference_label
@@ -133,7 +170,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 7
     region: content
   tags:
     type: entity_reference_label
@@ -141,7 +178,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 15
     region: content
   ticket_id:
     type: string
@@ -149,22 +186,18 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   user_id:
     type: author
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 12
     region: content
 hidden:
   backlog_sort: true
   board_sort: true
-  completed: true
-  field_acceptance_criteria: true
-  link: true
-  log: true
   resolution: true
   search_api_excerpt: true
   watch_list: true

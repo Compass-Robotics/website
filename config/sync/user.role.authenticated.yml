@@ -74,5 +74,8 @@ permissions:
   - 'view all task revisions'
   - 'view media'
   - 'view own unpublished content'
+  - 'view published project entities'
+  - 'view published sprint entities'
+  - 'view published task entities'
   - 'view the administration theme'
   - 'view unpublished task entities'

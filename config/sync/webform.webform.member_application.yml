@@ -89,7 +89,6 @@ elements: |-
     field_can_attend_competitions:
       '#type': checkbox
       '#title': 'I am able to attend a chaperoned trip(s) to regional competition in either Talahassee, Orlando or South Florida. Each competition is a 4 day trip (Wed evening - Sunday night)'
-      '#required': true
       '#required_error': "Competition is where we shine, and we can't shine if you are not there."
   education:
     '#type': fieldset
@@ -108,8 +107,7 @@ elements: |-
       '#type': webform_term_select
       '#title': 'High School'
       '#description': '<p>The high school you currently attend.</p>'
-      '#empty_option': other
-      '#empty_value': other
+      '#empty_option': '- select your high school -'
       '#required': true
       '#vocabulary': high_schools
     current_grade:
@@ -230,7 +228,7 @@ settings:
   autofill: false
   autofill_message: ''
   autofill_excluded_elements: {  }
-  wizard_progress_bar: true
+  wizard_progress_bar: false
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_progress_link: false

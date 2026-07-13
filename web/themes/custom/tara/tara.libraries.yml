@@ -8,6 +8,9 @@ global-styling:
     js/tara.js: {}
   dependencies:
     - core/jquery
+    - core/drupal
+    - core/once
+    - core/drupalSettings
 
 # Slider
 slider:
@@ -66,7 +69,7 @@ bootstrap-icons:
     component:
       css/bootstrap-icons.css: {}
 
-# Theme settings page 
+# Theme settings page
 theme-settings:
   version: 11.0.9
   css:

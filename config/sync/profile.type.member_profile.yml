@@ -1,0 +1,20 @@
+uuid: 585a79ed-d385-4714-b179-ec07c723ceb6
+langcode: en
+status: true
+dependencies: {  }
+id: member_profile
+label: 'Member Profile'
+display_label: 'Member Profile'
+multiple: false
+registration: false
+roles:
+  authenticated: authenticated
+  content_editor: content_editor
+  web_content_publisher: web_content_publisher
+  administrator: administrator
+  notebook_editor: notebook_editor
+  contact_manager: contact_manager
+  lead: lead
+  finance_manager: finance_manager
+allow_revisions: true
+new_revision: true

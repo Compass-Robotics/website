@@ -1,0 +1,25 @@
+uuid: f967d067-8933-41eb-bffe-869fd4d2f938
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.member_profile.field_competition
+    - profile.type.member_profile
+  module:
+    - competition_leadership_field
+id: profile.member_profile.default
+targetEntityType: profile
+bundle: member_profile
+mode: default
+content:
+  field_competition:
+    type: competition_leadership_default
+    weight: 26
+    region: content
+    settings:
+      leadership_vocabulary: leadership
+      member_term_name: Member
+      auto_create_member_term: true
+    third_party_settings: {  }
+hidden:
+  is_default: true

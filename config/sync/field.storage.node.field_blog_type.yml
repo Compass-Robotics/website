@@ -17,6 +17,9 @@ settings:
     -
       value: news
       label: News
+    -
+      value: training
+      label: training
   allowed_values_function: ''
 module: options
 locked: false

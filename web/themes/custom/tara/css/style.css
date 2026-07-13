@@ -2507,6 +2507,19 @@ ul.social-icons a:focus {
   color: #ffffff !important;
 }
 
+/* Keep collapsed accordion panels searchable without layout gaps. */
+.ui-accordion .ui-accordion-content[hidden="until-found"] {
+  display: block !important;
+  max-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  overflow: hidden !important;
+}
+
 /* Calendar
 -------------------------------------- */
 .calendar-calendar .full {

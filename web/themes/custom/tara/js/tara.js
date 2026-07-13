@@ -82,3 +82,91 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
     }
   });
 });
+
+/*
+ * Make Views accordion content discoverable by browser find-in-page.
+ *
+ * This adds hidden="until-found" to collapsed panels, which allows content to
+ * be indexed by find-in-page while still hidden. When a match is found,
+ * beforematch opens the corresponding accordion panel.
+ */
+(function (Drupal, once, drupalSettings, $) {
+  Drupal.behaviors.taraUntilFoundAccordion = {
+    attach(context) {
+      if (!drupalSettings.views_accordion) {
+        return;
+      }
+
+      const initAccordion = (accordionEl) => {
+        if (accordionEl.dataset.untilFoundInitialized === '1') {
+          return;
+        }
+
+        const $accordion = $(accordionEl);
+
+        const syncPanelVisibility = () => {
+          const $headers = $accordion.find('.ui-accordion-header');
+
+          $headers.each((index, headerEl) => {
+            const $header = $(headerEl);
+            const $panel = $header.next('.ui-accordion-content');
+
+            if (!$panel.length) {
+              return;
+            }
+
+            const isActive = $header.hasClass('ui-accordion-header-active') || $header.attr('aria-expanded') === 'true';
+            const isActiveFallback = $header.hasClass('ui-state-active') || $header.attr('aria-selected') === 'true';
+            const panelIsActive = isActive || isActiveFallback;
+
+            if (panelIsActive) {
+              $panel.removeAttr('hidden');
+            }
+            else {
+              $panel.attr('hidden', 'until-found');
+            }
+
+            if (!$panel[0].dataset.untilFoundBound) {
+              $panel[0].addEventListener('beforematch', () => {
+                // Do not call jQuery UI's single-active API here, because it
+                // would close previously matched panels. Keep each matched
+                // panel open so browser find can reveal multiple hits at once.
+                $panel.removeAttr('hidden');
+                $panel.css('display', 'block');
+
+                $header.attr('aria-expanded', 'true');
+                $header.attr('aria-selected', 'true');
+                $header.removeClass('ui-accordion-header-collapsed ui-corner-all');
+                $header.addClass('ui-accordion-header-active ui-state-active ui-corner-top');
+
+                $panel.addClass('ui-accordion-content-active');
+              });
+              $panel[0].dataset.untilFoundBound = '1';
+            }
+          });
+        };
+
+        syncPanelVisibility();
+        $accordion.on('accordionbeforeactivate.taraUntilFound', (event, ui) => {
+          if (ui && ui.newPanel && ui.newPanel.length) {
+            ui.newPanel.removeAttr('hidden');
+          }
+        });
+        $accordion.on('accordionactivate.taraUntilFound', syncPanelVisibility);
+        accordionEl.dataset.untilFoundInitialized = '1';
+      };
+
+      Object.values(drupalSettings.views_accordion).forEach((viewSettings) => {
+        const selector = `${viewSettings.display}.ui-accordion`;
+        once('taraUntilFoundAccordion', selector, context).forEach(initAccordion);
+
+        const listenerKey = `taraUntilFoundAccordionCreate-${selector}`;
+        once(listenerKey, 'body', context).forEach(() => {
+          $(document).on('accordioncreate.taraUntilFound', viewSettings.display, function () {
+            initAccordion(this);
+          });
+        });
+      });
+    },
+  };
+})(Drupal, once, drupalSettings, jQuery);

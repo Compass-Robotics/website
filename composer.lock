@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c366afb1c52907971d846df3fb1331cc",
+    "content-hash": "8635959a8d39fdd63f12443760cf7211",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1747,70 +1747,6 @@
             "time": "2024-02-05T11:56:58+00:00"
         },
         {
-            "name": "dragonmantank/cron-expression",
-            "version": "v3.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dragonmantank/cron-expression.git",
-                "reference": "d61a8a9604ec1f8c3d150d09db6ce98b32675013"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/d61a8a9604ec1f8c3d150d09db6ce98b32675013",
-                "reference": "d61a8a9604ec1f8c3d150d09db6ce98b32675013",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2|^8.3|^8.4|^8.5"
-            },
-            "replace": {
-                "mtdowling/cron-expression": "^1.0"
-            },
-            "require-dev": {
-                "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^1.12.32|^2.1.31",
-                "phpunit/phpunit": "^8.5.48|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cron\\": "src/Cron/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Tankersley",
-                    "email": "chris@ctankersley.com",
-                    "homepage": "https://github.com/dragonmantank"
-                }
-            ],
-            "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
-            "keywords": [
-                "cron",
-                "schedule"
-            ],
-            "support": {
-                "issues": "https://github.com/dragonmantank/cron-expression/issues",
-                "source": "https://github.com/dragonmantank/cron-expression/tree/v3.6.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/dragonmantank",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-10-31T18:51:33+00:00"
-        },
-        {
             "name": "drupal/address",
             "version": "2.0.4",
             "source": {
@@ -1993,62 +1929,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/better_exposed_filters",
                 "issues": "https://www.drupal.org/project/issues/better_exposed_filters"
-            }
-        },
-        {
-            "name": "drupal/bpmn_io",
-            "version": "3.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/bpmn_io.git",
-                "reference": "3.0.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bpmn_io-3.0.5.zip",
-                "reference": "3.0.5",
-                "shasum": "0f55b30f77d0dc365b8caf883ad4b9b9e01c49c8"
-            },
-            "require": {
-                "drupal/core": "^11.2",
-                "drupal/modeler_api": "^1.0",
-                "ext-dom": "*",
-                "mtownsend/xml-to-array": "^2.0",
-                "php": ">=8.3"
-            },
-            "require-dev": {
-                "drupal/eca": "^3.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "3.0.5",
-                    "datestamp": "1773411172",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "boromino",
-                    "homepage": "https://www.drupal.org/user/859722"
-                },
-                {
-                    "name": "jurgenhaas",
-                    "homepage": "https://www.drupal.org/user/168924"
-                }
-            ],
-            "description": "BPMN modeler, integrated into Drupal's admin UI.",
-            "homepage": "https://www.drupal.org/project/bpmn_io",
-            "support": {
-                "source": "https://drupal.org/project/bpmn_io",
-                "issues": "https://drupal.org/project/issues/bpmn_io"
             }
         },
         {
@@ -3261,17 +3141,17 @@
         },
         {
             "name": "drupal/easy_email",
-            "version": "3.0.8",
+            "version": "3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_email.git",
-                "reference": "3.0.8"
+                "reference": "3.0.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_email-3.0.8.zip",
-                "reference": "3.0.8",
-                "shasum": "b1de690585710f77ad8abeb39a18b299b4095001"
+                "url": "https://ftp.drupal.org/files/projects/easy_email-3.0.9.zip",
+                "reference": "3.0.9",
+                "shasum": "802f4681ccde0de51c456f704d0e30d55ec99002"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -3288,8 +3168,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.8",
-                    "datestamp": "1779811457",
+                    "version": "3.0.9",
+                    "datestamp": "1783602522",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3363,66 +3243,6 @@
             "homepage": "https://www.drupal.org/project/easy_email_theme",
             "support": {
                 "source": "https://git.drupalcode.org/project/easy_email_theme"
-            }
-        },
-        {
-            "name": "drupal/eca",
-            "version": "3.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/eca.git",
-                "reference": "3.1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eca-3.1.2.zip",
-                "reference": "3.1.2",
-                "shasum": "fe8cb4ef22655ba14da8dbc059a1c806451368b8"
-            },
-            "require": {
-                "dragonmantank/cron-expression": "^3.1",
-                "drupal/core": "^11.3 || ^12.0",
-                "drupal/modeler_api": "^1.1",
-                "ext-json": "*",
-                "php": ">=8.3"
-            },
-            "require-dev": {
-                "drupal/modeler_api": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "3.1.2",
-                    "datestamp": "1777999263",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "boromino",
-                    "homepage": "https://www.drupal.org/user/859722"
-                },
-                {
-                    "name": "danielspeicher",
-                    "homepage": "https://www.drupal.org/user/3621778"
-                },
-                {
-                    "name": "jurgenhaas",
-                    "homepage": "https://www.drupal.org/user/168924"
-                }
-            ],
-            "description": "Event, Conditions, Actions - powerful, versatile, and user-friendly rules engine for Drupal",
-            "homepage": "https://www.drupal.org/project/eca",
-            "support": {
-                "source": "https://drupal.org/project/eca",
-                "issues": "https://drupal.org/project/issues/eca"
             }
         },
         {
@@ -4127,85 +3947,6 @@
             "homepage": "https://www.drupal.org/project/google_tag",
             "support": {
                 "source": "https://git.drupalcode.org/project/google_tag"
-            }
-        },
-        {
-            "name": "drupal/haven_theme",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/haven_theme.git",
-                "reference": "1.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/haven_theme-1.0.1.zip",
-                "reference": "1.0.1",
-                "shasum": "f3f64ee60ddddfeafbe0d59ba84e9d9efc5a8fea"
-            },
-            "require": {
-                "drupal/core": "^11.3",
-                "drupal/cva": "^1"
-            },
-            "conflict": {
-                "drupal/experience_builder": "*"
-            },
-            "require-dev": {
-                "drupal/canvas": "^1"
-            },
-            "type": "drupal-theme",
-            "extra": {
-                "drupal": {
-                    "version": "1.0.1",
-                    "datestamp": "1780902491",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "balintbrews",
-                    "homepage": "https://www.drupal.org/user/613760"
-                },
-                {
-                    "name": "ckrina",
-                    "homepage": "https://www.drupal.org/user/1206650"
-                },
-                {
-                    "name": "jurgenhaas",
-                    "homepage": "https://www.drupal.org/user/168924"
-                },
-                {
-                    "name": "lauriii",
-                    "homepage": "https://www.drupal.org/user/1078742"
-                },
-                {
-                    "name": "pameeela",
-                    "homepage": "https://www.drupal.org/user/1431110"
-                },
-                {
-                    "name": "penyaskito",
-                    "homepage": "https://www.drupal.org/user/959536"
-                },
-                {
-                    "name": "phenaproxima",
-                    "homepage": "https://www.drupal.org/user/205645"
-                },
-                {
-                    "name": "thejimbirch",
-                    "homepage": "https://www.drupal.org/user/2507260"
-                }
-            ],
-            "description": "A scalable, modern Drupal CMS prototype theme, integrating cutting-edge front-end tools and a flexible, component-based design system.",
-            "homepage": "https://www.drupal.org/project/haven_theme",
-            "support": {
-                "source": "https://git.drupalcode.org/project/haven_theme"
             }
         },
         {
@@ -5954,24 +5695,25 @@
         },
         {
             "name": "drupal/smart_date",
-            "version": "4.2.8",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/smart_date.git",
-                "reference": "4.2.8"
+                "reference": "4.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/smart_date-4.2.8.zip",
-                "reference": "4.2.8",
-                "shasum": "1d835c8b80b4517f8aa7a9660118c09852fb6fbf"
+                "url": "https://ftp.drupal.org/files/projects/smart_date-4.3.0.zip",
+                "reference": "4.3.0",
+                "shasum": "820497eb5aa608aadf3b82a630490b5ed6182a31"
             },
             "require": {
-                "drupal/core": "^9 || ^10 || ^11",
+                "drupal/core": "^10 || ^11 || ^12",
                 "php": ">=8.1",
                 "simshaun/recurr": "^5"
             },
             "require-dev": {
+                "drupal/token": "*",
                 "drush/drush": "*"
             },
             "suggest": {
@@ -5980,8 +5722,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.2.8",
-                    "datestamp": "1781884069",
+                    "version": "4.3.0",
+                    "datestamp": "1783894694",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6100,69 +5842,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/smtp",
                 "issues": "https://www.drupal.org/project/issues/smtp"
-            }
-        },
-        {
-            "name": "drupal/svg_image",
-            "version": "3.2.3",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/svg_image.git",
-                "reference": "3.2.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/svg_image-3.2.3.zip",
-                "reference": "3.2.3",
-                "shasum": "d9fa02a1d78ad7905d8a1e4058acfab7256e2680"
-            },
-            "require": {
-                "drupal/core": "^10.3 || ^11",
-                "enshrined/svg-sanitize": ">=0.22 <1.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "3.2.3",
-                    "datestamp": "1781940321",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Yaroslav Lushnikov",
-                    "homepage": "https://www.drupal.org/u/imyaro",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "See contributors",
-                    "homepage": "https://www.drupal.org/node/2887125/committers"
-                },
-                {
-                    "name": "imyaro",
-                    "homepage": "https://www.drupal.org/user/2870933"
-                },
-                {
-                    "name": "mably",
-                    "homepage": "https://www.drupal.org/user/3375160"
-                },
-                {
-                    "name": "thomas.frobieter",
-                    "homepage": "https://www.drupal.org/user/409335"
-                }
-            ],
-            "description": "Overrides the standard image formatter and widget to support SVG files.",
-            "homepage": "https://drupal.org/project/svg_image",
-            "support": {
-                "source": "https://git.drupalcode.org/project/svg_image",
-                "issues": "https://www.drupal.org/project/issues/svg_image"
             }
         },
         {
@@ -6392,61 +6071,6 @@
             "homepage": "https://www.drupal.org/project/token_or",
             "support": {
                 "source": "https://git.drupalcode.org/project/token_or"
-            }
-        },
-        {
-            "name": "drupal/trash",
-            "version": "3.0.28",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/trash.git",
-                "reference": "3.0.28"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/trash-3.0.28.zip",
-                "reference": "3.0.28",
-                "shasum": "eb0a2423756ba28c83031e2706bd3e061753b274"
-            },
-            "require": {
-                "drupal/core": "^10.3 | ^11"
-            },
-            "conflict": {
-                "drush/drush": "<12.5.1"
-            },
-            "require-dev": {
-                "drupal/pathauto": "*",
-                "drupal/redirect": "*",
-                "drupal/wse": "*"
-            },
-            "suggest": {
-                "drush/drush": "^12 || ^13"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "3.0.28",
-                    "datestamp": "1780674455",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "amateescu",
-                    "homepage": "https://www.drupal.org/user/729614"
-                }
-            ],
-            "description": "This module adds a trash bin for all content entities.",
-            "homepage": "https://www.drupal.org/project/trash",
-            "support": {
-                "source": "https://git.drupalcode.org/project/trash"
             }
         },
         {
@@ -6753,17 +6377,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.3.0-rc2",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.3.0-rc2"
+                "reference": "6.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.3.0-rc2.zip",
-                "reference": "6.3.0-rc2",
-                "shasum": "833904081e5eab7e8e36250fea3652c797ddfb28"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.3.0.zip",
+                "reference": "6.3.0",
+                "shasum": "67b09271edfd2fb38dc699ff733911ad500ae5d7"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11.0"
@@ -6808,11 +6432,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.3.0-rc2",
-                    "datestamp": "1782137794",
+                    "version": "6.3.0",
+                    "datestamp": "1783604819",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "drush": {
@@ -7183,51 +6807,6 @@
                 }
             ],
             "time": "2025-03-06T22:45:56+00:00"
-        },
-        {
-            "name": "enshrined/svg-sanitize",
-            "version": "0.22.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/darylldoyle/svg-sanitizer.git",
-                "reference": "0afa95ea74be155a7bcd6c6fb60c276c39984500"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/0afa95ea74be155a7bcd6c6fb60c276c39984500",
-                "reference": "0afa95ea74be155a7bcd6c6fb60c276c39984500",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "php": "^7.1 || ^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.5 || ^8.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "enshrined\\svgSanitize\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Daryll Doyle",
-                    "email": "daryll@enshrined.co.uk"
-                }
-            ],
-            "description": "An SVG sanitizer for PHP",
-            "support": {
-                "issues": "https://github.com/darylldoyle/svg-sanitizer/issues",
-                "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.22.0"
-            },
-            "time": "2025-08-12T10:13:48+00:00"
         },
         {
             "name": "goalgorilla/rtseo.js",
@@ -8339,59 +7918,6 @@
                 "source": "https://github.com/mck89/peast/tree/v1.17.6"
             },
             "time": "2026-04-24T08:04:05+00:00"
-        },
-        {
-            "name": "mtownsend/xml-to-array",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mtownsend5512/xml-to-array.git",
-                "reference": "0734720a8462dba36d90fb8b2723bf46af0091f4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mtownsend5512/xml-to-array/zipball/0734720a8462dba36d90fb8b2723bf46af0091f4",
-                "reference": "0734720a8462dba36d90fb8b2723bf46af0091f4",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7.0|~8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.4"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Mtownsend\\XmlToArray\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mark Townsend",
-                    "email": "mtownsend5512@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Easily convert valid xml to a php array.",
-            "keywords": [
-                "array",
-                "convert",
-                "laravel",
-                "xml"
-            ],
-            "support": {
-                "issues": "https://github.com/mtownsend5512/xml-to-array/issues",
-                "source": "https://github.com/mtownsend5512/xml-to-array/tree/2.0.0"
-            },
-            "time": "2021-02-27T22:39:18+00:00"
         },
         {
             "name": "nette/schema",
@@ -13277,8 +12803,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "drupal/crm": 10,
-        "drupal/primary_entity_reference": 10,
-        "drupal/webform": 5
+        "drupal/primary_entity_reference": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,

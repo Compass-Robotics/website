@@ -1,0 +1,7 @@
+name: Competition Leadership Field
+type: module
+description: Provides a custom multi-property field for competition year and leadership role.
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:taxonomy

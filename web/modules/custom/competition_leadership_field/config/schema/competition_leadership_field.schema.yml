@@ -1,0 +1,45 @@
+field.storage_settings.competition_leadership:
+  type: mapping
+  label: 'Competition leadership field storage settings'
+  mapping: {}
+
+field.field_settings.competition_leadership:
+  type: mapping
+  label: 'Competition leadership field settings'
+  mapping: {}
+
+field.value.competition_leadership:
+  type: mapping
+  label: 'Competition leadership value'
+  mapping:
+    competition_year:
+      type: integer
+      label: 'Competition year'
+    target_id:
+      type: integer
+      label: 'Leadership term id'
+
+field.widget.settings.competition_leadership_default:
+  type: mapping
+  label: 'Competition leadership widget settings'
+  mapping:
+    leadership_vocabulary:
+      type: string
+      label: 'Leadership vocabulary machine name'
+    member_term_name:
+      type: string
+      label: 'Default member term name'
+    auto_create_member_term:
+      type: boolean
+      label: 'Auto-create default member term if missing'
+
+field.formatter.settings.competition_leadership_default:
+  type: mapping
+  label: 'Competition leadership formatter settings'
+  mapping:
+    leadership_vocabulary:
+      type: string
+      label: 'Leadership vocabulary machine name'
+    member_term_name:
+      type: string
+      label: 'Default member term name'

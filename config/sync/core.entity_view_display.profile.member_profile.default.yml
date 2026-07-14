@@ -3,15 +3,24 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.profile.member_profile.field_biography
     - field.field.profile.member_profile.field_competition
     - profile.type.member_profile
   module:
     - competition_leadership_field
+    - text
 id: profile.member_profile.default
 targetEntityType: profile
 bundle: member_profile
 mode: default
 content:
+  field_biography:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
   field_competition:
     type: competition_leadership_default
     label: above
@@ -19,7 +28,7 @@ content:
       leadership_vocabulary: leadership
       member_term_name: Member
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   search_api_excerpt: true

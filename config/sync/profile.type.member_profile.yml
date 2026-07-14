@@ -5,8 +5,8 @@ dependencies: {  }
 id: member_profile
 label: 'Member Profile'
 display_label: 'Member Profile'
-multiple: false
-registration: false
+multiple: true
+registration: true
 roles:
   authenticated: authenticated
   content_editor: content_editor

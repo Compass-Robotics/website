@@ -86,6 +86,7 @@
         "drupal/ui_icons": "^1.1.1",
         "drupal/view_password": "^6.0.5",
         "drupal/views_accordion": "^2.0",
+        "drupal/views_bulk_operations": "^4.4",
         "drupal/views_infinite_scroll": "^2.0.3",
         "drupal/webform": "^6.3",
         "drupal/webform_entity_handler": "^2.0",

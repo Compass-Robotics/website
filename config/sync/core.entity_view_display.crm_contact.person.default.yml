@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.crm_contact.default
     - crm.crm_contact_type.person
     - field.field.crm_contact.person.comment
     - field.field.crm_contact.person.field_type
@@ -10,6 +11,7 @@ dependencies:
     - field.field.crm_contact.person.image
     - field.field.crm_contact.person.preferred_name
   module:
+    - comment
     - crm
     - datetime
     - image
@@ -37,6 +39,15 @@ content:
       granularity: years
     third_party_settings: {  }
     weight: 5
+    region: content
+  comment:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 11
     region: content
   created:
     type: timestamp
@@ -80,7 +91,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 16
+    weight: 10
     region: content
   image:
     type: image
@@ -110,7 +121,7 @@ content:
       sort_by: none
       sort_order: asc
     third_party_settings: {  }
-    weight: 15
+    weight: 9
     region: content
   start_date:
     type: datetime_default
@@ -131,7 +142,6 @@ content:
     weight: 3
     region: content
 hidden:
-  comment: true
   full_name: true
   preferred_name: true
   search_api_excerpt: true

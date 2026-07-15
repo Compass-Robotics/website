@@ -12,9 +12,6 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: mentor
-      label: Mentor
-    -
       value: alumni
       label: Alumni
     -
@@ -23,6 +20,9 @@ settings:
     -
       value: parent
       label: Parent
+    -
+      value: community
+      label: Community
   allowed_values_function: ''
 module: options
 locked: false

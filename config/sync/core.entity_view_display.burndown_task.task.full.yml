@@ -25,7 +25,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   changed:
     type: timestamp
@@ -44,7 +44,7 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 14
+    weight: 16
     region: content
   completed:
     type: boolean
@@ -73,7 +73,7 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 13
+    weight: 15
     region: content
   description:
     type: text_default
@@ -87,7 +87,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   field_acceptance_criteria:
     type: text_default
@@ -105,7 +105,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 16
+    weight: 18
     region: content
   link:
     type: link
@@ -117,14 +117,14 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 17
+    weight: 19
     region: content
   log:
     type: burndown_log_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 18
+    weight: 20
     region: content
   name:
     type: string
@@ -156,13 +156,21 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  resolution:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
   sprint:
     type: entity_reference_label
     label: inline
     settings:
       link: false
     third_party_settings: {  }
-    weight: 9
+    weight: 10
     region: content
   swimlane:
     type: entity_reference_label
@@ -178,7 +186,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 15
+    weight: 17
     region: content
   ticket_id:
     type: string
@@ -193,11 +201,17 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 12
+    weight: 14
+    region: content
+  watch_list:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
     region: content
 hidden:
   backlog_sort: true
   board_sort: true
-  resolution: true
   search_api_excerpt: true
-  watch_list: true

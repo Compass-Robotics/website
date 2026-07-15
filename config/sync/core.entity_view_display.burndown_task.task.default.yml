@@ -43,7 +43,7 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   description:
     type: text_default
@@ -57,7 +57,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 10
     region: content
   field_acceptance_criteria:
     type: text_default
@@ -75,7 +75,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   name:
     type: string
@@ -105,7 +105,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 12
+    weight: 13
     region: content
   tags:
     type: entity_reference_label
@@ -113,7 +113,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   ticket_id:
     type: string
@@ -132,6 +132,14 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
+  watch_list:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
 hidden:
   backlog_sort: true
   board_sort: true
@@ -143,4 +151,3 @@ hidden:
   search_api_excerpt: true
   sprint: true
   swimlane: true
-  watch_list: true

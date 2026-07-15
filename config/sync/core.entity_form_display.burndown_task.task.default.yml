@@ -5,7 +5,7 @@ dependencies:
   config:
     - burndown.burndown_task_type.task
     - field.field.burndown_task.task.field_acceptance_criteria
-    - image.style.thumbnail
+    - image.style.uncropped_300w_webp
   module:
     - burndown
     - image
@@ -56,16 +56,16 @@ content:
     third_party_settings: {  }
   images:
     type: image_image
-    weight: 10
+    weight: 11
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: uncropped_300w_webp
     third_party_settings: {  }
     label: above
   link:
     type: link_default
-    weight: 9
+    weight: 10
     region: content
     settings:
       placeholder_url: ''
@@ -74,7 +74,7 @@ content:
     label: above
   log:
     type: burndown_log_default
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -94,13 +94,13 @@ content:
     third_party_settings: {  }
   relationships:
     type: burndown_task_relationship_default
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   sprint:
     type: tagify_entity_reference_autocomplete_widget
-    weight: 8
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -128,6 +128,16 @@ content:
     third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  watch_list:
+    type: entity_reference_autocomplete
     weight: 7
     region: content
     settings:
@@ -144,4 +154,3 @@ hidden:
   resolution: true
   tags: true
   ticket_id: true
-  watch_list: true

@@ -70,6 +70,12 @@ AddType image/webp .webp
   RewriteCond %{HTTPS} on
   RewriteRule ^ - [E=protossl:s]
 
+  # Redirect HTTP to HTTPS. In DDEV and other reverse proxy setups, check the server port.
+  # Note: DDEV's reverse proxy typically doesn't forward HTTP at all, only HTTPS
+  # RewriteCond %{SERVER_PORT} ^80$ [OR]
+  # RewriteCond %{HTTP:X-Forwarded-Proto} ^http$
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
   # Make sure Authorization HTTP header is available to PHP
   # even when running as CGI or FastCGI.
   RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -102,9 +108,10 @@ AddType image/webp .webp
   #
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
   # (http://www.example.com/foo will be redirected to http://example.com/foo)
-  # uncomment the following:
-  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  # RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
+  # This works on production servers with Apache; on DDEV with Nginx reverse proxy,
+  # the PHP redirect in settings.php handles it.
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
 
   # Modify the RewriteBase if you are using Drupal in a subdirectory or in a
   # VirtualDocumentRoot and the rewrite rules are not working properly.

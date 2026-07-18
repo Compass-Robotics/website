@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae245dd3b1f0aca6f3edb4e8b15321c7",
+    "content-hash": "f7048b311b3ceb80abcac71476c52374",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2277,16 +2277,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "11.3.13",
+            "version": "11.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "a9334c83b262556bcd17785df981e0f49d1f191d"
+                "reference": "de48a76c916a06457d056b8c74cc40735164a072"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/a9334c83b262556bcd17785df981e0f49d1f191d",
-                "reference": "a9334c83b262556bcd17785df981e0f49d1f191d",
+                "url": "https://api.github.com/repos/drupal/core/zipball/de48a76c916a06457d056b8c74cc40735164a072",
+                "reference": "de48a76c916a06457d056b8c74cc40735164a072",
                 "shasum": ""
             },
             "require": {
@@ -2444,13 +2444,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/11.3.13"
+                "source": "https://github.com/drupal/core/tree/11.3.14"
             },
-            "time": "2026-06-23T07:19:39+00:00"
+            "time": "2026-07-15T18:02:30+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.3.13",
+            "version": "11.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2494,13 +2494,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.3.13"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.3.14"
             },
             "time": "2026-02-10T11:39:53+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "11.3.13",
+            "version": "11.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2535,7 +2535,7 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/11.3.13"
+                "source": "https://github.com/drupal/core-project-message/tree/11.3.14"
             },
             "time": "2025-02-03T10:59:29+00:00"
         },
@@ -2585,23 +2585,23 @@
         },
         {
             "name": "drupal/core-recommended",
-            "version": "11.3.13",
+            "version": "11.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "63463ae5c05516388160b2339651611fe73f1a2a"
+                "reference": "0b5696c395c385da27348d777f1fbf07fe40d03e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/63463ae5c05516388160b2339651611fe73f1a2a",
-                "reference": "63463ae5c05516388160b2339651611fe73f1a2a",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/0b5696c395c385da27348d777f1fbf07fe40d03e",
+                "reference": "0b5696c395c385da27348d777f1fbf07fe40d03e",
                 "shasum": ""
             },
             "require": {
                 "asm89/stack-cors": "~v2.3.0",
                 "composer/semver": "~3.4.4",
                 "doctrine/lexer": "~3.0.1",
-                "drupal/core": "11.3.13",
+                "drupal/core": "11.3.14",
                 "egulias/email-validator": "~4.0.4",
                 "guzzlehttp/guzzle": "~7.12.1",
                 "guzzlehttp/promises": "~2.5.0",
@@ -2663,9 +2663,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/11.3.13"
+                "source": "https://github.com/drupal/core-recommended/tree/11.3.14"
             },
-            "time": "2026-06-23T07:19:39+00:00"
+            "time": "2026-07-15T18:02:30+00:00"
         },
         {
             "name": "drupal/core-vendor-hardening",
@@ -12774,16 +12774,16 @@
         },
         {
             "name": "twig/html-extra",
-            "version": "v3.24.0",
+            "version": "v3.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/html-extra.git",
-                "reference": "313900fb98b371b006a55b1a29241a192634be13"
+                "reference": "760893ed7bdd0a381e4e00004c6f6e26ad3881d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/html-extra/zipball/313900fb98b371b006a55b1a29241a192634be13",
-                "reference": "313900fb98b371b006a55b1a29241a192634be13",
+                "url": "https://api.github.com/repos/twigphp/html-extra/zipball/760893ed7bdd0a381e4e00004c6f6e26ad3881d7",
+                "reference": "760893ed7bdd0a381e4e00004c6f6e26ad3881d7",
                 "shasum": ""
             },
             "require": {
@@ -12826,7 +12826,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/twigphp/html-extra/tree/v3.24.0"
+                "source": "https://github.com/twigphp/html-extra/tree/v3.28.0"
             },
             "funding": [
                 {
@@ -12838,7 +12838,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-17T07:24:08+00:00"
+            "time": "2026-06-25T06:50:01+00:00"
         },
         {
             "name": "twig/twig",

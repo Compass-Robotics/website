@@ -8,6 +8,7 @@ module:
   block_content: 0
   breakpoint: 0
   burndown: 0
+  burndown_time_tracker: 0
   captcha: 0
   checklistapi: 0
   ckeditor5: 0
@@ -38,6 +39,7 @@ module:
   fullcalendar: 0
   gin_login: 0
   gin_toolbar: 0
+  help: 0
   honeypot: 0
   image: 0
   inline_entity_form: 0

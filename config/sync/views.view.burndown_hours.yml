@@ -1,4 +1,4 @@
-uuid: 1a597340-c32b-4ec2-8cda-fc08bc2305b2
+uuid: ca830902-393b-4d66-88d2-fe51b41b7593
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - burndown
     - burndown_time_tracker
 _core:
-  default_config_hash: oSt6JtzwgtnJobeM8sLwv89Um3OTJAtf5HsuFojiPnQ
+  default_config_hash: 5YsbMaBInkpQixdsEtytuPkknlY5fmB_-Pqvx_ta1z8
 id: burndown_hours
 label: 'Burndown Hours'
 module: views

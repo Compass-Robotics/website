@@ -14,6 +14,7 @@ dependencies:
     - crm.crm_relationship_type.spouse
     - crm.crm_relationship_type.volunteer
   module:
+    - burndown_time_tracker
     - crm
 id: lead
 label: Lead
@@ -47,6 +48,7 @@ permissions:
   - 'edit any spouse crm relationship'
   - 'edit any volunteer crm relationship'
   - 'edit mapped crm contact'
+  - 'manage user work hours'
   - 'view any crm contact'
   - 'view any crm contact label'
   - 'view any crm relationship'

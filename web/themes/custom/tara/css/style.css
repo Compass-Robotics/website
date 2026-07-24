@@ -1541,6 +1541,38 @@ details .form-details-wrapper {
   z-index: 0;
 }
 
+/* Keep fixed footer aligned with content when vertical admin navigation is open. */
+body.toolbar-vertical {
+  --tara-admin-sidebar-width: 39px;
+}
+
+body.toolbar-vertical.toolbar-tray-open {
+  --tara-admin-sidebar-width: 240px;
+}
+
+body.gin--vertical-toolbar,
+body.gin--navigation {
+  --tara-admin-sidebar-width: 56px;
+}
+
+body.gin--vertical-toolbar.toolbar-tray-open,
+body.gin--vertical-toolbar.gin--navigation-expanded,
+body.gin--navigation.gin--navigation-expanded {
+  --tara-admin-sidebar-width: 280px;
+}
+
+body.toolbar-vertical #footer,
+body.gin--vertical-toolbar #footer,
+body.gin--navigation #footer {
+  left: var(--tara-admin-sidebar-width);
+  width: calc(100% - var(--tara-admin-sidebar-width));
+}
+
+body.gin--core-navigation #footer {
+  left: var(--gin-toolbar-x-offset, 0px);
+  width: calc(100% - var(--gin-toolbar-x-offset, 0px));
+}
+
 .footer,
 .footer-top,
 .footer-bottom {

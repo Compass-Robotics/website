@@ -3,14 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.crm_contact.default
     - crm.crm_contact_type.organization
     - field.field.crm_contact.organization.aliases
     - field.field.crm_contact.organization.comment
+    - field.field.crm_contact.organization.field_links
     - field.field.crm_contact.organization.image
   module:
+    - comment
     - crm
     - datetime
     - image
+    - link
 _core:
   default_config_hash: Qrwn-XJRWwCgW2CKKyD5qTDklT-2Pmnvp4kkfqOxydY
 id: crm_contact.organization.default
@@ -25,7 +29,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 4
+    weight: 6
     region: content
   age:
     type: crm_age
@@ -33,7 +37,7 @@ content:
     settings:
       granularity: years
     third_party_settings: {  }
-    weight: 5
+    weight: 7
     region: content
   aliases:
     type: string
@@ -42,6 +46,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
+    region: content
+  comment:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 12
     region: content
   created:
     type: timestamp
@@ -60,7 +73,7 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 8
+    weight: 10
     region: content
   emails:
     type: entity_reference_entity_view
@@ -69,7 +82,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 4
     region: content
   end_date:
     type: datetime_default
@@ -78,7 +91,19 @@ content:
       timezone_override: ''
       format_type: html_date
     third_party_settings: {  }
-    weight: 7
+    weight: 9
+    region: content
+  field_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
     region: content
   image:
     type: image
@@ -89,7 +114,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   name:
     type: string
@@ -108,7 +133,7 @@ content:
       sort_by: none
       sort_order: asc
     third_party_settings: {  }
-    weight: 15
+    weight: 11
     region: content
   start_date:
     type: datetime_default
@@ -117,7 +142,7 @@ content:
       timezone_override: ''
       format_type: html_date
     third_party_settings: {  }
-    weight: 6
+    weight: 8
     region: content
   telephones:
     type: entity_reference_entity_view
@@ -126,8 +151,7 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
 hidden:
-  comment: true
   search_api_excerpt: true

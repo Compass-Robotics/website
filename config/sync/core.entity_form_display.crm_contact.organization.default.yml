@@ -6,11 +6,14 @@ dependencies:
     - crm.crm_contact_type.organization
     - field.field.crm_contact.organization.aliases
     - field.field.crm_contact.organization.comment
+    - field.field.crm_contact.organization.field_links
     - field.field.crm_contact.organization.image
     - image.style.thumbnail
   module:
+    - comment
     - datetime
     - image
+    - link
     - primary_entity_reference
 _core:
   default_config_hash: 2q1qnMK76mEUg_F3PkTtItKNjaw5R4KX0zzU-iYVKVQ
@@ -21,7 +24,7 @@ mode: default
 content:
   addresses:
     type: primary_entity_reference_inline_form
-    weight: 4
+    weight: 6
     region: content
     settings:
       form_mode: default
@@ -36,6 +39,8 @@ content:
       collapsed: false
       revision: true
       removed_reference: delete
+      primary_label: Primary
+      show_primary_only: false
     third_party_settings: {  }
   aliases:
     type: string_textfield
@@ -45,15 +50,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  comment:
+    type: comment_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 8
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   emails:
     type: primary_entity_reference_inline_form
-    weight: 2
+    weight: 4
     region: content
     settings:
       form_mode: default
@@ -68,16 +79,26 @@ content:
       collapsed: false
       revision: true
       removed_reference: delete
+      primary_label: Primary
+      show_primary_only: false
     third_party_settings: {  }
   end_date:
     type: datetime_default
-    weight: 7
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_links:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   image:
     type: image_image
-    weight: 1
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber
@@ -93,20 +114,20 @@ content:
     third_party_settings: {  }
   start_date:
     type: datetime_default
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   telephones:
     type: primary_entity_reference_inline_form
-    weight: 3
+    weight: 5
     region: content
     settings:
       form_mode: default
@@ -121,6 +142,8 @@ content:
       collapsed: false
       revision: true
       removed_reference: delete
+      primary_label: Primary
+      show_primary_only: false
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
@@ -132,5 +155,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  comment: true
+hidden: {  }

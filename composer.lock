@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50a3ba97cecd853b6b5076dbcb539d34",
+    "content-hash": "3508f4c02606b9784d9a97e21e559bbd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2710,24 +2710,25 @@
         },
         {
             "name": "drupal/crm",
-            "version": "1.0.0-beta10",
+            "version": "1.0.0-beta11",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/crm.git",
-                "reference": "1.0.0-beta10"
+                "reference": "1.0.0-beta11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/crm-1.0.0-beta10.zip",
-                "reference": "1.0.0-beta10",
-                "shasum": "e81d82ea470abe3cf17b472e649ed972c3936757"
+                "url": "https://ftp.drupal.org/files/projects/crm-1.0.0-beta11.zip",
+                "reference": "1.0.0-beta11",
+                "shasum": "bd0a1360b668c78e0bb454f1e1e48d4888f533de"
             },
             "require": {
                 "drupal/address": "^2.0",
                 "drupal/core": ">=11.1",
                 "drupal/inline_entity_form": "^3.0",
                 "drupal/name": "^1.1",
-                "drupal/primary_entity_reference": "^1.0.0@beta"
+                "drupal/primary_entity_reference": "^1.0.0@beta",
+                "drupal/telephone": "*"
             },
             "require-dev": {
                 "brianium/paratest": "^7.3",
@@ -2738,8 +2739,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-beta10",
-                    "datestamp": "1783174383",
+                    "version": "1.0.0-beta11",
+                    "datestamp": "1785756598",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."

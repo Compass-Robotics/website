@@ -7,10 +7,13 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - media.type.svg_image
+    - media.type.video
     - node.type.notebook_entry
   module:
     - filter
     - media
+    - media_library_bulk_upload
     - node
 id: notebook_editor
 label: 'Notebook Editor'
@@ -20,6 +23,7 @@ permissions:
   - 'access content overview'
   - 'access media overview'
   - 'create document media'
+  - 'create image media'
   - 'create media'
   - 'create notebook_entry content'
   - 'create remote_video media'
@@ -27,12 +31,17 @@ permissions:
   - 'edit own image media'
   - 'edit own notebook_entry content'
   - 'edit own remote_video media'
+  - 'edit own svg_image media'
+  - 'edit own video media'
   - 'update any media'
+  - 'update media'
+  - 'use media document bulk upload form'
+  - 'use media image bulk upload form'
+  - 'use media remote_video bulk upload form'
+  - 'use media svg_image bulk upload form'
+  - 'use media video bulk upload form'
   - 'use text format content_format'
   - 'view all media revisions'
   - 'view all revisions'
-  - 'view any document media revisions'
-  - 'view any image media revisions'
-  - 'view any remote_video media revisions'
   - 'view notebook_entry revisions'
   - 'view own unpublished media'

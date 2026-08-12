@@ -3,11 +3,24 @@ langcode: en
 status: true
 dependencies:
   config:
+    - crm.crm_contact_type.member
+    - crm.crm_contact_type.mentor
+    - crm.crm_contact_type.organization
+    - crm.crm_contact_type.person
+    - crm.crm_relationship_type.member
+    - crm.crm_relationship_type.parent
+    - crm.crm_relationship_type.partner
+    - crm.crm_relationship_type.sibling
+    - crm.crm_relationship_type.spouse
+    - crm.crm_relationship_type.volunteer
     - filter.format.content_format
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - media.type.svg_image
+    - media.type.video
   module:
+    - crm
     - filter
     - media
     - node
@@ -17,17 +30,58 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content overview'
+  - 'access crm'
   - 'access media overview'
+  - 'alter crm user display name'
+  - 'create any crm contact'
+  - 'create any crm relationship'
   - 'create document media'
+  - 'create image media'
   - 'create media'
+  - 'create member crm relationship'
+  - 'create organization crm contact'
+  - 'create parent crm relationship'
+  - 'create partner crm relationship'
+  - 'create person crm contact'
   - 'create remote_video media'
+  - 'create sibling crm relationship'
+  - 'create spouse crm relationship'
+  - 'create volunteer crm relationship'
+  - 'edit any crm contact'
+  - 'edit any member crm contact'
+  - 'edit any member crm relationship'
+  - 'edit any organization crm contact'
+  - 'edit any parent crm relationship'
+  - 'edit any partner crm relationship'
+  - 'edit any person crm contact'
+  - 'edit any sibling crm relationship'
+  - 'edit any spouse crm relationship'
+  - 'edit any volunteer crm relationship'
   - 'edit own image media'
   - 'edit own remote_video media'
+  - 'edit own svg_image media'
+  - 'edit own video media'
   - 'update any media'
+  - 'update media'
   - 'use text format content_format'
   - 'view all media revisions'
   - 'view all revisions'
-  - 'view any document media revisions'
-  - 'view any image media revisions'
-  - 'view any remote_video media revisions'
+  - 'view any crm contact'
+  - 'view any crm contact label'
+  - 'view any crm relationship'
+  - 'view any member crm contact'
+  - 'view any member crm contact label'
+  - 'view any member crm relationship'
+  - 'view any mentor crm contact'
+  - 'view any mentor crm contact label'
+  - 'view any organization crm contact'
+  - 'view any organization crm contact label'
+  - 'view any parent crm relationship'
+  - 'view any partner crm relationship'
+  - 'view any person crm contact'
+  - 'view any person crm contact label'
+  - 'view any sibling crm relationship'
+  - 'view any spouse crm relationship'
+  - 'view any volunteer crm relationship'
+  - 'view mapped crm contact'
   - 'view own unpublished media'

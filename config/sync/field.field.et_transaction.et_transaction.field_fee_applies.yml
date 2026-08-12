@@ -1,0 +1,22 @@
+uuid: a6025b74-a77d-4d35-813d-a3320ce2548e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.et_transaction.field_fee_applies
+  module:
+    - expense_tracker
+id: et_transaction.et_transaction.field_fee_applies
+field_name: field_fee_applies
+entity_type: et_transaction
+bundle: et_transaction
+label: 'Fee applies'
+description: "Check this if the money is subject to our partner's fee."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

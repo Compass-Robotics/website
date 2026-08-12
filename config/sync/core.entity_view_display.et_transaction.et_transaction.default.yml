@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.et_transaction.et_transaction.field_contact
+    - field.field.et_transaction.et_transaction.field_fee_applies
     - field.field.et_transaction.et_transaction.field_receipts_and_bills
   module:
     - comment
@@ -53,7 +54,7 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 16
+    weight: 17
     region: content
   comment:
     type: comment_default
@@ -62,7 +63,7 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    weight: 17
+    weight: 18
     region: content
   created:
     type: timestamp
@@ -81,7 +82,7 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 15
+    weight: 16
     region: content
   date:
     type: timestamp
@@ -100,7 +101,7 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   end_date:
     type: smartdate_default
@@ -122,7 +123,7 @@ content:
         decimals: 2
         suffix: h
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   field_contact:
     type: entity_reference_label
@@ -130,7 +131,17 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 13
+    weight: 14
+    region: content
+  field_fee_applies:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_receipts_and_bills:
     type: file_default
@@ -138,14 +149,14 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 12
+    weight: 13
     region: content
   note:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   repeat:
     type: boolean
@@ -155,28 +166,28 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 6
+    weight: 7
     region: content
   repeat_every:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
   specific_month_days:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 10
     region: content
   specific_week_days:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   title:
     type: string
@@ -198,14 +209,14 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   uid:
     type: author
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 15
     region: content
 hidden:
   created_type: true

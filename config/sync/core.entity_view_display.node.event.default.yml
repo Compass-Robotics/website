@@ -16,6 +16,11 @@ targetEntityType: node
 bundle: event
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   field_content:
     type: text_default
     label: hidden
@@ -47,7 +52,7 @@ content:
     region: content
   field_location:
     type: entity_reference_label
-    label: above
+    label: inline
     settings:
       link: true
     third_party_settings: {  }

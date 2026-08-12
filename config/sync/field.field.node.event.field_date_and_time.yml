@@ -7,6 +7,11 @@ dependencies:
     - node.type.event
   module:
     - smart_date
+    - smart_date_recur
+third_party_settings:
+  smart_date_recur:
+    allow_recurring: true
+    month_limit: 12
 id: node.event.field_date_and_time
 field_name: field_date_and_time
 entity_type: node

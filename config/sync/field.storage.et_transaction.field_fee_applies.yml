@@ -1,0 +1,18 @@
+uuid: ee7de056-144d-41a6-8c7b-db322cdbbb5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - expense_tracker
+id: et_transaction.field_fee_applies
+field_name: field_fee_applies
+entity_type: et_transaction
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

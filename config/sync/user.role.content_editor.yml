@@ -7,9 +7,12 @@ dependencies:
     - media.type.document
     - media.type.image
     - media.type.remote_video
+    - media.type.svg_image
+    - media.type.video
     - node.type.event
     - node.type.faq
     - node.type.notebook_entry
+    - node.type.posts
     - taxonomy.vocabulary.tags
     - workflows.workflow.basic_editorial
   module:
@@ -40,6 +43,7 @@ permissions:
   - 'create image media'
   - 'create media'
   - 'create notebook_entry content'
+  - 'create posts content'
   - 'create remote_video media'
   - 'create terms in tags'
   - 'create url aliases'
@@ -48,21 +52,33 @@ permissions:
   - 'edit any faq content'
   - 'edit any image media'
   - 'edit any notebook_entry content'
+  - 'edit any posts content'
   - 'edit any remote_video media'
+  - 'edit any svg_image media'
+  - 'edit any video media'
+  - 'edit own document media'
+  - 'edit own image media'
   - 'edit own notebook_entry content'
+  - 'edit own posts content'
+  - 'edit own remote_video media'
+  - 'edit own svg_image media'
+  - 'edit own video media'
   - 'edit terms in tags'
+  - 'revert event revisions'
+  - 'revert notebook_entry revisions'
+  - 'revert posts revisions'
+  - 'schedule publishing of nodes'
   - 'update any media'
+  - 'update media'
   - 'use basic_editorial transition create_new_draft'
   - 'use media document bulk upload form'
   - 'use media image bulk upload form'
   - 'use media remote_video bulk upload form'
+  - 'use media svg_image bulk upload form'
+  - 'use media video bulk upload form'
   - 'use text format content_format'
   - 'view all media revisions'
   - 'view all revisions'
-  - 'view all taxonomy revisions'
-  - 'view any document media revisions'
-  - 'view any image media revisions'
-  - 'view any remote_video media revisions'
   - 'view any unpublished content'
   - 'view event revisions'
   - 'view faq revisions'
@@ -70,6 +86,5 @@ permissions:
   - 'view notebook_entry revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view posts revisions'
   - 'view scheduled content'
-  - 'view scheduled media'
-  - 'view term revisions in tags'

@@ -1,0 +1,18 @@
+uuid: 1f769d3a-4101-4164-915e-e05a411a23c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.field_sponsor
+field_name: field_sponsor
+entity_type: crm_contact
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

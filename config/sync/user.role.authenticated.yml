@@ -3,13 +3,20 @@ langcode: en
 status: true
 dependencies:
   config:
+    - crm.crm_contact_type.organization
     - filter.format.content_format
     - filter.format.webform_default
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.posts
   module:
     - burndown
     - captcha
     - coffee
     - comment
+    - crm
     - file
     - filter
     - honeypot
@@ -42,6 +49,7 @@ permissions:
   - '3 edit any entities'
   - '3 edit own entities'
   - '3 view project'
+  - '3 view revisions'
   - '4 create entities'
   - '4 edit any entities'
   - '4 edit own entities'
@@ -54,14 +62,20 @@ permissions:
   - 'access comments'
   - 'access completed board'
   - 'access content'
+  - 'access content overview'
+  - 'access media overview'
   - 'access navigation'
   - 'add task entities'
   - 'burndown close task'
   - 'burndown comment on task'
   - 'bypass honeypot protection'
+  - 'create document media'
+  - 'create image media'
+  - 'create remote_video media'
+  - 'create video media'
   - 'delete own files'
   - 'edit own comments'
-  - 'edit project entities'
+  - 'edit own posts content'
   - 'edit task entities'
   - 'modify sprint tasks'
   - 'post comments'
@@ -70,19 +84,22 @@ permissions:
   - 'send tasks to board'
   - 'skip CAPTCHA'
   - 'skip comment approval'
+  - 'update media'
   - 'update own member_profile profile'
   - 'use text format content_format'
   - 'use text format webform_default'
   - 'view all task revisions'
-  - 'view any member_profile profile'
+  - 'view any organization crm contact'
+  - 'view any organization crm contact label'
   - 'view any profile'
   - 'view media'
   - 'view own member_profile profile'
   - 'view own profile'
   - 'view own unpublished content'
+  - 'view own unpublished media'
   - 'view own unpublished profile'
   - 'view published project entities'
   - 'view published sprint entities'
+  - 'view published swimlane entities'
   - 'view published task entities'
   - 'view the administration theme'
-  - 'view unpublished task entities'

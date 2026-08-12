@@ -383,7 +383,7 @@ display:
       menu:
         type: normal
         title: Events
-        weight: -47
+        weight: -48
         menu_name: main
         parent: ''
     cache_metadata:

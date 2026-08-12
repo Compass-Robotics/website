@@ -2,9 +2,12 @@ uuid: f76edff6-7124-49c9-8941-693bad71b2c1
 langcode: en
 status: true
 dependencies:
+  config:
+    - crm.crm_contact_type.organization
   module:
     - burndown
     - comment
+    - crm
     - media
     - system
 _core:
@@ -19,5 +22,7 @@ permissions:
   - '3 view project'
   - 'access comments'
   - 'access content'
+  - 'view any organization crm contact'
+  - 'view any organization crm contact label'
   - 'view media'
   - 'view media'

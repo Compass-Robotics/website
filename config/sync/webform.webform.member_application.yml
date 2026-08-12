@@ -50,13 +50,17 @@ elements: |-
     address:
       '#type': webform_address
       '#title': Address
+      '#required': true
+      '#address__required': true
+      '#city__required': true
       '#state_province__title': State
       '#state_province__placeholder': FL
       '#state_province__help': 'We can only accept members from Florida'
+      '#state_province__required': true
       '#state_province__type': textfield
       '#postal_code__title': 'ZIP Code'
+      '#postal_code__required': true
       '#country__access': false
-      '#required': true
     emergency_contact_informarion:
       '#type': textarea
       '#title': 'Emergency Contact Informarion'

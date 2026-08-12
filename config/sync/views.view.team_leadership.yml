@@ -353,7 +353,7 @@ display:
         type: normal
         title: 'Team Leadership'
         description: ''
-        weight: -50
+        weight: -49
         enabled: true
         expanded: true
         menu_name: main

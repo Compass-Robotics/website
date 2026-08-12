@@ -1,0 +1,21 @@
+uuid: 805cd0c3-6f0d-4b15-aceb-5d6118aea6ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.organization
+    - field.storage.crm_contact.field_sponsor
+id: crm_contact.organization.field_sponsor
+field_name: field_sponsor
+entity_type: crm_contact
+bundle: organization
+label: Sponsor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

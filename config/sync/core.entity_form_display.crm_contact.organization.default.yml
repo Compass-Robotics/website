@@ -7,14 +7,33 @@ dependencies:
     - field.field.crm_contact.organization.aliases
     - field.field.crm_contact.organization.comment
     - field.field.crm_contact.organization.field_links
+    - field.field.crm_contact.organization.field_sponsor
     - field.field.crm_contact.organization.image
     - image.style.thumbnail
   module:
     - comment
     - datetime
+    - field_group
     - image
     - link
     - primary_entity_reference
+third_party_settings:
+  field_group:
+    group_sponsorship:
+      children:
+        - field_sponsor
+      label: sponsorship
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        description: "Details about this organizations's sponsorship of the team."
+        required_fields: true
 _core:
   default_config_hash: 2q1qnMK76mEUg_F3PkTtItKNjaw5R4KX0zzU-iYVKVQ
 id: crm_contact.organization.default
@@ -52,13 +71,13 @@ content:
     third_party_settings: {  }
   comment:
     type: comment_default
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -84,7 +103,7 @@ content:
     third_party_settings: {  }
   end_date:
     type: datetime_default
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -95,6 +114,13 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  field_sponsor:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   image:
     type: image_image
@@ -114,13 +140,13 @@ content:
     third_party_settings: {  }
   start_date:
     type: datetime_default
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 8
     region: content
     settings:
       display_label: true

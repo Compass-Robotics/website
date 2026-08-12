@@ -13,25 +13,30 @@ dependencies:
     - crm.crm_relationship_type.sibling
     - crm.crm_relationship_type.spouse
     - crm.crm_relationship_type.volunteer
+    - node.type.notebook_entry
+    - node.type.posts
   module:
     - burndown_time_tracker
     - crm
+    - media
+    - node
 id: lead
 label: Lead
 weight: 2
 is_admin: false
 permissions:
   - 'access crm'
-  - 'administer crm'
+  - 'access media overview'
+  - 'alter crm user display name'
   - 'create any crm contact'
   - 'create any crm relationship'
-  - 'create member crm contact'
   - 'create member crm relationship'
-  - 'create mentor crm contact'
+  - 'create notebook_entry content'
   - 'create organization crm contact'
   - 'create parent crm relationship'
   - 'create partner crm relationship'
   - 'create person crm contact'
+  - 'create posts content'
   - 'create sibling crm relationship'
   - 'create spouse crm relationship'
   - 'create volunteer crm relationship'

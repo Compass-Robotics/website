@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - crm.crm_contact_type.organization
     - field.storage.node.field_location
     - node.type.event
 id: node.event.field_location
@@ -19,5 +20,10 @@ settings:
   handler: 'default:crm_contact'
   handler_settings:
     target_bundles:
-      event: event
+      organization: organization
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

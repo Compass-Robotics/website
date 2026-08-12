@@ -5,10 +5,17 @@ dependencies:
   config:
     - crm.crm_contact_type.organization
     - crm.crm_contact_type.person
+    - crm.crm_relationship_type.member
+    - crm.crm_relationship_type.parent
+    - crm.crm_relationship_type.partner
+    - crm.crm_relationship_type.sibling
+    - crm.crm_relationship_type.spouse
+    - crm.crm_relationship_type.volunteer
   module:
     - burndown
     - crm
     - expense_tracker
+    - media
     - system
 id: finance_manager
 label: 'Finance Manager'
@@ -21,18 +28,34 @@ permissions:
   - '4 view project'
   - '4 view revisions'
   - 'access all expense_tracker'
+  - 'access crm'
   - 'access expense_tracker'
+  - 'access media overview'
   - 'access site reports'
+  - 'alter crm user display name'
   - 'create any crm contact'
+  - 'create any crm relationship'
   - 'create expense_tracker'
+  - 'create member crm relationship'
   - 'create organization crm contact'
+  - 'create parent crm relationship'
+  - 'create partner crm relationship'
   - 'create person crm contact'
+  - 'create sibling crm relationship'
+  - 'create spouse crm relationship'
+  - 'create volunteer crm relationship'
   - 'edit all expense_tracker'
+  - 'edit any crm contact'
+  - 'edit any member crm relationship'
   - 'edit any organization crm contact'
   - 'edit any person crm contact'
   - 'edit expense_tracker'
   - 'reports expense_tracker'
+  - 'view any crm contact'
+  - 'view any crm contact label'
+  - 'view any crm relationship'
   - 'view any organization crm contact'
   - 'view any organization crm contact label'
   - 'view any person crm contact'
   - 'view any person crm contact label'
+  - 'view mapped crm contact'

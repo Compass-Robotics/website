@@ -1,0 +1,8 @@
+name: Competition Leadership Field (Migration Shim)
+type: module
+description: Provides backward compatibility while migrating to the robotics module.
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:taxonomy
+hidden: true

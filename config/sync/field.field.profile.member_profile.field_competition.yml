@@ -6,7 +6,7 @@ dependencies:
     - field.storage.profile.field_competition
     - profile.type.member_profile
   module:
-    - competition_leadership_field
+    - robotics
 id: profile.member_profile.field_competition
 field_name: field_competition
 entity_type: profile

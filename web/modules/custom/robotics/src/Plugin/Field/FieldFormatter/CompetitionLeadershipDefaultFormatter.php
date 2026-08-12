@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\competition_leadership_field\Plugin\Field\FieldFormatter;
+namespace Drupal\robotics\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;

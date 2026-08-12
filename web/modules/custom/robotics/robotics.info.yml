@@ -1,4 +1,4 @@
-name: Competition Leadership Field
+name: Robotics
 type: module
 description: Provides a custom multi-property field for competition year and leadership role.
 package: Custom

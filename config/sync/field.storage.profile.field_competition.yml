@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - competition_leadership_field
+    - robotics
     - profile
 id: profile.field_competition
 field_name: field_competition
 entity_type: profile
 type: competition_leadership
 settings: {  }
-module: competition_leadership_field
+module: robotics
 locked: false
 cardinality: -1
 translatable: true

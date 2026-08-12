@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\competition_leadership_field\Plugin\Field\FieldWidget;
+namespace Drupal\robotics\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\competition_leadership_field\Plugin\Field\FieldType;
+namespace Drupal\robotics\Plugin\Field\FieldType;
 
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldDefinitionInterface;

@@ -9,6 +9,7 @@ dependencies:
     - field.field.crm_contact.organization.comment
     - field.field.crm_contact.organization.field_links
     - field.field.crm_contact.organization.field_sponsor
+    - field.field.crm_contact.organization.field_sponsorship
     - field.field.crm_contact.organization.image
   module:
     - crm
@@ -81,6 +82,7 @@ hidden:
   end_date: true
   field_links: true
   field_sponsor: true
+  field_sponsorship: true
   image: true
   links: true
   revision_created: true

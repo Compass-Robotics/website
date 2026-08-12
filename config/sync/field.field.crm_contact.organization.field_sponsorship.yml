@@ -1,0 +1,21 @@
+uuid: 361d8e7f-c25b-4654-b2cf-edd769ec82ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.organization
+    - field.storage.crm_contact.field_sponsorship
+  module:
+    - robotics
+id: crm_contact.organization.field_sponsorship
+field_name: field_sponsorship
+entity_type: crm_contact
+bundle: organization
+label: Sponsorship
+description: 'Specify the competition year and the sponsorship level.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: competition_sponsorship

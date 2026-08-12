@@ -1,0 +1,19 @@
+uuid: d66af4f2-032c-473e-a643-a9befcd6809f
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - robotics
+id: crm_contact.field_sponsorship
+field_name: field_sponsorship
+entity_type: crm_contact
+type: competition_sponsorship
+settings: {  }
+module: robotics
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

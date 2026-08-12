@@ -14,7 +14,6 @@ module:
   ckeditor5: 0
   coffee: 0
   comment: 0
-  robotics: 0
   content_moderation: 0
   contextual: 0
   crm: 0
@@ -79,6 +78,7 @@ module:
   redirect: 0
   responsive_image: 0
   rest: 0
+  robotics: 0
   sam: 0
   scheduler: 0
   scheduler_content_moderation_integration: 0

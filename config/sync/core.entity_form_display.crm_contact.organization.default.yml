@@ -8,6 +8,7 @@ dependencies:
     - field.field.crm_contact.organization.comment
     - field.field.crm_contact.organization.field_links
     - field.field.crm_contact.organization.field_sponsor
+    - field.field.crm_contact.organization.field_sponsorship
     - field.field.crm_contact.organization.image
     - image.style.thumbnail
   module:
@@ -17,11 +18,13 @@ dependencies:
     - image
     - link
     - primary_entity_reference
+    - robotics
 third_party_settings:
   field_group:
     group_sponsorship:
       children:
         - field_sponsor
+        - field_sponsorship
       label: sponsorship
       region: content
       parent_name: ''
@@ -121,6 +124,13 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_sponsorship:
+    type: competition_sponsorship_default
+    weight: 14
+    region: content
+    settings:
+      sponsorship_vocabulary: sponsorship_levels
     third_party_settings: {  }
   image:
     type: image_image

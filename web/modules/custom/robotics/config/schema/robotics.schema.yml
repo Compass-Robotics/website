@@ -43,3 +43,43 @@ field.formatter.settings.competition_leadership_default:
     member_term_name:
       type: string
       label: 'Default member term name'
+
+field.storage_settings.competition_sponsorship:
+  type: mapping
+  label: 'Competition sponsorship field storage settings'
+  mapping: {}
+
+field.field_settings.competition_sponsorship:
+  type: mapping
+  label: 'Competition sponsorship field settings'
+  mapping: {}
+
+field.value.competition_sponsorship:
+  type: mapping
+  label: 'Competition sponsorship value'
+  mapping:
+    competition_year:
+      type: integer
+      label: 'Competition year'
+    target_id:
+      type: integer
+      label: 'Sponsorship level term id'
+
+field.widget.settings.competition_sponsorship_default:
+  type: mapping
+  label: 'Competition sponsorship widget settings'
+  mapping:
+    sponsorship_vocabulary:
+      type: string
+      label: 'Sponsorship level vocabulary machine name'
+
+field.formatter.settings.competition_sponsorship_default:
+  type: mapping
+  label: 'Competition sponsorship formatter settings'
+  mapping:
+    sponsorship_vocabulary:
+      type: string
+      label: 'Sponsorship level vocabulary machine name'
+    default_level_label:
+      type: string
+      label: 'Default sponsorship level label'

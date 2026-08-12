@@ -1,0 +1,21 @@
+uuid: dd39abbb-e1eb-4961-8d0f-f8b3c21a10c5
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - media
+    - primary_entity_reference
+id: crm_contact.field_photo
+field_name: field_photo
+entity_type: crm_contact
+type: primary_entity_reference
+settings:
+  target_type: media
+module: primary_entity_reference
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

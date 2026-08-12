@@ -5,11 +5,6 @@ dependencies:
   config:
     - crm.crm_contact_type.member
     - field.field.crm_contact.member.field_address_primary
-    - field.field.crm_contact.member.field_can_attend_build_season
-    - field.field.crm_contact.member.field_can_attend_competitions
-    - field.field.crm_contact.member.field_can_attend_pre_season
-    - field.field.crm_contact.member.field_can_get_to
-    - field.field.crm_contact.member.field_can_transport_others
     - field.field.crm_contact.member.field_current_age
     - field.field.crm_contact.member.field_current_grade
     - field.field.crm_contact.member.field_discord_username
@@ -18,15 +13,17 @@ dependencies:
     - field.field.crm_contact.member.field_high_school
     - field.field.crm_contact.member.field_interests
     - field.field.crm_contact.member.field_notes_member
-    - field.field.crm_contact.member.field_parent_interest
     - field.field.crm_contact.member.field_phone_primary
-    - field.field.crm_contact.member.field_prior_experience
+    - field.field.crm_contact.member.field_photo
+    - field.field.crm_contact.member.field_roles
     - field.field.crm_contact.member.field_stage
     - field.field.crm_contact.member.field_talents
+    - field.field.crm_contact.member.field_user
   module:
     - address
     - crm
     - options
+    - robotics
     - telephone
     - text
 id: crm_contact.member.default
@@ -51,64 +48,14 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 20
+    weight: 8
     region: content
   field_address_primary:
     type: address_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 3
-    region: content
-  field_can_attend_build_season:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 30
-    region: content
-  field_can_attend_competitions:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 31
-    region: content
-  field_can_attend_pre_season:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 29
-    region: content
-  field_can_get_to:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 28
-    region: content
-  field_can_transport_others:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 32
+    weight: 5
     region: content
   field_current_age:
     type: number_integer
@@ -117,14 +64,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 23
+    weight: 11
     region: content
   field_current_grade:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 25
+    weight: 13
     region: content
   field_discord_username:
     type: string
@@ -132,21 +79,21 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 21
+    weight: 9
     region: content
   field_email_primary:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 3
     region: content
   field_emergency_contact:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 22
+    weight: 10
     region: content
   field_high_school:
     type: entity_reference_label
@@ -154,7 +101,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 24
+    weight: 12
     region: content
   field_interests:
     type: entity_reference_label
@@ -162,24 +109,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 26
+    weight: 14
     region: content
   field_notes_member:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 35
-    region: content
-  field_parent_interest:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 33
+    weight: 16
     region: content
   field_phone_primary:
     type: telephone_link
@@ -187,28 +124,47 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
+    weight: 4
+    region: content
+  field_photo:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: 4_3_small
+      link: false
+    third_party_settings: {  }
     weight: 2
     region: content
-  field_prior_experience:
-    type: list_default
+  field_roles:
+    type: competition_leadership_default
     label: above
-    settings: {  }
+    settings:
+      leadership_vocabulary: leadership
+      member_term_name: Member
     third_party_settings: {  }
-    weight: 27
+    weight: 17
     region: content
   field_stage:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 6
     region: content
   field_talents:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 34
+    weight: 15
+    region: content
+  field_user:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
     region: content
   name:
     type: string
@@ -216,7 +172,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: -5
+    weight: 0
     region: content
   relationship_statistics:
     type: crm_relationship_statistics_default
@@ -227,7 +183,7 @@ content:
       sort_by: none
       sort_order: asc
     third_party_settings: {  }
-    weight: 15
+    weight: 7
     region: content
 hidden:
   addresses: true

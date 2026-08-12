@@ -1,0 +1,24 @@
+uuid: 9d0e930a-b02d-4630-8f08-6a352858d1ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_roles
+  module:
+    - robotics
+id: crm_contact.member.field_roles
+field_name: field_roles
+entity_type: crm_contact
+bundle: member
+label: Roles
+description: 'Set their role for each year.'
+required: false
+translatable: false
+default_value:
+  -
+    competition_year: null
+    target_id: 58
+default_value_callback: ''
+settings: {  }
+field_type: competition_leadership

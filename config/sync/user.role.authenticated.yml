@@ -23,7 +23,6 @@ dependencies:
     - media
     - navigation
     - node
-    - profile
     - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
@@ -85,19 +84,14 @@ permissions:
   - 'skip CAPTCHA'
   - 'skip comment approval'
   - 'update media'
-  - 'update own member_profile profile'
   - 'use text format content_format'
   - 'use text format webform_default'
   - 'view all task revisions'
   - 'view any organization crm contact'
   - 'view any organization crm contact label'
-  - 'view any profile'
   - 'view media'
-  - 'view own member_profile profile'
-  - 'view own profile'
   - 'view own unpublished content'
   - 'view own unpublished media'
-  - 'view own unpublished profile'
   - 'view published project entities'
   - 'view published sprint entities'
   - 'view published swimlane entities'

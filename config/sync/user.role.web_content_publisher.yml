@@ -23,7 +23,6 @@ dependencies:
     - media_library_bulk_upload
     - node
     - path
-    - profile
     - redirect
     - scheduler
     - taxonomy
@@ -91,7 +90,6 @@ permissions:
   - 'view all revisions'
   - 'view any document media revisions'
   - 'view any image media revisions'
-  - 'view any member_profile profile'
   - 'view any remote_video media revisions'
   - 'view any unpublished content'
   - 'view event revisions'

@@ -13,7 +13,7 @@ dependencies:
     - datetime
     - image
     - path
-    - profile
+    - tagify
     - user
 _core:
   default_config_hash: XfmBnJ9AUte13Cu3wlal4cJFb5DPxapsvdlFf88ck8k
@@ -42,11 +42,18 @@ content:
     weight: 0
     region: content
   member_profile_profiles:
-    type: profile_form
-    weight: 90
+    type: tagify_entity_reference_autocomplete_widget
+    weight: 91
     region: content
     settings:
-      form_mode: default
+      match_operator: CONTAINS
+      match_limit: 10
+      placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   path:
     type: path

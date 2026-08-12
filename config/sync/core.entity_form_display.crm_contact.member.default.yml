@@ -5,11 +5,6 @@ dependencies:
   config:
     - crm.crm_contact_type.member
     - field.field.crm_contact.member.field_address_primary
-    - field.field.crm_contact.member.field_can_attend_build_season
-    - field.field.crm_contact.member.field_can_attend_competitions
-    - field.field.crm_contact.member.field_can_attend_pre_season
-    - field.field.crm_contact.member.field_can_get_to
-    - field.field.crm_contact.member.field_can_transport_others
     - field.field.crm_contact.member.field_current_age
     - field.field.crm_contact.member.field_current_grade
     - field.field.crm_contact.member.field_discord_username
@@ -18,16 +13,19 @@ dependencies:
     - field.field.crm_contact.member.field_high_school
     - field.field.crm_contact.member.field_interests
     - field.field.crm_contact.member.field_notes_member
-    - field.field.crm_contact.member.field_parent_interest
     - field.field.crm_contact.member.field_phone_primary
-    - field.field.crm_contact.member.field_prior_experience
+    - field.field.crm_contact.member.field_photo
+    - field.field.crm_contact.member.field_roles
     - field.field.crm_contact.member.field_stage
     - field.field.crm_contact.member.field_talents
+    - field.field.crm_contact.member.field_user
   module:
     - address
     - datetime
     - field_group
     - primary_entity_reference
+    - robotics
+    - tagify
     - telephone
     - text
 third_party_settings:
@@ -42,7 +40,7 @@ third_party_settings:
       label: 'Contact Info'
       region: content
       parent_name: ''
-      weight: 1
+      weight: 3
       format_type: details
       format_settings:
         classes: ''
@@ -59,13 +57,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   end_date:
     type: datetime_default
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -76,44 +74,9 @@ content:
     settings:
       wrapper_type: fieldset
     third_party_settings: {  }
-  field_can_attend_build_season:
-    type: boolean_checkbox
-    weight: 15
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_can_attend_competitions:
-    type: boolean_checkbox
-    weight: 16
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_can_attend_pre_season:
-    type: boolean_checkbox
-    weight: 14
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_can_get_to:
-    type: boolean_checkbox
-    weight: 13
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_can_transport_others:
-    type: boolean_checkbox
-    weight: 17
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_current_age:
     type: number
-    weight: 7
+    weight: 8
     region: content
     settings:
       placeholder: ''
@@ -150,7 +113,7 @@ content:
     third_party_settings: {  }
   field_high_school:
     type: primary_entity_reference_autocomplete
-    weight: 8
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -161,24 +124,17 @@ content:
     third_party_settings: {  }
   field_interests:
     type: options_buttons
-    weight: 10
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_notes_member:
     type: text_textarea
-    weight: 19
+    weight: 14
     region: content
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
-  field_parent_interest:
-    type: boolean_checkbox
-    weight: 18
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   field_phone_primary:
     type: telephone_default
@@ -187,11 +143,25 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_prior_experience:
-    type: options_buttons
+  field_photo:
+    type: primary_entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+      show_primary_only: false
+    third_party_settings: {  }
+  field_roles:
+    type: competition_leadership_default
     weight: 11
     region: content
-    settings: {  }
+    settings:
+      leadership_vocabulary: leadership
+      member_term_name: Member
+      auto_create_member_term: true
     third_party_settings: {  }
   field_stage:
     type: options_select
@@ -201,11 +171,25 @@ content:
     third_party_settings: {  }
   field_talents:
     type: text_textarea
-    weight: 12
+    weight: 13
     region: content
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_user:
+    type: tagify_entity_reference_autocomplete_widget
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
+      parent_selection: 1
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -217,13 +201,13 @@ content:
     third_party_settings: {  }
   start_date:
     type: datetime_default
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 3
+    weight: 4
     region: content
     settings:
       display_label: true

@@ -1,13 +1,13 @@
-uuid: c233fe5b-94bb-4985-b6d4-e1fe23791a6e
+uuid: 79250bd3-e6c6-4fe6-bb94-698544e0277a
 langcode: en
 status: true
 dependencies:
   module:
+    - crm
     - robotics
-    - profile
-id: profile.field_competition
-field_name: field_competition
-entity_type: profile
+id: crm_contact.field_roles
+field_name: field_roles
+entity_type: crm_contact
 type: competition_leadership
 settings: {  }
 module: robotics

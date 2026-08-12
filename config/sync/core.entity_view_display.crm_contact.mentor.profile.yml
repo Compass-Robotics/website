@@ -1,8 +1,9 @@
-uuid: 6998751a-a6fc-43d1-ad04-24c73f1e9df4
+uuid: 191f043a-bc6c-48a8-b737-f94b4f3fa8da
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.crm_contact.profile
     - crm.crm_contact_type.mentor
     - field.field.crm_contact.mentor.field_area
     - field.field.crm_contact.mentor.field_email
@@ -14,14 +15,19 @@ dependencies:
   module:
     - crm
     - datetime
+    - layout_builder
     - name
     - options
     - robotics
     - text
-id: crm_contact.mentor.default
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: crm_contact.mentor.profile
 targetEntityType: crm_contact
 bundle: mentor
-mode: default
+mode: profile
 content:
   addresses:
     type: entity_reference_entity_view

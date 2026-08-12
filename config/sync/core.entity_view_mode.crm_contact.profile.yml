@@ -1,0 +1,11 @@
+uuid: 57d10476-e1a9-4313-b3b1-87f2bab045d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact.profile
+label: Profile
+description: 'This is used for member and mentor profiles'
+targetEntityType: crm_contact
+cache: true

@@ -1,0 +1,29 @@
+uuid: 50543d62-cd77-4d0a-afa8-64cd76ed61c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_user
+id: crm_contact.member.field_user
+field_name: field_user
+entity_type: crm_contact
+bundle: member
+label: User
+description: 'Connect the contact to the user.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

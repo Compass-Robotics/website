@@ -389,16 +389,6 @@ handlers:
           given_name: _null_
           additional_name: _null_
           family_name: _null_
-        field_can_attend_build_season:
-          value: 'input:field_can_attend_build_season'
-        field_can_attend_competitions:
-          value: 'input:field_can_attend_competitions'
-        field_can_attend_pre_season:
-          value: 'input:field_can_attend_pre_season'
-        field_can_get_to:
-          value: 'input:can_get_to_fab_lab_to_attend_meetings'
-        field_can_transport_others:
-          value: 'input:field_can_transport_others'
         field_current_age:
           value: 'input:current_age'
         field_current_grade:
@@ -414,12 +404,8 @@ handlers:
           primary: _null_
         field_interests:
           target_id: 'input:sections'
-        field_parent_interest:
-          value: 'input:field_parent_interest'
         field_phone_primary:
           value: 'input:phone_primary'
-        field_prior_experience:
-          value: 'input:prior_robotics_experience'
         field_stage:
           value: applicant
         field_talents:

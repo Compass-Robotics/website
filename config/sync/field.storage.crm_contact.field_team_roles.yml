@@ -1,17 +1,18 @@
-uuid: aecd666a-5803-4770-a791-1ee1543b8022
+uuid: f0b7ebf5-f5ad-42a6-8743-3c111b394e03
 langcode: en
 status: true
 dependencies:
   module:
     - crm
-id: crm_contact.field_can_attend_competitions
-field_name: field_can_attend_competitions
+    - robotics
+id: crm_contact.field_team_roles
+field_name: field_team_roles
 entity_type: crm_contact
-type: boolean
+type: competition_leadership
 settings: {  }
-module: core
+module: robotics
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

@@ -1,0 +1,21 @@
+uuid: be4f6a67-dbfd-4a77-a9b2-ae34a75d87d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.storage.crm_contact.field_team_roles
+  module:
+    - robotics
+id: crm_contact.mentor.field_team_roles
+field_name: field_team_roles
+entity_type: crm_contact
+bundle: mentor
+label: 'Team Roles'
+description: 'Set the competition year and the role during that year.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: competition_leadership

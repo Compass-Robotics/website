@@ -1,0 +1,73 @@
+uuid: e6ac6766-dc3a-476e-9a7f-94092c4ec9dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.crm_contact.profile
+    - crm.crm_contact_type.member
+    - field.field.crm_contact.member.field_address_primary
+    - field.field.crm_contact.member.field_current_age
+    - field.field.crm_contact.member.field_current_grade
+    - field.field.crm_contact.member.field_discord_username
+    - field.field.crm_contact.member.field_email_primary
+    - field.field.crm_contact.member.field_emergency_contact
+    - field.field.crm_contact.member.field_high_school
+    - field.field.crm_contact.member.field_interests
+    - field.field.crm_contact.member.field_notes_member
+    - field.field.crm_contact.member.field_phone_primary
+    - field.field.crm_contact.member.field_photo
+    - field.field.crm_contact.member.field_roles
+    - field.field.crm_contact.member.field_stage
+    - field.field.crm_contact.member.field_talents
+    - field.field.crm_contact.member.field_user
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: crm_contact.member.profile
+targetEntityType: crm_contact
+bundle: member
+mode: profile
+content:
+  field_photo:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_user:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addresses: true
+  age: true
+  created: true
+  emails: true
+  end_date: true
+  field_address_primary: true
+  field_current_age: true
+  field_current_grade: true
+  field_discord_username: true
+  field_email_primary: true
+  field_emergency_contact: true
+  field_high_school: true
+  field_interests: true
+  field_notes_member: true
+  field_phone_primary: true
+  field_roles: true
+  field_stage: true
+  field_talents: true
+  name: true
+  relationship_statistics: true
+  search_api_excerpt: true
+  start_date: true
+  telephones: true

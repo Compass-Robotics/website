@@ -1,0 +1,31 @@
+uuid: cc7051a7-9f3f-4414-8a73-6e1576a2482b
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.member
+    - field.storage.crm_contact.field_photo
+    - media.type.image
+  module:
+    - primary_entity_reference
+id: crm_contact.member.field_photo
+field_name: field_photo
+entity_type: crm_contact
+bundle: member
+label: Photo
+description: 'Choose the image of the person.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: primary_entity_reference

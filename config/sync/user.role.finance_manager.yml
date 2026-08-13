@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - crm.crm_contact_type.member
+    - crm.crm_contact_type.mentor
     - crm.crm_contact_type.organization
     - crm.crm_contact_type.person
     - crm.crm_relationship_type.member
@@ -46,14 +48,23 @@ permissions:
   - 'create volunteer crm relationship'
   - 'edit all expense_tracker'
   - 'edit any crm contact'
+  - 'edit any crm relationship'
   - 'edit any member crm relationship'
   - 'edit any organization crm contact'
+  - 'edit any parent crm relationship'
+  - 'edit any partner crm relationship'
   - 'edit any person crm contact'
+  - 'edit any sibling crm relationship'
+  - 'edit any spouse crm relationship'
+  - 'edit any volunteer crm relationship'
   - 'edit expense_tracker'
+  - 'edit mapped crm contact'
   - 'reports expense_tracker'
   - 'view any crm contact'
   - 'view any crm contact label'
   - 'view any crm relationship'
+  - 'view any member crm contact'
+  - 'view any mentor crm contact'
   - 'view any organization crm contact'
   - 'view any organization crm contact label'
   - 'view any person crm contact'

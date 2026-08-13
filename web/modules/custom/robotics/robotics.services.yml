@@ -1,0 +1,3 @@
+services:
+  Drupal\robotics\Hook\RoboticsViewsHooks:
+    class: Drupal\robotics\Hook\RoboticsViewsHooks

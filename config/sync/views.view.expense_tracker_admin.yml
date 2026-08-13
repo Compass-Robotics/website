@@ -2,6 +2,9 @@ uuid: 728e28c4-d68a-4e2d-8fd0-ba7a01f61c28
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.et_transaction.field_contact
+    - field.storage.et_transaction.field_fee_applies
   module:
     - datetime
     - expense_tracker
@@ -370,6 +373,134 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_fee_applies:
+          id: field_fee_applies
+          table: et_transaction__field_fee_applies
+          field: field_fee_applies
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Fee applies'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: yes-no
+            format_custom_false: ''
+            format_custom_true: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_contact:
+          id: field_contact
+          table: et_transaction__field_contact
+          field: field_contact
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Contact
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         uid:
           id: uid
           table: et_transaction_field_data
@@ -426,70 +557,6 @@ display:
           settings:
             link: true
           group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        created_type:
-          id: created_type
-          table: et_transaction_field_data
-          field: created_type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: et_transaction
-          entity_field: created_type
-          plugin_id: field
-          label: 'Created type'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -787,6 +854,7 @@ display:
             max: ''
             value: ''
             type: date
+            granularity: second
           group: 1
           exposed: true
           expose:
@@ -865,59 +933,44 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        created_type:
-          id: created_type
-          table: et_transaction_field_data
-          field: created_type
+        field_fee_applies_value:
+          id: field_fee_applies_value
+          table: et_transaction__field_fee_applies
+          field: field_fee_applies_value
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: et_transaction
-          entity_field: created_type
-          plugin_id: string
+          plugin_id: boolean
           operator: '='
-          value: ''
+          value: All
           group: 1
           exposed: true
           expose:
-            operator_id: created_type_op
-            label: 'Created type'
-            description: null
+            operator_id: ''
+            label: 'Fee applies'
+            description: ''
             use_operator: false
-            operator: created_type_op
+            operator: field_fee_applies_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: created_type
+            identifier: fee_applies
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Created type'
+            label: ''
             description: ''
-            identifier: created_type
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Manual
-                operator: '='
-                value: manual
-              2:
-                title: Automatic
-                operator: '='
-                value: automatic
-              3:
-                title: ''
-                operator: '='
-                value: ''
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1040,7 +1093,9 @@ display:
         - url
         - url.query_args
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.et_transaction.field_contact'
+        - 'config:field.storage.et_transaction.field_fee_applies'
   incode_expense_transactions:
     id: incode_expense_transactions
     display_title: 'Income and expense transactions'
@@ -1058,4 +1113,6 @@ display:
         - url
         - url.query_args
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.et_transaction.field_contact'
+        - 'config:field.storage.et_transaction.field_fee_applies'

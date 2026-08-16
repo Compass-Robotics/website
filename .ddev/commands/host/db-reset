@@ -1,0 +1,28 @@
+#!/bin/bash
+
+## Description: Import db-snapshot, deploy then uli.
+##
+## Usage: db-reset
+## Example: ddev db-reset --deploy
+## Flags: [{"Name":"deploy","Usage":"Performs config import."}]
+
+function status() {
+    echo -e "\n \033[7;32m[setup]\033[0m ${1} \n"
+}
+
+
+status "Importing db.sq"
+ddev import-db --file=db.sql
+
+
+if [[ $1 == "--deploy" ]]
+then
+  status "Full deploy."
+  ddev drush deploy -y
+
+else
+  status "Skipping deploy. Only performing up db."
+  ddev drush updb -y
+fi
+
+ddev drush uli

@@ -109,7 +109,6 @@ content:
     label: above
     settings:
       leadership_vocabulary: leadership
-      member_term_name: Member
     third_party_settings: {  }
     weight: 8
     region: content

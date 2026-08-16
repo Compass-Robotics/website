@@ -140,6 +140,7 @@ content:
     type: competition_sponsorship_default
     label: above
     settings:
+      competition_vocabulary: competitions
       sponsorship_vocabulary: sponsorship_level
       default_level_label: N/A
     third_party_settings: {  }

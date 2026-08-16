@@ -14,6 +14,28 @@ use Drupal\views\ViewExecutable;
 final class RoboticsViewsHooks {
 
   /**
+   * Exposes custom competition reference subfields for Views.
+   */
+  #[Hook('views_data_alter')]
+  public function viewsDataAlter(array &$data): void {
+    $this->addCompetitionReferenceViewsDataForPossibleKeys(
+      $data,
+      'crm_contact__field_roles',
+      ['field_roles_competition_target_id', 'competition_target_id'],
+      (string) t('Roles: Competition'),
+      (string) t('The competition term referenced by the Roles field item.')
+    );
+
+    $this->addCompetitionReferenceViewsDataForPossibleKeys(
+      $data,
+      'crm_contact__field_team_roles',
+      ['field_team_roles_competition_target_id', 'competition_target_id'],
+      (string) t('Team roles: Competition'),
+      (string) t('The competition term referenced by the Team roles field item.')
+    );
+  }
+
+  /**
    * Appends a summary row with the total amount to the target table view.
    */
   #[Hook('preprocess_views_view_table')]
@@ -109,6 +131,61 @@ final class RoboticsViewsHooks {
 
     $normalized = strtolower(trim((string) $value));
     return in_array($normalized, ['1', 'true', 'yes', 'on'], TRUE);
+  }
+
+  /**
+   * Adds Views metadata for a competition subfield column.
+   */
+  private function addCompetitionReferenceViewsData(
+    array &$data,
+    string $table,
+    string $column,
+    string $title,
+    string $help
+  ): void {
+    if (empty($data[$table]) || !array_key_exists($column, $data[$table])) {
+      return;
+    }
+
+    $data[$table][$column]['title'] = $title;
+    $data[$table][$column]['help'] = $help;
+    $data[$table][$column]['field'] = [
+      'id' => 'numeric',
+    ];
+    $data[$table][$column]['filter'] = [
+      'id' => 'taxonomy_index_tid',
+      'vocabulary' => 'competitions',
+    ];
+    $data[$table][$column]['argument'] = [
+      'id' => 'taxonomy_index_tid',
+    ];
+    $data[$table][$column]['sort'] = [
+      'id' => 'standard',
+    ];
+    $data[$table][$column]['relationship'] = [
+      'id' => 'standard',
+      'base' => 'taxonomy_term_field_data',
+      'base field' => 'tid',
+      'relationship field' => $column,
+      'label' => (string) t('Competition term'),
+    ];
+  }
+
+  /**
+   * Adds Views metadata for the first matching competition subfield key.
+   */
+  private function addCompetitionReferenceViewsDataForPossibleKeys(
+    array &$data,
+    string $table,
+    array $possible_columns,
+    string $title,
+    string $help
+  ): void {
+    foreach ($possible_columns as $column) {
+      if (!empty($data[$table]) && array_key_exists($column, $data[$table])) {
+        $this->addCompetitionReferenceViewsData($data, $table, $column, $title, $help);
+      }
+    }
   }
 
 }

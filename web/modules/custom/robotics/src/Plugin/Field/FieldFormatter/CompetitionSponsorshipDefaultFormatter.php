@@ -12,7 +12,7 @@ use Drupal\taxonomy\Entity\Term;
  *
  * @FieldFormatter(
  *   id = "competition_sponsorship_default",
- *   label = @Translation("Competition year + sponsorship level"),
+ *   label = @Translation("Competition + sponsorship level"),
  *   field_types = {
  *     "competition_sponsorship"
  *   }
@@ -25,6 +25,7 @@ class CompetitionSponsorshipDefaultFormatter extends FormatterBase {
    */
   public static function defaultSettings() {
     return [
+      'competition_vocabulary' => 'competitions',
       'sponsorship_vocabulary' => 'sponsorship_levels',
       'default_level_label' => 'N/A',
     ] + parent::defaultSettings();
@@ -35,6 +36,13 @@ class CompetitionSponsorshipDefaultFormatter extends FormatterBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = parent::settingsForm($form, $form_state);
+
+    $elements['competition_vocabulary'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Competition vocabulary machine name'),
+      '#default_value' => $this->getSetting('competition_vocabulary'),
+      '#required' => TRUE,
+    ];
 
     $elements['sponsorship_vocabulary'] = [
       '#type' => 'textfield',
@@ -58,6 +66,7 @@ class CompetitionSponsorshipDefaultFormatter extends FormatterBase {
    */
   public function settingsSummary() {
     return [
+      $this->t('Competition vocabulary: @vocab', ['@vocab' => $this->getSetting('competition_vocabulary')]),
       $this->t('Vocabulary: @vocab', ['@vocab' => $this->getSetting('sponsorship_vocabulary')]),
       $this->t('Fallback label: @label', ['@label' => $this->getSetting('default_level_label')]),
     ];
@@ -72,8 +81,11 @@ class CompetitionSponsorshipDefaultFormatter extends FormatterBase {
     $vocabulary = $this->getSetting('sponsorship_vocabulary');
 
     foreach ($items as $delta => $item) {
-      $year = $item->competition_year;
+      $competition_target_id = (int) ($item->competition_target_id ?? 0);
       $target_id = (int) ($item->target_id ?? 0);
+      $competition_label = $competition_target_id > 0
+        ? $this->resolveTermLabel($competition_target_id, 'N/A')
+        : 'N/A';
 
       if ($target_id > 0) {
         $term = Term::load($target_id);
@@ -84,9 +96,7 @@ class CompetitionSponsorshipDefaultFormatter extends FormatterBase {
       }
 
       $parts = [];
-      if (!empty($year)) {
-        $parts[] = $this->t('Competition year: @year', ['@year' => $year]);
-      }
+      $parts[] = $this->t('Competition: @competition', ['@competition' => $competition_label]);
       $parts[] = $this->t('Sponsorship level: @level', ['@level' => $level_label]);
 
       $elements[$delta] = [
@@ -96,6 +106,14 @@ class CompetitionSponsorshipDefaultFormatter extends FormatterBase {
     }
 
     return $elements;
+  }
+
+  /**
+   * Resolve taxonomy term label by id.
+   */
+  protected function resolveTermLabel(int $term_id, string $fallback): string {
+    $term = Term::load($term_id);
+    return $term ? $term->label() : $fallback;
   }
 
   /**

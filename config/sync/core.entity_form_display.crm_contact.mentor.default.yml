@@ -102,8 +102,6 @@ content:
     region: content
     settings:
       leadership_vocabulary: leadership
-      member_term_name: Member
-      auto_create_member_term: true
     third_party_settings: {  }
   full_name:
     type: name_default

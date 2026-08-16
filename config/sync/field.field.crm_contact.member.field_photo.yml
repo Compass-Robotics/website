@@ -1,31 +1,38 @@
-uuid: cc7051a7-9f3f-4414-8a73-6e1576a2482b
+uuid: 14af0736-d745-49d5-a82f-cea105c35637
 langcode: en
 status: true
 dependencies:
   config:
     - crm.crm_contact_type.member
     - field.storage.crm_contact.field_photo
-    - media.type.image
   module:
-    - primary_entity_reference
+    - image
 id: crm_contact.member.field_photo
 field_name: field_photo
 entity_type: crm_contact
 bundle: member
 label: Photo
-description: 'Choose the image of the person.'
+description: 'Submit a photo of the person so for display on the members page.'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
-  handler_settings:
-    target_bundles:
-      image: image
-    sort:
-      field: _none
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: ''
-field_type: primary_entity_reference
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: member-photos
+  file_extensions: 'png jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: 300x300
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

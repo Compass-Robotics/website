@@ -15,10 +15,7 @@ label: Roles
 description: 'Set their role for each year.'
 required: false
 translatable: false
-default_value:
-  -
-    competition_year: null
-    target_id: 58
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: competition_leadership

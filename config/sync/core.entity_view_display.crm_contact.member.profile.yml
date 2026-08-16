@@ -22,6 +22,7 @@ dependencies:
     - field.field.crm_contact.member.field_user
   module:
     - layout_builder
+    - robotics
 third_party_settings:
   layout_builder:
     enabled: false
@@ -31,11 +32,12 @@ targetEntityType: crm_contact
 bundle: member
 mode: profile
 content:
-  field_photo:
-    type: entity_reference_label
+  field_roles:
+    type: competition_leadership_default
     label: above
     settings:
-      link: true
+      competition_vocabulary: competitions
+      leadership_vocabulary: leadership
     third_party_settings: {  }
     weight: 1
     region: content
@@ -63,7 +65,7 @@ hidden:
   field_interests: true
   field_notes_member: true
   field_phone_primary: true
-  field_roles: true
+  field_photo: true
   field_stage: true
   field_talents: true
   name: true

@@ -11,7 +11,7 @@ use Drupal\taxonomy\Entity\Term;
  *
  * @FieldFormatter(
  *   id = "competition_leadership_default",
- *   label = @Translation("Competition year + leadership role"),
+ *   label = @Translation("Competition + leadership role"),
  *   field_types = {
  *     "competition_leadership"
  *   }
@@ -24,8 +24,8 @@ class CompetitionLeadershipDefaultFormatter extends FormatterBase {
    */
   public static function defaultSettings() {
     return [
+      'competition_vocabulary' => 'competitions',
       'leadership_vocabulary' => 'leadership',
-      'member_term_name' => 'Member',
     ] + parent::defaultSettings();
   }
 
@@ -35,17 +35,17 @@ class CompetitionLeadershipDefaultFormatter extends FormatterBase {
   public function settingsForm(array $form, \Drupal\Core\Form\FormStateInterface $form_state) {
     $elements = parent::settingsForm($form, $form_state);
 
+    $elements['competition_vocabulary'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Competition vocabulary machine name'),
+      '#default_value' => $this->getSetting('competition_vocabulary'),
+      '#required' => TRUE,
+    ];
+
     $elements['leadership_vocabulary'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Leadership vocabulary machine name'),
       '#default_value' => $this->getSetting('leadership_vocabulary'),
-      '#required' => TRUE,
-    ];
-
-    $elements['member_term_name'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Default member term name'),
-      '#default_value' => $this->getSetting('member_term_name'),
       '#required' => TRUE,
     ];
 
@@ -57,8 +57,8 @@ class CompetitionLeadershipDefaultFormatter extends FormatterBase {
    */
   public function settingsSummary() {
     return [
+      $this->t('Competition vocabulary: @vocab', ['@vocab' => $this->getSetting('competition_vocabulary')]),
       $this->t('Vocabulary: @vocab', ['@vocab' => $this->getSetting('leadership_vocabulary')]),
-      $this->t('Default member term name: @label', ['@label' => $this->getSetting('member_term_name')]),
     ];
   }
 
@@ -67,30 +67,20 @@ class CompetitionLeadershipDefaultFormatter extends FormatterBase {
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
-    $member_label = $this->getSetting('member_term_name');
-    $vocabulary = $this->getSetting('leadership_vocabulary');
 
     foreach ($items as $delta => $item) {
-      $year = $item->competition_year;
+      $competition_target_id = (int) ($item->competition_target_id ?? 0);
       $target_id = (int) ($item->target_id ?? 0);
-
-      if ($target_id > 0) {
-        $term = Term::load($target_id);
-        $role_label = $term ? $term->label() : $member_label;
-      }
-      else {
-        $role_label = $this->resolveMemberLabel($vocabulary, $member_label);
-      }
-
-      $parts = [];
-      if (!empty($year)) {
-        $parts[] = $this->t('Competition year: @year', ['@year' => $year]);
-      }
-      $parts[] = $this->t('Leadership role: @role', ['@role' => $role_label]);
+      $competition_label = $competition_target_id > 0
+        ? $this->resolveTermLabel($competition_target_id, 'N/A')
+        : 'N/A';
+      $role_label = $target_id > 0
+        ? $this->resolveTermLabel($target_id, 'N/A')
+        : 'N/A';
 
       $elements[$delta] = [
         '#type' => 'item',
-        '#markup' => implode('<br>', $parts),
+        '#markup' => "$competition_label: $role_label",
       ];
     }
 
@@ -98,22 +88,11 @@ class CompetitionLeadershipDefaultFormatter extends FormatterBase {
   }
 
   /**
-   * Resolve fallback label from taxonomy term when possible.
+   * Resolve taxonomy term label by id.
    */
-  protected function resolveMemberLabel(string $vocabulary, string $member_term_name): string {
-    $term_ids = \Drupal::entityQuery('taxonomy_term')
-      ->condition('vid', $vocabulary)
-      ->condition('name', $member_term_name)
-      ->range(0, 1)
-      ->accessCheck(TRUE)
-      ->execute();
-
-    if (empty($term_ids)) {
-      return $member_term_name;
-    }
-
-    $term = Term::load((int) reset($term_ids));
-    return $term ? $term->label() : $member_term_name;
+  protected function resolveTermLabel(int $term_id, string $fallback): string {
+    $term = Term::load($term_id);
+    return $term ? $term->label() : $fallback;
   }
 
 }

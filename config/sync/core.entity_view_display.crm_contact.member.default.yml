@@ -22,6 +22,7 @@ dependencies:
   module:
     - address
     - crm
+    - image
     - options
     - robotics
     - telephone
@@ -48,14 +49,14 @@ content:
         granularity: 2
         refresh: 60
     third_party_settings: {  }
-    weight: 8
+    weight: 9
     region: content
   field_address_primary:
     type: address_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
   field_current_age:
     type: number_integer
@@ -64,14 +65,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   field_current_grade:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   field_discord_username:
     type: string
@@ -79,21 +80,21 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 9
+    weight: 10
     region: content
   field_email_primary:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 4
     region: content
   field_emergency_contact:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   field_high_school:
     type: entity_reference_label
@@ -101,7 +102,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 13
     region: content
   field_interests:
     type: entity_reference_label
@@ -109,14 +110,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 14
+    weight: 15
     region: content
   field_notes_member:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 16
+    weight: 17
     region: content
   field_phone_primary:
     type: telephone_link
@@ -124,14 +125,16 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 5
     region: content
   field_photo:
-    type: entity_reference_entity_view
+    type: image
     label: above
     settings:
-      view_mode: 4_3_small
-      link: false
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 2
     region: content
@@ -139,24 +142,24 @@ content:
     type: competition_leadership_default
     label: above
     settings:
+      competition_vocabulary: competitions
       leadership_vocabulary: leadership
-      member_term_name: Member
     third_party_settings: {  }
-    weight: 17
+    weight: 3
     region: content
   field_stage:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 7
     region: content
   field_talents:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 15
+    weight: 16
     region: content
   field_user:
     type: entity_reference_label
@@ -183,7 +186,7 @@ content:
       sort_by: none
       sort_order: asc
     third_party_settings: {  }
-    weight: 7
+    weight: 8
     region: content
 hidden:
   addresses: true

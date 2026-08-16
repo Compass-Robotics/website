@@ -1,18 +1,27 @@
-uuid: dd39abbb-e1eb-4961-8d0f-f8b3c21a10c5
+uuid: 664b43cd-ea3b-4527-8ea4-3a47af385adb
 langcode: en
 status: true
 dependencies:
   module:
     - crm
-    - media
-    - primary_entity_reference
+    - file
+    - image
 id: crm_contact.field_photo
 field_name: field_photo
 entity_type: crm_contact
-type: primary_entity_reference
+type: image
 settings:
-  target_type: media
-module: primary_entity_reference
+  target_type: file
+  display_field: false
+  display_default: true
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+module: image
 locked: false
 cardinality: 1
 translatable: true

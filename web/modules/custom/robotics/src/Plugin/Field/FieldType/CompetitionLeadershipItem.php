@@ -5,7 +5,6 @@ namespace Drupal\robotics\Plugin\Field\FieldType;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\DataReferenceTargetDefinition;
 
 /**
@@ -13,8 +12,8 @@ use Drupal\Core\TypedData\DataReferenceTargetDefinition;
  *
  * @FieldType(
  *   id = "competition_leadership",
- *   label = @Translation("Competition year + leadership role"),
- *   description = @Translation("Stores a 4-digit competition year and a leadership role reference."),
+ *   label = @Translation("Competition + leadership role"),
+ *   description = @Translation("Stores a competition term reference and a leadership role reference."),
  *   default_widget = "competition_leadership_default",
  *   default_formatter = "competition_leadership_default"
  * )
@@ -25,13 +24,9 @@ class CompetitionLeadershipItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    $properties['competition_year'] = DataDefinition::create('integer')
-      ->setLabel(t('Competition year'))
-      ->setRequired(FALSE)
-      ->addConstraint('Range', [
-        'min' => 1000,
-        'max' => 9999,
-      ]);
+    $properties['competition_target_id'] = DataReferenceTargetDefinition::create('integer')
+      ->setLabel(t('Competition term ID'))
+      ->setRequired(FALSE);
 
     $properties['target_id'] = DataReferenceTargetDefinition::create('integer')
       ->setLabel(t('Leadership role term ID'))
@@ -46,11 +41,12 @@ class CompetitionLeadershipItem extends FieldItemBase {
   public static function schema(FieldStorageDefinitionInterface $field_definition) {
     return [
       'columns' => [
-        'competition_year' => [
+        'competition_target_id' => [
           'type' => 'int',
           'size' => 'normal',
           'unsigned' => TRUE,
-          'not null' => FALSE,
+          'not null' => TRUE,
+          'default' => 0,
         ],
         'target_id' => [
           'type' => 'int',
@@ -62,7 +58,7 @@ class CompetitionLeadershipItem extends FieldItemBase {
       ],
       'indexes' => [
         'target_id' => ['target_id'],
-        'competition_year' => ['competition_year'],
+        'competition_target_id' => ['competition_target_id'],
       ],
     ];
   }
@@ -71,24 +67,25 @@ class CompetitionLeadershipItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public function isEmpty() {
-    $year = $this->get('competition_year')->getValue();
+    $competition_target_id = $this->get('competition_target_id')->getValue();
     $target_id = $this->get('target_id')->getValue();
 
-    return ($year === NULL || $year === '') && ($target_id === NULL || $target_id === '' || (int) $target_id === 0);
+    return ($competition_target_id === NULL || $competition_target_id === '' || (int) $competition_target_id === 0)
+      && ($target_id === NULL || $target_id === '' || (int) $target_id === 0);
   }
 
   /**
    * {@inheritdoc}
    */
   public static function mainPropertyName() {
-    return 'competition_year';
+    return 'competition_target_id';
   }
 
   /**
    * {@inheritdoc}
    */
   public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
-    $values['competition_year'] = (int) date('Y');
+    $values['competition_target_id'] = 0;
     $values['target_id'] = 0;
     return $values;
   }

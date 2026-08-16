@@ -12,9 +12,9 @@ field.value.competition_leadership:
   type: mapping
   label: 'Competition leadership value'
   mapping:
-    competition_year:
+    competition_target_id:
       type: integer
-      label: 'Competition year'
+      label: 'Competition term id'
     target_id:
       type: integer
       label: 'Leadership term id'
@@ -23,26 +23,23 @@ field.widget.settings.competition_leadership_default:
   type: mapping
   label: 'Competition leadership widget settings'
   mapping:
+    competition_vocabulary:
+      type: string
+      label: 'Competition vocabulary machine name'
     leadership_vocabulary:
       type: string
       label: 'Leadership vocabulary machine name'
-    member_term_name:
-      type: string
-      label: 'Default member term name'
-    auto_create_member_term:
-      type: boolean
-      label: 'Auto-create default member term if missing'
 
 field.formatter.settings.competition_leadership_default:
   type: mapping
   label: 'Competition leadership formatter settings'
   mapping:
+    competition_vocabulary:
+      type: string
+      label: 'Competition vocabulary machine name'
     leadership_vocabulary:
       type: string
       label: 'Leadership vocabulary machine name'
-    member_term_name:
-      type: string
-      label: 'Default member term name'
 
 field.storage_settings.competition_sponsorship:
   type: mapping
@@ -58,9 +55,9 @@ field.value.competition_sponsorship:
   type: mapping
   label: 'Competition sponsorship value'
   mapping:
-    competition_year:
+    competition_target_id:
       type: integer
-      label: 'Competition year'
+      label: 'Competition term id'
     target_id:
       type: integer
       label: 'Sponsorship level term id'
@@ -69,6 +66,9 @@ field.widget.settings.competition_sponsorship_default:
   type: mapping
   label: 'Competition sponsorship widget settings'
   mapping:
+    competition_vocabulary:
+      type: string
+      label: 'Competition vocabulary machine name'
     sponsorship_vocabulary:
       type: string
       label: 'Sponsorship level vocabulary machine name'
@@ -77,6 +77,9 @@ field.formatter.settings.competition_sponsorship_default:
   type: mapping
   label: 'Competition sponsorship formatter settings'
   mapping:
+    competition_vocabulary:
+      type: string
+      label: 'Competition vocabulary machine name'
     sponsorship_vocabulary:
       type: string
       label: 'Sponsorship level vocabulary machine name'

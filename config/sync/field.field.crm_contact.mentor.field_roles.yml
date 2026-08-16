@@ -1,0 +1,21 @@
+uuid: f7e5ed01-ad77-46e8-95f7-2936ee35160a
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_type.mentor
+    - field.storage.crm_contact.field_roles
+  module:
+    - robotics
+id: crm_contact.mentor.field_roles
+field_name: field_roles
+entity_type: crm_contact
+bundle: mentor
+label: Roles
+description: 'Set their role for each year.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: competition_leadership

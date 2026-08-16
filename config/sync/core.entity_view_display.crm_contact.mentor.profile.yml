@@ -8,18 +8,17 @@ dependencies:
     - field.field.crm_contact.mentor.field_area
     - field.field.crm_contact.mentor.field_email
     - field.field.crm_contact.mentor.field_notes
+    - field.field.crm_contact.mentor.field_photo
+    - field.field.crm_contact.mentor.field_roles
     - field.field.crm_contact.mentor.field_stage
     - field.field.crm_contact.mentor.field_team_roles
+    - field.field.crm_contact.mentor.field_user
     - field.field.crm_contact.mentor.full_name
     - field.field.crm_contact.mentor.preferred_name
   module:
-    - crm
-    - datetime
+    - image
     - layout_builder
-    - name
-    - options
     - robotics
-    - text
 third_party_settings:
   layout_builder:
     enabled: false
@@ -29,142 +28,49 @@ targetEntityType: crm_contact
 bundle: mentor
 mode: profile
 content:
-  addresses:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  created:
-    type: timestamp
+  field_photo:
+    type: image
     label: above
     settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-      tooltip:
-        date_format: long
-        custom_date_format: ''
-      time_diff:
-        enabled: false
-        future_format: '@interval hence'
-        past_format: '@interval ago'
-        granularity: 2
-        refresh: 60
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 10
+    weight: 0
     region: content
-  emails:
-    type: entity_reference_entity_view
+  field_roles:
+    type: competition_leadership_default
+    label: above
+    settings:
+      competition_vocabulary: competitions
+      leadership_vocabulary: leadership
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_user:
+    type: entity_reference_label
     label: hidden
     settings:
-      view_mode: default
       link: false
     third_party_settings: {  }
     weight: 1
     region: content
-  end_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 12
-    region: content
-  field_area:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_email:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_notes:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  field_stage:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_team_roles:
-    type: competition_leadership_default
-    label: above
-    settings:
-      leadership_vocabulary: leadership
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  full_name:
-    type: name_default
-    label: above
-    settings:
-      format: default
-      markup: none
-      list_format: ''
-      link_target: ''
-      preferred_field_reference: ''
-      preferred_field_reference_separator: ', '
-      alternative_field_reference: ''
-      alternative_field_reference_separator: ', '
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  preferred_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  relationship_statistics:
-    type: crm_relationship_statistics_default
-    label: above
-    settings:
-      format: label_count
-      label_position: opposite
-      sort_by: none
-      sort_order: asc
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  start_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  telephones:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
 hidden:
+  addresses: true
   age: true
+  created: true
+  emails: true
+  end_date: true
+  field_area: true
+  field_email: true
+  field_notes: true
+  field_stage: true
+  field_team_roles: true
+  full_name: true
   name: true
+  preferred_name: true
+  relationship_statistics: true
   search_api_excerpt: true
+  start_date: true
+  telephones: true

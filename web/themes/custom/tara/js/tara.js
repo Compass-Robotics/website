@@ -152,7 +152,8 @@ document.querySelectorAll('.submenu-toggle').forEach(button => {
             ui.newPanel.removeAttr('hidden');
           }
         });
-        $accordion.on('accordionactivate.taraUntilFound', syncPanelVisibility);
+        // Defer so jQuery UI finishes updating aria/class state before we read it.
+        $accordion.on('accordionactivate.taraUntilFound', () => setTimeout(syncPanelVisibility, 0));
         accordionEl.dataset.untilFoundInitialized = '1';
       };
 

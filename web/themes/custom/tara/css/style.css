@@ -15,7 +15,7 @@
   --shadow: 0 0 8px 1px #cccccc;
   --shadow-primary: 0 0 10px 1px var(--color-primary);
   --shadow-secondary: 0 0 10px 1px var(--color-secondary);
-  --font-text: "open sans", sans-serif;
+  --font-text: "Inter", sans-serif;
   --font-heading: "roboto", sans-serif;
   --box-shadow: .2em .3em .5em var(--teal-dark);
     /* Logo colors */
@@ -4596,4 +4596,31 @@ body[class*="path-burndown"] .ui-dialog.ui-widget.ui-front .ui-dialog-titlebar-c
   border: 12px solid var(--teal);
   border-radius: 0.5rem;
   margin-bottom: 0;
+}
+
+/* Active competition role highlighting */
+.view-members .views-field-field-roles ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.view-members .views-field-field-roles li {
+  padding-left: 1.2em;
+  position: relative;
+}
+
+.view-members .views-field-field-roles li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+}
+
+.view-members .views-field-field-roles li:has(.competition-role--active)::before {
+  content: '▶';
+  color: var(--teal);
+}
+
+.view-members .competition-role--active {
+  font-weight: bold;
+  color: var(--teal-dark);
 }

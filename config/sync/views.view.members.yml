@@ -429,7 +429,7 @@ display:
           reduce_duplicates: false
           vid: competitions
           type: select
-          hierarchy: true
+          hierarchy: false
           limit: true
           error_message: true
       filter_groups:

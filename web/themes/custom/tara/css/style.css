@@ -4553,3 +4553,47 @@ body[class*="path-burndown"] .ui-dialog.ui-widget.ui-front .ui-dialog-titlebar-c
     background: var(--bg-body);
   }
 }
+
+/* Members view card and photo */
+.view-members .views-view-responsive-grid__item {
+  align-self: stretch;
+}
+
+.view-members .views-view-responsive-grid__item-inner {
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: var(--box-shadow);
+}
+
+.view-members .views-field-field-photo {
+  text-align: center;
+}
+
+.view-members .views-field-field-user {
+  text-align: center;
+}
+
+.view-members .views-field-field-photo .field-content {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+/* Bronze right/bottom overlay inside the teal border */
+.view-members .views-field-field-photo .field-content:not(:empty)::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-right: 4px solid var(--bronze);
+  border-bottom: 4px solid var(--bronze);
+  pointer-events: none;
+}
+
+.view-members .views-field-field-photo img {
+  border: 12px solid var(--teal);
+  border-radius: 0.5rem;
+  margin-bottom: 0;
+}

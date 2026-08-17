@@ -72,11 +72,9 @@ class CompetitionLeadershipDefaultFormatter extends FormatterBase {
       $competition_target_id = (int) ($item->competition_target_id ?? 0);
       $target_id = (int) ($item->target_id ?? 0);
       $competition_label = $competition_target_id > 0
-        ? $this->resolveTermLabel($competition_target_id, 'N/A')
-        : 'N/A';
+        ? $this->resolveTermLabel($competition_target_id, 'N/A') : 'N/A';
       $role_label = $target_id > 0
-        ? $this->resolveTermLabel($target_id, 'N/A')
-        : 'N/A';
+        ? $this->resolveTermLabel($target_id, 'N/A') : 'N/A';
 
       $elements[$delta] = [
         '#type' => 'item',

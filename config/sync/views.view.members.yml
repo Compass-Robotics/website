@@ -222,7 +222,7 @@ display:
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
+          multi_type: ul
           separator: ', '
           field_api_classes: false
       pager:
@@ -234,7 +234,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -456,7 +456,7 @@ display:
         options:
           query_comment: ''
           disable_sql_rewrite: true
-          distinct: false
+          distinct: true
           replica: false
           query_tags: {  }
       relationships: {  }

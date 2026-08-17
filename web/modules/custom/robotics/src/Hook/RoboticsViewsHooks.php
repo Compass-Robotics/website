@@ -6,6 +6,7 @@ namespace Drupal\robotics\Hook;
 
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\views\Plugin\views\query\Sql;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -32,6 +33,86 @@ final class RoboticsViewsHooks {
       ['field_team_roles_competition_target_id', 'competition_target_id'],
       (string) t('Team roles: Competition'),
       (string) t('The competition term referenced by the Team roles field item.')
+    );
+  }
+
+  /**
+   * Applies default competition filter value for the Members view.
+   */
+  #[Hook('views_pre_view')]
+  public function viewsPreView(ViewExecutable $view, string $display_id, array &$args): void {
+    if (!$this->isMembersView($view, $display_id)) {
+      return;
+    }
+
+    $selected_competition_id = $this->extractSelectedCompetitionId($view);
+    $reset_requested = $this->isResetRequested();
+    if ($selected_competition_id > 0 && !$reset_requested) {
+      return;
+    }
+
+    $default_competition_id = $this->getTopCompetitionTermId();
+    if ($default_competition_id <= 0) {
+      return;
+    }
+
+    $exposed_input = $view->getExposedInput();
+    $exposed_input['competition'] = (string) $default_competition_id;
+    $view->setExposedInput($exposed_input);
+  }
+
+  /**
+   * Alters Members view sorting based on selected competition role weight.
+   */
+  #[Hook('views_query_alter')]
+  public function viewsQueryAlter(ViewExecutable $view, Sql $query): void {
+    if (!$this->isMembersView($view, $view->current_display)) {
+      return;
+    }
+
+    $competition_id = $this->extractSelectedCompetitionId($view);
+    if ($competition_id <= 0) {
+      return;
+    }
+    $competition_id = (int) $competition_id;
+    $roles_competition_column = $this->getRolesCompetitionColumn();
+    $roles_leadership_column = $this->getRolesLeadershipColumn();
+
+    $base_alias = $query->ensureTable($view->storage->get('base_table'));
+
+    $role_weight_subquery = "
+      SELECT MIN(leadership_term.weight)
+      FROM {crm_contact__field_roles} roles_sort
+      INNER JOIN {taxonomy_term_field_data} leadership_term
+        ON leadership_term.tid = roles_sort.{$roles_leadership_column}
+      WHERE roles_sort.entity_id = {$base_alias}.id
+        AND roles_sort.deleted = 0
+                AND roles_sort.{$roles_competition_column} = {$competition_id}
+        AND roles_sort.{$roles_leadership_column} > 0
+        AND leadership_term.vid = 'leadership'
+    ";
+    $role_rank_formula = "COALESCE(($role_weight_subquery), 2147483647)";
+
+    $query->addOrderBy(
+      NULL,
+      $role_rank_formula,
+      'ASC',
+      'members_role_rank_sort'
+    );
+    $query->addOrderBy(
+      NULL,
+      "
+        (
+          SELECT MIN(sort_user.name)
+          FROM {crm_contact__field_user} sort_user_ref
+          LEFT JOIN {users_field_data} sort_user
+            ON sort_user.uid = sort_user_ref.field_user_target_id
+          WHERE sort_user_ref.entity_id = {$base_alias}.id
+            AND sort_user_ref.deleted = 0
+        )
+      ",
+      'ASC',
+      'members_username_sort'
     );
   }
 
@@ -131,6 +212,91 @@ final class RoboticsViewsHooks {
 
     $normalized = strtolower(trim((string) $value));
     return in_array($normalized, ['1', 'true', 'yes', 'on'], TRUE);
+  }
+
+  /**
+   * Checks whether the current view display is Members.
+   */
+  private function isMembersView(ViewExecutable $view, string $display_id): bool {
+    return $view->storage->id() === 'members' && in_array($display_id, ['default', 'members'], TRUE);
+  }
+
+  /**
+   * Gets the selected competition term id from exposed input.
+   */
+  private function extractSelectedCompetitionId(ViewExecutable $view): int {
+    $exposed_input = $view->getExposedInput();
+    if (!is_array($exposed_input)) {
+      return 0;
+    }
+
+    $raw_value = $exposed_input['competition'] ?? NULL;
+    if (is_array($raw_value)) {
+      $raw_value = reset($raw_value);
+    }
+
+    if ($raw_value === NULL || $raw_value === '' || strtolower((string) $raw_value) === 'all') {
+      return 0;
+    }
+
+    return (int) $raw_value;
+  }
+
+  /**
+   * Resolves the top competitions term by vocabulary sort order.
+   */
+  private function getTopCompetitionTermId(): int {
+    $term_ids = \Drupal::entityQuery('taxonomy_term')
+      ->condition('vid', 'competitions')
+      ->sort('weight', 'ASC')
+      ->sort('name', 'ASC')
+      ->accessCheck(TRUE)
+      ->range(0, 1)
+      ->execute();
+
+    if (empty($term_ids)) {
+      return 0;
+    }
+
+    return (int) reset($term_ids);
+  }
+
+  /**
+   * Detects whether an exposed form reset was requested.
+   */
+  private function isResetRequested(): bool {
+    $request = \Drupal::request();
+    $reset_value = strtolower(trim((string) $request->query->get('reset', '')));
+    if (in_array($reset_value, ['1', 'true', 'yes', 'on'], TRUE)) {
+      return TRUE;
+    }
+
+    $op_value = strtolower(trim((string) $request->query->get('op', '')));
+    return $op_value === 'reset';
+  }
+
+  /**
+   * Resolves the actual competition subfield column used in field_roles data.
+   */
+  private function getRolesCompetitionColumn(): string {
+    $schema = \Drupal::database()->schema();
+    if ($schema->fieldExists('crm_contact__field_roles', 'field_roles_competition_target_id')) {
+      return 'field_roles_competition_target_id';
+    }
+
+    return 'competition_target_id';
+  }
+
+  /**
+   * Resolves the actual leadership-role subfield column in field_roles data.
+   */
+  private function getRolesLeadershipColumn(): string {
+    $schema = \Drupal::database()->schema();
+    if ($schema->fieldExists('crm_contact__field_roles', 'field_roles_target_id')) {
+      return 'field_roles_target_id';
+    }
+
+    return 'target_id';
   }
 
   /**

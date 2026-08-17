@@ -351,7 +351,7 @@ display:
       path: about/team-leadership
       menu:
         type: normal
-        title: 'Team Leadership'
+        title: 'Team Leadership Roles'
         description: ''
         weight: -49
         enabled: true

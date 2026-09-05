@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - crm.crm_contact_type.organization
+    - crm.crm_contact_type.person
     - filter.format.content_format
     - media.type.document
     - media.type.image
@@ -17,6 +19,7 @@ dependencies:
     - workflows.workflow.basic_editorial
   module:
     - content_moderation
+    - crm
     - filter
     - media
     - media_library_bulk_upload
@@ -34,6 +37,7 @@ is_admin: false
 permissions:
   - 'access administration pages'
   - 'access content overview'
+  - 'access crm'
   - 'access media overview'
   - 'access taxonomy overview'
   - 'administer url aliases'
@@ -43,6 +47,8 @@ permissions:
   - 'create image media'
   - 'create media'
   - 'create notebook_entry content'
+  - 'create organization crm contact'
+  - 'create person crm contact'
   - 'create posts content'
   - 'create remote_video media'
   - 'create terms in tags'

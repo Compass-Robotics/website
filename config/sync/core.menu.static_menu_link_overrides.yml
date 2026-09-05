@@ -7,3 +7,15 @@ definitions:
     weight: 10
     expanded: false
     enabled: false
+  burndown_time_tracker__hours:
+    weight: 3
+    menu_name: admin
+    parent: burndown.dashboard
+    expanded: false
+    enabled: true
+  burndown_time_tracker__manage_work_timers:
+    weight: 4
+    menu_name: admin
+    parent: burndown.dashboard
+    expanded: false
+    enabled: true

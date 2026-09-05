@@ -1,3 +1,4 @@
+uuid: null
 langcode: en
 status: true
 dependencies:
@@ -7,7 +8,6 @@ dependencies:
   module:
     - burndown
     - options
-    - user
 id: my_tasks
 label: 'My Tasks'
 module: views
@@ -825,7 +825,6 @@ display:
         - url
         - url.query_args
         - user
-        - user.permissions
       tags: {  }
   my_asssigned_tasks:
     id: my_asssigned_tasks
@@ -840,7 +839,7 @@ display:
         type: normal
         title: 'My Tasks'
         description: 'A list of all tasks assigned to you.'
-        weight: 20
+        weight: 1
         expanded: false
         menu_name: admin
         parent: burndown.dashboard
@@ -853,7 +852,6 @@ display:
         - url
         - url.query_args
         - user
-        - user.permissions
       tags: {  }
   my_watchlist:
     id: my_watchlist
@@ -1034,7 +1032,7 @@ display:
         type: normal
         title: 'My Watchlist'
         description: 'A list of all tasks that have you on the watchlist.'
-        weight: 25
+        weight: 2
         expanded: false
         menu_name: admin
         parent: burndown.dashboard
@@ -1047,5 +1045,4 @@ display:
         - url
         - url.query_args
         - user
-        - user.permissions
       tags: {  }

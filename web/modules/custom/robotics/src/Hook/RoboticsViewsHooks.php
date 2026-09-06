@@ -41,6 +41,21 @@ final class RoboticsViewsHooks {
    */
   #[Hook('views_pre_view')]
   public function viewsPreView(ViewExecutable $view, string $display_id, array &$args): void {
+    if ($view->id() === 'burndown_hours_summary') {
+      $request = \Drupal::request();
+      if (!$request->query->get('date_start')) {
+        $year = (int) date('Y');
+        if ((int) date('n') < 8) {
+          $year--;
+        }
+        $request->query->set('date_start', sprintf('%d-08-01', $year));
+      }
+      if (!$request->query->get('date_end')) {
+        $request->query->set('date_end', date('Y-m-d'));
+      }
+      return;
+    }
+
     if (!$this->isMembersView($view, $display_id)) {
       return;
     }

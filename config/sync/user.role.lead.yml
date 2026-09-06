@@ -72,3 +72,4 @@ permissions:
   - 'view any spouse crm relationship'
   - 'view any volunteer crm relationship'
   - 'view mapped crm contact'
+  - 'view work hours reports'

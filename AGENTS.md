@@ -22,10 +22,17 @@ DDEV project config lives in `.ddev/config.yaml`. Use `.ddev/config.local.yaml` 
 
 ## Guardrails
 
+- Do not make any file edits, code changes, database changes, or command execution until the user explicitly says "go".
+- If a user says they are providing requirements and asks for a pause, treat that as an absolute stop and wait for the explicit "go" before continuing.
 - Do not commit secrets or machine-local overrides such as `.env`, `settings.local.php`, or `.ddev/config.local.yaml`.
 - Do not commit `vendor/` or uploaded files under `web/sites/*/files`.
 - Do not edit Drupal core or contributed projects in place.
 - Put custom code in `web/modules/custom` and `web/themes/custom`.
+- When asked to make changes to contrib modules, assume they are a real source checkout in this repo and is the correct place for fixes.
+  - Edit files in the contrib module unless the prompt specifically asks for a "patch" by name.
+  - Do not create or modify patch files under `src/patches` unless the prompt specifically asks for a "patch" by name.
+- Keep all changes in the working tree, not in ephemeral generated or patched dependency copies.
+- If work is being done on web/modules/contrib/* do not run any composer commands that would cause the work in the contrib modules to be lost.
 
 ## References
 

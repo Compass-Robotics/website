@@ -27,10 +27,10 @@
         "drupal/coffee": "^2.0.1",
         "drupal/content_view_access": "^1.0",
         "drupal/core": "^11",
-        "drupal/core-composer-scaffold": "11.3.14",
-        "drupal/core-project-message": "11.3.14",
+        "drupal/core-composer-scaffold": "11.4.6",
+        "drupal/core-project-message": "11.4.6",
         "drupal/core-recipe-unpack": "^11",
-        "drupal/core-recommended": "11.3.14",
+        "drupal/core-recommended": "11.4.6",
         "drupal/core-vendor-hardening": "^11.3",
         "drupal/crm": "^1.0@beta",
         "drupal/crop": "^2.6.0",
@@ -93,9 +93,9 @@
         "drupal/webform_entity_handler": "^2.0",
         "drupal/yoast_seo": "^2.2",
         "drush/drush": "^13.7",
-        "guzzlehttp/guzzle": "7.12.1 as 7.10.0",
-        "guzzlehttp/promises": "2.5.0 as 2.3.0",
-        "guzzlehttp/psr7": "2.12.1 as 2.10.4",
+        "guzzlehttp/guzzle": "^7",
+        "guzzlehttp/promises": "^2.5",
+        "guzzlehttp/psr7": "^2",
         "league/commonmark": "^2.4"
     },
     "replace": {
@@ -110,13 +110,14 @@
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "drupal/core-recipe-unpack": true,
             "drupal/core-vendor-hardening": true,
             "drupal/site_template_helper": true,
             "php-http/discovery": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "symfony/runtime": true
         },
         "bin-dir": "vendor/bin",
         "sort-packages": true,

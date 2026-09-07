@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Robotics module.
+ */
+
+/**
+ * Update the field_team_roles storage schema to match the field type.
+ *
+ * The competition_leadership field type was changed to store a
+ * competition_target_id column instead of competition_year, but the
+ * field_team_roles database tables were never updated to match.
+ *
+ * This intentionally avoids
+ * \Drupal\Core\Entity\EntityDefinitionUpdateManagerInterface::updateFieldStorageDefinition(),
+ * because core's data-migration check queries the table using the new
+ * column name before it exists, which throws a database exception. Instead
+ * the tables are altered directly and the installed schema record is synced
+ * to match.
+ */
+function robotics_update_10001() {
+  $database = \Drupal::database();
+  $schema = $database->schema();
+
+  $old_column = 'field_team_roles_competition_year';
+  $new_column = 'field_team_roles_competition_target_id';
+  $target_column = 'field_team_roles_target_id';
+  $column_spec = [
+    'type' => 'int',
+    'size' => 'normal',
+    'unsigned' => TRUE,
+    'not null' => TRUE,
+    'default' => 0,
+  ];
+
+  foreach (['crm_contact__field_team_roles', 'crm_contact_revision__field_team_roles'] as $table) {
+    if (!$schema->tableExists($table)) {
+      continue;
+    }
+
+    if ($schema->fieldExists($table, $old_column) && !$schema->fieldExists($table, $new_column)) {
+      if ($schema->indexExists($table, $old_column)) {
+        $schema->dropIndex($table, $old_column);
+      }
+      $schema->changeField($table, $old_column, $new_column, $column_spec, [
+        'fields' => [$new_column => $column_spec],
+        'indexes' => [$new_column => [$new_column]],
+      ]);
+    }
+
+    if ($schema->fieldExists($table, $target_column)) {
+      $schema->changeField($table, $target_column, $target_column, $column_spec);
+    }
+  }
+
+  // Sync the installed field storage definition so Drupal stops flagging
+  // this field as needing an update.
+  $entity_field_manager = \Drupal::service('entity_field.manager');
+  $entity_field_manager->clearCachedFieldDefinitions();
+  $storage_definitions = $entity_field_manager->getFieldStorageDefinitions('crm_contact');
+  if (isset($storage_definitions['field_team_roles'])) {
+    \Drupal::service('entity.last_installed_schema.repository')
+      ->setLastInstalledFieldStorageDefinition($storage_definitions['field_team_roles']);
+  }
+}

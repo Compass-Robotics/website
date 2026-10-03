@@ -45,7 +45,7 @@ elements: |-
       '#autocomplete': 'off'
       '#required': true
       '#required_error': 'A phone number is required.'
-      '#pattern': '^\d{3}-\d{3}-\d{4}$'
+      '#pattern': '^\d{3}-?\d{3}-?\d{4}$'
       '#pattern_error': 'Must follow ###-###-####'
     address:
       '#type': webform_address

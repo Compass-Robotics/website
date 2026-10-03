@@ -6,6 +6,7 @@ namespace Drupal\robotics\Hook;
 
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Hook\Attribute\Hook;
+use Drupal\Core\Render\Markup;
 use Drupal\views\Plugin\views\query\Sql;
 use Drupal\views\ViewExecutable;
 
@@ -34,6 +35,21 @@ final class RoboticsViewsHooks {
       (string) t('Team roles: Competition'),
       (string) t('The competition term referenced by the Team roles field item.')
     );
+
+    $this->addCompetitionReferenceViewsData(
+      $data,
+      'crm_contact__field_sponsorship',
+      'field_sponsorship_competition_target_id',
+      (string) t('Sponsorship: Competition'),
+      (string) t('The competition term referenced by the Sponsorship field item.')
+    );
+
+    $data['crm_contact__field_sponsorship']['field_sponsorship_target_id'] = [
+      'title' => (string) t('Sponsorship: Level'),
+      'help' => (string) t('The sponsorship level term referenced by the Sponsorship field item.'),
+      'real field' => 'field_sponsorship_target_id',
+      'field' => ['id' => 'numeric'],
+    ];
   }
 
   /**
@@ -57,6 +73,21 @@ final class RoboticsViewsHooks {
     }
 
     if (!$this->isMembersView($view, $display_id)) {
+      if (!$this->isSponsorsView($view, $display_id)) {
+        return;
+      }
+
+      $selected_competition_id = $this->extractSelectedCompetitionId($view);
+      if ($selected_competition_id > 0 && !$this->isResetRequested()) {
+        return;
+      }
+
+      $default_competition_id = $this->getTopCompetitionTermId();
+      if ($default_competition_id > 0) {
+        $exposed_input = $view->getExposedInput();
+        $exposed_input['competition'] = (string) $default_competition_id;
+        $view->setExposedInput($exposed_input);
+      }
       return;
     }
 
@@ -81,6 +112,26 @@ final class RoboticsViewsHooks {
    */
   #[Hook('views_query_alter')]
   public function viewsQueryAlter(ViewExecutable $view, Sql $query): void {
+    if ($this->isSponsorsView($view, $view->current_display)) {
+      $base_alias = $query->ensureTable($view->storage->get('base_table'));
+      $sponsorship_alias = $query->ensureTable('crm_contact__field_sponsorship');
+      $competition_id = (int) $this->extractSelectedCompetitionId($view);
+      $query->addOrderBy(NULL, "(
+        SELECT MIN(sponsorship_term.weight)
+        FROM {crm_contact__field_sponsorship} sponsorship_sort
+        INNER JOIN {taxonomy_term_field_data} sponsorship_term
+          ON sponsorship_term.tid = sponsorship_sort.field_sponsorship_target_id
+        WHERE sponsorship_sort.entity_id = {$base_alias}.id
+          AND sponsorship_sort.deleted = 0
+          AND sponsorship_sort.field_sponsorship_competition_target_id = {$competition_id}
+          AND sponsorship_sort.field_sponsorship_target_id > 0
+          AND sponsorship_term.vid = 'sponsorship_levels'
+      )", 'ASC', 'sponsors_level_weight_sort');
+      $query->addOrderBy($sponsorship_alias, 'field_sponsorship_target_id', 'ASC', 'sponsors_level_id_sort');
+      $query->addOrderBy($base_alias, 'name', 'ASC', 'sponsors_name_sort');
+      return;
+    }
+
     if (!$this->isMembersView($view, $view->current_display)) {
       return;
     }
@@ -129,6 +180,89 @@ final class RoboticsViewsHooks {
       'ASC',
       'members_username_sort'
     );
+  }
+
+  /**
+   * Builds the Sponsors page as separated sponsorship tier sections.
+   */
+  #[Hook('preprocess_views_view_unformatted')]
+  public function preprocessViewsViewUnformatted(array &$variables): void {
+    if (empty($variables['view']) || !($variables['view'] instanceof ViewExecutable)) {
+      return;
+    }
+
+    $view = $variables['view'];
+    if (!$this->isSponsorsView($view, $view->current_display)) {
+      return;
+    }
+
+    $competition_id = $this->extractSelectedCompetitionId($view);
+    $groups = [];
+    foreach ($view->result as $row) {
+      $contact = $row->_entity ?? NULL;
+      if (!$contact || !$contact->hasField('field_sponsorship')) {
+        continue;
+      }
+
+      foreach ($contact->get('field_sponsorship') as $item) {
+        if ((int) $item->competition_target_id !== $competition_id || (int) $item->target_id <= 0) {
+          continue;
+        }
+
+        $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load((int) $item->target_id);
+        if (!$term || $term->bundle() !== 'sponsorship_levels') {
+          continue;
+        }
+        $group_key = (int) $term->id();
+        $groups[$group_key]['term'] = $term;
+        $groups[$group_key]['contacts'][$contact->id()] = $contact;
+        break;
+      }
+    }
+
+    uasort($groups, static fn(array $left, array $right): int => $left['term']->getWeight() <=> $right['term']->getWeight());
+    $markup = '';
+    $logo_styles = [
+      'sponsor_logo_300',
+      'sponsor_logo_390',
+      'sponsor_logo_507',
+      'sponsor_logo_659',
+      'sponsor_logo_857',
+      'sponsor_logo_1114',
+    ];
+    foreach ($groups as $group) {
+      $term = $group['term'];
+      $size_level = max(0, min(count($logo_styles) - 1, 5 - (int) $term->getWeight()));
+      $markup .= '<section class="sponsors-tier sponsors-tier--' . $term->id() . '">';
+      $markup .= '<h2>' . htmlspecialchars($term->label(), ENT_QUOTES, 'UTF-8') . '</h2><div class="sponsors-tier__items">';
+      foreach ($group['contacts'] as $contact) {
+        $name = (string) $contact->label();
+        $safe_name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+        $card = '<article class="sponsor sponsor--size-' . $size_level . '">';
+        if (!$contact->get('image')->isEmpty()) {
+          $file = $contact->get('image')->entity;
+          if ($file) {
+            $style_name = $logo_styles[$size_level];
+            $image_style = \Drupal::entityTypeManager()->getStorage('image_style')->load($style_name);
+            if ($image_style) {
+              $image_url = $image_style->buildUrl($file->getFileUri());
+              $card .= '<img src="' . htmlspecialchars($image_url, ENT_QUOTES, 'UTF-8') . '" alt="' . $safe_name . '" loading="lazy">';
+            }
+          }
+        }
+        $link = '';
+        if (!$contact->get('field_links')->isEmpty()) {
+          $link = (string) $contact->get('field_links')->first()->getUrl()->toString();
+        }
+        $card .= $link !== ''
+          ? '<a href="' . htmlspecialchars($link, ENT_QUOTES, 'UTF-8') . '"><div class="sponsor__name">' . $safe_name . '</div></a>'
+          : '<div class="sponsor__name">' . $safe_name . '</div>';
+        $markup .= $card . '</article>';
+      }
+      $markup .= '</div></section>';
+    }
+
+    $variables['rows'] = [['content' => Markup::create($markup), 'attributes' => new Attribute()]];
   }
 
   /**
@@ -234,6 +368,13 @@ final class RoboticsViewsHooks {
    */
   private function isMembersView(ViewExecutable $view, string $display_id): bool {
     return $view->storage->id() === 'members' && in_array($display_id, ['default', 'members'], TRUE);
+  }
+
+  /**
+   * Checks whether the current view display is Sponsors.
+   */
+  private function isSponsorsView(ViewExecutable $view, string $display_id): bool {
+    return $view->storage->id() === 'sponsors' && in_array($display_id, ['default', 'sponsors'], TRUE);
   }
 
   /**

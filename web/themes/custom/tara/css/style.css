@@ -66,6 +66,75 @@ body {
   height: 100%;
 }
 
+/* Sponsor tiers scale with the user's font-size preference. */
+.sponsor {
+  padding: 1em;
+}
+
+.sponsor img {
+  display: block;
+  margin: 0 auto;
+}
+
+.sponsor__name {
+  display: block;
+  text-align: center;
+}
+
+.sponsor--size-0 .sponsor__name {
+  font-size: 12pt;
+}
+
+.sponsor--size-1 .sponsor__name {
+  font-size: 15.6pt;
+}
+
+.sponsor--size-2 .sponsor__name {
+  font-size: 20.28pt;
+}
+
+.sponsor--size-3 .sponsor__name {
+  font-size: 26.364pt;
+}
+
+.sponsor--size-4 .sponsor__name {
+  font-size: 34.2732pt;
+}
+
+.sponsor--size-5 .sponsor__name {
+  font-size: 44.55516pt;
+}
+
+.sponsor--size-0 img {
+  max-width: 18.75em;
+  max-height: 18.75em;
+}
+
+.sponsor--size-1 img {
+  max-width: 24.375em;
+  max-height: 24.375em;
+}
+
+.sponsor--size-2 img {
+  max-width: 31.6875em;
+  max-height: 31.6875em;
+}
+
+.sponsor--size-3 img {
+  max-width: 41.19375em;
+  max-height: 41.19375em;
+}
+
+.sponsor--size-4 img {
+  max-width: 53.551875em;
+  max-height: 53.551875em;
+}
+
+.sponsor--size-5 img {
+  max-width: 69.6174375em;
+  max-height: 69.6174375em;
+}
+
 body {
   background-color: var(--bg-body);
   color: var(--text-color);

@@ -1,0 +1,19 @@
+uuid: 912df701-0a38-46cb-ab20-eb64611011f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+id: crm_contact_method.telephone_type
+field_name: telephone_type
+entity_type: crm_contact_method
+type: entity_reference
+settings:
+  target_type: crm_telephone_type
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

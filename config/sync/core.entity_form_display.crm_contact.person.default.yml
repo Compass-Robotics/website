@@ -70,7 +70,7 @@ content:
       allow_duplicate: false
       collapsible: false
       collapsed: false
-      revision: false
+      revision: true
       removed_reference: optional
       primary_label: Primary
       show_primary_only: false
@@ -165,7 +165,7 @@ content:
       allow_duplicate: false
       collapsible: false
       collapsed: false
-      revision: false
+      revision: true
       removed_reference: optional
       primary_label: Primary
       show_primary_only: false

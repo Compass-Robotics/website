@@ -1,0 +1,21 @@
+uuid: b81440b0-a2ae-4ea9-80a5-b9fe910acb79
+langcode: en
+status: true
+dependencies:
+  config:
+    - crm.crm_contact_method_type.telephone
+    - field.storage.crm_contact_method.telephone_type
+id: crm_contact_method.telephone.telephone_type
+field_name: telephone_type
+entity_type: crm_contact_method
+bundle: telephone
+label: Type
+description: 'The kind of telephone number, such as mobile or fax.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crm_telephone_type'
+  handler_settings: {  }
+field_type: entity_reference

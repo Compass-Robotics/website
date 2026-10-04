@@ -5,6 +5,7 @@ dependencies:
   config:
     - crm.crm_contact_method_type.telephone
     - field.field.crm_contact_method.telephone.telephone
+    - field.field.crm_contact_method.telephone.telephone_type
   module:
     - telephone
 _core:
@@ -15,13 +16,13 @@ bundle: telephone
 mode: default
 content:
   detail:
-    label: above
     type: entity_reference_label
-    weight: 10
-    region: content
+    label: above
     settings:
       link: true
     third_party_settings: {  }
+    weight: 10
+    region: content
   telephone:
     type: telephone_link
     label: above
@@ -29,6 +30,14 @@ content:
       title: ''
     third_party_settings: {  }
     weight: 0
+    region: content
+  telephone_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
   created: true

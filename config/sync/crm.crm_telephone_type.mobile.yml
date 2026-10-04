@@ -1,0 +1,7 @@
+uuid: 9b0e5987-d164-44c0-b86f-c954924e65f3
+langcode: en
+status: true
+dependencies: {  }
+id: mobile
+label: Mobile
+description: ''

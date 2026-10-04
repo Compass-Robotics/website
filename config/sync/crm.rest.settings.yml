@@ -1,0 +1,4 @@
+langcode: en
+verbs:
+  - POST
+  - PATCH

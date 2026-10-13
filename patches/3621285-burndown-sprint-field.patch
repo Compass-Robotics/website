@@ -1,0 +1,278 @@
+diff --git a/src/Entity/Task.php b/src/Entity/Task.php
+index dc6b26b1dec5615c5003d846e7821bd91bcd6353..000347397dc042244a76a9e65af24d3cc59aefaf 100644
+--- a/src/Entity/Task.php
++++ b/src/Entity/Task.php
+@@ -2,6 +2,7 @@
+
+ namespace Drupal\burndown\Entity;
+
++use Drupal\Core\Entity\ContentEntityInterface;
+ use Drupal\Core\Entity\EditorialContentEntityBase;
+ use Drupal\Core\Entity\EntityChangedTrait;
+ use Drupal\Core\Entity\EntityPublishedTrait;
+@@ -10,10 +11,10 @@ use Drupal\Core\Entity\EntityTypeInterface;
+ use Drupal\Core\Entity\RevisionableInterface;
+ use Drupal\Core\Field\BaseFieldDefinition;
+ use Drupal\Core\Field\FieldStorageDefinitionInterface;
++use Drupal\Core\StringTranslation\StringTranslationTrait;
+ use Drupal\link\LinkItemInterface;
+ use Drupal\user\Entity\User;
+ use Drupal\user\UserInterface;
+-use Drupal\Core\StringTranslation\StringTranslationTrait;
+
+ /**
+  * Defines the Task entity.
+@@ -487,23 +488,55 @@ class Task extends EditorialContentEntityBase implements TaskInterface {
+
+     // Ensure a swimlane is set before saving.
+     $project = $this->getProject();
+-    if (!is_null($project) && empty($this->get('swimlane')->target_id)) {
++    $original = !$this->isNew() ? $this->getOriginal() : NULL;
++    if (!$original && !$this->isNew()) {
++      $original = $storage->loadUnchanged($this->id());
++    }
++    $original_project_id = $original instanceof ContentEntityInterface
++      ? $original->get('project')->target_id
++      : NULL;
++    $project_changed = $project && $project->id() != $original_project_id;
++
++    $get_default_swimlane = function () use ($project) {
+       $shortcode = $project->getShortcode();
+       $backlog = Swimlane::getBacklogFor($shortcode);
+       if ($backlog !== FALSE) {
+-        $this->set('swimlane', $backlog->id());
++        return $backlog;
+       }
+-      else {
+-        $project_swimlanes = Swimlane::loadForProject($shortcode);
+-        if (!empty($project_swimlanes)) {
+-          usort($project_swimlanes, function ($a, $b) {
+-            return $a->getSortOrder() <=> $b->getSortOrder();
+-          });
+-          $first_swimlane = reset($project_swimlanes);
+-          if ($first_swimlane !== FALSE) {
+-            $this->set('swimlane', $first_swimlane->id());
+-          }
+-        }
++
++      $project_swimlanes = Swimlane::loadForProject($shortcode);
++      if (!empty($project_swimlanes)) {
++        usort($project_swimlanes, function ($a, $b) {
++          return $a->getSortOrder() <=> $b->getSortOrder();
++        });
++        return reset($project_swimlanes) ?: FALSE;
++      }
++
++      return FALSE;
++    };
++
++    if ($project_changed) {
++      if (!$project->isSprint()) {
++        $this->set('sprint', NULL);
++      }
++
++      $previous_swimlane = $this->getSwimlane();
++      if (!$previous_swimlane instanceof SwimlaneInterface && $original instanceof ContentEntityInterface) {
++        $previous_swimlane_id = $original->get('swimlane')->target_id;
++        $previous_swimlane = $previous_swimlane_id ? Swimlane::load($previous_swimlane_id) : NULL;
++      }
++      $swimlane = $previous_swimlane instanceof SwimlaneInterface
++        ? Swimlane::getSwimlane($project->getShortcode(), $previous_swimlane->getName())
++        : FALSE;
++      $swimlane = $swimlane ?: $get_default_swimlane();
++      if ($swimlane !== FALSE) {
++        $this->set('swimlane', $swimlane->id());
++      }
++    }
++    elseif (!is_null($project) && empty($this->get('swimlane')->target_id)) {
++      $swimlane = $get_default_swimlane();
++      if ($swimlane !== FALSE) {
++        $this->set('swimlane', $swimlane->id());
+       }
+     }
+
+@@ -519,9 +552,8 @@ class Task extends EditorialContentEntityBase implements TaskInterface {
+
+     $ticket_id = '';
+
+-    // On ticket creation (but not edit), we need to obtain a unique
+-    // id from the project.
+-    if ($this->isNew()) {
++    // Obtain a new unique ID when creating a task or changing its project.
++    if ($this->isNew() || $project_changed) {
+       // Get the project.
+       if (is_null($project)) {
+         throw new \Exception('Task does not have a Project');
+@@ -547,7 +579,7 @@ class Task extends EditorialContentEntityBase implements TaskInterface {
+       }
+
+       // Set the task id field value.
+-      if ($this->isNew()) {
++      if ($this->isNew() || $project_changed) {
+         $translation->setTicketId($ticket_id);
+       }
+     }
+diff --git a/src/Form/TaskForm.php b/src/Form/TaskForm.php
+index c515e7e59213db17454ec27919151b2d6c9dc1f7..d62fc95c24025dc5ca3312bb49f7311066cc2e48 100644
+--- a/src/Form/TaskForm.php
++++ b/src/Form/TaskForm.php
+@@ -85,6 +85,10 @@ class TaskForm extends ContentEntityForm {
+       $options = $project->getEstimateSizes();
+     }
+
++    if (isset($form['sprint']) && (is_null($project) || !$project->isSprint())) {
++      $form['sprint']['#access'] = FALSE;
++    }
++
+     // Remove delete button (too easy to accidentally press).
+     unset($form['actions']['delete']);
+
+@@ -295,10 +299,8 @@ class TaskForm extends ContentEntityForm {
+
+       // Hide miscellaneous items.
+       $form['ticket_id']['#access'] = FALSE;
+-      $form['project']['#access'] = FALSE;
+       $form['revision_log']['#access'] = FALSE;
+       $form['status']['#access'] = FALSE;
+-      $form['sprint']['#access'] = FALSE;
+       $form['backlog_sort']['#access'] = FALSE;
+       $form['board_sort']['#access'] = FALSE;
+       $form['completed']['#access'] = FALSE;
+diff --git a/tests/src/Functional/TaskProjectChangeTest.php b/tests/src/Functional/TaskProjectChangeTest.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..c13e84aa7cb8994f68ce03e07249c20afcf426a9
+--- /dev/null
++++ b/tests/src/Functional/TaskProjectChangeTest.php
+@@ -0,0 +1,132 @@
++<?php
++
++namespace Drupal\Tests\burndown\Functional;
++
++use Drupal\burndown\Entity\Project;
++use Drupal\burndown\Entity\Sprint;
++use Drupal\burndown\Entity\Swimlane;
++use Drupal\burndown\Entity\Task;
++use Drupal\Tests\BrowserTestBase;
++
++/**
++ * Verifies Task behavior when its Project changes.
++ *
++ * @group burndown
++ */
++class TaskProjectChangeTest extends BrowserTestBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  protected $defaultTheme = 'stark';
++
++  /**
++   * {@inheritdoc}
++   */
++  protected static $modules = ['burndown'];
++
++  /**
++   * Tests ticket IDs and Columns when moving Tasks between Projects.
++   */
++  public function testProjectChangeUpdatesTicketIdAndSwimlane(): void {
++    $source = $this->createProject('Source Project', 'SOURCE', 'sprint');
++    $destination = $this->createProject('Destination Project', 'DEST', 'kanban');
++    $source_sprint = $this->createSprint($source, 'Source Sprint');
++
++    $source_in_progress = Swimlane::getSwimlane($source->getShortcode(), 'In Progress');
++    $source_unique = $this->createSwimlane($source, 'Source Only', 2, FALSE);
++    $destination_in_progress = Swimlane::getSwimlane($destination->getShortcode(), 'In Progress');
++    $this->assertNotFalse($source_in_progress);
++    $this->assertNotFalse($destination_in_progress);
++    $destination_backlog = Swimlane::getBacklogFor($destination->getShortcode());
++
++    $this->assertNotFalse($destination_backlog);
++
++    // Seed the destination counter so the moved Tasks must receive new IDs.
++    $existing = $this->createTask($destination, $destination_backlog, 'Existing destination task');
++    $this->assertSame('DEST-1', $existing->getTicketId());
++
++    $same_name_task = $this->createTask($source, $source_in_progress, 'Same column task', $source_sprint);
++    $original_ticket_id = $same_name_task->getTicketId();
++    $same_name_task->setProject($destination)->save();
++
++    $this->assertNotSame($original_ticket_id, $same_name_task->getTicketId());
++    $this->assertSame('DEST-2', $same_name_task->getTicketId());
++    $this->assertSame($source_in_progress->getName(), $same_name_task->getSwimlane()->getName());
++    $this->assertTrue($same_name_task->get('sprint')->isEmpty());
++
++    $fallback_task = $this->createTask($source, $source_unique, 'Fallback column task');
++    $fallback_task->setProject($destination)->save();
++
++    $this->assertSame('DEST-3', $fallback_task->getTicketId());
++    $this->assertSame($destination_backlog->id(), $fallback_task->get('swimlane')->target_id);
++  }
++
++  /**
++   * Creates a Project entity for test fixtures.
++   */
++  protected function createProject(string $name, string $shortcode, string $board_type): Project {
++    /** @var \Drupal\burndown\Entity\Project $project */
++    $project = Project::create([
++      'type' => 'project',
++      'name' => $name,
++      'shortcode' => $shortcode,
++      'board_type' => $board_type,
++      'estimate_type' => 'geometric',
++      'status' => 1,
++    ]);
++    $project->save();
++    return $project;
++  }
++
++  /**
++   * Creates a Sprint entity for a Project.
++   */
++  protected function createSprint(Project $project, string $name): Sprint {
++    /** @var \Drupal\burndown\Entity\Sprint $sprint */
++    $sprint = Sprint::create([
++      'name' => $name,
++      'project' => $project->id(),
++      'status' => 'new',
++      'sort_order' => 0,
++    ]);
++    $sprint->save();
++    return $sprint;
++  }
++
++  /**
++   * Creates a Swimlane entity for a Project.
++   */
++  protected function createSwimlane(Project $project, string $name, int $sort_order, bool $show_backlog): Swimlane {
++    /** @var \Drupal\burndown\Entity\Swimlane $swimlane */
++    $swimlane = Swimlane::create([
++      'name' => $name,
++      'project' => $project->id(),
++      'sort_order' => $sort_order,
++      'show_backlog' => $show_backlog ? 1 : 0,
++      'show_project_board' => 1,
++      'show_completed' => 0,
++      'status' => 1,
++    ]);
++    $swimlane->save();
++    return $swimlane;
++  }
++
++  /**
++   * Creates and saves a Task entity.
++   */
++  protected function createTask(Project $project, Swimlane $swimlane, string $name, ?Sprint $sprint = NULL): Task {
++    /** @var \Drupal\burndown\Entity\Task $task */
++    $task = Task::create([
++      'type' => 'task',
++      'name' => $name,
++      'priority' => '2',
++      'project' => $project->id(),
++      'swimlane' => $swimlane->id(),
++      'sprint' => $sprint ? $sprint->id() : NULL,
++    ]);
++    $task->save();
++    return $task;
++  }
++
++}

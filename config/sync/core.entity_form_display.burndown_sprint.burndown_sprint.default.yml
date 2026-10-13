@@ -1,0 +1,52 @@
+uuid: c7bc1de2-b273-4260-8583-249b2830a644
+langcode: en
+status: true
+dependencies:
+  module:
+    - burndown
+    - tagify
+id: burndown_sprint.burndown_sprint.default
+targetEntityType: burndown_sprint
+bundle: burndown_sprint
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  project:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  sort_order:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: tagify_select_widget
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 0
+      placeholder: ''
+      show_entity_id: 0
+      parent_selection: 1
+    third_party_settings: {  }
+hidden:
+  end_date: true
+  start_date: true
+  user_id: true

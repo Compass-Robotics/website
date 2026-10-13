@@ -10,7 +10,6 @@ dependencies:
     - burndown
     - image
     - link
-    - tagify
     - text
 id: burndown_task.task.default
 targetEntityType: burndown_task
@@ -19,7 +18,7 @@ mode: default
 content:
   assigned_to:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -29,7 +28,7 @@ content:
     third_party_settings: {  }
   description:
     type: text_textarea
-    weight: 4
+    weight: 6
     region: content
     settings:
       rows: 5
@@ -37,13 +36,13 @@ content:
     third_party_settings: {  }
   estimate:
     type: options_select
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_acceptance_criteria:
     type: text_textarea
-    weight: 5
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -51,7 +50,7 @@ content:
     third_party_settings: {  }
   images:
     type: image_image
-    weight: 11
+    weight: 12
     region: content
     settings:
       progress_indicator: throbber
@@ -59,7 +58,7 @@ content:
     third_party_settings: {  }
   link:
     type: link_default
-    weight: 10
+    weight: 11
     region: content
     settings:
       placeholder_url: ''
@@ -67,7 +66,7 @@ content:
     third_party_settings: {  }
   log:
     type: burndown_log_default
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -81,36 +80,37 @@ content:
     third_party_settings: {  }
   priority:
     type: options_select
-    weight: 2
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
-  relationships:
-    type: burndown_task_relationship_default
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  sprint:
-    type: tagify_select_widget
-    weight: 9
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      placeholder: ''
-      show_entity_id: 0
-      parent_selection: 1
-    third_party_settings: {  }
-  swimlane:
+  project:
     type: options_select
     weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
+  relationships:
+    type: burndown_task_relationship_default
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  sprint:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  swimlane:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -120,7 +120,7 @@ content:
     third_party_settings: {  }
   watch_list:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -132,7 +132,6 @@ hidden:
   backlog_sort: true
   board_sort: true
   completed: true
-  project: true
   resolution: true
   tags: true
   ticket_id: true

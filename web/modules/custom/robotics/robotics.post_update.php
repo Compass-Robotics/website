@@ -12,6 +12,31 @@ use Drupal\media\Entity\MediaType;
 use Drupal\media\Plugin\media\Source\Image;
 
 /**
+ * Preserve migrated contact media fields during configuration import.
+ */
+function robotics_post_update_align_contact_media_config_uuids(): string {
+  $sync_storage = \Drupal::service('config.storage.sync');
+  $config_factory = \Drupal::configFactory();
+  foreach ([
+    'field.storage.crm_contact.media',
+    'field.field.crm_contact.person.media',
+    'field.field.crm_contact.organization.media',
+  ] as $config_name) {
+    $synced_config = $sync_storage->read($config_name);
+    $active_config = $config_factory->getEditable($config_name);
+    if (!$active_config->isNew() && !empty($synced_config['uuid']) && $active_config->get('uuid') !== $synced_config['uuid']) {
+      $active_config->set('uuid', $synced_config['uuid'])->save(TRUE);
+    }
+  }
+
+  \Drupal::entityTypeManager()->getStorage('field_storage_config')->resetCache();
+  \Drupal::entityTypeManager()->getStorage('field_config')->resetCache();
+  \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
+
+  return robotics_post_update_restore_sponsor_logo_media();
+}
+
+/**
  * Restore sponsor logo references lost during CRM's image-to-media migration.
  */
 function robotics_post_update_restore_sponsor_logo_media(): string {

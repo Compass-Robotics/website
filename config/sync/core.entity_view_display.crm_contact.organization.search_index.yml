@@ -10,7 +10,7 @@ dependencies:
     - field.field.crm_contact.organization.field_links
     - field.field.crm_contact.organization.field_sponsor
     - field.field.crm_contact.organization.field_sponsorship
-    - field.field.crm_contact.organization.image
+    - field.field.crm_contact.organization.media
   module:
     - crm
 _core:
@@ -83,8 +83,8 @@ hidden:
   field_links: true
   field_sponsor: true
   field_sponsorship: true
-  image: true
   links: true
+  media: true
   revision_created: true
   revision_log: true
   revision_uid: true

@@ -14,3 +14,6 @@ date:
   end_date:
     label: ''
     description: ''
+emails_required: false
+telephones_required: false
+addresses_required: false

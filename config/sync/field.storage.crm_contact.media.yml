@@ -1,0 +1,21 @@
+uuid: 7e5a1a09-093a-4ebb-beb5-819d4450d843
+langcode: en
+status: true
+dependencies:
+  module:
+    - crm
+    - media
+    - primary_entity_reference
+id: crm_contact.media
+field_name: media
+entity_type: crm_contact
+type: primary_entity_reference
+settings:
+  target_type: media
+module: primary_entity_reference
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: true
+custom_storage: false

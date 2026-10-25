@@ -8,14 +8,14 @@ dependencies:
     - field.field.crm_contact.person.comment
     - field.field.crm_contact.person.field_type
     - field.field.crm_contact.person.full_name
-    - field.field.crm_contact.person.image
+    - field.field.crm_contact.person.media
     - field.field.crm_contact.person.preferred_name
   module:
     - comment
     - crm
     - datetime
-    - image
     - options
+    - primary_entity_reference
 _core:
   default_config_hash: GTw7hi8xIljwX3G6YLACL4xHLxC0ExGjnUe__OurZ-g
 id: crm_contact.person.default
@@ -93,14 +93,12 @@ content:
     third_party_settings: {  }
     weight: 10
     region: content
-  image:
-    type: image
+  media:
+    type: primary_entity_reference_rendered_entity
     label: hidden
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 1
     region: content

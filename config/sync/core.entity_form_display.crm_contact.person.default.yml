@@ -7,13 +7,11 @@ dependencies:
     - field.field.crm_contact.person.comment
     - field.field.crm_contact.person.field_type
     - field.field.crm_contact.person.full_name
-    - field.field.crm_contact.person.image
+    - field.field.crm_contact.person.media
     - field.field.crm_contact.person.preferred_name
-    - image.style.thumbnail
   module:
     - comment
     - datetime
-    - image
     - name
     - primary_entity_reference
 _core:
@@ -121,13 +119,25 @@ content:
         credentials: description
       field_title_display: before
     third_party_settings: {  }
-  image:
-    type: image_image
+  media:
+    type: primary_entity_reference_inline_form
     weight: 4
     region: content
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      form_mode: default
+      override_labels: true
+      label_singular: media
+      label_plural: 'media items'
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: true
+      removed_reference: optional
+      primary_label: Primary
+      show_primary_only: false
     third_party_settings: {  }
   preferred_name:
     type: string_textfield

@@ -10,14 +10,14 @@ dependencies:
     - field.field.crm_contact.organization.field_links
     - field.field.crm_contact.organization.field_sponsor
     - field.field.crm_contact.organization.field_sponsorship
-    - field.field.crm_contact.organization.image
+    - field.field.crm_contact.organization.media
   module:
     - comment
     - crm
     - datetime
     - field_group
-    - image
     - link
+    - primary_entity_reference
     - robotics
 third_party_settings:
   field_group:
@@ -146,14 +146,12 @@ content:
     third_party_settings: {  }
     weight: 15
     region: content
-  image:
-    type: image
+  media:
+    type: primary_entity_reference_rendered_entity
     label: hidden
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: default
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content

@@ -125,7 +125,7 @@
         "composer-exit-on-patch-failure": true,
         "patches": {
             "drupal/burndown": {
-                "3621285: Burndown sprint field patch": "patches/3621285-burndown-sprint-field.patch"
+
             },
             "drupal/expense_tracker": {
                 "3608342: Add in-kind donation types to transaction_type field": "patches/3608342-add-in-kind-donations.patch"

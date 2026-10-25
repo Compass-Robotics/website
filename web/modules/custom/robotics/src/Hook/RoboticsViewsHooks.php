@@ -7,6 +7,8 @@ namespace Drupal\robotics\Hook;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Hook\Attribute\Hook;
 use Drupal\Core\Render\Markup;
+use Drupal\file\Entity\File;
+use Drupal\media\Plugin\media\Source\Image;
 use Drupal\views\Plugin\views\query\Sql;
 use Drupal\views\ViewExecutable;
 
@@ -239,8 +241,9 @@ final class RoboticsViewsHooks {
         $name = (string) $contact->label();
         $safe_name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
         $card = '<article class="sponsor sponsor--size-' . $size_level . '">';
-        if (!$contact->get('image')->isEmpty()) {
-          $file = $contact->get('image')->entity;
+        $media = $contact->hasField('media') ? $contact->get('media')->entity : NULL;
+        if ($media && $media->getSource() instanceof Image) {
+          $file = File::load($media->getSource()->getSourceFieldValue($media));
           if ($file) {
             $style_name = $logo_styles[$size_level];
             $image_style = \Drupal::entityTypeManager()->getStorage('image_style')->load($style_name);

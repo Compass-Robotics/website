@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "19b3e8bd2341490b6692f7fe6d017d4b",
+    "content-hash": "284c38c107a5a53192ffa6ca6897e818",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1949,17 +1949,17 @@
         },
         {
             "name": "drupal/burndown",
-            "version": "1.0.79",
+            "version": "1.0.80",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/burndown.git",
-                "reference": "1.0.79"
+                "reference": "1.0.80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/burndown-1.0.79.zip",
-                "reference": "1.0.79",
-                "shasum": "f3e92fd64ef9de3eacd709e8c4479a410e68128d"
+                "url": "https://ftp.drupal.org/files/projects/burndown-1.0.80.zip",
+                "reference": "1.0.80",
+                "shasum": "3b86424fe0cf2cf291c29c2e8a2739798ab9ffef"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11"
@@ -1967,8 +1967,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.79",
-                    "datestamp": "1792967305",
+                    "version": "1.0.80",
+                    "datestamp": "1792980494",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7483,16 +7483,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.10.0",
+            "version": "2.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "d2d1aa8b35e072966c89bc0c66cf926e56767dc4"
+                "reference": "40821b7606d8d946bac57dbd2290076c722e3a65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d2d1aa8b35e072966c89bc0c66cf926e56767dc4",
-                "reference": "d2d1aa8b35e072966c89bc0c66cf926e56767dc4",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/40821b7606d8d946bac57dbd2290076c722e3a65",
+                "reference": "40821b7606d8d946bac57dbd2290076c722e3a65",
                 "shasum": ""
             },
             "require": {
@@ -7586,7 +7586,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-11T16:06:25+00:00"
+            "time": "2026-10-17T19:59:50+00:00"
         },
         {
             "name": "league/config",

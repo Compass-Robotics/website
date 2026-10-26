@@ -93,7 +93,7 @@
         "guzzlehttp/guzzle": "^7",
         "guzzlehttp/promises": "^2.5",
         "guzzlehttp/psr7": "^2",
-        "league/commonmark": "^2.4"
+        "league/commonmark": "^2.10"
     },
     "replace": {
         "drupal/telephone": "*"
